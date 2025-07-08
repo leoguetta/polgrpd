@@ -1,6 +1,20 @@
 
 %ENVIRONMENTS
 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{paragr}[theorem]{} %Environnement "paragraphe"
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+
 % MATH G
 
 \newcommand{\nmbr}[1]{\mathbb #1}
@@ -30,6 +44,7 @@
 \newcommand{\sumalg}[1]{\underset{#1}{+}} 
 \newcommand{\pbck}[3]{#1\prd{#3} #2} % pullback #1 x_#3 #2
 \newcommand{\psht}[3]{#1\sumalg{#3} #2} % pushout #1 +_#3 #2
+\newcommand{\op}{{\mathrm{op}}} % opposite category symbol
 
 % special categories
 
