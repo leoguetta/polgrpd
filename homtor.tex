@@ -1,0 +1,137 @@
+\section{Homology of categories as Tor}
+\subsection{Category of modules}
+\begin{definition}
+  Let $C$ be a (small) category. A \emph{right $C$\nbd-module} is a
+  functor
+  \[
+    F \colon C^{\op} \to \Ab.
+  \]
+  A \emph{morphism of right $C$\nbd-modules} is a natural
+  transformation. We denote by $\RMod{C}$ the category of right
+  $C$\nbd-modules. Dually, a \emph{left $C$\nbd-module} is a functor
+  \[
+    C \to \Ab.
+  \]
+  The category of left $C$\nbd-modules is denoted by $\LMod{C}$.
+\end{definition}
+\begin{example}
+  If $C=G$ is a group, then left and right $C$\nbd-modules
+  respectively correspond
+  exactly to left and right $\Z[G]$\nbd-modules. 
+\end{example}
+
+As we shall now see, the abelian categories $\RMod{C}$ and $\LMod{C}$
+have enough projectives. Since $\LMod{C}=\RMod{C^{\op}}$, it suffices
+to treat the case of right modules.
+
+\begin{lemma}\label{lemma:freeisproj}
+  Let $c$ be an object of $C$. The right $C$\nbd-module $\Z[\homset{C}{-}{c}]$
+  \[
+    \begin{aligned}
+      C^{\op} &\to \Ab\\
+      d &\mapsto \Z[\homset{C}{d}{c}],
+    \end{aligned}
+  \]
+  is a projective object of $\RMod{C}$.
+\end{lemma}
+\begin{proof}
+  This follows straightforwardly from the Yoneda lemma.
+\end{proof}
+\begin{proposition}\label{prop:enoughproj}
+  The category $\RMod{C}$ has enough projectives.
+\end{proposition}
+\begin{proof}
+  Let $F$ be an object of $\RMod{C}$ and consider the canonical
+  morphism
+  \[
+    \bigoplus \Z[\homset{C}{-}{c}] \to F,
+  \]
+  induced by TODO:à finir. It follows from the Yoneda lemma that this morphism is
+  an epimorphism. Since coproducts of projective objects
+  are projective, the conclusion follows from \cref{lemma:freeisproj}.
+\end{proof}
+\subsection{Tensor product}
+We fix once and for all a small category $C$.
+\begin{paragr}
+   Let $F$ be a right $C$\nbd-module and $G$ a left $C$\nbd-module. We
+  define their tensor product, denoted by $F\tens{C}G$, as the
+  following co-end in $\Ab$
+  \[
+    F\tens{C}G := \int^{c \in C}F(c)\otimes G(c),
+  \]
+  where $\otimes$ is the usual tensor product of abelian
+  groups. Explicitly, this means that $F\tens{C}G$ is obtained as the following
+  co-equalizer in $\Ab$
+  \[
+    \coprod_{(c,c')\in \Ob(C)^2}F(c')\otimes\Z[\homset{C}{c}{c'}]\otimes
+    G(c) \rightrightarrows \coprod_{c \in \Ob(C)}F(c)\otimes G(c)
+    \rightarrow F\tens{C}G,
+  \]
+  where the top arrow is induced by the functoriality of $F$ and the
+  bottow arrow by the functoriality of $G$. This construction canonically extends to a functor
+  \[
+    - \tens{C} - \colon \RMod{C}\times\LMod{C} \to \Ab.
+  \]
+  It is straightforward to check that this functor is a left adjoint
+  in each variable. More precisely, we have isomorphisms
+  \[
+    \begin{aligned}
+      \homset{\Ab}{F\tens{C}G}{A}&\simeq
+                                  \homset{\RMod{C}}{F}{\homset{\Ab}{G(-)}{A}}\\
+      &\simeq \homset{\LMod{C}}{G}{\homset{\Ab}{F(-),A}}
+    \end{aligned}
+  \]
+  natural in $F$, $G$ and $A$. In particular, $-\tens{C}-$ preserves
+  epimorphisms in each variable and thus is right exact in each
+  variable. Together with \cref{prop:enoughproj}, this justifies the
+  following definition.
+\end{paragr}
+
+\begin{definition}
+  Let $F$ be a right $C$\nbd-module and $G$ a left $C$\nbd-module. For
+  an integer $k \geq 0$, we
+  define the abelian group $\Tor{C}{k}(F,G)$ as
+  \[
+    \Tor{C}{k}(F,G) := F \overset{\mathbb{L}_k}{\tens{C}} G,
+  \]
+  where $\overset{\mathbb{L}_k}{\tens{C}}$ is the $k$\nbd-th left
+  derived functor of $-\tens{C}-$.
+\end{definition}
+\begin{paragr}
+  Explicitly, the previous definition means that $\Tor{C}{k}(F,G)$ is
+  obtained by either taking a projective resolution
+  \[
+    P_{\bullet} \to F
+  \]
+  of $F$ (in $\RMod{C}$), or a projective resolution
+  \[
+    Q_{\bullet} \to G
+  \]
+  of $G$ (in $\LMod{C}$) and taking the $k$\nbd-th homology group of
+  either the chain complex of abelian groups
+  \[P_{\bullet}\tens{C}G\]
+  or the chain complex of abelian groups
+  \[F\tens{C}Q_{\bullet}\] (both yielding the same result by standard
+  results of homological algebra).
+\end{paragr}
+\subsection{Homology}
+\begin{paragr}
+  For a (small) category $C$, we denote indifferently by $\cst{\Z}$
+  the trivial left and right $C$-module with value $\Z$, that is to
+  say, the constant functors
+  \[
+    C^{\op} \to \Ab
+  \]
+  and
+  \[
+    C \to \Ab
+  \]
+  with value $\Z$.
+\end{paragr}
+\begin{definition}
+  Let $C$ be a small category. We define its homology $\Ho_{\bullet}(C)$ as the
+  graded abelian group
+  \[
+    \Ho_{\bullet}(C):=\Tor{C}{\bullet}(\Z,\Z).
+  \]
+\end{definition}

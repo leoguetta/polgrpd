@@ -16,6 +16,17 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
+% Cleveref definitions
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{Lemma}{Lemmas}
+
+\crefname{definition}{Definition}{Definitions}
+\crefname{example}{Example}{Examples}
+
+\crefname{rem}{Remark}{Remarks}
+\crefname{paragr}{}{}
 
 % MATH G
 
@@ -42,6 +53,7 @@
 \newcommand{\cmp}{\circ} % composition
 \newcommand{\unit}[1]{1^{#1}} % unit
 \newcommand{\homset}[3]{#1(#2,#3)} % homset in #1 from #2 to #3
+\newcommand{\Ob}{\mathrm{Ob}} %Set of objects
 \newcommand{\prd}[1]{\underset{#1}{\times}} 
 \newcommand{\sumalg}[1]{\underset{#1}{+}} 
 \newcommand{\pbck}[3]{#1\prd{#3} #2} % pullback #1 x_#3 #2
@@ -76,7 +88,8 @@
 \newcommand{\Spl}{\Delta} % simplicial category
 \newcommand{\SSet}{\psh{\Spl}} % simplicial sets
 
-
+\newcommand{\RMod}[1]{\mathrm{Mod}_{#1}} %category of right modules
+\newcommand{\LMod}[1]{{}_{#1}\mathrm{Mod}} %category of left modules (un peu dégueu...)
 
 % FUNCTORS
 
@@ -100,4 +113,12 @@
  \newcommand{\oo}{\omega}
  \newcommand{\ook}[1]{$\pair{\omega}{#1}$} 
                               
+% HOMOLOGY AND HOMOLOGICAL ALGEBRA
 
+\newcommand{\tens}[1]{\otimes_{#1}} %tensor product
+\newcommand{\Tor}[2]{\mathrm{Tor}^{#1}_{#2}} %Tor
+\newcommand{\cst}[1]{\underline{#1}} %Constant module
+\newcommand{\Ho}{\mathrm{H}} %Homology
+%OTHERS
+
+\newcommand{\nbd}{\nobreakdash} %Shortcut
