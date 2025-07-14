@@ -1,0 +1,50 @@
+\section{The polygraphic resolution theorem}
+
+\subsection{}
+\begin{paragr}
+  Let $C$ be a small category and consider the canonical functor
+  \[
+    \begin{aligned}
+      \tr{C}{-} \colon C &\mapsto \Cat \\
+      c &\mapsto \tr{C}{c}.
+    \end{aligned}
+  \]
+  % Note that if $C$ is a groupoid, then this functor lands in
+  % $\Grpd$.
+  Now let
+  \[
+    P \to C
+  \]
+  be a polygraphic resolution of $C$ in $\opCat{1}$. For an object $c$
+  if $C$, we can define the \ook{1}\nbd-category $\tr{P}{c}$
+  as the following pullback
+  \[
+    \begin{tikzcd}
+      \tr{P}{c} \ar[d] \ar[r] & \tr{C}{c} \ar[d] \\
+      P \ar[r] & C.
+      \ar[from=1-1,to=2-2,phantom,"\lrcorner",very near start]
+    \end{tikzcd}
+  \]
+  This construction extends canonically to a functor
+  \[
+    \begin{aligned}
+      \tr{P}{-} \colon C &\to \opCat{1} \\
+      c &\mapsto \tr{P}{c}.
+    \end{aligned}
+  \]
+
+  Note that in the case that $C=G$ is a groupoid, then the same
+  construction applies when taking $P \to G$ to be a polygraphic
+  resolution in $\oGrpd=\opCat{0}$. In this case, we obtain a functor
+  \[
+       \begin{aligned}
+      \tr{P}{-} \colon G &\to \opGrpd \\
+      x &\mapsto \tr{P}{x}.
+    \end{aligned} 
+  \]
+  with values in $\opGrpd$.
+\end{paragr}
+\begin{theorem}
+  Let $C$ be a (small) category and $P \to C$ a polygraphic resolution
+  of $C$ in $\opCat{1}$. 
+\end{theorem}
