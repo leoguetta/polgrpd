@@ -59,7 +59,8 @@
 \newcommand{\pbck}[3]{#1\prd{#3} #2} % pullback #1 x_#3 #2
 \newcommand{\psht}[3]{#1\sumalg{#3} #2} % pushout #1 +_#3 #2
 \newcommand{\op}{{\mathrm{op}}} % opposite category symbol
-
+\newcommand{\el}[1]{\mathrm{el}(#1)} %Category of elements of a presheaf
+\newcommand{\tr}[2]{#1/#2} %Slice categories
 % special categories
 
 \newcommand{\ctg}[1]{\mathbf{#1}}  % large category
@@ -76,9 +77,9 @@
 \newcommand{\Pol}{\ctg{Pol}} 
 \newcommand{\nPol}[1]{\Pol_{#1}} % n-polygraphs
 \newcommand{\oPol}{\nPol{\omega}} % polygraphs
-\newcommand{\Grp}{\ctg{Grpd}}
-\newcommand{\nGrp}[1]{\Grp_{#1}} % n-groupoids
-\newcommand{\oGrp}{\nGrp{\omega}} %omega-groupoids
+\newcommand{\Grpd}{\ctg{Grpd}}
+\newcommand{\nGrpd}[1]{\Grpd_{#1}} % n-groupoids
+\newcommand{\oGrpd}{\nGrpd{\omega}} %omega-groupoids
 \newcommand{\Ch}[1]{\ctg{Ch}_{#1}} % chain complexes
 \newcommand{\Chp}{\Ch{\geq 0}} % positive chaincomplexes
 \newcommand{\Ab}{\ctg{Ab}} % abelian groups

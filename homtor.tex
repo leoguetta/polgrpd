@@ -41,12 +41,14 @@ to treat the case of right modules.
   The category $\RMod{C}$ has enough projectives.
 \end{proposition}
 \begin{proof}
-  Let $F$ be an object of $\RMod{C}$ and consider the canonical
+  Let $F$ be an object of $\RMod{C}$. Let us denote by $\el{F}$ the
+  category of elements of $F$ when discarding the abelian group
+  structures. Consider the canonical
   morphism
   \[
-    \bigoplus \Z[\homset{C}{-}{c}] \to F,
+    \bigoplus_{\homset{C}{-}{c} \to F \in \el{F}} \Z[\homset{C}{-}{c}] \to F.
   \]
-  induced by TODO:à finir. It follows from the Yoneda lemma that this morphism is
+ It follows from the Yoneda lemma that this morphism is
   an epimorphism. Since coproducts of projective objects
   are projective, the conclusion follows from \cref{lemma:freeisproj}.
 \end{proof}
@@ -129,9 +131,24 @@ We fix once and for all a small category $C$.
   with value $\Z$.
 \end{paragr}
 \begin{definition}
-  Let $C$ be a small category. We define its homology $\Ho_{\bullet}(C)$ as the
+  Let $C$ be a small category. We define its \emph{homology $\Ho_{\bullet}(C)$} as the
   graded abelian group
   \[
     \Ho_{\bullet}(C):=\Tor{C}{\bullet}(\Z,\Z).
   \]
+  More generally, if $M$ is a right $C$\nbd-module, we define the
+  \emph{homology $\Ho_{\bullet}(C,M)$ of $C$ with coefficient $M$} as the
+  graded abelian group
+  \[
+    \Ho_{\bullet}(C,M):=\Tor{C}{\bullet}(M,\Z).
+  \]
 \end{definition}
+\begin{remark}
+  We could also have defined the homology of $C$ with coefficient a left
+  $C$\nbd-module $N$ as $\Tor{C}{\bullet}(\Z,N)$. No generality is
+  lost as we
+  have \[\Tor{C}{\bullet}(\Z,N)=\Tor{C^{\op}}{\bullet}(N,\Z).\]
+  In other words, the homology of $C$ with coefficient a left
+  $C$\nbd-module $N$ is the homology of $C^{\op}$ with coefficient $N$
+  seen a right $C^{\op}$\nbd-module.
+\end{remark}
