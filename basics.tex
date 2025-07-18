@@ -80,7 +80,9 @@ $\unit n:C_{n-1}\to C_n$ for $n>0$ and a family of partial binary composition op
   For any $n>0$ and $n$-cell $x$, the pair $\pair{\sce{n-1}(x)}{\tge{n-1}(x)}$ will be called the {\em type} of $x$. Thus the conditions of the first group above ensure that the units and compostion operations are well-typed. The conditions of the second group are rules of computation and one easily checks that all equations preserve the types. 
 \end{remark}
 \subsubsection{$n$-Categories}\label{ssubsec:ncat}
-For a given $n\in\N$, truncating the previous construction at dimension $n$ yields the notion of $n$-category.  We denote by $\nCat n$ the resulting category. For example $\nCat 0$ is the category $\Set$ of sets and $\nCat 1$ is the category of small categories if we interpret $f\comp 0 g$ as the compostion $g\circ f$ of two morphisms. There is an obvious truncation functor $\oCat\to \nCat n$ discarding all cells of dimension $>n$. It is right adjoint to the embedding $\nCat n\to\oCat$, which takes an $n$-category $C$ to the \oo-category $C'$ with the same $i$-cells for $i\leq n$ and only the required identity cells in dimensions $i>n$.
+For a given $n\in\N$, truncating the previous construction at dimension $n$ yields the notion of $n$-category.  We denote by $\nCat n$ the resulting category. For example $\nCat 0$ is the category $\Set$ of sets and $\nCat 1$ is the category of small categories if we interpret $f\comp 0 g$ as the compostion $g\circ f$ of two morphisms.
+For $n\in\N$ and $m\in\N\cup \set{\omega}$ such that $n<m$, there are 
+obvious truncation functors $\trk n:\nCat m\to \nCat n$ discarding all cells of dimension $>n$. The functor $\trk n$ is right-adjoint to the inclusion functor  $\inc n:\nCat n\to\nCat m$, which takes an $n$-category $C$ to the $m$-category $C'$ with the same $i$-cells for $i\leq n$ and only the required identity cells in dimensions $n<i\leq m$.
 
 \subsubsection{Invertible cells}\label{ssubsec:invert}
 Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp i$-invertible} if there is an $n$-cell $y$ such that $\sce i(y)=\tge i(x)$, $\tge i(y)=\sce i(x)$ satisfying the equations 
@@ -93,8 +95,17 @@ Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp 
     If $0\leq i< j<n$ and $x$ is a $\comp i$-invertible cell, it is also $\comp j$-invertible.
   \end{proposition}
   \begin{paragr}
-    \cref{prop:invcell} is proved in~\cite[14.5]{abgmmm:polybk}. Beware that the $\comp j$-inverse of $x$ is not the same $n$-cell as its $\comp i$-inverse except in very degenerate cases. Let $k$ be a fixed integer. An \oo-category $C$ is an {\em \ook{k}-category} if for each $n>k$, all $n$-cells of $C$ are invertible. It turns out that this implies the stronger condition of $\comp i$-invertibility for {\em all} $k<i<n$ (see again~\cite[14.5]{abgmmm:polybk}).  The full subcategory of $\oCat$ whose objects are \ook{k}-categories is denoted by $\opCat k$. Likewise, one defines the truncated version $\npCat nk$ for any $0\leq k<n$. For example $\npCat 10$ is the category $\Grpd$ of small groupoids and $\opCat 0$ the category $\oGrpd$ of \oo-groupoids. The present article pays a special attention to the cases $k=0$ and $k=1$.
+    \cref{prop:invcell} is proved in~\cite[14.5]{abgmmm:polybk}. Beware that the $\comp j$-inverse of $x$ is not the same $n$-cell as its $\comp i$-inverse except in very degenerate cases. Let $k$ be a fixed integer. An \oo-category $C$ is an {\em \ook{k}-category} if for each $n>k$, all $n$-cells of $C$ are invertible. It turns out that this implies the stronger condition of $\comp i$-invertibility for {\em all} $k<i<n$ (see again~\cite[14.5]{abgmmm:polybk}).  The full subcategory of $\oCat$ whose objects are \ook{k}-categories is denoted by $\opCat k$. Likewise, one defines the truncated version $\npCat nk$ for any $0\leq k<n$.  For example $\npCat 10$ is the category $\Grpd$ of small groupoids and $\opCat 0$ the category $\oGrpd$ of \oo-groupoids. The present article pays a special attention to the cases $k=0$ and $k=1$. It will be convenient to extend the notation for $k=n$, in which case $\npCat nn=\nCat n$.
  \end{paragr} 
 
 
-\subsection{$\pair{\omega}{k}$-polygraphs}\label{subsec:okpol}
+ \subsection{$\pair{\omega}{k}$-polygraphs}\label{subsec:okpol}
+ \subsubsection{Cellular extensions}\label{ssubsec:cellext}
+ Let $n>0$ and $C$ an $n$-category. A {\em cellular extension} consists of a pair $\clx{C}{X}$, where $X$ is a  family $X=\pair{x_i}{x'_i}_{i\in I}$ of pairs of parallel $n$-cells in $C$ indexed by a set $I$. Let $\clx CX$, $\clx DY$ be two cellular extensions of the $n$-categories $C$ and $D$ respectively, with $X=\pair{x_i}{x'_i}_{i\in I}$ and $Y=\pair{y_j}{y'_j}_{j\in I}$. A {\em morphism}
+ \[\phi:\clx CX\to\clx DY\]
+ consists of a pair $\phi=\pair fg$ where $f:C\to D$ is a morphism in $\nCat n$ and $g:I\to J$ is a map such that for each $i\in I$, $y_{g(i)}=f(x_i)$ and $y'_{g(i)}=f(x'_i)$. Cellular extensions and morphisms of $n$-categories build a category $\nCatp n$. Now, any $(n{+}1)$-category $C$ determines a cellular extension $\clx{\trk n C}{X}$ of its truncated $n$-category $\trk n C$ by the family
+ \[X=\pair{\sce n(x)}{\tge n(x)}_{x\in C_{n+1}}\]
+ indexed by all $(n{+}1)$-cells of $C$. This immediately yields a forgetful functor
+ \[\fgf n:\nCat {n+1}\to \nCatp n.\]
+ 
+ 
