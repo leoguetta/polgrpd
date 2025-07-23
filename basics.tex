@@ -132,7 +132,7 @@ work. The existence of this left-adjoint is proved
 in~\cite{batanin:comfmg} (see also~\cite[Ch.18]{abgmmm:polybk}). To
 avoid tedious distinctions in the following, we recall the convention that
 for any $k\geq n$, $\npCat nk=\nCat n$, and in the same way we set
-$\fgf{n,k}=\fgf n$ and $\frf{n,k}=\frf n$.
+$\fgf{n,k}=\fgf n$ and $\frf{n,k}=\frf n$ in this case.
 
 \subsubsection{Polygraphs}\label{ssubsec:polyg}
 Let $k\in\N$ be a fixed integer. We define, by induction on $n\in\N$,
@@ -143,7 +143,7 @@ nk$-polygraphs are just  {\em $n$-polygraphs}.
 \begin{itemize}
 \item For $n=0$, an
 $n$-polygraph $P$ is just a set $P_0$, and the $\pair 0k$-category it
-generates, denoted by $\frgp P$ is just the same set $P_0$.
+generates, denoted by $\frgp P$, is just the same set $P_0$.
 \item Let $n\in\N$ and suppose we have defined the notion of $\pair
   nk$-polygraph $Q$, together with the free $\pair nk$-category $\frgp
   Q$ it generates.
@@ -166,7 +166,21 @@ induction on $n$.
   $\pair nk$-polygraphs and
 \[\phi=\pair fg:\pair{\frgp Q}{P_{n+1}}\to\pair{\frgp{Q'}}{P'_{n+1}} \]
  is a morphism of cellular extensions such that $f=\frf n q$. 
-  \end{itemize}
+\end{itemize}
+
+\begin{paragr}
+  The structure of an $\pair nk$-polygraph $P$ is summarized by the following diagram of sets:
+  \[
+    \xymatrix@C=1.2cm{P_0 \ar[d]|{\gni{0}}& P_1\doubld{\sce 0}{\tge 0} \ar[d]|{\gni{1}}&\doubld{\sce 1}{\tge 1}& \cdots &   P_{n-1} \doubld{\sce{n-2}}{\tge{n-2}}\ar[d]|{\gni{n-1}}& P_n\doubld{\sce{n-1}}{\tge {n-1}}\\
+      \frgp{P}_0 & \dbl \frgp{P}_1 \dbl& \cdots\dbl& \phantom{\frgp{P}} &  \frgp{P}_{n-1}\dbl &.}
+  \]
+  At each dimension $l$, a new set $P_{l+1}$ of {\em generators} is
+  attached by the source and target maps $\sce l$, $\tge l$ to the free
+  $\pair lk$-category already built at this level.  The
+  maps $\gni l:P_l\to \frgp{P}_l$ represent the insertion of the generators in
+  the $l$-cells of the freely generated category.
+\end{paragr}
+
 
 
 
