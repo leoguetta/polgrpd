@@ -181,6 +181,45 @@ induction on $n$.
   the $l$-cells of the freely generated category.
 \end{paragr}
 
+\subsubsection{Formal expressions}\label{ssubsec:formex}
+Let $C$ be an $\pair nk$-category, $S$ a set and $X=\pair{x_a}{y_a}_{a\in S}$
+a family of pairs of parallel cells in $C_n$, which amounts to a pair
+of maps
+\[\sce n,\tge n:S\to C_n\]
+satisfying the globular relations. The cellular extension
+$\pair CX$ generates an $\pair{n{+}1}{k}$-category $D=\frf n\pair
+CX$ such that $\trk n D=C$. The set $\frgp S=D_{n+1}$ of
+$(n{+}1)$-cells of $D$ can be described by means of formal expressions
+based on $S$ and $C_n$, quotiented by an equivalence relation. Thus,
+given $S$ and $C_n$, we first define the formal language $\expr S$
+whose formulas are given by the folllowing grammar
+\[
+  e ::= \fcst{a} \mid \finv{s} \mid \fid{x} \mid (e\fcomp i e)
+\]
+where $a\in S$, $x\in C_n$ and $0\leq i\leq n$ . We then define the
+subset  $\wtx S\subset\expr S$ of {\em well-typed formulas}.
+Precisely, we define the statement
+\[\type wxy\]
+meaning that {\em $w\in\wtx S$ is of type $\pair xy$} with $x$, $y$ parallel
+cells in $C_n$, by the following structural induction:
+\begin{itemize}
+\item For each $a\in S$ such that $\sce n a=x$ and $\tge n a=y$,
+  $\type{\fcst{a}}{x}{y}$
+  and $\type{\finv{a}}{y}{x}$.
+\item For  each $x\in C_n$, $\type{\fid{x}}{x}{x}$.
+ \item If $\type wxy$ and $\type{w'}yz$, then $w''=w\fcomp{n-1}w'$ is
+   well-typed and $\type{w''}{x}{z}$.
+ \item If $0\leq i<n$, $\type wxy$, $\type{w'}{x'}{y'}$, $\sce
+   i{x'}=\tge i{x}$, then $w''=w\fcomp i w'$ is well-typed and
+   $\type{w''}{x\comp i x'}{y\comp i y'}$. 
+ \end{itemize}
+ One readily checks that whenever $\type wxy$ is derivable from the
+ preceding rules, then $x$, $y$ are well defined parallel cells in
+ $C_n$, so that the maps $\sce n$, $\tge n$ extend to maps
+ \[\sce n, \tge n :\wtx S\to C_n\]
+ such that, if $\type wxy$,  then $\sce n w=x$ and $\tge n w=y$. 
+
+
 
 
 
