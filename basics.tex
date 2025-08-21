@@ -182,7 +182,7 @@ induction on $n$.
 \end{paragr}
 
 \subsubsection{Formal expressions}\label{ssubsec:formex}
-Let $C$ be an $\pair nk$-category, $S$ a set and $X=\pair{x_a}{y_a}_{a\in S}$
+Let $0\leq k\leq n$, $C$ be an $\pair nk$-category, $S$ a set and $X=\pair{x_a}{y_a}_{a\in S}$
 a family of pairs of parallel cells in $C_n$, which amounts to a pair
 of maps
 \[\sce n,\tge n:S\to C_n\]
@@ -194,7 +194,7 @@ based on $S$ and $C_n$, quotiented by an equivalence relation. Thus,
 given $S$ and $C_n$, we first define the formal language $\expr S$
 whose formulas are given by the folllowing grammar
 \[
-  e ::= \fcst{a} \mid \finv{s} \mid \fid{x} \mid (e\fcomp i e)
+  e ::= \fcst{a} \mid \finv{a} \mid \fid{x} \mid (e\fcomp i e)
 \]
 where $a\in S$, $x\in C_n$ and $0\leq i\leq n$ . We then define the
 subset  $\wtx S\subset\expr S$ of {\em well-typed formulas}.
