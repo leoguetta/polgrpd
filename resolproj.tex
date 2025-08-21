@@ -33,6 +33,12 @@
     \end{aligned}
   \]
 
+  % By post-composing with the abelianisation functor
+  % \[
+  %   \lambda \colon \opCat{1} \to \Chp,
+  % \]
+  % we obtain a 
+
   Note that in the case that $C=G$ is a groupoid, then the same
   construction applies when taking $P \to G$ to be a polygraphic
   resolution in $\oGrpd=\opCat{0}$. In this case, we obtain a functor
@@ -45,6 +51,87 @@
   with values in $\oGrpd$.
 \end{paragr}
 \begin{theorem}
-  Let $C$ be a (small) category and $P \to C$ a polygraphic resolution
-  of $C$ in $\opCat{1}$. 
+  Let $C$ be a (small) $k$\nbd-category with $k \in \{0,1\}$ (i.e.\
+  $C$ is a category or a groupoid),  $i \in \N\cup\{\omega\}$ such that
+  $i \geq k$, and $P \to C$ be a polygraphic
+  resolution in $\opCat{i}$. The functor
+    \[
+    \begin{aligned}
+      \tr{P}{-} \colon C &\to  \opCat{i}\\
+      x &\mapsto \tr{P}{x}
+    \end{aligned}
+  \]
+  is a projective resolution of the terminal object of the category
+  $\fun{C}{\opCat{i}}$, equipped with the projective model structure
+  induced by the folk model structure on $\opCat{i}$.
 \end{theorem}
+% \begin{theorem}
+%   Let $C$ be a (small) category and $P \to C$ a polygraphic resolution
+%   of $C$ in $\opCat{1}$. The functor
+%   \[
+%     \begin{aligned}
+%       \tr{P}{-} \colon C &\to  \opCat{1}\\
+%       x &\mapsto \tr{P}{x}
+%     \end{aligned}
+%   \]
+%   is a projective resolution of the terminal object of the category
+%   $\fun{C}{\opCat{1}}$, equipped with the projective model structure
+%   induced by the folk model structure on $\opCat{1}$.
+% \end{theorem}
+
+% \begin{theorem}
+%   Let $G$ be a (small) groupoid and $P \to G$ a polygraphic resolution
+%   of $G$ in $\oGrpd$. The functor
+%   \[
+%     \begin{aligned}
+%       \tr{P}{-} \colon G &\to  \oGrpd\\
+%       x &\mapsto \tr{P}{x}
+%     \end{aligned}
+%   \]
+%   is a projective resolution of the terminal object of the category
+%   $\fun{C}{\oGrpd}$, equipped with the projective model structure
+%   induced by the folk model structure on $\oGrpd$.
+% \end{theorem}
+\begin{lemma}
+  Let $C$ be a $k$\nbd-category, with $k \in \{0,1\}$ (i.e.\ $C$ is a
+  category or a groupoid). For every object $x$ of $C$, the canonical
+  functor
+  \[
+    \tr{C}{x} \to C
+  \]
+  is a discrete Conduché functor.
+\end{lemma}
+\begin{proof}
+  It suffices to treat the case $k=1$ (i.e.\ $C$ is a category) as the canonical inclusion
+  $\Grpd~\to~\Cat$ trivially preserves and reflects Conduché functors.
+
+  Recall that an object of $\tr{C}{x}$ consists of a pair $(y,f \colon
+  y \to x)$, where $y$ is an object of $C$ and $f$ an arrow of $C$,
+  and a morphism $(y,f) \to (y',f')$ consists of an arrow $g \colon y
+  \to y'$ such that the following triangle is commutative
+  \[
+    \begin{tikzcd}[column sep=small]
+      y \ar[rr,"g"] \ar[dr,"f"'] && y'\ar[dl,"f'"] \\
+      &x&
+    \end{tikzcd}
+  \]
+  % If $g=\unit y$ (and thus $y=y'$), then clearly it is a unit as an
+  % arrow of $\tr{C}{x}$.
+
+  If $g=g_2\circ g_1$, then we have the following decomposition in
+  $\tr{C}{x}$,
+  \[
+      \begin{tikzcd}
+      y \ar[rr,"g"] \ar[dr,"f"'] && y'\ar[dl,"f'"] \\
+      &x&
+    \end{tikzcd}
+    =
+    \begin{tikzcd}
+      y \ar[r,"g_1"] \ar[dr,"f"']& z \ar[r,"g_2"] \ar[d,"h"] &
+      y' \ar[dl,"f'"] \\
+      &x,&
+    \end{tikzcd}
+  \]
+  with $h=g_2\circ f'$. This choice of $h$ is clearly unique, thus
+  proving that $\tr{C}{x} \to C$ is a Conduché functor.
+\end{proof}
