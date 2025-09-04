@@ -139,13 +139,17 @@
 
 \newcommand{\expr}[1]{\mathcal{E}[#1]} %formal expressions on #1
 \newcommand{\wtx}[1]{\mathcal{W}[#1]} % well typed expressions on #1
+\newcommand{\wtxeq}[1]{\fcls{\wtx{#1}}} % equiv classes of well typed expressions on #1
 \newcommand{\formal}[1]{\mathsf{#1}} % formal expressions style
 \newcommand{\fcst}[1]{\formal{c}_{#1}} % constant
 \newcommand{\finv}[1]{\overline{\formal{c}}_{#1}}% formal inverse
 \newcommand{\fid}[1]{\formal{i}_{#1}} % formal identity
 \newcommand{\fcomp}[1]{\bm{\ast}_{#1}} % formal composition
 \newcommand{\type}[3]{#1:#2\to #3} %typing rule
-
+\newcommand{\frel}{\sim} % relation on formal expressions
+\newcommand{\freq}{\simeq} %equivalence among formal expressions
+\newcommand{\cans}[1]{\rho_{#1}} % canonical surjection
+\newcommand{\fcls}[1]{\widetilde{#1}}% equivalence class of  #1
                               
 % HOMOLOGY AND HOMOLOGICAL ALGEBRA
 
@@ -162,5 +166,7 @@
 %COMMENTS
 
 \newcommand{\lgcomment}[1]{
-    \marginnote{\tiny\textcolor{red}{LG: #1}}
-}
+    \marginnote{\tiny\textcolor{red}{LG: #1}}}
+
+\newcommand{\fmcomment}[1]{
+    \marginnote{\tiny\textcolor{red}{FM: #1}}}
