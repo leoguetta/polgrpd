@@ -229,8 +229,14 @@ binary relation $\frel$ on $\wtx{S}$ as follows:
   $\fid{x\comp i x'}\frel (\fid{x}\fcomp i\fid{x'})$.
 \item For each $a:x\to y$ in $S$, $(\fid{x}\fcomp{n}\fcst{a})\frel
   \fcst{a}$ and $(\fcst a\fcomp{n} \fid{y})\frel \fcst a$.
-  \item For each $a:x\to y$ in $S$, $(\fid{y}\fcomp{n}\finv{a})\frel
-  \finv{a}$ and $(\finv a\fcomp{n} \fid{x})\frel \finv a$.
+ \item For each $a:x\to y$ in $S$, $(\fid{y}\fcomp{n}\finv{a})\frel
+   \finv{a}$ and $(\finv a\fcomp{n} \fid{x})\frel \finv a$.
+\item For each $a:x\to y$ in $S$, $0\leq i< n$, $a_i^{-}=\unit n(\sce i
+  x)$ and $a_i^{+}=\unit n(\tge i x)$, $(\fid{a_i^{-}}\fcomp{i}\fcst{a})\frel
+  \fcst{a}$ and $(\fcst a\fcomp{i} \fid{a_i^+})\frel \fcst a$.
+\item For each $a:x\to y$ in $S$, $0\leq i< n$, $a_i^{-}=\unit n(\sce i
+  x)$ and $a_i^{+}=\unit n(\tge i x)$, $(\fid{a_i^{-}}\fcomp{i}\finv{a})\frel
+  \finv{a}$ and $(\finv a\fcomp{i} \fid{a_i^+})\frel \finv a$.  
  \item For all expressions $e_1,e_2,e_3$ in $\wtx S$ such that $e_1,e_2$ and
    $e_2,e_3$ are $i$-composable, $((e_1\fcomp i e_2)\fcomp i e_3)\frel
    (e_1\fcomp i(e_2\fcomp i e_3))$.
@@ -259,6 +265,30 @@ binary relation $\frel$ on $\wtx{S}$ as follows:
   factor through $\cans S$. We keep the same notations for the induced
   source and target maps on $\wtxeq S$:
   \[\sce n,\tge n:\wtxeq S\to C_n.\]
+  More generally, for any $i\leq n$, we define the $i$-source and
+  $i$-target maps
+  \[\sce i,\tge i:\wtxeq S\to C_i\]
+  by composing $\sce n,\tge n:\wtxeq S\to C_n$ with the maps $\sce i,\tge
+  i:C_n\to C_i$ already given. We may therefore extend $C$ to an
+  $n{+}1$-globular set $\extend{C}$  such that $\trk{n}(\extend C)=C$
+  and $\extend{C}_{n+1}=\wtxeq S$, with the above defined source and
+  target maps. Moreover, for any $i$-composable formal expressions
+  $e,e'\in \wtx S$ and $f=(e\fcomp i e')$, the class $\cans S(f)=\fcls f$ only
+  depends on $\fcls e$ and $\fcls{e'}$. Hence we may define the
+  compositions in $\wtxeq S$ by
+  \[\fcls{e}\comp i\fcls{e'}=\fcls{(e\fcomp i e')}.\]
+  Finally, to any $x\in C_n$ we associate its $n{+}1$-unit in $\wtxeq
+  S$ by
+  \[\unit{n}(x)=\fcls{\fid x}.\]
+  The axioms for $\frel$ easily ensure that that $\extend C$ endowed with
+  the $i$-compostions and units just defined is indeed an $\pair{n{+}1}{k}$-category.
+  
+  \begin{proposition}\label{prop:univprop}
+   Let $E$ be an  $\pair{n{+}1}{k}$-category $E$ such that $\trk n(E)=C$
+   and  $f:S\to E_{n+1}$ a map such that, for any $a\in S$, $\sce n^Ef(a)=\sce n a$
+    and $\tge n^E f(a)=\tge n a$.  There is a unique
+    morphism $\phi:\extend C\to E$ in $\npCat{n+1}{k}$  such that,  for each $a\in S$, $\phi(\fcls{\fcst a})=f(a)$.
+ \end{proposition}
   
  
 
