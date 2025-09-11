@@ -1,0 +1,1082 @@
+\documentclass{amsart}
+
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+\usepackage{tikz-cd}
+\usepackage{leftindex}
+\usepackage[capitalise]{cleveref}
+\usepackage[all,2cell]{xy}
+\UseAllTwocells
+\usepackage{bm} %bold math symbols
+
+\usepackage{marginnote}
+
+\title{Homology coefficient in a natural system}
+\input{macro}
+
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Bimod}[1]{\mathrm{Bimod}_{#1}}
+\newcommand{\Tw}[1]{\mathrm{Tw}(#1)}
+\newcommand{\Nat}[1]{\mathrm{Nat}(#1)}
+\newcommand{\HHo}{\mathsf{HHo}}
+\newcommand{\Tot}{\mathrm{Tot}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\src}[1]{\source{} #1}
+\newcommand{\tgt}[1]{\target{} #1}
+\renewcommand{\sce}[1]{\source{} #1}
+\renewcommand{\tge}[1]{\target{} #1}
+\newcommand{\srclin}{\sigma}
+\newcommand{\tgtlin}{\tau}
+\renewcommand{\homset}[3]{\mathrm{Hom}_{#1}(#2,#3)}
+\newcommand{\wght}[1]{\mathrm{w}_{#1}}
+\begin{document}
+\section{Homological algebra}
+\subsection{Category of modules}
+\begin{definition}
+  Let $C$ be a (small) category. A \emph{right $C$\nbd-module} is a
+  functor
+  \[
+    F \colon C^{\op} \to \Ab.
+  \]
+  A \emph{morphism of right $C$\nbd-modules} is a natural
+  transformation. We denote by $\RMod{C}$ the category of right
+  $C$\nbd-modules. Dually, a \emph{left $C$\nbd-module} is a functor
+  \[
+    C \to \Ab.
+  \]
+  The category of left $C$\nbd-module is denoted by $\LMod{C}$.
+\end{definition}
+\begin{example}
+  If $C=G$ is a group, then left and right $C$\nbd-modules
+  respectively correspond
+  exactly to left and right $\Z[G]$\nbd-modules. 
+\end{example}
+
+As we shall now see, the abelian categories $\RMod{C}$ and $\LMod{C}$
+have enough projectives. Since $\LMod{C}=\RMod{C^{\op}}$, it suffices
+to treat the case of right modules.
+
+\begin{definition}
+  A right $C$\nbd-modules $M$ is free if it is isomorphic to a small
+  sum
+  of ``representables'' modules
+  \[
+  M \simeq \bigoplus_{i \in I}\Z\homset{C}{-}{c_i},
+\]
+and dually for left $C$\nbd-modules.
+\end{definition}
+\begin{lemma}\label{lemma:freeisproj}
+  Free modules are projective objects of $\RMod{C}$.
+\end{lemma}
+\begin{proof}
+  This follows straightforwardly from the Yoneda lemma and the fact
+  that a sum of projective objects is projective.
+\end{proof}
+\begin{proposition}\label{prop:enoughproj}
+  The category $\RMod{C}$ has enough free objects (and thus enough projectives).
+\end{proposition}
+\begin{proof}
+  Let $F$ be an object of $\RMod{C}$. Consider the canonical
+  morphism
+  \[
+    \bigoplus_{\substack{c \in \Ob(C)\\ x \in F(c)}} \Z\homset{C}{-}{c} \to F.
+  \]
+ It follows from the Yoneda lemma that this morphism is
+  an epimorphism. The conclusion follows from \cref{lemma:freeisproj}.
+\end{proof}
+\subsection{Total tensor product}
+We fix once and for all a small category $C$.
+\begin{paragr}
+   Let $F$ be a right $C$\nbd-module and $G$ a left $C$\nbd-module. We
+  define their total tensor product, denoted by $F\tens{\Z C}G$, as the
+  following co-end in $\Ab$
+  \[
+    F\tens{\Z C}G := \int^{c \in C}F(c)\tens{\Z} G(c),
+  \]
+  where $\otimes$ is the usual tensor product of abelian
+  groups. Explicitly, this means that $F\tens{\Z C}G$ is obtained as the following
+  co-equalizer in $\Ab$
+  \[
+    \bigoplus_{(c,c')\in \Ob(C)^2}F(c')\tens{\Z}\Z\homset{C}{c}{c'}\tens{\Z}
+    G(c) \rightrightarrows \bigoplus_{c \in \Ob(C)}F(c)\tens{\Z} G(c)
+    \rightarrow F\tens{\Z C}G,
+  \]
+  where the top arrow is induced by the functoriality of $F$ and the
+  bottow arrow by the functoriality of $G$. This construction canonically extends to a functor
+  \[
+    - \tens{\Z C} - \colon \RMod{C}\times\LMod{C} \to \Ab.
+  \]
+  It is straightforward to check that this functor is a left adjoint
+  in each variable. More precisely, we have isomorphisms
+  \[
+    \begin{aligned}
+      \homset{\Ab}{F\tens{\Z C}G}{A}&\simeq
+                                  \homset{\RMod{C}}{F}{\homset{\Ab}{G(-)}{A}}\\
+      &\simeq \homset{\LMod{C}}{G}{\homset{\Ab}{F(-),A}}
+    \end{aligned}
+  \]
+  natural in $F$, $G$ and $A$. In particular, $-\tens{\Z C}-$ preserves
+  epimorphisms in each variable and thus is right exact in each
+  variable. Together with \cref{prop:enoughproj}, this justifies the
+  following definition.
+\end{paragr}
+
+\begin{definition}
+  Let $F$ be a right $C$\nbd-module and $G$ a left $C$\nbd-module. For
+  an integer $k \geq 0$, we
+  define the abelian group $\Tor{\Z C}{k}(F,G)$ as
+  \[
+    \Tor{\Z C}{k}(F,G) := F \overset{\mathbb{L}_k}{\tens{\Z C}} G,
+  \]
+  where $\overset{\mathbb{L}_k}{\tens{\Z C}}$ is the $k$\nbd-th left
+  derived functor of $-\tens{\Z C}-$.
+\end{definition}
+\begin{paragr}
+  Explicitly, the previous definition means that $\Tor{\Z C}{k}(F,G)$ is
+  obtained by either taking a projective resolution
+  \[
+    P_{\bullet} \to F
+  \]
+  of $F$ (in $\RMod{C}$), or a projective resolution
+  \[
+    Q_{\bullet} \to G
+  \]
+  of $G$ (in $\LMod{C}$) and taking the $k$\nbd-th homology group of
+  either the following chain complexes of abelian groups
+  \[P_{\bullet}\tens{\Z C}G,\]
+  \[F\tens{\Z C}Q_{\bullet},\]
+    \[\Tot(P_{\bullet}\tens{\Z C}Q_{\bullet}). \]
+  By standard results of homological algebra, these three complexes
+  have the same homology. 
+\end{paragr}
+\begin{paragr}
+  Let $u \colon C \to D$ be a functor between small categories.  As usual, we obtain an adjoint triple
+  \[
+    \begin{tikzcd}
+      \LMod{D} \ar[r,"u^*" description] &
+      \LMod{C},\ar[l,"u_!"',bend right] \ar[l,"u_*",bend left]
+    \end{tikzcd}
+  \]
+  where $u^*$ is the pre-composition functor. (And similarly for
+  categories of right modules). By standard manipulation of
+  homological algebra, one shows that
+  \begin{itemize}
+  \item $u_!$ is right exact, $u_*$ is left exact, $u^*$ is exact,
+  \item $u^*$ preserves injectives and projectives.
+  \end{itemize}
+
+  Recall now that a functor $\pi \colon C \to D$ is a discrete
+  op-fibration if for every arrow of $D$ of the form $g\colon \pi(c) \to
+  d$, there exists a \emph{unique} arrow $f \colon c \to c'$ such
+  that $\pi(f)=g$. 
+\end{paragr}
+\begin{proposition}\label{prop:toropfib}
+  Let $\pi \colon C \to D$ a discrete op-fibration, $M$ a right
+  $D$\nbd-module and $N$ a left $C$\nbd-module. We have an
+  isomorphism
+  \[
+  \Tor{\Z C}{\bullet}(\pi^*M,N) \simeq \Tor{\Z D}{\bullet}(M,\pi_!N),
+  \]
+  natural in $M$ and $N$.
+\end{proposition}
+\begin{proof}
+  Let us start by proving the underived version of this isomorphism,
+  that is
+  \[
+   \pi^*M\tens{\Z C} N \simeq M\tens{\Z D}\pi_!N.
+ \]
+ First, recall that, because $\pi$ is a discrete op-fibration, for every
+ object $d$ of $D$, the
+ canonical inclusion
+ \[
+   \begin{aligned}
+     \pi_d &\to \tr{C}{d}\\
+     c &\mapsto (c,\id_{d} \colon \pi(c) \to d)
+   \end{aligned}
+ \]
+ where $\pi_d$ is the fiber of $\pi$ at $d$, is a right adjoint (this
+ is true for non-necessarily discrete op-fibration). In particular,
+ this canonical inclusion is co-final and it follows that for every
+ object $d$ of $D$, we have
+ \[
+   (\pi_!N)(d) = \ilim_{f \colon \pi(c) \to d \in \tr{C}{d}}N(c) \simeq
+   \bigoplus_{c \in \pi_d}N(c).
+ \]
+ Second, since
+
+ Now, by definition $M\tens{\Z D}\pi_!N$ is the co-equalizer of the
+ following pair
+ \[
+   \bigoplus_{(d,d') \in
+     \Ob(D)^2}M(d')\tens{\Z}\Z\homset{D}{d}{d'}\tens{\Z}(\pi_!N)(d)
+   \rightrightarrows \bigoplus_{d \in \Ob(D)}M(d)\tens{\Z}(\pi_!N)(d).
+ \]
+ It follows from what we have seen above that this pair can be
+ re-written as
+ \[
+   \bigoplus_{(d,d') \in
+     \Ob(D)^2}\bigoplus_{c \in
+     \pi_d}M(d')\tens{\Z}\Z\homset{D}{d}{d'}\tens{\Z}N(c)
+   \rightrightarrows \bigoplus_{d \in \Ob(D)}\bigoplus_{c \in
+     \pi_d}M(d)\tens{\Z}N(c).
+ \]
+ Using the fact that \[\Ob(C)\simeq\coprod_{d \in \Ob(D)}\pi_d,\] and that
+ \[
+   \coprod_{(c,c')\in \Ob(C)^2}\homset{C}{c}{c'} \simeq
+   \coprod_{(d,d') \in \Ob(D)^2}\coprod_{c\in \pi_d}\homset{D}{d}{d'},
+ \]
+ where this last isomorphism follows from the fact that $\pi$ is a
+ discrete op-fibration, we can re-write the pair as
+ \[
+   \bigoplus_{(c,c') \in
+     \Ob(C)^2}M(\pi(c'))\tens{\Z}\Z\homset{C}{c}{c'}\tens{\Z}N(c)\rightrightarrows
+   \bigoplus_{c \in \Ob(C)}M(\pi(c))\tens{\Z}N(c),
+ \]
+ whose co-equalizer is, by definition, $\pi^*M\tens{\Z C}N$.
+
+ For the derived version, it suffices to use that $\pi^*$ is exact and
+ preserve projective objects. Hence, if $P_{\bullet} \to M$ is a projective
+ resolution of $M$, then $\pi^*P_{\bullet} \to \pi^*M$ is a projective
+ resolution of $\pi^*M$. It follows that
+ \[
+   \pi^*P_{\bullet}\tens{\Z D}N \simeq P_{\bullet}\tens{\Z C}\pi_!N,
+ \]
+ which proves the result.
+\end{proof}
+\subsection{Bi-modules and natural systems}
+\begin{definition}
+  Let $C$ be a (small) category. A \emph{($C,C$)\nbd-bimodule}, or
+  \emph{bimodule over $C$}, is a left $C^{\op} \times C$\nbd-module,
+  i.e.\ a functor $\B \colon C^{\op} \times C \to \Ab$.
+
+  \end{definition}
+  We denote by
+  $\Bimod{C}=\LMod{C^{\op}\times C}$ the category of bimodules.
+\begin{paragr}
+  Given a right $C$\nbd-module $M$ and a left $C$\nbd-module $N$, we
+  define the bimodule $M\tens{\Z}N$ as 
+  \[
+    (c,d) \mapsto M(c)\tens{\Z} N(d).
+  \]
+  This construction is obviously functorial and thus yields a functor
+  \[
+    \begin{aligned}
+      \RMod{C}\times \LMod{C} \to \Bimod{C}\\
+      (M,N) \mapsto M\tens{\Z} N.
+    \end{aligned}
+  \]
+  It is straightforward to check that this functor is a left adjoint
+  in both variable. In particular, it preserves epimorphisms in each
+  variable and thus is right exact in each variable. 
+\end{paragr}
+\begin{lemma}\label{tensfreemod}
+  The functor $-\tens{\Z}- \colon\RMod{C}\times \LMod{C} \to
+  \Bimod{C}$ sends free modules to free modules.
+\end{lemma}
+\begin{proof}
+  It suffices to notice that
+  \[
+    \begin{aligned}
+      \Z\homset{C}{-}{c}\tens{\Z}\Z\homset{C}{d}{-}&=\Z\homset{C^{\op}}{c}{-}\tens{\Z}\Z\homset{C}{d}{-}\\
+                                                   &\simeq\Z\left[\homset{C^{\op}}{c}{-}\times\homset{C}{d}{-}\right]\\
+      &=\Z\homset{C^{\op}\times C}{(c,d)}{(-,-)}.      
+    \end{aligned}
+  \]
+  The conclusion follows from the fact that $-\tens{\Z}-$ preserves
+  sums in each variable. 
+\end{proof}
+\begin{paragr}
+  Notice that every category $C$ comes with a canonical bi-module
+  given by the hom functor
+  \[
+    \Z \homset{C}{-}{-}.
+  \]
+  This bi-module will play an important role later.
+\end{paragr}
+\begin{paragr}
+  Recall that the \emph{twisted arrow category} (also called the
+  factorization category), denoted by $\Tw{C}$, is the category whose
+  objects are morphisms $w \colon c \to d$ of $C$, and whose morphisms
+  $w \to w'$ are given by pairs $(f\colon c' \to c,g\colon d \to d')$
+  of $C$ such that the following square is commutative
+  \[
+    \begin{tikzcd}
+      c \ar[r,"w"] & d \ar[d,"g"] \\
+      c' \ar[u,"f"] \ar[r,"w'"] & d'.
+    \end{tikzcd}
+  \]
+\end{paragr}
+\begin{definition}
+  A \emph{natural system} over a category $C$ is a right $\Tw{C}$
+  module,i.e.\ a functor $\M \colon (\Tw{C})^{\op} \to \Ab$.
+\end{definition}
+We denote by $\Nat{C}=\RMod{\Tw{C}}$ the category of natural systems on $C$.
+\subsection{Homology with coefficient}
+\begin{paragr}
+  For any (small) category $D$ and an abelian group $A$ we will denote by $\cst{A}$ the
+  constant functor $D \to \Ab$ with value $A$.%  In particular, for a
+  % category $C$, by taking $D$ to be either of the following category
+  % \[
+  % C, \quad C^{\op}, \quad
+  % C^{\op}\times C, \quad \Tw{C},\] $\cst{A}$ can denote, depending on the context, a left $C$\nbd-module, a right
+  % $C$\nbd-module, a bimodule over $C$ or a natural system over $C$.
+\end{paragr}
+
+\begin{definition}
+  Let $C$ be a small category. The \emph{Baues-Wirsching homology of
+    $C$ with coefficient in a natural system $\M$} is defined as
+  \[
+    \Ho^{BS}_{\bullet}(C,\M):=\Tor{\Z \Tw{C}}{\bullet}(\M,\cst{\Z}).
+  \]
+  The \emph{Hochschild homology of $C$ with coefficient in a bimodule
+    $\B$ over $C$} is defined as
+  \[
+    \HHo_{\bullet}(C,\B):=\Tor{\Z (C^{\op}\times C)}{\bullet}(\B,\Z \homset{C}{-}{-}).
+  \]
+  The \emph{homology of $C$ with coefficient in a right (resp.\ 
+    left) module $M$ over $C$} is defined as
+  \[
+    \Ho_{\bullet}(C,M):=\Tor{\Z C}{\bullet}(M,\cst{\Z})\quad (\text{resp.\
+    } :=\Tor{\Z C}{\bullet}(\cst{\Z},M) ).
+  \]
+\end{definition}
+% \begin{definition}
+%   Let $C$ be a small category. We define its \emph{homology $\Ho_{\bullet}(C)$} as the
+%   graded abelian group
+%   \[
+%     \Ho_{\bullet}(C):=\Tor{C}{\bullet}(\Z,\Z).
+%   \]
+%   More generally, if $M$ is a right $C$\nbd-module, we define the
+%   \emph{homology $\Ho_{\bullet}(C,M)$ of $C$ with coefficient $M$} as the
+%   graded abelian group
+%   \[
+%     \Ho_{\bullet}(C,M):=\Tor{C}{\bullet}(M,\Z).
+%   \]
+% \end{definition}
+% \begin{remark}
+%   We could also have defined the homology of $C$ with coefficient a left
+%   $C$\nbd-module $N$ as $\Tor{C}{\bullet}(\Z,N)$. No generality is
+%   lost as we
+%   have \[\Tor{C}{\bullet}(\Z,N)=\Tor{C^{\op}}{\bullet}(N,\Z).\]
+%   In other words, the homology of $C$ with coefficient a left
+%   $C$\nbd-module $N$ is the homology of $C^{\op}$ with coefficient $N$
+%   seen a right $C^{\op}$\nbd-module.
+% \end{remark}
+
+We are now going to compare these different homologies. Let's start
+with the Baues-Wirsching and Hochschild homologies.
+
+\begin{paragr}
+  Let $\pi \colon \Tw{C} \to C^{\op}\times C$ be the canonical
+  projection. This is a discrete opfibration, and it is
+  straightforward to check that
+  \[
+    \pi_!(\cst{\Z})\simeq \Z\homset{C}{-}{-}.
+  \]
+\end{paragr}
+Applying \cref{prop:toropfib}, we obtain the following proposition.
+\begin{proposition}
+  Let $C$ be a small category and $\B$ a bimodule over $C$, then we
+  have a canonical isomorphism
+  \[
+    \Ho_{\bullet}^{BS}(C,\pi^*\B)\simeq \HHo_{\bullet}(C,\B).
+  \]
+\end{proposition}
+
+Let us now compare Hochschild homology and homology with coefficient in
+a module. The most general comparison takes the following form.
+\begin{proposition}
+  Let $C$ be a small category, $M$ a right $C$\nbd-module and $N$ a
+  left $C$\nbd-module. We have an isomorphism
+  \[
+    \HHo_{\bullet}(C,M\tens{\Z}N)\simeq \Tor{\Z C}{\bullet}(M,N).
+  \]
+\end{proposition}
+\begin{proof}
+  Let us start with the underived version of this isomorphism, that is
+  to say
+  \[
+    (M\tens{\Z}N)\tens{\Z C^{\op}\times C}\Z\homset{C}{-}{-} \simeq M\tens{\Z C} N.
+  \]
+  This follows from the following abstract non-sense co-end calculus
+  \[
+    \begin{aligned}
+     (M\tens{\Z}N)\tens{\Z C^{\op}\times C}\Z\homset{C}{-}{-} &=
+                                                                \int^{(c,d)\in
+                                                                \Ob(C^{\op}\times
+                                                                C)}M(c)\tens{\Z}N(d)\tens{\Z}\Z\homset{C}{c}{d}\\ 
+      &\simeq\int^{c \in C^{\op}}M(c)\tens{\Z}\left(\int^{d \in
+        C}N(d)\tens{\Z}\Z\homset{C}{c}{d}\right)\\
+                                                              &\simeq\int^{c\in C^{\op}}M(c)\tens{\Z}N(d)\\
+      &=M\tens{\Z C}N,
+    \end{aligned}
+  \]
+  where the second to last isomorphism comes from the Yoneda
+  lemma. For the derived version, let $F_{\bullet} \to M$ and
+  $G_{\bullet} \to N$ free resolutions. By definition, we have
+  \[
+    \Tot_k(P_{\bullet}\tens{\Z}Q_{\bullet})=\bigoplus_{i+j=k}P_i\tens{\Z}Q_j.
+  \]
+  By \cref{tensfreemod}, each $P_i\tens{\Z}Q_j$ is a free left
+  $C^{\op}\times C$ module and since a sum of free objects is
+  free, we get that
+  $\Tot_k(P_{\bullet}\tens{\Z}Q_{\bullet})$ is free and thus
+  projective by \cref{lemma:freeisproj}. It follows that
+  \[
+    \Tot(P_{\bullet}\tens{\Z}Q_{\bullet}) \to M\tens{\Z}N
+  \]
+  is a projective resolution of $M\tens{\Z}N$. Hence,
+  $\HHo_{\bullet}(C,M\tens{\Z}N)$ can be taken to be the homology of
+  the left hand side of the following isomorphism
+  \[
+    \left(\Tot(P_{\bullet}\tens{\Z}Q_{\bullet})\right)\tens{\Z C^{\op}\times C}\Z
+    \homset{C}{-}{-}\simeq \Tot(P_{\bullet}\tens{\Z}Q_{\bullet}).
+  \]
+  The homology of the right hand side being $\Tor{\Z C}{\bullet}(M,N)$,
+  this proves the result.
+\end{proof}
+% \begin{paragr}
+%   Let $\pi \colon \Tw{C} \to C^{\op}\times C$ be the canonical
+%   projection functor. As usual, we obtain an adjoint triple
+%   \[
+%     \begin{tikzcd}
+%       \LMod{C^{\op}\times C} \ar[r,"\pi^*" description] &
+%       \LMod{\Tw{C}}.\ar[l,"\pi_!"',bend right] \ar[l,"\pi_*",bend left]
+%     \end{tikzcd}
+%   \]
+%   By a straightforward computation, one checks that, for $\M$ a
+%   natural system over $C$, $\pi_!(\M)$ is given by the following formula
+%   % \[
+%   %   \pi_!(\B) = \bigoplus_{w}
+%   % \]
+% \end{paragr}
+Combining the previous two propositions, we obtain the following corollary.
+\begin{corollary}
+  Let $C$ be a small category and $M$ a right (resp.\ left)
+  $C$\nbd-module. We have
+  \[
+    \Ho^{BS}_{\bullet}(C,\pi^*p^*(M))\simeq \HHo_{\bullet}(C,p^*(M))\simeq \Ho_{\bullet}(C,M),
+  \]
+  where $p$ is the projection $C^{\op}\times C \to C^{\op}$ (resp.\
+  $C^{\op}\times C \to C$).
+\end{corollary}
+In other words, Baues-Wirsching homology is the most general one as
+it allows to recover the other ones.
+\section{Homology of categories via polygraphic resolutions}
+\subsection{Abelianization of $\omega$-categories}
+\begin{paragr}
+  Let $C$ be an \oo\nbd-category. Recall that we denote by
+  $\lambda(C)$ the chain complex such that
+  \[
+    \lambda_n(C):=\Z C_n/\sim,
+  \]
+  where $\sim$ is the congruence generated by
+  \[
+    x \comp{i} y \sim x + y
+  \]
+  whenever it makes sense. The differential is defined as
+  \[
+    \begin{aligned}
+      \lambda_{n}(C) &\to \lambda_{n+1}(C)\\
+      [x] &\mapsto [\tge{x}]-[\sce{x}].
+    \end{aligned}
+  \]
+  The fact that $\partial \circ \partial=0$ follows immediately from
+  the globular identities.
+
+  This construction is easily seen to be functorial and thus provides
+  a so-called ``abelianization'' functor
+  \[
+    \lambda \colon \oCat \to \Chp.
+  \]
+  Recall that for any $i \in \N\cup \set{\omega}$, the category
+  $\opCat{i}$ is a subcategory of $\oCat$, and thus it makes sense for
+  an object $C$ of $\opCat{i}$ to consider the chain complex
+  $\lambda(C)$.
+\end{paragr}
+% \begin{lemma}\label{lemma:abelpol}
+%   Let $C$ be an \ook{i}\nbd-category, with $i \in \N\cup
+%   \set{\omega}$, and suppose that $C$ is free on a polygraph in $\opCat{i}$. For $\Sigma_n$ a set of $n$\nbd-dimensional generators (which is not
+%   unique in general if $n>i$), then the canonical map
+%   \[
+%     \Z \Sigma_n \to \lambda_n(C)
+%   \]
+%   induced by inclusion is an isomorphism.
+% \end{lemma}
+
+
+\begin{lemma}\label{lemma:abelpol}
+  Let $C$ be an \ook{i}\nbd-category, with $i \in \N\cup\set{\omega}$
+  and suppose that $C$ is free on a polygraph in $\opCat{i}$. For
+  $\Sigma_n$ a set of $n$\nbd-dimensional generators of $C$, there
+  exists a unique function
+  \[
+    \begin{aligned}
+      C_n &\to \Z\Sigma_n\\
+      x &\mapsto [x]
+    \end{aligned}
+  \]
+  such that:
+  \begin{itemize}
+    \item if $x \in \Sigma_n$, then $[x]=x$ (seen as a generator of
+      $\Z\Sigma_n$),
+    \item $[x\comp{i} y]=[x]+[y]$.
+    \end{itemize}
+    Moreover, this function induces an isomorphism
+    \[
+      \lambda_n(C) \overset{\simeq}{\longrightarrow} \Z\Sigma_n.
+    \]
+  \end{lemma}
+  \begin{paragr}
+  With the same notations as the above lemma, for each $\alpha \in
+  \Sigma_n$, we can also consider the projection $\Z \Sigma_n \to \Z
+  \langle \alpha \rangle \simeq \Z$, and thus we get a
+  function
+  \[
+    \wght{\alpha} \colon C_n \to \Z
+  \]
+  such that:
+  \begin{itemize}
+    \item for $\beta \in \Sigma_n$, $\wght{\alpha}(\beta)=1$ if $\beta=\alpha$ and $\wght{\alpha}(\beta)=0$
+      otherwise,
+    \item for $x,y \in C_n$ that are $\comp{i}$\nbd-composable, $\wght{\alpha}(x\comp{i}y)=\wght{\alpha}(x)+\wght{\alpha}(y)$.
+    \end{itemize}
+    It can be shown that, for each $\alpha \in \Sigma_n$, $\wght{\alpha}$ is the unique function which
+    satisfies these properties. We refer to these functions as \emph{weight functions}. We thus
+    have
+    \[
+      [x]=\sum_{\alpha \in \Sigma_n}\wght{\alpha}(x)\cdot \alpha.
+    \]
+\end{paragr}
+The following proposition follows immediatly.
+\begin{proposition}
+  Let $C$ be an  \ook{i}\nbd-category, with $i \in \N\cup
+  \set{\omega}$. Suppose that $C$ is free on a polygraph in
+  $\opCat{i}$ and let $(\Sigma_n)_{n \geq 0}$ be a basis of $C$. The
+  chain complex $\lambda_n(C)$ is isomorphic to
+  \[
+    \Z \Sigma_0 \leftarrow \Z \Sigma_1 \leftarrow \cdots,
+  \]
+  where the differential is given on generators by
+  \[
+    \partial(x)=[\tge{x}]-[\sce{x}].
+  \]
+\end{proposition}
+\subsection{Polygraphic homology with coefficient}
+\begin{paragr}
+  Let $C$ be a small category and $u \colon c \to d$ a morphism of
+  $C$. We define the category $\tr{C}{u}$ in the following fashion
+  \begin{itemize}
+  \item an object is a triple $(x,f,g)$, where $x$ is an object of
+    $C$, $f \colon c \to x$ and $g \colon x \to d$ such that $u=gf$
+    \[
+      \begin{tikzcd}[column sep=tiny]
+        &x\ar[dr,"g"]&\\
+        c \ar[ur,"f"]\ar[rr,"u"'] & &d
+      \end{tikzcd}
+    \]
+  \item a morphism $(x,f,g) \to (x',f',g')$ consists of a morphism $h
+    \colon x \to x'$ such that $h f = f'$ and $g h=g'$,
+    i.e.\ a ``morphism of factorisations''
+    \[
+      \begin{tikzcd}
+        & x \ar[dr,"g"]\ar[dd,"h"]&\\
+        c \ar[ur,"f"] \ar[dr,"f'"'] & & d \\
+        & x'. \ar[ur,"g'"']& 
+      \end{tikzcd}
+    \]
+    % such that the following diagram is commutative
+    % \[
+    %   \begin{tikzcd}
+    %     &x'\ar[rdd,"g'"]&\\
+    %     &x\ar[dr,"g"']\ar[u,"h" near start]&\\
+    %     c \ar[ur,"f"']\ar[rr,"u"']\ar[uur,"f'"] & &d.
+    %   \end{tikzcd}
+    %   \]
+    \end{itemize}
+    The composition and units are defined in the obvious way. Notice that a morphism $h \colon (x,f,g) \to (x',f',g')$ is
+    completely determined by the data of $f$, $h$ and $g'$, such that
+    $g'hf = u$. This last equality means exactly that the pair
+    $(f,g')$ is a morphism from $h$ to $u$ in the category
+    $\Tw{C}$. All in all, we
+    have the following useful alternative description:
+    \begin{itemize}
+    \item a morphism of $\tr{C}{u}$ consists of a triple $(h,f,g')$
+      such that $h$ is a morphism of $C$ and $(f,g')$ is an arrow of
+      $\Tw{C}$ from $h$ to $u$
+      \[
+        \begin{tikzcd}
+          x \ar[r,"h"]& x' \ar[d,"g'"]\\
+          c\ar[u,"f"] \ar[r,"u"] & d.
+        \end{tikzcd}
+      \]
+      The source of $(h,f,g')$ is the triple $(x,f,g'h)$ and the target
+      is the triple $(x,hf,g')$.
+    \end{itemize}
+    
+    % It is useful to notice that we have an bijection of sets
+    % \[
+    %   \Mor(\tr{C}{u}) \simeq \coprod_{h \in \Mor(C)}\homset{\Tw{C}}{\id_{\tge{h}}}{u}.
+    % \]
+    % In other uords, a morphism of 
+  \end{paragr}
+  \begin{remark}
+    Note that there are canonical projection functors
+    \[
+      \begin{aligned}
+        \tr{C}{u} &\to \tr{C}{d}\\
+        (x,f,g) &\mapsto (x,g)
+      \end{aligned}
+    \]
+    and
+    \[
+      \begin{aligned}
+        \tr{C}{u} &\to \cotr{C}{c}\\
+        (x,f,g) &\mapsto (x,f).
+      \end{aligned}
+    \]
+  \end{remark}
+  \begin{lemma}\label{lemma:projcond}
+    The canonical projection functor
+    \[
+      \begin{aligned}
+        \tr{C}{u} &\to C\\
+        (x,f,g) &\mapsto x
+      \end{aligned}
+    \]
+    is a discrete Conduché fibration. 
+  \end{lemma}
+  \begin{proof}
+    TODO: À écrire (mais c'est facile)
+  \end{proof}
+  \begin{lemma}
+    The category $\tr{C}{u}$ has both an initial and terminal object.
+  \end{lemma}
+  \begin{proof}
+    The initial object is given by $(c,\id_{c},u)$ and the terminal
+    object by $(d,u,\id_{d})$.
+  \end{proof}
+
+  \begin{paragr}\label{paragr:slicepol}
+    Let $C$ be a $\pair{1}{k}$\nbd-category with $k \in \set{0,1}$
+    (i.e.\ either a category or a groupoid), and let
+    \[
+       P \to C
+    \]
+    be a polygraphic resolution in $\opCat{i}$ for some $i \geq
+    k$. Namely, this means that $P$ is free on a \ook{i}-polygraph and
+    $P\to C$ is a trivial fibration. For $x$ an $n$\nbd-cell of $P$,
+    let us denote by $\overline{x}$ its image in $C$ by this trivial
+    fibration. Note that for $n>1$, this is necessarily a degenerate
+    $1$\nbd-cell because $C$ is a $1$\nbd-category. We shall abusively
+    use the
+    same notation $\overline{x}$ for this unique $1$\nbd-cell of $C$.
+  \end{paragr}
+  \begin{paragr}
+    For every arrow $u\colon c \to d$ of $C$, we define an
+    \ook{i}\nbd-category $\tr{P}{u}$ as the following fibred product
+    \[
+      \begin{tikzcd}
+        \tr{P}{u} \ar[r] \ar[d] & P \ar[d] \\
+        \tr{C}{u} \ar[r] & C.
+        \ar[from=1-1,to=2-2,phantom,"\lrcorner" very near start]
+      \end{tikzcd}
+    \]
+    Explicitly, an $n$\nbd-cell of $\tr{P}{u}$ consists of a
+      triple $(\alpha,f,g)$, where $\alpha$ is an $n$\nbd-cell of $P$,
+      $f \colon c \to \src{0}\overline{\alpha}$ and $g \colon
+      \tgt{0}\overline{\alpha}\to d$ are arrows of $C$ such that
+      $g\overline{\alpha}f=u$ (with the convention that for $n=0$,
+      $\src{0}\alpha=\tgt{0}\alpha=\alpha$). The sources
+      and targets are given by
+      \[
+        \sce{(\alpha,f,g)}=\begin{cases}
+          (\sce{}\alpha,f,g)& \text{ if } n>1, \\
+          (\sce{}\alpha,f,g\overline{\alpha})& \text{ if } n=1
+          \end{cases}
+        \]
+        and
+        \[
+          \tge{(\alpha,f,g)}=\begin{cases}
+          (\tge{}\alpha,f,g)& \text{ if } n>1, \\
+          (\tge{}\alpha,\overline{\alpha}f,g)& \text{ if } n=1.
+          \end{cases}
+        \]
+    By stability of the class of discrete Conduché fibrations under
+    pullback, it follows from \cref{lemma:projcond} that the morphism
+    $\tr{P}{u}\to P$ is a discrete Conduché fibration, and thus by
+    \ref{} $\tr{P}{u}$ is free on an
+    \ook{i}\nbd-polygraph. Explicitly, if $\Sigma_n$ is an
+    $n$\nbd-base of $P$, then an $n$\nbd-base of $\tr{P}{u}$ is given
+    by
+    \[
+      \tr{\Sigma_n}{u}:=\setof{(\alpha,f,g)}{\alpha \in \Sigma_n}.
+    \]
+    In fact,
+    we will show a stronger freeness property in
+    \cref{prop:cofprojresol} below. Similarly, by
+    stability of the class of trivial fibration by pullback, it
+    follows that \[\tr{P}{u} \to \tr{C}{u}\] is a trivial fibration,
+    and thus a polygraphic resolution in $\opCat{i}$.
+  \end{paragr}
+  \begin{definition}
+    A \oo\nbd-category $C$ is \emph{oplax left contractible} if
+    there exists an object $x_0$ of $C$ and an oplax transformation
+    \[
+      \begin{tikzcd}
+        C \ar[r] \ar[dr,""{name=toto},"\id_{C}"'] & \Term
+        \ar[d," x_0"] \\
+        & C,
+        \ar[from=toto,to=1-2,Rightarrow,"\eta"]
+      \end{tikzcd}
+    \]
+    where $\Term$ is the terminal category.% , such that the composite
+    % \[
+    %   \begin{tikzcd}
+    %     \Term \ar[r,"x_0"]& C\ar[r,bend left,""{name=A,below}]
+    %     \ar[r,bend right,""{name=B,above}]& C
+    %     \ar[from=A,to=B,"\eta",Rightarrow]
+    %   \end{tikzcd}
+    % \]
+    % is the identity transformation on $\Term
+    % \overset{x_0}{\longrightarrow} C$.
+
+    Dually, $C$ is \emph{oplax right contractible} if there exists an
+    object $y_0$ of $C$ and an oplax transformation
+          \[
+      \begin{tikzcd}
+        C \ar[r] \ar[dr,""{name=toto},"\id_{C}"'] & \Term
+        \ar[d," y_0"] \\
+        & C.
+        \ar[from=1-2,to=toto,Rightarrow,"\epsilon"]
+      \end{tikzcd}
+    \]
+    %  such that the composite
+    % \[
+    %   \begin{tikzcd}
+    %     \Term \ar[r,"y_0"]& C\ar[r,bend left,""{name=A,below}]
+    %     \ar[r,bend right,""{name=B,above}]& C
+    %     \ar[from=A,to=B,"\epsilon",Rightarrow]
+    %   \end{tikzcd}
+    % \]
+    % is the identity transformation on $\Term
+    % \overset{y_0}{\longrightarrow} C$.
+  \end{definition}
+  \begin{example}
+    Since oplax transformations between functors into a
+    ($1$\nbd-)category are simply natural transformations, it follows
+    that a ($1$\nbd-)category that has an terminal (resp.\ initial) object is oplax
+    left (resp.\ right) contractible.
+  \end{example}
+  % \begin{remark}
+  %   In the case that $C$ is a $1$\nbd-category, this is equivalent to
+  %   the usual notions of initial and terminal objects, since oplax
+  %   transformations then reduces to natural transformations.
+  % \end{remark}
+  \begin{lemma}\label{lemma:oplaxterm}
+  The \oo\nbd-category $\tr{P}{u}$ is both left and right oplax contractible.
+  \end{lemma}
+  \begin{proof}
+    As already observed, $\tr{C}{u}$ both has a terminal and a initial
+    objects, hence it is both oplax left and right contractible. Let us treat the case of
+    oplax left contractibility of $\tr{P}{u}$, as the other one can be
+    deduced by duality.
+
+    Since $P \to C$ is a trivial fibration, there exists an object $x$
+    of $P$ which is sent to $d=\tge{u}$. It follows that the object
+    $(x,u,\id_d)$ of $\tr{P}{u}$ is sent to the terminal object
+    $(d,u,\id_d)$ of $\tr{C}{u}$. Consider now the following
+    commutative diagram
+    \[
+      \begin{tikzcd}
+        \Sph{0}\tens{\omega,i}\tr{P}{u} \ar[r] \ar[d] & \tr{P}{u} \ar[d]\\
+        \Dsk{1}\tens{\omega,i}\tr{P}{u} \ar[r] & \tr{C}{u},
+      \end{tikzcd}
+    \]
+    where the top arrow is
+    \[
+      \begin{tikzcd}[column sep=huge]
+      \Sph{0}\tens{\omega,i}\tr{P}{u} \simeq \tr{P}{u}\coprod\tr{P}{u}
+      \ar[r,"{\langle\id,\mathrm{cst}_{(x,u,\id_d)}\rangle}"]&\tr{P}{u}
+      \end{tikzcd}
+    \]
+    and the bottow arrow is
+    \[
+      \Dsk{1}\tens{\omega,i}\tr{P}{u} \to
+      \Dsk{1}\tens{\omega,i}\tr{C}{u} \overset{\eta}{\longrightarrow}
+       \tr{C}{u},
+     \]
+     where $\eta$ is the oplax transformation witnessing $(d,u,\id_d)$
+     as a terminal object of $\tr{C}{u}$. 
+    Since $\tr{P}{u}\to \tr{C}{u}$ is a trivial fibration and
+    $\Sph{0}\tens{\omega,i}\tr{P}{u} \to \Dsk{1}\tens{\omega,i}\tr{P}{u}$ is a
+    cofibration, there exists a lift $\Dsk{1}\tens{\omega,i}\tr{P}{u}
+    \to \tr{P}{u}$ that makes the previous square commutative. This
+    gives the desired oplax transformation.
+    % $\tr{P}{w} \to \tr{C}{w}$ is a trivial fibration, it is in
+    % particular surjective on objects. Hence, there exists an object
+    % $x$ of $P$
+  \end{proof}
+  \begin{paragr}
+      Keeping the notation of \ref{paragr:slicepol}, the construction of $u\mapsto \tr{C}{u}$ extends to a canonical functor
+    \[
+        \tr{C}{-}\colon \Tw{C} \to \Cat,
+      \]
+      where an arrow $(f,g) \colon u \to u'$ of $\Tw{C}$ is sent to the functor
+      \[
+        \begin{aligned}
+          \tr{C}{u} &\to \tr{C}{u'}\\
+          (x,p,q) &\mapsto (x,pf,gq)\\
+          (h,p,q) &\mapsto (h,pf,gq).
+        \end{aligned}
+      \]
+      
+    A similar construction allows to define a functor
+    \[
+      \begin{aligned}
+       \tr{P}{-}\colon \Tw{C} &\to \opCat{i} \\
+        u &\mapsto \tr{P}{u}.
+      \end{aligned}
+    \]
+  \end{paragr}
+  \begin{proposition}\label{prop:cofprojresol}
+    Let $C$ be a $\pair{1}{k}$\nbd-category with $k \in \set{0,1}$
+    (i.e.\ either a category or a groupoid), and $P \to C$ a
+    polygraphic resolution in $\opCat{i}$, for some $i\in
+    \N\cup\set{\omega}$ such that $i\geq k$. The functor
+    \[
+      \tr{P}{-} \colon \Tw{C} \to \opCat{i},
+    \]
+   is cofibrant for the projective model structure on $\fun{\Tw{C}}{\opCat{i}}$.
+  \end{proposition}
+  \begin{proof}
+    Let $u\colon c \to d$ be a morphism of $C$ and let $(\Sigma_n)_n$
+    be a basis of $P$. As we have already seen, the canonical morphism
+    \[
+      \tr{P}{u} \to P,
+    \]
+    is a Conduché fibration and thus $\tr{P}{u}$ is free on an
+    \ook{i}\nbd-polygraph, with a basis given by $(\tr{\Sigma_n}{u})_n$
+    with
+    \[
+      \tr{\Sigma_n}{u}:=\setof{(\alpha,f,g)}{\alpha \in
+        \Sigma_n}\simeq \coprod_{\alpha \in \Sigma_n}\homset{\Tw{C}}{\overline{\alpha}}{u}.
+    \]
+    In other words, for any $n > 0$, we have the following pushout
+    square in \ook{i}
+    \[
+      \begin{tikzcd}
+        \displaystyle\coprod_{\alpha \in \Sigma_n}\coprod_{\homset{\Tw{C}}{\overline{\alpha}}{u}}\Sph{n-1} \ar[r]\ar[d] &
+        \trk{n-1}(\tr{P}{u}) \ar[d] \\
+            \displaystyle \coprod_{\alpha \in \Sigma_n}\coprod_{\homset{\Tw{C}}{\overline{\alpha}}{u}}\Dsk{n} \ar[r] &
+            \trk{n}(\tr{P}{u})
+            \ar[from=1-1,to=2-2, phantom, very near end,"\ulcorner"]
+      \end{tikzcd}
+    \]
+    It is straightforward to check that this pushout square is
+    natural in $u$, and thus defines a pushout square in the category
+    $\fun{\Tw{C}}{\opCat{i}}$. Since for any morphism $v$ of $C$, the morphism
+    \[
+      \coprod_{\homset{\Tw{C}}{v}{-}}\Sph{n-1}\to \coprod_{\homset{\Tw{C}}{v}{-}}\Dsk{n}
+    \]
+    is a cofibration for the projective model structure on
+    $\fun{\Tw{C}}{\opCat{i}}$ induced by the folk model structure on
+    $\opCat{i}$, it follows that
+    \[
+      \trk{n-1}(\tr{P}{-}) \to \trk{n}(\tr{P}{-})
+    \]
+    is also a cofibration for the projective model structure. By
+    stability of cofibrations by transfinite composition, it follows
+    that $\tr{P}{-}$ is cofibrant.
+  \end{proof}
+  \begin{paragr}
+    Keeping the notations from the previous proposition, by applying
+    the abelianization functor $\lambda$, we get a augmented chain
+    complex of left $\Tw{C}$\nbd-modules
+    \[
+      \cst{\Z} \leftarrow \lambda_0(\tr{P}{-}) \leftarrow
+      \lambda_1(\tr{P}{-}) \leftarrow \cdots,
+    \]
+    where the augmentation $\cst{\Z} \leftarrow \lambda_0(\tr{P}{-})$
+    is induced by the canonical morphism $\tr{P}{u} \to \Term$, which
+    is obviously natural in $u$.
+  \end{paragr}
+  The fundamental theorem of polygraphic homology is the following.
+  \begin{theorem}\label{fundthm}
+       Let $C$ be a $\pair{1}{k}$\nbd-category with $k \in \set{0,1}$
+    (i.e.\ either a category or a groupoid), and $P \to C$ a
+    polygraphic resolution in $\opCat{i}$, for some $i\in
+    \N\cup\set{\omega}$ such that $i\geq k$. The augmented chain
+    complex of left $\Tw{C}$\nbd-modules
+        \[
+      \cst{\Z} \leftarrow \lambda_0(\tr{P}{-}) \leftarrow
+      \lambda_1(\tr{P}{-}) \leftarrow \cdots,
+    \]
+    is a projective resolution of $\cst{\Z}$.
+  \end{theorem}
+  \begin{proof}
+    Recall that the abelianization functor $\lambda \colon \opCat{i}
+    \to \Chp$ is monoidal with respect to the Gray tensor product on
+    $\opCat{i}$ and the usual tensor product of chain complexes on
+    $\Chp$, and is left Quillen with respect to the folk model
+    structure on $\opCat{i}$ and the \emph{projective} model structure
+    on $\Chp$. The fact that each $\lambda_i(\tr{P}{-})$ is projective then
+    follows from \cref{prop:cofprojresol} and the fact that $\lambda$
+    is left Quillen.
+    The fact that the augmented chain complex $\Z \leftarrow
+    \lambda_{\bullet}(\tr{P}{u})$ is a resolution of $\Z$ for any $u$
+    follows from \cref{lemma:oplaxterm} and the fact that, since $\lambda$ is
+    monoidal, it sends oplax transformation to homotopies of chain complexes.  This proves the result since homology in the category of
+    left $\Tw{C}$\nbd-modules is computed pointwise.
+  \end{proof}
+    \lgcomment{Je pense que c'est là que se cache le loup dans la
+    section 23.3 du polybook. Ce complexe
+  de chaînes est décrit ``à la main'' et on retrouve bien les
+  $n$-chaines du paragrphe
+  \ref{paragr:descres} ci-contre. Par contre, il me semble que la
+  description de la différentielle donnée dans le polybook n'est pas
+  suffisante car ne sont décrits que les images des générateurs de la
+  forme $(\alpha,\id,\id)$. Dans l'approche que j'ai pris je sais formellement que
+  cette différentielle existe car
+  je sais que complexe de chaînes est l'abélianisé d'un polygraphe
+  (grâce à la technique avec Conduché), et la description de la
+  différentielle se déduit alors des formules générales.}
+  \begin{paragr}\label{paragr:descres}
+    We keep the notations from \cref{fundthm}. We can be more
+    precise as the resolution
+    \[
+      \cst{\Z} \leftarrow \lambda_0(\tr{P}{-}) \leftarrow
+      \lambda_1(\tr{P}{-}) \leftarrow \cdots
+    \]
+    is actually a \emph{free} resolution of left
+    $\Tw{C}$\nbd-modules. %  To see
+    % that, let $(\Sigma_n)_{n}$ be a basis of $P$. It follows from
+    % \ref{} that for every morphism $w\colon c \to d$ of $C$, $\tr{P}{w}$ as for
+    % basis $(\tr{\Sigma_n}{u})_n$, where
+    % \[
+    %   \tr{\Sigma_n}{w}:=\coprod_{x \in \Sigma_n}\homset{\Tw{C}}{\pi(\tgt{0}(x))}{w},
+    % \]
+    % that is to say that a generating $n$\nbd-cell of $\tr{P}{w}$ consists of a
+    % triple $(x,f,g)$, where $x \in \Sigma_n$, $f \colon c \to
+    % \pi(\tgt{0}(x))$ and $g \colon \pi(\tgt{0}(x)) \to d$ are arrows
+    % of $C$ such that
+    % \[
+    %   w=gf.
+    % \]
+    Indeed, if $(\Sigma_n)_n$ is a basis of $P$, it follows from
+    \cref{lemma:abelpol} and paragraph \ref{paragr:slicepol} that the resolution takes the form
+    \[
+       \cst{\Z} \leftarrow \bigoplus_{\alpha \in \Sigma_0}\Z
+       \homset{\Tw{C}}{\id_{\overline{\alpha}}}{-} \leftarrow \bigoplus_{\alpha \in \Sigma_1}\Z
+       \homset{\Tw{C}}{\overline{\alpha}}{-} \leftarrow % \bigoplus_{\alpha \in \Sigma_2}\Z
+       % \homset{\Tw{C}}{\overline{\alpha}}{-} \leftarrow
+       \cdots
+     \]
+     Let $u$ be an arrow of $C$. For $n>1$, the differential
+     \[
+       \partial \colon \bigoplus_{\alpha \in
+         \Sigma_{n}}\Z\homset{\Tw{C}}{\overline{\alpha}}{u} \to \bigoplus_{\alpha \in
+         \Sigma_{n-1}}\Z\homset{\Tw{C}}{\overline{\alpha}}{u}
+     \]
+     is given on generators by the formula
+     \[
+       \partial(\alpha,f,g)=\sum_{\beta \in
+         \Sigma_{n-1}}\sum_{(h,i)\in
+         \homset{\Tw{C}}{\overline{\beta}}{u}}(\wght{(\beta,h,i)}(\tgt{\alpha},f,g)
+       -\wght{(\beta,h,i)}(\src{\alpha},f,g))\cdot(\beta,h,i),
+     \]
+     and for $n=1$, by the formula
+     \[
+       \partial(\alpha,f,g)=\sum_{\beta \in \Sigma_0}\sum_{(h,i)\in \homset{\Tw{C}}{\id_{\overline{\beta}}}{u}}\wght{(\beta,h,i)}(\tgt{\alpha},\overline{\alpha}f,g)-\wght{(\beta,h,i)}(\src{\alpha},f,g\overline{\alpha}).
+     \]
+  \end{paragr}
+  We then deduce the following theorem, which says that the homology
+  of $C$ with coefficient in a natural system is given by the
+  polygraphic complex ``twisted'' by the natural system.
+  \begin{theorem}\label{polhom}
+    Let $C$ be a $\pair{1}{k}$\nbd-category with $k \in \set{0,1}$
+    (i.e.\ either a category or a groupoid) and $\M$ be a natural
+    system over $C$. Then, for any $i\in
+    \N\cup\set{\omega}$ such that $i\geq k$, and any $P \to C$ 
+    polygraphic resolution in $\opCat{i}$, with a given basis
+    $(\Sigma_n)_{n\geq 0}$, the Baues-Wirsching
+    homology $\Ho^{BS}_{\bullet}(C,\M)$ is isomorphic to the homology
+    of the chain complex
+\[         \bigoplus_{\alpha \in \Sigma_0}\M_{\id_\alpha}\leftarrow \bigoplus_{\alpha \in
+        \Sigma_1}\M_{\overline{\alpha}} \leftarrow \bigoplus_{\alpha \in
+        \Sigma_2}\M_{\overline{\alpha}} \leftarrow \cdots,
+    \]
+    where the differential is given by
+    \[
+      \partial(\alpha,m)=\sum_{\beta \in
+        \Sigma_{n-1}}\left(\beta,\sum_{(f,g)\in
+        \homset{\Tw{C}}{\beta}{\overline{\alpha}}}(\wght{(\beta,f,g)}(\tgt{\alpha})-\wght{(\beta,f,g)}(\src{\alpha}))\cdot
+      (f^*,g_*)(m)\right)
+  \]
+  \end{theorem}
+
+  % \begin{corollary}\label{polhom}
+  %   Let $C$ be a $\pair{1}{k}$\nbd-category with $k \in \set{0,1}$
+  %   (i.e.\ either a category or a groupoid) and $\M$ be a natural
+  %   system over $C$. Then, for any $i\in
+  %   \N\cup\set{\omega}$ such that $i\geq k$, and any $P \to C$ 
+  %   polygraphic resolution in $\opCat{i}$, the Baues-Wirsching
+  %   homology $\Ho^{BS}_{\bullet}(C,\M)$ is isomorphic to the homology
+  %   of the chain complex
+  %   \[
+  %      \M \tens{\Z \Tw{C}}\lambda_0(\tr{P}{-})\leftarrow
+  %     \M \tens{\Z \Tw{C}}\lambda_1(\tr{P}{-}) \leftarrow \cdots
+  %   \]
+  % \end{corollary}
+
+  % \begin{paragr}
+  %   Keeping the notations from \cref{polhom}, we can be more
+  %   precise. Let $(\Sigma_n)_n$ be a basis of $P$, then the
+  %   Baues-Wirsching homology
+  %   of $C$ with coefficient in $\M$ is isomorphic to the chain complex
+  %   \[
+  %     \bigoplus_{x \in \Sigma_0}\M_{\id_x}\leftarrow \bigoplus_{x \in
+  %       \Sigma_1}\M_{\overline{x}} \leftarrow \bigoplus_{x \in
+  %       \Sigma_2}\M_{\overline{x}} \leftarrow \cdots
+  %   \]
+  %   In particular, if we take $\M=\cst{\Z}$, then we recover the usual
+  %   complex defining the polygraphic homology. This shows in particular that
+  %   the homology of a $1$\nbd-category (resp.\ a groupoid) can be
+  %   computed using polygraphic resolutions in strict
+  %   \ook{1}\nbd-categories (resp.\ strict \oo\nbd-groupoids). The same
+  %   goes for any kind of coefficient (e.g.\ $C$\nbd-module).
+  % \end{paragr}
+% \begin{paragr}
+%   Let $C$ be a $(1,k)$\nbd-category for $k\in \set{0,1}$ (i.e.\ either
+%   a groupoid or a category), let
+%   \[
+%     \pi \colon \frcat{P} \to C
+%   \]
+%   be a polygraphic resolution in $\opCat{i}$ with $i\in
+%   \N\cup\set{\omega}$ such that $i \geq k$. Notice that since $C$ is a
+%   $1$\nbd-category, for any $n$\nbd-cell of $P$ with $n\geq 1$,
+%   $\pi(x)$ is the iterated identity of a unique $1$\nbd-cell (i.e.\ an
+%   arrow) of $C$. We will also denote this arrow by $\pi(x)$.
+
+  
+%   Now, let $\M$ a natural system over $C$, we define a chain complex
+%   $\lambda(P,\M)$ as follows. For $n=0$, we set
+%   \[
+%     \lambda_0(P,\M):=\bigoplus_{x \in P_0}\M_{\id_x}
+%   \]
+%   For $n\geq 1$, we set
+%   \[
+%     \lambda_n(P,\M):=\bigoplus_{x \in P_n} \M_{\pi(x)}.
+%   \]
+%   For $n=1$, the differential $\partial_1$ is defined as
+%   \[
+%     \begin{aligned}
+%       \lambda_1(P,\M)&\to \lambda_0(P,\M)\\
+%       (x,m)&\mapsto (t(x),)-(s(x),)
+%     \end{aligned}
+%   \]
+% \end{paragr}
+\end{document}

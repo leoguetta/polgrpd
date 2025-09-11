@@ -189,7 +189,31 @@ morphism
   \tr{P}{c} \to P
 \]
 is a discrete Conduché functor. By , it follows that
-$\tr{P}{c}$ is a polygraph in $\opCat{i}$, and more precisely, if
-$\Sigma_n$ is a set of generators of dimension $n$ of $P$, then...
+$\tr{P}{c}$ is a polygraph in $\opCat{i}$. More precisely, let
+$\Sigma_n$ be a set of generators of dimension $n$ of $P$, and let us
+denote by $\tr{\Sigma_n}{c}$ the set
+\[
+  \tr{\Sigma_n}{c}=\setof{(x,f)}{x \in \Sigma_n, f : \target_0(x) \to c
+    \text{ in }C}.
+\]
+By \ref{}, we know that $\tr{\Sigma_n}{c}$ is a set of generators of
+dimension $n$ of the polygraph $\tr{P}{c}$. In particular, this means
+that we have a cocartesian square
+\[
+  \begin{tikzcd}[column sep=huge]
+   \displaystyle \coprod_{x \in \Sigma_n}\coprod_{f \in
+     \homset{C}{\target_0(x)}{c}}\Sph{n-1} \ar[d]\ar[r,"{\langle \source(x,f),\target(x,g) \rangle}"]& \trk{n-1}\tr{P}{c} \ar[d]\\
+    \displaystyle \coprod_{x \in \Sigma_n}\coprod_{f \in
+     \homset{C}{\target_0(x)}{c}}\Dsk{n}\ar[r,"{\langle x,f \rangle}"'] & \trk{n}\tr{P}{c}
+\ar[from=1-2,to=2-2,phantom,"\ulcorner", very near end]
+ \end{tikzcd}
+\]
+It is straighforward to check that this square is natural in $c$, and
+thus, by definition of the projective fibrations, this proves that
+$\trk{n-1}\tr{P}{-} \to \trk{n}\tr{P}{-}$ is a projective
+cofibration. The conclusion follows from the stability of cofibration
+by transfinite composition.
+\lgcomment{Réécrire un peu cette preuve}
 \end{proof}
+
 
