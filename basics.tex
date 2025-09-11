@@ -148,7 +148,7 @@ $n\leq k$, the invertibility condition is void, and $\pair
 nk$-polygraphs are just  {\em $n$-polygraphs}.
 \begin{itemize}
 \item For $n=0$, an
-$n$-polygraph $P$ is just a set $P_0$, and the $\pair 0k$-category it
+$\pair{n}{k}$-polygraph $P$ is just a set $P_0$, and the $\pair 0k$-category it
 generates, denoted by $\frgp P$, is just the same set $P_0$.
 \item Let $n\in\N$ and suppose we have defined the notion of $\pair
   nk$-polygraph $Q$, together with the free $\pair nk$-category $\frgp
@@ -171,7 +171,7 @@ induction on $n$.
   $p:P\to P'$ is a pair $\pair q\phi$ where $q:Q\to Q'$ is a morphism of
   $\pair nk$-polygraphs and
 \[\phi=\pair fg:\pair{\frgp Q}{P_{n+1}}\to\pair{\frgp{Q'}}{P'_{n+1}} \]
- is a morphism of cellular extensions such that $f=\frf n q$. 
+ is a morphism of cellular extensions such that $f=\frf{n,k} q$. 
 \end{itemize}
 
 \begin{paragr}
@@ -193,12 +193,12 @@ a family of pairs of parallel cells in $C_n$, which amounts to a pair
 of maps
 \[\sce n,\tge n:S\to C_n\]
 satisfying the globular relations. The cellular extension
-$\pair CX$ generates an $\pair{n{+}1}{k}$-category $\extend{C}=\frf n\pair
+$\pair CX$ generates an $\pair{n{+}1}{k}$-category $\extend{C}=\frf{n,k}\pair
 CX$ such that $\trk n \extend{C}=C$. We shall describe the set $\frgp S=\extend{C}_{n+1}$ of
 $(n{+}1)$-cells of $\extend{C}$ by means of formal expressions
 based on $S$ and $C_n$, quotiented by an equivalence relation. Thus,
 given $S$ and $C_n$, we first define the formal language $\expr S$
-whose formulas are given by the folllowing grammar
+whose formulas are given by the following grammar
 \[
   e ::= \fcst{a} \mid \finv{a} \mid \fid{x} \mid (e\fcomp i e)
 \]
@@ -242,15 +242,15 @@ binary relation $\frel$ on $\wtx{S}$ as follows:
 \item For each $a:x\to y$ in $S$, $0\leq i< n$, $a_i^{-}=\unit n(\sce i
   x)$ and $a_i^{+}=\unit n(\tge i x)$, $(\fid{a_i^{-}}\fcomp{i}\finv{a})\frel
   \finv{a}$ and $(\finv a\fcomp{i} \fid{a_i^+})\frel \finv a$.  
- \item For all expressions $e_1,e_2,e_3$ in $\wtx S$ such that $e_1,e_2$ and
-   $e_2,e_3$ are $i$-composable, $((e_1\fcomp i e_2)\fcomp i e_3)\frel
-   (e_1\fcomp i(e_2\fcomp i e_3))$.
- \item For all expressions $e_1,e_2,e_3,e_4$ in $\wtx S$ and $i<j$
-   such that $e_1,e_2$ and $e_3,e_4$ are
-   $j$-composable and $e_1,e_3$ are $i$-composable,
+ \item For all expressions $w_1,w_2,w_3$ in $\wtx S$ such that $w_1,w_2$ and
+   $w_2,w_3$ are $i$-composable, $((w_1\fcomp i w_2)\fcomp i w_3)\frel
+   (w_1\fcomp i(w_2\fcomp i w_3))$.
+ \item For all expressions $w_1,w_2,w_3,w_4$ in $\wtx S$ and $i<j$
+   such that $w_1,w_2$ and $w_3,w_4$ are
+   $j$-composable and $w_1,w_3$ are $i$-composable,
    \[
-     ((e_1\fcomp i e_3)\fcomp j (e_2\fcomp i e_4))\frel ((e_1\fcomp j
-     e_2)\fcomp i (e_3\fcomp j e_4)).
+     ((w_1\fcomp i w_3)\fcomp j (w_2\fcomp i w_4))\frel ((w_1\fcomp j
+     w_2)\fcomp i (w_3\fcomp j w_4)).
    \]
   \item For each $a:x\to y$ in $S$, $(\fcst a\fcomp n\finv a)\frel
     \fid{x}$ and $(\finv a\fcomp n\fcst a)\frel \fid y$. 
@@ -262,8 +262,8 @@ binary relation $\frel$ on $\wtx{S}$ as follows:
   the set $\wtx S/\!\!\freq$ of equivalence classes of $\wtx S$ under
   $\freq$ and by
   \[\cans S: \wtx S\to \wtxeq S\]
-  the canonical surjection taking an expression $e$ to its
-  equivalence class $\cans S(e)=\fcls e$. As the type of an
+  the canonical surjection taking an expression $w$ to its
+  equivalence class $\cans S(w)=\fcls w$. As the type of an
   expression is invariant under $\frel$, therefore also under $\freq$, 
  the source and target maps
   \[\sce n,\tge n:\wtx S\to C_n\]
@@ -275,18 +275,18 @@ binary relation $\frel$ on $\wtx{S}$ as follows:
   \[\sce i,\tge i:\wtxeq S\to C_i\]
   by composing $\sce n,\tge n:\wtxeq S\to C_n$ with the maps $\sce i,\tge
   i:C_n\to C_i$ already given. Now, for any $i$-composable formal expressions
-  $e,e'\in \wtx S$ and $f=(e\fcomp i e')$, the class $\cans S(f)=\fcls f$ only
-  depends on $\fcls e$ and $\fcls{e'}$. Hence we may define 
+  $w,w'\in \wtx S$ and $w''=(w\fcomp i w')$, the class $\cans S(w'')=\fcls{w''}$ only
+  depends on $\fcls w$ and $\fcls{w'}$. Hence we may define 
  $\comp i$-compositions in $\wtxeq S$ by
- \[\fcls{e}\comp i\fcls{e'}=\fcls{(e\fcomp i e')}.\]
- \[\fcls{e}\comp i\fcls{e'}=\fcls{(e\fcomp i e')}.\]
+ \[\fcls{w}\comp i\fcls{w'}=\fcls{(w\fcomp i w')}.\]
+ \[\fcls{w}\comp i\fcls{w'}=\fcls{(w\fcomp i w')}.\]
  Also, to any $x\in C_n$ we associate its $n{+}1$-unit in $\wtxeq
   S$ by
-  \[\unit{n}(x)=\fcls{\fid x}.\]
+  \[\unit{n+1}(x)=\fcls{\fid x}.\]
   Let us define the $n{+}1$-globular set $\extend C$ by
   $\trk n\extend C=C$ and $\sce n,\tge n:\extend C_{n+1}=\wtxeq S\to C_n$.
   The axioms for $\frel$ easily ensure that $\extend C$, endowed with
-  the $\comp i$-compostions and units just defined is indeed an
+  the $\comp i$-compositions and units just defined is indeed an
   $\pair{n{+}1}{k}$-category. We claim that $\extend C$ so defined is
   in fact, up to isomorphism, the expected $\pair{n{+}1}{k}$-category
   $\frf n\pair CX$ freely generated by the cellular extension
@@ -294,13 +294,65 @@ binary relation $\frel$ on $\wtx{S}$ as follows:
   a$. This amounts to prove that $\extend C$ satisfies the following universal property.
   
 \begin{proposition}\label{prop:univprop}
-   Let $E$ be an  $\pair{n{+}1}{k}$-category $E$ such that $\trk n(E)=C$
+   Let $E$ be an  $\pair{n{+}1}{k}$-category $E$, $h:C\to\trk n E$ a
+   morphism of $\pair nk$-categories
    and  $f:S\to E_{n+1}$ a map such that, for any $a\in S$, $\sce n^Ef(a)=\sce n a$
     and $\tge n^E f(a)=\tge n a$.  There is a unique
-    morphism $\phi:\extend C\to E$ in $\npCat{n+1}{k}$ such that $\phi$ is the
-    identity on $\trk n(E)$ and for each $a\in S$, $\phi(\fcls{\fcst a})=f(a)$.
+    morphism $\phi:\extend C\to E$ in $\npCat{n+1}{k}$ such that $\trk
+    n\phi=h$ and for each $a\in S$, $\phi(\fcls{\fcst a})=f(a)$.
   \end{proposition}
-  
+  \begin{proof}
+We first prove uniqueness. As $\phi$ is supposed to coincide with $h$ on
+dimensions $\leq n$, we only need to prove uniqueness for its
+$(n{+}1)$-component
+\[\phi_{n+1}:\wtxeq S\to E_{n+1}.\]
+By abuse of
+language, we shall simply denote $\phi_{n+1}$ by $\phi$. Thus, suppose
+that $\phi$ satisfies the conditions of the proposition and let
+\[\psi=\phi \cans{S}:\wtx S\to E_{n+1}.\]
+   Let us check,
+   by structural induction on formal expressions, that the values of
+   $\psi$ are entirely determined:
+   \begin{itemize}
+   \item If $x\in C_n$ and $w=\fid x$, then $\psi w=\phi\cans{S}
+     w=\phi\unit{n+1}(x)=\unit{n+1}(\phi(x))=\unit{n+1}(h(x))$.
+   \item If $w=\fcst a$, then $\psi
+     w=\phi\cans{S}{\fcst{a}}=\phi\fcls a=f(a)$.
+   \item If $w=\finv a$, then $\psi w=\phi\cans{S}{\finv a}=\phi\fcls{\finv
+       a}$ but $\fcls{\finv a}$ is the $\comp n$-inverse of
+     $\fcls{\fcst a}$, so that $\psi w$ is necessarily the $\comp
+     n$-inverse of $f(a)$.
+   \item If $w=(w_1\fcomp i w_2)$, where $\psi w_1$ and $\psi w_2$ are
+     already determined, then
+     \[\psi w=\phi\cans{S}{(w_1\fcomp i w_2)}=\phi(\cans{S}{ w_1}\comp i \cans{S}
+      { w_2})=\psi w_1\comp i \psi w_2.\]
+  \end{itemize}
+  Now, as $\psi$ is uniquely determined and $\cans S$  is surjective,
+  $\phi$ is also uniquely determined.
+
+  As for the existence, we first define
+  \[\psi:\wtx S\to E_{n+1}\]
+  by structural induction on formal expressions, using the unique
+  parsing property of
+  $\expr S$. Thus we set the
+  following values:
+  \begin{itemize}
+  \item For each $x\in C_n$, $\psi(\fid x)=\unit{n+1}(h(x))$.
+  \item For each $a\in S$, $\psi(\fcst a)=f(a)$ and $\psi(\finv a)$ is
+    the $\comp n$-inverse of $f(a)$.
+  \item Given $w_1,w_2\in \wtx S$ such that $\psi(w_1)$ and
+    $\psi(w_2)$ are already defined and $w=(w_1\fcomp i w_2)$ is
+    well-typed for some $i\leq n$, then $\psi(w)=\psi(w_1)\comp
+    i\psi(w_2)$.
+  \end{itemize}
+  A straightforward case analysis shows that whenever $w\frel w'$,
+  then $\psi(w)=\psi(w')$. Therefore, if $w\freq w'$, then
+  $\psi(w)=\psi(w')$, whence $\psi$ factors through $\cans S$, that
+  is, there is a map $\phi:\wtxeq S\to E_{n+1}$ such that
+  $\psi=\phi\cans S$. By definition, $\phi(\fcls a)=f(a)$, and as $\phi$ so defined preserves source and target
+  maps, identities and $\comp i$-compositions, it yields the expected morphism
+  $\phi:\extend C\to E$ in $\npCat{n+1}k$.
+\end{proof}
   
  
 
