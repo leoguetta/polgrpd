@@ -224,7 +224,11 @@ cells in $C_n$, by the following structural induction:
  $C_n$, so that the maps $\sce n$, $\tge n$ extend to maps
  \[\sce n, \tge n :\wtx S\to C_n\]
  such that, if $\type wxy$,  then $\sce n w=x$ and $\tge n w=y$.
-
+ \begin{remark}
+   A key feature of our formal language is that it has the unique
+   parsing property. This allows constructing maps whose domain is $\wtx S$
+   by structural induction on the complexity of expressions.
+ \end{remark}
  \subsubsection{Equivalence among formal
    expressions}\label{ssubsec:eqform}
 Given $C$ and $S$ as in \ref{ssubsec:formex},  we define a
@@ -334,7 +338,7 @@ that $\phi$ satisfies the conditions of the proposition and let
   \[\psi:\wtx S\to E_{n+1}\]
   by structural induction on formal expressions, using the unique
   parsing property of
-  $\expr S$. Thus we set the
+  $\wtx S$. Thus we set the
   following values:
   \begin{itemize}
   \item For each $x\in C_n$, $\psi(\fid x)=\unit{n+1}(h(x))$.
