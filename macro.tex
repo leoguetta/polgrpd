@@ -3,18 +3,18 @@
 
 \swapnumbers
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[subsection]
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{theorem}{Theorem}[subsubsection]
+\newtheorem{corollary}[subsubsection]{Corollary}
+\newtheorem{proposition}[subsubsection]{Proposition}
+\newtheorem{lemma}[subsubsection]{Lemma}
 
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{paragr}[theorem]{} %Environnement "paragraphe"
+\newtheorem{definition}[subsubsection]{Definition}
+\newtheorem{example}[subsubsection]{Example}
+\newtheorem{paragr}[subsubsection]{} %Environnement "paragraphe"
 
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remark}[subsubsection]{Remark}
 
 % Cleveref definitions
 \crefname{theorem}{Theorem}{Theorems}
@@ -142,9 +142,9 @@
 \newcommand{\wtxeq}[1]{\fcls{\wtx{#1}}} % equiv classes of well typed expressions on #1
 \newcommand{\formal}[1]{\mathsf{#1}} % formal expressions style
 \newcommand{\fcst}[1]{\formal{c}_{#1}} % constant
-\newcommand{\finv}[1]{\overline{\formal{c}}_{#1}}% formal inverse
+\newcommand{\finv}[1]{\formal{c}^{-}_{#1}}% formal inverse
 \newcommand{\fid}[1]{\formal{i}_{#1}} % formal identity
-\newcommand{\fcomp}[1]{\bm{\ast}_{#1}} % formal composition
+\newcommand{\fcomp}[1]{\bm{\star}_{#1}} % formal composition
 \newcommand{\type}[3]{#1:#2\to #3} %typing rule
 \newcommand{\frel}{\sim} % relation on formal expressions
 \newcommand{\freq}{\simeq} %equivalence among formal expressions
@@ -162,6 +162,7 @@
 %OTHERS
 
 \newcommand{\nbd}{\nobreakdash} %Shortcut
+\newcommand{\extend}[1]{\overline{#1}} % extension of #1
 
 %COMMENTS
 
