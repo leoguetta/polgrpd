@@ -202,9 +202,7 @@ induction on $n$.
 
 \subsubsection{Formal expressions}\label{ssubsec:formex}
 Let $0\leq k\leq n$, $C$ be an $\pair nk$-category, and  $\clx CS$ a
-cellular extension of $C$ by a set $S$. Up to the end of the section,
-we fix 
-$C$, $S$ and $\sce n^S,\tge n^S:S\to C_n$. For each $a\in S$, and $x$,
+cellular extension of $C$ by a set $S$, with $\sce n^S,\tge n^S:S\to C_n$. For each $a\in S$, and $x$,
 $y\in C_n$, the notation $a:x\to y$ is short for 
 $x=\sce n^S(a)$ and $y=\tge n^S(a)$. 
 These data generate an $\pair{n{+}1}{k}$-category $\extend{C}=\frf{n,k}\clx
@@ -238,10 +236,12 @@ cells in $C_n$, by the following structural induction:
  $C_n$, so that the maps $\sce n^S$, $\tge n^S$ extend to maps
  \[\sce n^S, \tge n^S :\wtx S\to C_n\]
  such that, if $\type wxy$,  then $\sce n^S w=x$ and $\tge n^S w=y$.
- \begin{remark}
+ \begin{remark}\label{rk:parsing}
    A key feature of our formal language is that it has the unique
    parsing property. This allows constructing maps whose domain is $\wtx S$
-   by structural induction on the complexity of expressions.
+   by structural induction on the complexity of expressions. In
+   particular the map $\finc S:S\to\wtx S$ taking $a\in S$ to $\fcst
+   a$ is clearly injective.
  \end{remark}
  \subsubsection{Equivalence among formal
    expressions}\label{ssubsec:eqform}
@@ -311,21 +311,21 @@ binary relation $\frel$ on $\wtx{S}$ as follows:
   This amounts to prove that $\extend C$ satisfies the following universal property.
   
 \begin{proposition}\label{prop:univprop}
-   Let $E$ be an  $\pair{n{+}1}{k}$-category $E$, $f:C\to\trk n E$ a
+   Let $D$ be an  $\pair{n{+}1}{k}$-category $D$, $f:C\to\trk n D$ a
    morphism of $\pair nk$-categories
-   and  $h:S\to E_{n+1}$ a map such that, for any $a\in S$, $\sce n^Eh(a)=\sce n^S a$
-    and $\tge n^E h(a)=\tge n^S a$.  There is a unique
-    morphism $\phi:\extend C\to E$ in $\npCat{n+1}{k}$ such that $\trk
+   and  $h:S\to D_{n+1}$ a map such that, for any $a\in S$, $\sce n^Dh(a)=\sce n^S a$
+    and $\tge n^D h(a)=\tge n^S a$.  There is a unique
+    morphism $\phi:\extend C\to D$ in $\npCat{n+1}{k}$ such that $\trk
     n\phi=f$ and for each $a\in S$, $\phi_{n+1}(\fcls{\fcst a})=h(a)$.
   \end{proposition}
   \begin{proof}
 We first prove uniqueness. As $\phi$ is supposed to coincide with $f$ on
 dimensions $\leq n$, we only need to prove uniqueness for its
 $(n{+}1)$-component
-\[\phi_{n+1}:\wtxeq S\to E_{n+1}.\]
+\[\phi_{n+1}:\wtxeq S\to D_{n+1}.\]
  Thus, suppose
 that $\phi$ satisfies the conditions of the proposition and let
-\[\psi=\phi_{n+1} \cans{S}:\wtx S\to E_{n+1}.\]
+\[\psi=\phi_{n+1} \cans{S}:\wtx S\to D_{n+1}.\]
    Let us check,
    by structural induction on formal expressions, that the values of
    $\psi$ are entirely determined:
@@ -347,7 +347,7 @@ that $\phi$ satisfies the conditions of the proposition and let
   $\phi_{n+}$ is also uniquely determined and so is $\phi$.
 
   As for the existence, we first define
-  \[\psi:\wtx S\to E_{n+1}\]
+  \[\psi:\wtx S\to D_{n+1}\]
   by structural induction on formal expressions, using the unique
   parsing property of
   $\wtx S$. Thus we set the
@@ -364,11 +364,56 @@ that $\phi$ satisfies the conditions of the proposition and let
   A straightforward case analysis shows that whenever $w\frel w'$,
   then $\psi(w)=\psi(w')$. Therefore, if $w\freq w'$, then
   $\psi(w)=\psi(w')$, whence $\psi$ factors through $\cans S$, that
-  is, there is a map $\phi_{n+1}:\wtxeq S\to E_{n+1}$ such that
+  is, there is a map $\phi_{n+1}:\wtxeq S\to D_{n+1}$ such that
   $\psi=\phi_{n+1}\cans S$. This map preserves source and target,
   identities and $\comp i$-compositions and by definition, $\phi_{n+1}(\fcls
   a)=h(a)$, so that it extends $f$ to the required morphism $\phi$. 
 \end{proof}
+\begin{paragr}\label{paragr:addproperties}
+  Let $C$ be an $\pair{n{+}1}{k}$-category and $S$ a set. Any map
+  $p:S\to C_{n+1}$ immediately defines a cellular extension $\clx{\trk n C}{S}$ of
+  $\trk n C$ by $S$, with $\sce n^S=\sce n^C\circ p$ and $\tge
+  n^S=\tge n^C\circ p$. By~\cref{prop:univprop}, there is a unique
+  morphism
+  \[\phi:\frf n\clx{\trk nC}{S}\to C\]
+  extending the identity on $\trk n C$ such that, for each $a\in S$,
+  $\phi_{n+1}(\cans S(\fcst a))=p(a)$. The map
+  $\phi_{n+1}=\extend p:\wtxeq S\to C_{n+1}$ is therefore the unique
+ structure preserving map such that $p=\extend p\cans S\finc S$:
+  \[
+    \xymatrix{C_{n+1} & \wtxeq S\ar[l]_{\extend{p}} & \wtx S
+      \ar[l]_(.4){\cans{S}} & S\ar[l]_(.3){\finc{S}} \ar@/^1em/[lll]^p}
+  \]
+ Let now $D$ be another $\pair{n{+}1}{k}$-category, $T$ a set and
+ $q:T\to D_{n+1}$. We get as above a unique structure preserving map
+ $\extend q:\wtxeq T\to D_{n+1}$ such that $p=\extend p\cans T\finc
+ T$. Given $C$, $S$, $D$, $T$ as above, we now state the following
+ technical lemma.
+ \begin{lemma}\label{lemma:tech}
+   Let $f:C\to D$ a morphism in $\npCat {n+1}{k}$ and  $h:S\to T$ a
+   map such that the following diagram commutes:
+   \[
+     \xymatrix{C_{n+1} \ar[d]_{f_{n+1}}& S\ar[d]^h\ar[l]_(.4){p}\\
+       D_{n+1} & T\ar[l]^(.4){q}}.
+   \]
+   There is a  unique morphism $\phi:\frf n\clx{\trk n C}{S}\to \frf
+   n\clx{\trk n D}{T}$ extending $\trk n f$ and a unique structure preserving map $\extend
+   h:\wtx S\to\wtx T$ such that the following diagram commutes:
+    \begin{equation}
+     \label{eq:tech}
+     \xymatrix{
+     C_{n+1} \ar[d]_{f_{n+1}}& \wtxeq S\ar[l]^{\extend{p}}\ar[d]_{\phi_{n+1}} & \wtx S
+      \ar[l]^(.4){\cans{S}}\ar[d]^{\extend h} & S\ar[l]^(.3){\finc{S}}
+      \ar@/_1em/[lll]_p\ar[d]_h\\
+      D_{n+1} & \wtxeq T\ar[l]_{\extend{q}} & \wtx T
+      \ar[l]_(.4){\cans{T}} & S\ar[l]_(.3){\finc{T}} \ar@/^1em/[lll]^q}
+     \end{equation}
+   
+   
+ \end{lemma}
+ 
+  
+\end{paragr}
   
  
 
