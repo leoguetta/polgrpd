@@ -239,13 +239,48 @@ cells in $C_n$, by the following structural induction:
  $C_n$, so that the maps $\sce n^S$, $\tge n^S$ extend to maps
  \[\sce n^S, \tge n^S :\wtx S\to C_n\]
  such that, if $\type wxy$,  then $\sce n^S w=x$ and $\tge n^S w=y$.
- \begin{remark}\label{rk:parsing}
-   A key feature of our formal language is that it has the unique
-   parsing property. This allows constructing maps whose domain is $\wtx S$
-   by structural induction on the complexity of expressions. In
-   particular the map $\finc S:S\to\wtx S$ taking $a\in S$ to $\fcst
-   a$ is clearly injective.
- \end{remark}
+ \begin{paragr}
+   Let $\clx CS$ be a cellular extension of the $\pair nk$-category
+   $C$ by a set $S$. We denote by $\finc S:S\to \wtx S$ the map taking
+  $a\in S$ to $\fcst a\in\wtx S$. As our formal expressions have the
+  unique parsing property, the map $\finc S$ is clearly injective. Now let
+$D$ an $\pair{n+1}k$-category, $f:C\to \trk n
+   D$ a morphism. A map $g:\wtx S\to D_{n+1}$ is called {\em structure
+     preserving} if the following conditions hold:
+   \begin{itemize}
+   \item For each $w\in\wtx S$, $\sce n^Dg(w)=f_n(\sce n^S w)$ and
+     $\tge n^D w=f_n(\tge n^S w)$.
+    \item For each $a\in S$, $g(\finv a)$ is the inverse of $g(\fcst
+      a)$.
+    \item For each $x\in C_n$, $g(\fid x)=\unit{n+1}(f_n(x))$.
+    \item For each $w_1,w_2\in\wtx S$ and $i\leq n$ such that
+      $w=(w_1\fcomp i w_2)$ is well-typed, $g(w)=g(w_1)\comp i g(w_2)$.  
+    \end{itemize}
+    Given $C$, $S$, $D$ and $f$ as above, we may establish the following result.
+  \end{paragr}
+  \begin{lemma}\label{lemma:strucpres}
+    Let $h:S\to D_{n+1}$ a map such that $\sce n^Dh=f_n \sce
+    n^S$ and $\tge n^Dh=f_{n} \tge n^S$. There is a unique
+    structure preserving map
+    \[\extend h:\wtx S\to D_{n+1}\]
+    such that the following triangle commutes:
+    \[
+      \xymatrix{\wtx S\ar[d]_{\extend{h}} & S\ar[l]_(.4){\finc{S}}\ar[ld]^{h}\\
+      D_{n+1} &}.
+    \]
+  \end{lemma}
+  \begin{proof}
+    As $\wtx S$ has the unique parsing property, we may define
+    $\extend h(w)$ by structural induction on the complexity of the
+    well-typed expression $w$. If $w=\fcst a$, then $\extend
+    h(w)=h(a)$. If $w=\finv a$, then $\extend h(w)$ is the inverse of
+    $h(a)$. If $x\in C_n$ and $w=\fid x$, then $\extend
+    h(w)=\unit{n+1}_{f_n(x)}$. If $w$ is of the form $(w_1\fcomp i
+    w_2)$ where $\extend h(w_1)$ and $\extend h(w_2)$ are already
+    defined, then $\extend h(w)=\extend h(w_1)\comp i \extend h(w_2)$. The
+    commutation with source and target maps ensures that the values
+    $\extend h (w)$ are well-defined cells of $D_{n+1}$.
+  \end{proof}
  \subsubsection{Equivalence among formal
    expressions}\label{ssubsec:eqform}
 We now define a
@@ -329,48 +364,25 @@ $(n{+}1)$-component
  Thus, suppose
 that $\phi$ satisfies the conditions of the proposition and let
 \[\psi=\phi_{n+1} \cans{S}:\wtx S\to D_{n+1}.\]
-   Let us check,
-   by structural induction on formal expressions, that the values of
-   $\psi$ are entirely determined:
-   \begin{itemize}
-   \item If $x\in C_n$ and $w=\fid x$, then $\psi w=\phi_{n+1}\cans{S}
-     w=\phi_{n+1}\unit{n+1}(x)=\unit{n+1}(\phi_n(x))=\unit{n+1}(f(x))$.
-   \item If $w=\fcst a$, then $\psi
-     w=\phi_{n+1}\cans{S}{\fcst{a}}=\phi_{n+1}\fcls a=h(a)$.
-   \item If $w=\finv a$, then $\psi w=\phi_{n+1}\cans{S}{\finv a}=\phi_{n+1}\fcls{\finv
-       a}$ but $\fcls{\finv a}$ is the $\comp n$-inverse of
-     $\fcls{\fcst a}$, so that $\psi w$ is necessarily the $\comp
-     n$-inverse of $h(a)$.
-   \item If $w=(w_1\fcomp i w_2)$, where $\psi w_1$ and $\psi w_2$ are
-     already determined, then
-     \[\psi w=\phi_{n+1}\cans{S}{(w_1\fcomp i w_2)}=\phi_{n+1}(\cans{S}{ w_1}\comp i \cans{S}
-      { w_2})=\psi w_1\comp i \psi w_2.\]
-  \end{itemize}
-  Now, as $\psi$ is uniquely determined and $\cans S$  is surjective,
+   Because $\phi$ is a morphism, the  map $\psi$ is
+   structure-preserving, and by hypothesis $\psi(\fcst
+   a)=\phi_{n+1}\cans S(\fcst a)=h(a)$. Therefore, by the uniqueness
+   part of
+   Lemma~\ref{lemma:strucpres}, the map $\psi=\extend h$ is uniquely determined.
+As $\cans S$  is surjective,
   $\phi_{n+}$ is also uniquely determined and so is $\phi$.
 
-  As for the existence, we first define
+  As for the existence, by Lemma~\ref{lemma:strucpres}, there is a
+  structure preserving map
   \[\psi:\wtx S\to D_{n+1}\]
-  by structural induction on formal expressions, using the unique
-  parsing property of
-  $\wtx S$. Thus we set the
-  following values:
-  \begin{itemize}
-  \item For each $x\in C_n$, $\psi(\fid x)=\unit{n+1}(f(x))$.
-  \item For each $a\in S$, $\psi(\fcst a)=h(a)$ and $\psi(\finv a)$ is
-    the $\comp n$-inverse of $h(a)$.
-  \item Given $w_1,w_2\in \wtx S$ such that $\psi(w_1)$ and
-    $\psi(w_2)$ are already defined and $w=(w_1\fcomp i w_2)$ is
-    well-typed for some $i\leq n$, then $\psi(w)=\psi(w_1)\comp
-    i\psi(w_2)$.
-  \end{itemize}
+  such that $\psi(\fcst a)=h(a)$ for each $a\in S$. 
   A straightforward case analysis shows that whenever $w\frel w'$,
   then $\psi(w)=\psi(w')$. Therefore, if $w\freq w'$, then
   $\psi(w)=\psi(w')$, whence $\psi$ factors through $\cans S$, that
   is, there is a map $\phi_{n+1}:\wtxeq S\to D_{n+1}$ such that
   $\psi=\phi_{n+1}\cans S$. This map preserves source and target,
-  identities and $\comp i$-compositions and by definition, $\phi_{n+1}(\fcls
-  a)=h(a)$, so that it extends $f$ to the required morphism $\phi$. 
+  identities and $\comp i$-compositions and, by definition, $\phi_{n+1}(\fcls
+  {\fcst{a}})=h(a)$, so that it extends $f$ to the required morphism $\phi$. 
 \end{proof}
 \begin{paragr}\label{paragr:addproperties}
   Let $C$ be an $\pair{n{+}1}{k}$-category and $S$ a set. Any map
