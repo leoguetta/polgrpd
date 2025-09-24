@@ -54,7 +54,7 @@
 \newcommand{\cotarget}{\tau} % target
 \newcommand{\geninc}{\mathsf{i}} % inclusion of generators
 \newcommand{\cmp}{\circ} % composition
-\newcommand{\unit}[1]{1^{#1}} % unit
+\newcommand{\unit}[2]{1^{#1}_{#2}} % unit
 \newcommand{\homset}[3]{#1(#2,#3)} % homset in #1 from #2 to #3
 \newcommand{\fun}[2]{\mathbf{Hom}(#1,#2)} %Functor categories
 \newcommand{\Ob}{\mathrm{Ob}} %Set of objects
@@ -72,9 +72,9 @@
 \newcommand{\ctg}[1]{\mathbf{#1}}  % large category
 \newcommand{\Set}{\ctg{Set}}    % category of sets
 \newcommand{\Cat}{\ctg{Cat}}   % category of small categories
-\newcommand{\nCat}[1]{\Cat_{#1}}  % n-categories
-\newcommand{\npCat}[2]{\Cat_{#1,#2}}  % (n,p)-categories
-\newcommand{\opCat}[1]{\Cat_{\omega,#1}} % (omega,p)-categories
+\newcommand{\nCat}[1]{{#1}\Cat}  % n-categories
+\newcommand{\npCat}[2]{(#1,#2)\Cat}  % (n,p)-categories
+\newcommand{\opCat}[1]{(\omega,#1)\Cat} % (omega,p)-categories
 \newcommand{\nCatp}[1]{\Cat_{#1}^{+}} % cellular extensions
 \newcommand{\oCat}{\nCat{\omega}} % omega-categories
 \newcommand{\glob}{\ctg{G}}% site of globular sets
@@ -87,7 +87,7 @@
 \newcommand{\npPol}[2]{\Pol_{#1,#2}} % (#1,#2)-polygraphs
 \newcommand{\opPol}[1]{\npPol{\omega,#1}} % (omega,#1)-polygraphs
 \newcommand{\Grpd}{\ctg{Grpd}}
-\newcommand{\nGrpd}[1]{\Grpd_{#1}} % n-groupoids
+\newcommand{\nGrpd}[1]{{#1}\Grpd} % n-groupoids
 \newcommand{\oGrpd}{\nGrpd{\omega}} %omega-groupoids
 \newcommand{\Ch}[1]{\ctg{Ch}_{#1}} % chain complexes
 \newcommand{\Chp}{\Ch{\geq 0}} % positive chaincomplexes
@@ -132,7 +132,7 @@
 \newcommand{\clx}[2]{\pair{#1}{#2}}% cellular extension of #1 by #2
 \newcommand{\gni}[1]{\geninc_{#1}}% inclusion of #1-generators
 
-\newcommand{\Sph}[1]{\mathbb{S}^{#1}} %n-sphere
+\newcommand{\Sph}[1]{\mathbb{S}_{#1}} %n-sphere
 \newcommand{\Dsk}[1]{\mathbb{D}_{#1}} %n-disk
 \newcommand{\trun}[1]{\tau_{#1}} %truncation functor
 
@@ -150,7 +150,7 @@
                               
 % HOMOLOGY AND HOMOLOGICAL ALGEBRA
 
- \newcommand{\tens}[1]{\otimes_{#1}} %tensor product
+\DeclareMathOperator{\tens}{\otimes} %tensor product
 \newcommand{\Tor}[2]{\functor{Tor}^{#1}_{#2}} %Tor
 \newcommand{\cst}[1]{\underline{#1}} %Constant module
 \newcommand{\Ho}{\functor{H}} %Homology

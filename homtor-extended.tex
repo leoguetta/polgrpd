@@ -13,7 +13,12 @@
 
 \usepackage{marginnote}
 
-\title{Homology coefficient in a natural system}
+\title{A polygraphic approach to the homology of categories with general twisted
+coefficients}
+\author{Léonard Guetta}
+\email{l.s.guetta@uu.nl}
+\address{Budapestlaan, Utrecht}
+\date{\today}
 \input{macro}
 
 \newcommand{\M}{\mathcal{M}}
@@ -32,7 +37,12 @@
 \newcommand{\tgtlin}{\tau}
 \renewcommand{\homset}[3]{\mathrm{Hom}_{#1}(#2,#3)}
 \newcommand{\wght}[1]{\mathrm{w}_{#1}}
+\newcommand{\tw}[1]{\mu(#1)} %Total weight
+\newcommand{\inv}[1]{L_{#1}} %Groupoidification functor
+
+\newcommand{\Ni}{\N\cup\set{\omega}} %Entiers naturels + omega
 \begin{document}
+\maketitle
 \section{Homological algebra}
 \subsection{Category of modules}
 \begin{definition}
@@ -91,34 +101,34 @@ and dually for left $C$\nbd-modules.
 We fix once and for all a small category $C$.
 \begin{paragr}
    Let $F$ be a right $C$\nbd-module and $G$ a left $C$\nbd-module. We
-  define their total tensor product, denoted by $F\tens{\Z C}G$, as the
+  define their total tensor product, denoted by $F\tens_{\Z C}G$, as the
   following co-end in $\Ab$
   \[
-    F\tens{\Z C}G := \int^{c \in C}F(c)\tens{\Z} G(c),
+    F\tens_{\Z C}G := \int^{c \in C}F(c)\tens_{\Z} G(c),
   \]
   where $\otimes$ is the usual tensor product of abelian
-  groups. Explicitly, this means that $F\tens{\Z C}G$ is obtained as the following
+  groups. Explicitly, this means that $F\tens_{\Z C}G$ is obtained as the following
   co-equalizer in $\Ab$
   \[
-    \bigoplus_{(c,c')\in \Ob(C)^2}F(c')\tens{\Z}\Z\homset{C}{c}{c'}\tens{\Z}
-    G(c) \rightrightarrows \bigoplus_{c \in \Ob(C)}F(c)\tens{\Z} G(c)
-    \rightarrow F\tens{\Z C}G,
+    \bigoplus_{(c,c')\in \Ob(C)^2}F(c')\tens_{\Z}\Z\homset{C}{c}{c'}\tens_{\Z}
+    G(c) \rightrightarrows \bigoplus_{c \in \Ob(C)}F(c)\tens_{\Z} G(c)
+    \rightarrow F\tens_{\Z C}G,
   \]
   where the top arrow is induced by the functoriality of $F$ and the
   bottow arrow by the functoriality of $G$. This construction canonically extends to a functor
   \[
-    - \tens{\Z C} - \colon \RMod{C}\times\LMod{C} \to \Ab.
+    - \tens_{\Z C} - \colon \RMod{C}\times\LMod{C} \to \Ab.
   \]
   It is straightforward to check that this functor is a left adjoint
   in each variable. More precisely, we have isomorphisms
   \[
     \begin{aligned}
-      \homset{\Ab}{F\tens{\Z C}G}{A}&\simeq
+      \homset{\Ab}{F\tens_{\Z C}G}{A}&\simeq
                                   \homset{\RMod{C}}{F}{\homset{\Ab}{G(-)}{A}}\\
       &\simeq \homset{\LMod{C}}{G}{\homset{\Ab}{F(-),A}}
     \end{aligned}
   \]
-  natural in $F$, $G$ and $A$. In particular, $-\tens{\Z C}-$ preserves
+  natural in $F$, $G$ and $A$. In particular, $-\tens_{\Z C}-$ preserves
   epimorphisms in each variable and thus is right exact in each
   variable. Together with \cref{prop:enoughproj}, this justifies the
   following definition.
@@ -129,10 +139,10 @@ We fix once and for all a small category $C$.
   an integer $k \geq 0$, we
   define the abelian group $\Tor{\Z C}{k}(F,G)$ as
   \[
-    \Tor{\Z C}{k}(F,G) := F \overset{\mathbb{L}_k}{\tens{\Z C}} G,
+    \Tor{\Z C}{k}(F,G) := F \overset{\mathbb{L}_k}{\tens_{\Z C}} G,
   \]
-  where $\overset{\mathbb{L}_k}{\tens{\Z C}}$ is the $k$\nbd-th left
-  derived functor of $-\tens{\Z C}-$.
+  where $\overset{\mathbb{L}_k}{\tens_{\Z C}}$ is the $k$\nbd-th left
+  derived functor of $-\tens_{\Z C}-$.
 \end{definition}
 \begin{paragr}
   Explicitly, the previous definition means that $\Tor{\Z C}{k}(F,G)$ is
@@ -146,9 +156,9 @@ We fix once and for all a small category $C$.
   \]
   of $G$ (in $\LMod{C}$) and taking the $k$\nbd-th homology group of
   either the following chain complexes of abelian groups
-  \[P_{\bullet}\tens{\Z C}G,\]
-  \[F\tens{\Z C}Q_{\bullet},\]
-    \[\Tot(P_{\bullet}\tens{\Z C}Q_{\bullet}). \]
+  \[P_{\bullet}\tens_{\Z C}G,\]
+  \[F\tens_{\Z C}Q_{\bullet},\]
+    \[\Tot(P_{\bullet}\tens_{\Z C}Q_{\bullet}). \]
   By standard results of homological algebra, these three complexes
   have the same homology. 
 \end{paragr}
@@ -156,8 +166,11 @@ We fix once and for all a small category $C$.
   Let $u \colon C \to D$ be a functor between small categories.  As usual, we obtain an adjoint triple
   \[
     \begin{tikzcd}
-      \LMod{D} \ar[r,"u^*" description] &
-      \LMod{C},\ar[l,"u_!"',bend right] \ar[l,"u_*",bend left]
+      \LMod{D} \ar[r,"u^*" description,""{name=B,above},""{name=C,below}] &
+      \LMod{C},\ar[l,"u_!"',bend right=50,""{name=A,below}]
+      \ar[l,"u_*",bend left=50,""{name=D,above}]
+      \ar[from=A,to=B,"\bot" description, phantom]
+      \ar[from=C,to=D,"\bot" description, phantom]
     \end{tikzcd}
   \]
   where $u^*$ is the pre-composition functor. (And similarly for
@@ -165,7 +178,8 @@ We fix once and for all a small category $C$.
   homological algebra, one shows that
   \begin{itemize}
   \item $u_!$ is right exact, $u_*$ is left exact, $u^*$ is exact,
-  \item $u^*$ preserves injectives and projectives.
+  \item $u_!$ preserves projective objects and $u_*$ preserves
+    injective objects.
   \end{itemize}
 
   Recall now that a functor $\pi \colon C \to D$ is a discrete
@@ -186,7 +200,7 @@ We fix once and for all a small category $C$.
   Let us start by proving the underived version of this isomorphism,
   that is
   \[
-   \pi^*M\tens{\Z C} N \simeq M\tens{\Z D}\pi_!N.
+   \pi^*M\tens_{\Z C} N \simeq M\tens_{\Z D}\pi_!N.
  \]
  First, recall that, because $\pi$ is a discrete op-fibration, for every
  object $d$ of $D$, the
@@ -205,23 +219,22 @@ We fix once and for all a small category $C$.
    (\pi_!N)(d) = \ilim_{f \colon \pi(c) \to d \in \tr{C}{d}}N(c) \simeq
    \bigoplus_{c \in \pi_d}N(c).
  \]
- Second, since
 
- Now, by definition $M\tens{\Z D}\pi_!N$ is the co-equalizer of the
+ Now, by definition $M\tens_{\Z D}\pi_!N$ is the co-equalizer of the
  following pair
  \[
    \bigoplus_{(d,d') \in
-     \Ob(D)^2}M(d')\tens{\Z}\Z\homset{D}{d}{d'}\tens{\Z}(\pi_!N)(d)
-   \rightrightarrows \bigoplus_{d \in \Ob(D)}M(d)\tens{\Z}(\pi_!N)(d).
+     \Ob(D)^2}M(d')\tens_{\Z}\Z\homset{D}{d}{d'}\tens_{\Z}(\pi_!N)(d)
+   \rightrightarrows \bigoplus_{d \in \Ob(D)}M(d)\tens_{\Z}(\pi_!N)(d).
  \]
  It follows from what we have seen above that this pair can be
  re-written as
  \[
    \bigoplus_{(d,d') \in
      \Ob(D)^2}\bigoplus_{c \in
-     \pi_d}M(d')\tens{\Z}\Z\homset{D}{d}{d'}\tens{\Z}N(c)
+     \pi_d}M(d')\tens_{\Z}\Z\homset{D}{d}{d'}\tens_{\Z}N(c)
    \rightrightarrows \bigoplus_{d \in \Ob(D)}\bigoplus_{c \in
-     \pi_d}M(d)\tens{\Z}N(c).
+     \pi_d}M(d)\tens_{\Z}N(c).
  \]
  Using the fact that \[\Ob(C)\simeq\coprod_{d \in \Ob(D)}\pi_d,\] and that
  \[
@@ -232,17 +245,17 @@ We fix once and for all a small category $C$.
  discrete op-fibration, we can re-write the pair as
  \[
    \bigoplus_{(c,c') \in
-     \Ob(C)^2}M(\pi(c'))\tens{\Z}\Z\homset{C}{c}{c'}\tens{\Z}N(c)\rightrightarrows
-   \bigoplus_{c \in \Ob(C)}M(\pi(c))\tens{\Z}N(c),
+     \Ob(C)^2}M(\pi(c'))\tens_{\Z}\Z\homset{C}{c}{c'}\tens_{\Z}N(c)\rightrightarrows
+   \bigoplus_{c \in \Ob(C)}M(\pi(c))\tens_{\Z}N(c),
  \]
- whose co-equalizer is, by definition, $\pi^*M\tens{\Z C}N$.
+ whose co-equalizer is, by definition, $\pi^*M\tens_{\Z C}N$.
 
  For the derived version, it suffices to use that $\pi^*$ is exact and
  preserve projective objects. Hence, if $P_{\bullet} \to M$ is a projective
  resolution of $M$, then $\pi^*P_{\bullet} \to \pi^*M$ is a projective
  resolution of $\pi^*M$. It follows that
  \[
-   \pi^*P_{\bullet}\tens{\Z D}N \simeq P_{\bullet}\tens{\Z C}\pi_!N,
+   \pi^*P_{\bullet}\tens_{\Z D}N \simeq P_{\bullet}\tens_{\Z C}\pi_!N,
  \]
  which proves the result.
 \end{proof}
@@ -257,15 +270,15 @@ We fix once and for all a small category $C$.
   $\Bimod{C}=\LMod{C^{\op}\times C}$ the category of bimodules.
 \begin{paragr}
   Given a right $C$\nbd-module $M$ and a left $C$\nbd-module $N$, we
-  define the bimodule $M\tens{\Z}N$ as 
+  define the bimodule $M\tens_{\Z}N$ as 
   \[
-    (c,d) \mapsto M(c)\tens{\Z} N(d).
+    (c,d) \mapsto M(c)\tens_{\Z} N(d).
   \]
   This construction is obviously functorial and thus yields a functor
   \[
     \begin{aligned}
       \RMod{C}\times \LMod{C} \to \Bimod{C}\\
-      (M,N) \mapsto M\tens{\Z} N.
+      (M,N) \mapsto M\tens_{\Z} N.
     \end{aligned}
   \]
   It is straightforward to check that this functor is a left adjoint
@@ -273,19 +286,19 @@ We fix once and for all a small category $C$.
   variable and thus is right exact in each variable. 
 \end{paragr}
 \begin{lemma}\label{tensfreemod}
-  The functor $-\tens{\Z}- \colon\RMod{C}\times \LMod{C} \to
+  The functor $-\tens_{\Z}- \colon\RMod{C}\times \LMod{C} \to
   \Bimod{C}$ sends free modules to free modules.
 \end{lemma}
 \begin{proof}
   It suffices to notice that
   \[
     \begin{aligned}
-      \Z\homset{C}{-}{c}\tens{\Z}\Z\homset{C}{d}{-}&=\Z\homset{C^{\op}}{c}{-}\tens{\Z}\Z\homset{C}{d}{-}\\
+      \Z\homset{C}{-}{c}\tens_{\Z}\Z\homset{C}{d}{-}&=\Z\homset{C^{\op}}{c}{-}\tens_{\Z}\Z\homset{C}{d}{-}\\
                                                    &\simeq\Z\left[\homset{C^{\op}}{c}{-}\times\homset{C}{d}{-}\right]\\
       &=\Z\homset{C^{\op}\times C}{(c,d)}{(-,-)}.      
     \end{aligned}
   \]
-  The conclusion follows from the fact that $-\tens{\Z}-$ preserves
+  The conclusion follows from the fact that $-\tens_{\Z}-$ preserves
   sums in each variable. 
 \end{proof}
 \begin{paragr}
@@ -392,48 +405,48 @@ a module. The most general comparison takes the following form.
   Let $C$ be a small category, $M$ a right $C$\nbd-module and $N$ a
   left $C$\nbd-module. We have an isomorphism
   \[
-    \HHo_{\bullet}(C,M\tens{\Z}N)\simeq \Tor{\Z C}{\bullet}(M,N).
+    \HHo_{\bullet}(C,M\tens_{\Z}N)\simeq \Tor{\Z C}{\bullet}(M,N).
   \]
 \end{proposition}
 \begin{proof}
   Let us start with the underived version of this isomorphism, that is
   to say
   \[
-    (M\tens{\Z}N)\tens{\Z C^{\op}\times C}\Z\homset{C}{-}{-} \simeq M\tens{\Z C} N.
+    (M\tens_{\Z}N)\tens_{\Z C^{\op}\times C}\Z\homset{C}{-}{-} \simeq M\tens_{\Z C} N.
   \]
   This follows from the following abstract non-sense co-end calculus
   \[
     \begin{aligned}
-     (M\tens{\Z}N)\tens{\Z C^{\op}\times C}\Z\homset{C}{-}{-} &=
+     (M\tens_{\Z}N)\tens_{\Z C^{\op}\times C}\Z\homset{C}{-}{-} &=
                                                                 \int^{(c,d)\in
                                                                 \Ob(C^{\op}\times
-                                                                C)}M(c)\tens{\Z}N(d)\tens{\Z}\Z\homset{C}{c}{d}\\ 
-      &\simeq\int^{c \in C^{\op}}M(c)\tens{\Z}\left(\int^{d \in
-        C}N(d)\tens{\Z}\Z\homset{C}{c}{d}\right)\\
-                                                              &\simeq\int^{c\in C^{\op}}M(c)\tens{\Z}N(d)\\
-      &=M\tens{\Z C}N,
+                                                                C)}M(c)\tens_{\Z}N(d)\tens_{\Z}\Z\homset{C}{c}{d}\\ 
+      &\simeq\int^{c \in C^{\op}}M(c)\tens_{\Z}\left(\int^{d \in
+        C}N(d)\tens_{\Z}\Z\homset{C}{c}{d}\right)\\
+                                                              &\simeq\int^{c\in C^{\op}}M(c)\tens_{\Z}N(d)\\
+      &=M\tens_{\Z C}N,
     \end{aligned}
   \]
   where the second to last isomorphism comes from the Yoneda
   lemma. For the derived version, let $F_{\bullet} \to M$ and
   $G_{\bullet} \to N$ free resolutions. By definition, we have
   \[
-    \Tot_k(P_{\bullet}\tens{\Z}Q_{\bullet})=\bigoplus_{i+j=k}P_i\tens{\Z}Q_j.
+    \Tot_k(P_{\bullet}\tens_{\Z}Q_{\bullet})=\bigoplus_{i+j=k}P_i\tens_{\Z}Q_j.
   \]
-  By \cref{tensfreemod}, each $P_i\tens{\Z}Q_j$ is a free left
+  By \cref{tensfreemod}, each $P_i\tens_{\Z}Q_j$ is a free left
   $C^{\op}\times C$ module and since a sum of free objects is
   free, we get that
-  $\Tot_k(P_{\bullet}\tens{\Z}Q_{\bullet})$ is free and thus
+  $\Tot_k(P_{\bullet}\tens_{\Z}Q_{\bullet})$ is free and thus
   projective by \cref{lemma:freeisproj}. It follows that
   \[
-    \Tot(P_{\bullet}\tens{\Z}Q_{\bullet}) \to M\tens{\Z}N
+    \Tot(P_{\bullet}\tens_{\Z}Q_{\bullet}) \to M\tens_{\Z}N
   \]
-  is a projective resolution of $M\tens{\Z}N$. Hence,
-  $\HHo_{\bullet}(C,M\tens{\Z}N)$ can be taken to be the homology of
+  is a projective resolution of $M\tens_{\Z}N$. Hence,
+  $\HHo_{\bullet}(C,M\tens_{\Z}N)$ can be taken to be the homology of
   the left hand side of the following isomorphism
   \[
-    \left(\Tot(P_{\bullet}\tens{\Z}Q_{\bullet})\right)\tens{\Z C^{\op}\times C}\Z
-    \homset{C}{-}{-}\simeq \Tot(P_{\bullet}\tens{\Z}Q_{\bullet}).
+    \left(\Tot(P_{\bullet}\tens_{\Z}Q_{\bullet})\right)\tens_{\Z C^{\op}\times C}\Z
+    \homset{C}{-}{-}\simeq \Tot(P_{\bullet}\tens_{\Z}Q_{\bullet}).
   \]
   The homology of the right hand side being $\Tor{\Z C}{\bullet}(M,N)$,
   this proves the result.
@@ -465,7 +478,391 @@ Combining the previous two propositions, we obtain the following corollary.
 \end{corollary}
 In other words, Baues-Wirsching homology is the most general one as
 it allows to recover the other ones.
-\section{Homology of categories via polygraphic resolutions}
+\section{Recollection of the theory of strict $\omega$-categories}
+\subsection{Strict $\omega$-categories}
+% \begin{paragr}
+%   For any $n \geq 1$, we denote by $\nCat{n}$ the category of
+%   (strict) $n$\nbd-categories, that is the category of categories
+%   enriched in $\nCat{n-1}$, with $\nCat{0}$ being simply the category
+%   of sets $\Set$. The canonical  functor $\Cat \to
+%   \Set$, which sends a category to its underlying set of objects, induces inductively a truncation function
+%   \[
+%     \trk{n-1} \colon \nCat{n} \to \nCat{n-1},
+%   \]
+%   which forget the $n$\nbd-cells of an $n$\nbd-category. We then define the category of
+%   \oo\nbd-categories $\oCat$ as the limit of the following diagram
+%   \[
+%     \cdots \overset{\trk{2}}{\longrightarrow} \nCat{2} \overset{\trk{1}}{\longrightarrow}\nCat{1}
+%     \overset{\trk{0}}{\longrightarrow} \nCat{0}.
+%   \]
+% \end{paragr}
+\begin{paragr}
+  Recall that a strict \oo-category $C$ consists of:
+  \begin{itemize}
+  \item a sequence of sets
+  $(C_n)_{n\geq 0}$, whose elements $x \in C_n$ referred to as
+  \emph{$n$\nbd-cells},
+\item for all $i < j$, source and target maps
+  \[
+    \src_{i}^j,\tgt_{i}^j \colon C_j \rightrightarrows C_{i}
+  \]
+  such that for all $i < j <k$, they satisfy the globular identities:
+  \[
+    \begin{cases}
+      \src_i^j \circ \src_{j}^k &= \src_{i}^j\circ \tgt_{j}^k =\src_i^k\\
+      \tgt_{i}^j\circ \tgt_{j}^k &= \tgt_{i}^j \circ \src_{j}^k=\tgt_i^k,
+    \end{cases}
+  \]
+  (for $j=i+1$, we will simply write $\src=\src_i^{i+1}$ and
+  $\tgt=\tgt_i^{i+1}$), we say that a pair $(x,y)$ of $j$\nbd-cells
+  are \emph{parallel} if $\src(x)=\src(y)$ and $\tgt(x)=\tgt(y)$,
+\item for all $i < j$, unit maps
+  \[
+    \unit{j}{i} \colon C_i \to C_j,
+  \]
+  such that for all $i < j < k$, we have
+  \[
+    \unit{k}{j}\circ \unit{j}{i}=\unit{k}{i}.
+  \]
+  (for $j=i+1$, we will write $\unit{}{x}$ instead of $\unit{i+1}{i}(x)$)
+\item for all $i < j$, compositions maps
+  \[
+    -\comp{i}- \colon C_j \times_{C_i} C_j \to C_j,
+  \]
+  where the fibred product is taken along $\src_i^j \colon C_j \to
+  C_i$ for the first factor and $\tgt_i^j \colon C_j \to C_i$ for the
+  second factor; we say that a pair $(x,y)$ of $j$\nbd-cells is
+  \emph{$\comp{i}$\nbd-composable} if it belongs to $C_j \times_{C_i} C_j$.
+\end{itemize}
+All this data is subject to the usual axioms (see \cite[Section 14.2]{abgmmm:polybk} for example):
+\begin{itemize}
+  \item strict associativity of compositions,
+  \item strict units,
+  \item strict functoriality of units,
+  \item  exchange rule between $\comp{i}$ and $\comp{j}$, for any
+    $i <j$.
+  \end{itemize}
+
+  A strict \oo\nbd-functor $f \colon C \to D$ (also sometimes simply
+  referred to as \emph{functor}) consists of a sequence of functions
+  $(f_n \colon C_n \to D_n)_{n \geq 0}$,
+  which respects sources, targets, units and compositions strictly. We
+  denote by $\oCat$ the category of strict \oo-categories and
+  \oo\nbd-functors.
+\end{paragr}
+\emph{ From now on, we shall always drop the adjective
+  ``strict'' and simply speak ``\oo\nbd-categories'' and
+  ``\oo\nbd-functors''.}
+\begin{paragr}
+  For any $n \in \N$, there is an analogous notion of
+  $n$\nbd-category, whose definition is the same as for \oo, but
+  with only a finite sequence of sets of cells
+  $(C_k)_{0 \leq k \leq n}$,
+  and similarly for $n$\nbd-functors. We will denote by $\nCat{n}$ the
+  category of $n$\nbd-categories and $n$\nbd-functors. For $n=1$, we
+  will use the more standard notation $\Cat$ instead of $\nCat{1}$.
+
+  There are obvious truncation functors
+  \[
+    \trk{n} \colon \oCat \to \nCat{n},
+  \]
+  which simply forgets all the cells of dimension $> n$. Each of these
+  functors has a left adjoint
+  \[
+    \nCat{n} \to \oCat,
+  \]
+  which simply adds all units on cells of dimension lower or equal
+  than $n$. This left adjoint is fully faithful and also has further
+  left adjoint. This allows us to harmlessly identify the category
+  $\nCat{n}$ with its essential image in $\oCat$, which consists of
+  these categories with only unit cells above dimension $n$.
+\end{paragr}
+\begin{paragr}
+  For $n\geq 0$, we denote by $\Dsk{n}$ the $n$\nbd-category with only
+  one cell $e_n$ in dimension $n$, and exactly two non-trivial cells
+  in any dimension $k<n$, given by $\src^n_k(e_n)$ and
+  $\tgt^n_k(e_n)$. In low dimension, this gives
+  \[
+    \Dsk{0}=\bullet,\quad \Dsk{1}=\bullet \to \bullet,\quad
+    \Dsk{2}=
+    \begin{tikzcd}
+      \bullet \ar[r,bend left,""{name=A,below}] \ar[r,bend
+      right,""{name=B,above}] & \bullet
+      \ar[from=A,to=B,Rightarrow]
+    \end{tikzcd}
+    ,\quad \cdots
+  \]
+  The $n$\nbd-category $\Dsk{n}$ corepresents the ``underlying set of $n$\nbd-cells'' functor $\oCat \to \Set, C
+  \mapsto C_n$. For an $n$\nbd-cell $x$ of an \oo\nbd-category $C$, we
+  will denote by 
+  \[
+    \langle x \rangle \colon \Dsk{n} \to C
+  \]
+  the corresponding \oo\nbd-functor.
+
+  We denote by $\Sph{n-1}:=\trk{n-1}(\Dsk{n})$ (with $\Sph{-1}=\emptyset$)
+  and
+  \[
+    i_n \colon \Sph{n-1} \to \Dsk{n}
+  \]
+  the canonical inclusion. In low dimension, this gives
+  \[
+    \Sph{-1}=\emptyset,\quad \Sph{0}=\bullet \quad \bullet,\quad
+    \Sph{1}=
+    \begin{tikzcd}
+      \bullet \ar[r,bend left,""{name=A,below}] \ar[r,bend
+      right,""{name=B,above}] & \bullet
+    \end{tikzcd}
+    ,\quad \cdots
+  \]
+  The set of \oo\nbd-functors $\Sph{n} \to C$ is in canonical
+  bijection with the set of pairs of parallel $n$\nbd-cells of
+  $C$. For such a pair $(x,y)$, we will denote by $\langle x,y
+  \rangle\colon \Sph{n}\to C$ the corresponding \oo\nbd-functor.
+\end{paragr}
+\begin{paragr}
+  A $j$\nbd-cell $x$ of an \oo-category is called
+  $\comp{i}$\nbd-invertible, with $i<j$, if there exists a
+  $j$\nbd-cell $\overline{x}$ with
+  \[
+    \src^i_j(\overline{x})=\tgt^i_j(x) \text{ and } \tgt^i_j(\overline{x})=\src^i_j(x),
+  \]
+  and such that
+  \[
+    x\comp{i}\overline{x}=\unit{i}{j}(\tgt^i_j(x)) \text{ and } \overline{x}\comp{i}x=\unit{i}{j}(\src^i_j(x)).
+  \]
+  One can then show that $\overline{x}$ is uniquely determined by
+  these properties. When $j=i+1$, we will simply say that $x$ is
+  \emph{invertible}.
+
+  For $i \in \N \cup \set{\omega}$, we denote by $\opCat{i}$ the full
+  subcategory of $\oCat$ of those \oo-categories such that all
+  $k$\nbd-cells with $k>i$ are invertible. One can show that in this
+  case all $k$\nbd-cells are actually
+  $\comp{j}$\nbd-invertible for any $k > j \geq i$. For $i=0$, we will use the notation $\oGrpd$ instead of $\opCat{0}$
+  and refer to the objects of this category as (strict) \oo-groupoids.
+
+  The obvious inclusion functor
+  \[
+    \opCat{i} \hookrightarrow \oCat
+  \]
+  hast a left and a right adjoint. In particular, all colimits and
+  limits in $\opCat{i}$ are computed in $\oCat$ and this  The left adjoint, denoted by
+  \[
+    \inv{i} \colon \oCat \to \opCat{i},
+  \]
+  formally add inverses to all $k$\nbd-cells with $k>i$ (the ``$L$''
+  stands for ``localization'').
+
+  Note also that, since all units are invertible, for any $n\in \N$ the inclusion $\nCat{n} \hookrightarrow \oCat$
+  factors through $\opCat{n}$
+  \[
+    \nCat{n} \hookrightarrow \opCat{n} \hookrightarrow \oCat.
+  \]
+
+  Finally, for $n\geq 0$, we define
+  \[
+    \Dsk{n}^{(\omega,i)}:=L_i\Dsk{n}
+  \]
+  and
+  \[
+    \Sph{n-1}^{(\omega,i)}:=L_i\Sph{n-1}.
+  \]
+  Note that if $i \geq n$, $\Dsk{n}^{(\omega,i)}=\Dsk{n}$ and $\Sph{n}^{(\omega,i)}=\Sph{n}$.
+\end{paragr}
+\begin{paragr}
+  Recall that an \oo\nbd-category $C$ is \emph{free on a polygraph} if
+  it
+  can be obtained from the empty category by recursively freely adding
+  cells. More formally, $C$ is free on a polygraph if there exists a
+  sequence of subsets of cells
+  \[
+    (\Sigma_n)_{n \geq 0}, \quad \Sigma_n \subset C_n,
+  \]
+  such that for any $n \in \N$, the following square is a pushout square
+  \[
+    \begin{tikzcd}
+     \displaystyle \coprod_{x \in \Sigma_n} \Sph{n-1}
+     \ar[d]\ar[r,"{\langle \src x, \tgt x \rangle}"] & \trk{n-1}C \ar[d]\\
+     \displaystyle \coprod_{x \in \Sigma_n}\Dsk{n} \ar[r,"\langle x \rangle"] & \trk{n}C.
+     \ar[from=1-1,to=2-2,phantom, very near end, "\ulcorner"]
+    \end{tikzcd}
+  \]
+  The sequence $(\Sigma_n)_{n \geq 0}$ will be referred to as a \emph{basis} of
+  $C$. Similarly, for any $i \in \N$, an \ook{i}\nbd-category $C$ is \emph{free on a
+  \ook{i}\nbd-polygraph} if there exists an sequence of subsets of cells
+  $(\Sigma_n)_{n \geq 0}$, $\Sigma_n \subset C_n$ such that for each
+  $n \geq 0$, the following square is a pushout square
+  \[
+    \begin{tikzcd}
+    \displaystyle \coprod_{x \in \Sigma_n} \Sph{n-1}^{(\omega,i)}
+     \ar[d]\ar[r,"{\langle \src x, \tgt x \rangle}"] & \trk{n-1}C \ar[d]\\
+     \displaystyle \coprod_{x \in \Sigma_n}\Dsk{n}^{(\omega,i)} \ar[r,"\langle x \rangle"] & \trk{n}C.
+     \ar[from=1-1,to=2-2,phantom, very near end, "\ulcorner"]
+    \end{tikzcd}
+  \]
+  The sequence $(\Sigma_n)_{n \geq 0}$ will be referred to as an
+\emph{\ook{i}\nbd-basis} of $C$.
+\end{paragr}
+\begin{remark}\label{rmk:ookpol}
+    Note that in the definition of freeness on an \ook{i}\nbd-polygraph,
+    the existence of the pushout squares forces $C$ to be an
+  \ook{i}\nbd-category, and so it makes sense to speak of an
+  \emph{\oo\nbd-category} free on an \ook{i}\nbd-polygraph. However,
+  be aware that
+  being ``free on a polygraph'' and ``free on an
+  \ook{i}\nbd-polyraph'' are very different properties, and an
+  \oo\nbd-category free on a \ook{i}\nbd-polygraph is not free on a
+  polygraph unless all its cells of dimension greater than $i$ are
+  units. This is a generalization of the fact that a free group is free as a monoid only if
+  it is trivial.
+\end{remark}
+\begin{remark}
+  For uniformity, we shall sometimes use ``free on an
+  \ook{\omega}\nbd-polygraph'' as synonymous to ``free on a
+  polygraph''. Similarly, we shall sometimes speak of an ``\ook{\omega}\nbd-basis of
+  an \ook{\omega}-category'' as synonymous to a ``basis of an \oo\nbd-category''.
+\end{remark}
+\begin{paragr}
+  The category $\oCat$ can be promoted to a monoidal category via the
+  so-called (oplax) Gray tensor product $\tens_{}$ (see
+  \cite[Appendix A]{aramaltsiniotis:joint} for example). This monoidal product is
+  \emph{not} symmetrical (nor braided), although it is bi-closed, and its unit is the
+  terminal category $\Dsk{0}$. As a simple example, the tensor product $\Dsk{1}\otimes\Dsk{1}$ is a square with a
+  non-trivial $2$\nbd-cell
+  \[
+    \begin{tikzcd}[column sep=2pc, row sep=2pc]
+      \bullet \ar[r] \ar[d] & \bullet \ar[d]\\
+      \bullet \ar[r] & \bullet.
+      \ar[to=2-1,from=1-2,Rightarrow,shorten=3mm]
+    \end{tikzcd}
+  \]
+  Similarly, for any $i \in \N$, we can equip the category $\opCat{i}$
+  with a monoidal product $\tens_{(\omega,i)}$ (see \cite[section 6]{aralucas:folmon}), which is defined as
+  \[
+    C \tens_{(\omega,i)}D:=L_i(C \tens_{} D).
+  \]
+  The unit of this monoidal product is also $\Dsk{0}$. 
+\end{paragr}
+\begin{remark}
+   We shall only use very few formal properties of the Gray
+  tensor product, namely \cref{folkmonoidal} and \cref{abelmonoidal} below. Other than this,
+  no other knowledge about the Gray tensor product is required to
+  understand the present paper.
+  % such as the fact that the Gray tensor product of two
+  % \oo\nbd-categories free on a polygraph is again free on a polygraph
+  % (see \ref{} below), or the fact that a certain abelianization
+  % functor is monoidal with respect to this monoidal structure (see
+  % \ref{}). 
+\end{remark}
+\subsection{Discrete Conduché fibrations}
+\begin{definition}
+  An \oo\nbd-functor $f \colon C \to D$ is a \emph{discrete Conduché
+    fibration} if for every $n$\nbd-cell $x$ of $C$ such that $f(x)$
+  can be decomposed as
+  \[
+    f(x)=y\comp{i}y',
+  \]
+  with $y$ and $y'$ $n$\nbd-cells of $Y$ which are
+  $\comp{i}$\nbd-composable ($n >i \geq 0$), there exists a \emph{unique} pair of
+  $(z,z')$ of $\comp{i}$\nbd-composables $n$\nbd-cells of $C$, such that
+  \[
+    f(z)=y\text{ and }f(z')=y'
+  \]
+  and
+  \[
+   x= z\comp{i}z'.
+  \]
+\end{definition}
+\begin{proposition}\cite{guettametayer:}
+  Let $f \colon C \to D$ be a discrete Conduché fibration. If $D$ is
+  free on an \ook{i}\nbd-polygraph, then so is $C$. More precisely, if
+  $(\Sigma_n^D)_{n\geq 0}$ is an \ook{i}\nbd-basis of $D$, then
+  $(\Sigma_n^C)_{n \geq 0}$, where
+  \[
+    \Sigma_n^C:=\setof{x \in C_n}{f(x)\in \Sigma_n}
+  \]
+  is an \ook{i}\nbd-basis of $C$.
+\end{proposition}
+\subsection{Homotopy theory of $\omega$-categories}
+Recall the following fundamental theorem:
+\begin{theorem}[Lafont, Métayer, Worytkiewicz \cite{lafontetal:folkms}]\label{folkms}
+  There exists a (necessarily unique) model structure on the category
+  $\oCat$ such that  every object is fibrant and the cofibrations are generated by the set
+    \[
+      \setof{\Sph{n-1} \to \Dsk{n}}{n\geq 0}.
+    \]
+  \end{theorem}
+  \begin{paragr}
+    This model structure is referred to as the ``folk model
+    structure''. Note that every \oo\nbd-category free on a polygraph
+    is cofibrant for this model structure.\footnote{In fact, the
+      converse is also true \cite{} for $\oCat$, but we won't need
+      it.} 
+  \end{paragr}
+  Cofibrant resolution for this model structure is the most important
+  concept of this paper and thus we single it out with the following definition.
+  \begin{definition}
+  A \emph{polygraphic resolution} of an \oo\nbd-category $C$
+    consists of an \oo\nbd-category $P$ which is free on a polygraph and a
+    folk trivial fibration
+    \[
+      P \to C.
+    \]
+  \end{definition}
+  Polygraphic resolution always exists by \cref{folkms}.
+  \begin{paragr}
+    Similarly, for $i \in \N$, there exists a ``folk'' model structure
+    on $\opCat{i}$ (\cite[Theorem 6.19]{aralucas:folmon}), such that every object is fibrant and the
+    cofibrations are generated by the set
+    \[
+      \setof{\Sph{n-1}^{(\omega,i)} \to \Dsk{n}^{(\omega,i)}}{n \geq 0}.
+    \]
+    In fact, this model structure is right transferred along the adjunction
+    \[
+      \opCat{i} \leftrightarrows \oCat.
+    \]
+    In particular, we can unambiguously speak of folk (trivial)
+    fibrations in $\opCat{i}$ as they consist exactly of folk
+    (trivial) fibrations in $\oCat$. The same is not true for
+    cofibrations (cf.\ \ref{rmk:ookrespol})% , and in particular for cofibrant objects, as we have
+    % already observed that freenes on a \ook{i}\nbd-polygraph does not
+    % imply freeness on a polygraph (see \ref{}).
+  \end{paragr}
+
+ 
+  \begin{definition}
+    An \emph{\ook{i}\nbd-polygraphic resolution} of an
+    \ook{i}\nbd-category $C$ consists of an \ook{i}\nbd-category $P$ free on an \ook{i}\nbd-polygraph and a folk trivial
+    fibration
+    \[
+      P \to C.
+    \]
+  \end{definition}
+  \begin{remark}\label{rmk:ookrespol}
+    Since the $\opCat{i}$ is a subcategory of $\oCat$, it is
+    important
+    to make the difference between an \ook{i}\nbd-polygraphic resolution of an
+    \ook{i}\nbd-category $C$
+    and a polygraphic resolution of $C$ (considered as an object of
+    $\oCat$). As already noticed in \cref{rmk:ookpol}, an
+    \oo\nbd-category free on an \ook{i}\nbd-polygraph is almost never
+    free on a polygraph. As a consequence, even though trivial
+    fibrations in $\opCat{i}$ and $\oCat$ are the same, a
+    polygraphic resolution in $\oCat{i}$ is almost never a polygraphic
+    resolution in $\oCat$. Intuitively speaking, in the later case the
+    resolution is ``much more resolved'' because we also need to
+    resolve the invertibility of higher cells.
+  \end{remark}
+    \begin{proposition}\cite[Theorems 5.6 \& 6.21]{aralucas:folmon}\label{folkmonoidal}
+    The folk model structure on $\oCat$ is monoidal for the Gray
+    tensor product. More generally, for $i \in \N$, the folk model
+    structure on $\opCat{i}$ is monoidal with respect to
+    $\tens_{(\omega,i)}$. 
+  \end{proposition}
+  % \begin{corollary}
+    
+  % \end{corollary}
 \subsection{Abelianization of $\omega$-categories}
 \begin{paragr}
   Let $C$ be an \oo\nbd-category. Recall that we denote by
@@ -492,10 +889,16 @@ it allows to recover the other ones.
   \[
     \lambda \colon \oCat \to \Chp.
   \]
-  Recall that for any $i \in \N\cup \set{\omega}$, the category
-  $\opCat{i}$ is a subcategory of $\oCat$, and thus it makes sense for
-  an object $C$ of $\opCat{i}$ to consider the chain complex
-  $\lambda(C)$.
+  % Recall that for any $i \in \N\cup \set{\omega}$, the category
+  % $\opCat{i}$ is a subcategory of $\oCat$, and thus it makes sense for
+  % an object $C$ of $\opCat{i}$ to consider the chain complex
+  % $\lambda(C)$.
+  More generally, for any $i \in \Ni$, by precomposition with the
+  inclusion functor $\opCat{i}\hookrightarrow \oCat$, we get an
+  abelianization functor, detoned the same,
+  \[
+    \lambda \colon \opCat{i} \to \Chp.
+  \]
 \end{paragr}
 % \begin{lemma}\label{lemma:abelpol}
 %   Let $C$ be an \ook{i}\nbd-category, with $i \in \N\cup
@@ -510,20 +913,20 @@ it allows to recover the other ones.
 
 \begin{lemma}\label{lemma:abelpol}
   Let $C$ be an \ook{i}\nbd-category, with $i \in \N\cup\set{\omega}$
-  and suppose that $C$ is free on a polygraph in $\opCat{i}$. For
-  $\Sigma_n$ a set of $n$\nbd-dimensional generators of $C$, there
+  and suppose that $C$ is free on an \ook{i}\nbd-polygraph, and let
+  $(\Sigma_n)_{n\geq 0}$ an \ook{i}\nbd-basis of $C$. Then there
   exists a unique function
   \[
     \begin{aligned}
       C_n &\to \Z\Sigma_n\\
-      x &\mapsto [x]
+      x &\mapsto \tw{x}
     \end{aligned}
   \]
   such that:
   \begin{itemize}
-    \item if $x \in \Sigma_n$, then $[x]=x$ (seen as a generator of
+    \item if $\alpha \in \Sigma_n$, then $\tw{\alpha}=\alpha$ (seen as a generator of
       $\Z\Sigma_n$),
-    \item $[x\comp{i} y]=[x]+[y]$.
+    \item for $x$ and $y$ $\comp{i}$\nbd-composables, we have $\tw{x\comp{i} y}=\tw{x}+\tw{y}$.
     \end{itemize}
     Moreover, this function induces an isomorphism
     \[
@@ -548,7 +951,7 @@ it allows to recover the other ones.
     satisfies these properties. We refer to these functions as \emph{weight functions}. We thus
     have
     \[
-      [x]=\sum_{\alpha \in \Sigma_n}\wght{\alpha}(x)\cdot \alpha.
+      \tw{x}=\sum_{\alpha \in \Sigma_n}\wght{\alpha}(x)\cdot \alpha.
     \]
 \end{paragr}
 The following proposition follows immediatly.
@@ -562,9 +965,24 @@ The following proposition follows immediatly.
   \]
   where the differential is given on generators by
   \[
-    \partial(x)=[\tge{x}]-[\sce{x}].
+    \partial(x)=\tw{\tge{x}}-\tw{\sce{x}}.
   \]
 \end{proposition}
+
+\begin{proposition}\label{abelmonoidal}
+  For any $i \in \Ni$, the abelianization functor
+  \[\lambda \colon \opCat{i} \to \Chp\]
+  is monoidal with respect to the Gray tensor product
+  $\tens_{(\omega,i)}$ on $\opCat{i}$ and the usual tensor product on
+  $\Chp$.
+\end{proposition}
+\begin{proposition}
+  For any $i \in \N\cup{\omega}$, the abelianization functor
+  \[\lambda \colon \opCat{i} \to \Chp\]
+  is left Quillen with respect to the folk model structure on
+  $\opCat{i}$ and the projective model structure on $\Chp$.
+\end{proposition}
+\section{Resolutions of modules from polygraphic resolutions}
 \subsection{Polygraphic homology with coefficient}
 \begin{paragr}
   Let $C$ be a small category and $u \colon c \to d$ a morphism of
@@ -602,7 +1020,8 @@ The following proposition follows immediatly.
     $g'hf = u$. This last equality means exactly that the pair
     $(f,g')$ is a morphism from $h$ to $u$ in the category
     $\Tw{C}$. All in all, we
-    have the following useful alternative description:
+    have the following useful alternative description, which we shall
+    use often:
     \begin{itemize}
     \item a morphism of $\tr{C}{u}$ consists of a triple $(h,f,g')$
       such that $h$ is a morphism of $C$ and $(f,g')$ is an arrow of
@@ -650,7 +1069,12 @@ The following proposition follows immediatly.
     is a discrete Conduché fibration. 
   \end{lemma}
   \begin{proof}
-    TODO: À écrire (mais c'est facile)
+    Let $h \colon (x,f,g) \to (x',f',g')$ be a morphism of
+    $\tr{C}{u}$, and $h_1 \colon x \to x''$ and $h_2 \colon x'' \to
+    x'$ morphisms in $C$ such that $h=h_2h_1$. Then the morphisms $h_1
+    \colon (x,f,g) \to (x'',h_1f,gh_2)$ and $h_2 \colon
+    (x'',h_1f,gh_2) \to (x,f',g')$ satisfy $h_2h_1=h$ in
+    $\tr{C}{u}$. The uniqueness of such a decomposition is easy to check.
   \end{proof}
   \begin{lemma}
     The category $\tr{C}{u}$ has both an initial and terminal object.
@@ -662,7 +1086,7 @@ The following proposition follows immediatly.
 
   \begin{paragr}\label{paragr:slicepol}
     Let $C$ be a $\pair{1}{k}$\nbd-category with $k \in \set{0,1}$
-    (i.e.\ either a category or a groupoid), and let
+    (i.e.\ either a groupoid or a category), and let
     \[
        P \to C
     \]
@@ -792,28 +1216,28 @@ The following proposition follows immediatly.
     commutative diagram
     \[
       \begin{tikzcd}
-        \Sph{0}\tens{\omega,i}\tr{P}{u} \ar[r] \ar[d] & \tr{P}{u} \ar[d]\\
-        \Dsk{1}\tens{\omega,i}\tr{P}{u} \ar[r] & \tr{C}{u},
+        \Sph{0}\tens_{\omega,i}\tr{P}{u} \ar[r] \ar[d] & \tr{P}{u} \ar[d]\\
+        \Dsk{1}\tens_{\omega,i}\tr{P}{u} \ar[r] & \tr{C}{u},
       \end{tikzcd}
     \]
     where the top arrow is
     \[
       \begin{tikzcd}[column sep=huge]
-      \Sph{0}\tens{\omega,i}\tr{P}{u} \simeq \tr{P}{u}\coprod\tr{P}{u}
+      \Sph{0}\tens_{\omega,i}\tr{P}{u} \simeq \tr{P}{u}\coprod\tr{P}{u}
       \ar[r,"{\langle\id,\mathrm{cst}_{(x,u,\id_d)}\rangle}"]&\tr{P}{u}
       \end{tikzcd}
     \]
     and the bottow arrow is
     \[
-      \Dsk{1}\tens{\omega,i}\tr{P}{u} \to
-      \Dsk{1}\tens{\omega,i}\tr{C}{u} \overset{\eta}{\longrightarrow}
+      \Dsk{1}\tens_{\omega,i}\tr{P}{u} \to
+      \Dsk{1}\tens_{\omega,i}\tr{C}{u} \overset{\eta}{\longrightarrow}
        \tr{C}{u},
      \]
      where $\eta$ is the oplax transformation witnessing $(d,u,\id_d)$
      as a terminal object of $\tr{C}{u}$. 
     Since $\tr{P}{u}\to \tr{C}{u}$ is a trivial fibration and
-    $\Sph{0}\tens{\omega,i}\tr{P}{u} \to \Dsk{1}\tens{\omega,i}\tr{P}{u}$ is a
-    cofibration, there exists a lift $\Dsk{1}\tens{\omega,i}\tr{P}{u}
+    $\Sph{0}\tens_{\omega,i}\tr{P}{u} \to \Dsk{1}\tens_{\omega,i}\tr{P}{u}$ is a
+    cofibration, there exists a lift $\Dsk{1}\tens_{\omega,i}\tr{P}{u}
     \to \tr{P}{u}$ that makes the previous square commutative. This
     gives the desired oplax transformation.
     % $\tr{P}{w} \to \tr{C}{w}$ is a trivial fibration, it is in
@@ -1027,8 +1451,8 @@ The following proposition follows immediatly.
   %   homology $\Ho^{BS}_{\bullet}(C,\M)$ is isomorphic to the homology
   %   of the chain complex
   %   \[
-  %      \M \tens{\Z \Tw{C}}\lambda_0(\tr{P}{-})\leftarrow
-  %     \M \tens{\Z \Tw{C}}\lambda_1(\tr{P}{-}) \leftarrow \cdots
+  %      \M \tens_{\Z \Tw{C}}\lambda_0(\tr{P}{-})\leftarrow
+  %     \M \tens_{\Z \Tw{C}}\lambda_1(\tr{P}{-}) \leftarrow \cdots
   %   \]
   % \end{corollary}
 
@@ -1079,4 +1503,6 @@ The following proposition follows immediatly.
 %     \end{aligned}
 %   \]
 % \end{paragr}
+  \bibliographystyle{plain}
+  \bibliography{biblio}
 \end{document}
