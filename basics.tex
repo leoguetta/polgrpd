@@ -283,20 +283,28 @@ cells in $C_n$, by the following structural induction:
 \end{paragr}
 \begin{lemma}\label{lemma:transl}
   Let $\phi:\pair fh:\clx CS\to \clx DT$ a morphism of cellular
-  extensions. There is a unique $\phi$-compatible translation $\extend
-  h:\wtx S\to \wtx T$.
+  extensions. There is a unique $\phi$-compatible translation $\wtx\phi:\wtx S\to \wtx T$.
 \end{lemma}
 \begin{proof}
   By structural induction on $w\in\wtx S$, there is a unique map
   $g:\wtx S\to \expr T$  such that $g(\fcst a)=\fcst{h(a)}$, $g(\finv
       a)=\finv{h(a)}$, $g(\fid x)=\fid{f_n(x)}$ and $g((w_1\fcomp i
-      w_2)))=(g(w_1)\fcomp i g(w_2))$. For this map $g$, we easily
+      w_2))=(g(w_1)\fcomp i g(w_2))$. For this map $g$, we easily
       show, by structural induction on $w$, that
       whenever $\type wxy$, then $\type{g(w)}{f_nx}{f_n y}$. Therefore
       $g$ factors through the subset $\wtx T\subset \expr T$ of
       well-typed formulas and yields the required $\phi$-compatible
-      translation $\extend h:\wtx S\to \wtx T$.
+      translation $\wtx\phi:\wtx S\to \wtx T$. 
     \end{proof}
+    \begin{remark}\label{rmk:functoriality_of_wtx}
+      By \cref{lemma:transl}, the correspondence
+      \[
+        \clx CS\mapsto \wtx S, (\phi:\clx CS\to \clx
+      DT)\mapsto \wtx\phi
+        \]
+     defines a functor 
+      $\WW:\npCatp nk\to\Set$.
+    \end{remark}
 
  \begin{paragr}
    Let $\clx CS$ be a cellular extension of the $\pair nk$-category
@@ -305,7 +313,7 @@ $D$ an $\pair{n{+}1}k$-category, $f:C\to \trk n
    D$ a morphism. A map $g:\wtx S\to D_{n+1}$ is called {\em $f$-compatible} if:
    \begin{itemize}
    \item for each $w\in\wtx S$, $\sce n^Dg(w)=f_n(\scex n^S w)$ and
-     $\tge n^D w=f_n(\tge n^S w)$;
+     $\tge n^D g(w)=f_n(\tgex n^S w)$;
     \item for each $a\in S$, $g(\finv a)$ is the inverse of $g(\fcst
       a)$;
     \item for each $x\in C_n$, $g(\fid x)=\unit{n+1}(f_n(x))$;
@@ -458,6 +466,17 @@ As $\cans S$  is surjective,
   identities and $\comp i$-compositions and, by definition, $\phi_{n+1}(\fcls
   {\fcst{a}})=h(a)$, so that it extends $f$ to the required morphism $\phi$. 
 \end{proof}
+\begin{remark}\label{rmk:functoriality_of_wtxeq}
+  By~\cref{prop:univprop}, the correspondence
+  \[\clx CS\mapsto \wtxeq S\]
+  is the object part of a functor $\clWW:\npCatp
+  nk\to\Set$. Precisely, this functor $\clWW$ is the composite
+  \[
+    \xymatrix{\npCatp nk\ar[r]^{\frf{n,k}} & \npCat{n+1}k \ar[r]^(.6){(-)_{n+1}}& \Set}
+  \]
+  where $(-)_{n+1}$ takes an $\pair{n{+}1}k$-category to the set of
+  its $(n{+}1)$-cells.
+\end{remark}
 \begin{paragr}\label{paragr:addproperties}
   Let $C$ be an $\pair{n{+}1}{k}$-category and $S$ a set. Any map
   $p:S\to C_{n+1}$ immediately defines a cellular extension $\clx{\trk n C}{S}$ of
@@ -470,35 +489,34 @@ by~\cref{prop:univprop} that $\extend{C}_{n+1}=\wtxeq S$. Let $\fcls
 p=\phi_{n+1}:\wtxeq S\to C_{n+1}$ and $\extend p=\fcls p\cans S:\wtx
 S\to D_{n+1}$. By~\cref{lemma:mapext}, the map $\extend p$ is the
 unique $\Unit{\trk nC}$-compatible map such that $\extend p\finc
-S=p$. Therefore, each $p:S\to C_{n+1}$ yields a factorization of the form
- \[
-    \xymatrix{C_{n+1} & \wtxeq S\ar[l]|{\fcls{p}} & \wtx S
-      \ar[l]|(.4){\cans{S}} \ar@/_1em/[ll]_{\extend p}& S\ar[l]_(.3){\finc{S}} \ar@/^1em/[lll]^p}.
-  \]
+S=p$. Therefore, each $p:S\to C_{n+1}$ yields a factorization of the
+form
+\begin{equation}
+  \label{eq:factor}
+  \xymatrix{C_{n+1} & \wtxeq S \ar[l]^{\fcls{p}}& \wtx S\ar[l]^(.4){\cans{S}} \ar@/_1em/[ll]_(.3){\extend{p}}& S\ar[l]^(.3){\finc{S}}\ar@/_2em/[lll]_p}
+\end{equation}
   \begin{lemma}\label{lemma:tech}
     Let $C$, $D$ be $\pair{n{+}1}{k}$-categories and $f:C\to D$ a
     morphism. Let $S$, $T$ be two sets endowed with maps $p:S\to
     C_{n+1}$ and $q:T\to D_{n+1}$. Let $h:S\to T$ be a map such that
     $f_{n+1}p=qh$. Then
-    \[ \pair{\trk n f}{h}:\clx{\trk n
+    \[ \phi=\pair{\trk n f}{h}:\clx{\trk n
       C}S\to\clx{\trk n D}{T}\]
 is a morphism of cellular extensions
-    and, denoting
-\[\phi:\frf{n,k}\clx{\trk n C}{S}\to \frf n\clx{\trk n D}{T}
-\]
-its transpose,
- there is a unique $\pair{\trk n f}h$-compatible translation $\extend
-   h:\wtx S\to\wtx T$ such that the following diagram commutes:
+    and the following diagram commutes:
     \begin{equation}
      \label{eq:tech}
      \xymatrix{
-     C_{n+1} \ar[d]_{f_{n+1}}& \wtxeq S\ar[l]^{\fcls{p}}\ar[d]_{\phi_{n+1}} & \wtx S
-      \ar[l]^(.4){\cans{S}}\ar[d]^{\extend h} & S\ar[l]^(.3){\finc{S}}
+     C_{n+1} \ar[d]_{f_{n+1}}& \wtxeq S\ar[l]^{\fcls{p}}\ar[d]_{\wtxeq\phi} & \wtx S
+      \ar[l]^(.4){\cans{S}}\ar[d]^{\wtx\phi} & S\ar[l]^(.3){\finc{S}}
       \ar@/_1em/[lll]_p\ar[d]_h\\
       D_{n+1} & \wtxeq T\ar[l]_{\fcls{q}} & \wtx T
       \ar[l]_(.4){\cans{T}} & T\ar[l]_(.3){\finc{T}} \ar@/^1em/[lll]^q}.
      \end{equation}
    \end{lemma}
+   \begin{proof}
+     TODO
+   \end{proof}
  
   
 \end{paragr}
