@@ -144,8 +144,10 @@
 % FORMAL EXPRESSIONS
 
 \newcommand{\expr}[1]{\mathcal{E}[#1]} %formal expressions on #1
-\newcommand{\wtx}[1]{\mathcal{W}[#1]} % well typed expressions on #1
-\newcommand{\wtxeq}[1]{\fcls{\wtx{#1}}} % equiv classes of well typed expressions on #1
+\newcommand{\WW}{\mathcal{W}}
+\newcommand{\clWW}{\fcls{\mathcal{W}}}
+\newcommand{\wtx}[1]{\WW[#1]} % well typed expressions on #1
+\newcommand{\wtxeq}[1]{\clWW[#1]} % equiv classes of well typed expressions on #1
 \newcommand{\formal}[1]{\mathsf{#1}} % formal expressions style
 \newcommand{\fcst}[1]{\formal{c}_{#1}} % constant
 \newcommand{\finv}[1]{\formal{c}^{-}_{#1}}% formal inverse
