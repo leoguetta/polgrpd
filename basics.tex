@@ -273,7 +273,7 @@ cells in $C_n$, by the following structural induction:
    $\phi$-compatible translation} if
   \begin{itemize}
   \item for each $w\in\wtx S$, $\scex n^Tg(w)=f_n(\scex n^S w)$ and
-    $\tgex n^T w=f_n(\tgex n^S w)$;
+    $\tgex n^T g(w)=f_n(\tgex n^S w)$;
     \item for each $a\in S$, $g(\fcst a)=\fcst{h(a)}$ and $g(\finv
       a)=\finv{h(a)}$;
     \item for each $x\in C_n$,  $g(\fid x)=\fid{f_n(x)}$;
@@ -476,6 +476,17 @@ As $\cans S$  is surjective,
   \]
   where $(-)_{n+1}$ takes an $\pair{n{+}1}k$-category to the set of
   its $(n{+}1)$-cells.
+
+  Let now $\phi=\pair fh:\clx CS\to \clx DT$
+  be a morphism of cellular extensions, and define $h':S\to\wtxeq T$
+  by $h'(a)=\fcls{\fcst{h(a)}}$. By~\cref{prop:univprop},
+  $\extend\phi=\frf{n,k}\phi:\frf{n,k}\clx CS\to\frf{n,k}\clx DT$ is
+  the unique morphism in $\npCat{n+1}k$ such that $\trk
+  n\extend\phi=f$ and $\extend{\phi}_{n+1}(\fcls{\fcst a})=h'(a)$ for
+  each $a\in S$. Now
+  $\extend{\phi}_{n+1}$ is precisely $\wtxeq{\phi}$, so that, for each $a\in
+  S$, $\wtx{\phi}(\fcls{\fcst a})=\fcls{\fcst{h(a)}}$.
+  
 \end{remark}
 \begin{paragr}\label{paragr:addproperties}
   Let $C$ be an $\pair{n{+}1}{k}$-category and $S$ a set. Any map
@@ -509,13 +520,26 @@ is a morphism of cellular extensions
      \xymatrix{
      C_{n+1} \ar[d]_{f_{n+1}}& \wtxeq S\ar[l]^{\fcls{p}}\ar[d]_{\wtxeq\phi} & \wtx S
       \ar[l]^(.4){\cans{S}}\ar[d]^{\wtx\phi} & S\ar[l]^(.3){\finc{S}}
-      \ar@/_1em/[lll]_p\ar[d]_h\\
+      \ar@/_1em/[lll]_p\ar[d]^h\\
       D_{n+1} & \wtxeq T\ar[l]_{\fcls{q}} & \wtx T
       \ar[l]_(.4){\cans{T}} & T\ar[l]_(.3){\finc{T}} \ar@/^1em/[lll]^q}.
      \end{equation}
    \end{lemma}
    \begin{proof}
-     TODO
+     The outer square commutes by hypothesis, and the top and bottom
+     factorizations are instances
+     of~(\ref{eq:factor}). By~\cref{lemma:transl}, $\wtx\phi$ is a
+     $\phi$-compatible translation and in particular, for each $a\in
+     S$, $\wtx\phi(\fcst a)=\fcst{h(a)}$ so that the right square
+     commutes. Let $h'=\cans T\finc Th:S\to\wtxeq T$. Both maps
+     $\wtxeq\phi\cans S$ and $\cans T\wtx\phi$ are
+     $f$-compatible. Moreover, for each $a\in S$, $\wtxeq\phi\cans
+     S\finc S(a)=\wtxeq\phi(\fcls{\fcst a})=\fcls{\fcst{h(a)}}=h'(a)$
+     by~\cref{rmk:functoriality_of_wtxeq} and $\cans
+     T\wtx\phi\finc(a)=\cans T\finc T h(a)=h'(a)$. Thus, by the
+     uniqueness part of~\cref{lemma:mapext}, $\wtxeq\phi\cans S=\cans
+     T\wtx\phi$, so that the middle square commutes.  
+     
    \end{proof}
  
   
