@@ -531,14 +531,38 @@ is a morphism of cellular extensions
      of~(\ref{eq:factor}). By~\cref{lemma:transl}, $\wtx\phi$ is a
      $\phi$-compatible translation and in particular, for each $a\in
      S$, $\wtx\phi(\fcst a)=\fcst{h(a)}$ so that the right square
-     commutes. Let $h'=\cans T\finc Th:S\to\wtxeq T$. Both maps
+     commutes.
+
+     Let $h'=\cans T\finc Th:S\to\wtxeq T$. Both maps
      $\wtxeq\phi\cans S$ and $\cans T\wtx\phi$ are
-     $f$-compatible. Moreover, for each $a\in S$, $\wtxeq\phi\cans
-     S\finc S(a)=\wtxeq\phi(\fcls{\fcst a})=\fcls{\fcst{h(a)}}=h'(a)$
-     by~\cref{rmk:functoriality_of_wtxeq} and $\cans
-     T\wtx\phi\finc S(a)=\cans T\finc T h(a)=h'(a)$. Thus, by the
+     $f$-compatible. Moreover, for each $a\in S$,
+\[\wtxeq\phi\cans S\finc S(a)=\wtxeq\phi(\fcls{\fcst a})=\fcls{\fcst{h(a)}}=h'(a)\]
+by~\cref{rmk:functoriality_of_wtxeq} and
+\[
+\cans
+     T\wtx\phi\finc S(a)=\cans T\finc T h(a)=h'(a).
+  \]
+Thus, by the
      uniqueness part of~\cref{lemma:mapext}, $\wtxeq\phi\cans S=\cans
-     T\wtx\phi$, so that the middle square commutes.  
+     T\wtx\phi$, so that the middle square commutes.
+
+     Let finally
+     $h''=qh$. Both maps $f_{n+1}\fcls p\cans S$ and $\fcls
+     q\wtxeq\phi\cans S$ from $\wtx S$ to $D_{n+1}$ are $f$
+     compatible. Also
+     \[
+       f_{n+1}\fcls p\cans S\finc S=f_{n+1}p=qh=h''
+     \]
+      and
+      \[
+      \fcls q\wtxeq\phi\cans S\finc S=\fcls q\cans T\wtx\phi\finc
+      S=\fcls q\cans T\finc T h=qh=h''.
+      \]
+      By the uniqueness part
+     of~\cref{lemma:mapext},
+     $f_{n+1}\fcls p\cans S=\fcls q\wtxeq\phi\cans S$ and as $\cans S$
+     is surjective, $f_{n+1}\fcls p=\fcls q\wtxeq\phi$. Therefore the
+     left square commutes and we are done.
      
    \end{proof}
  
