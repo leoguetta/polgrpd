@@ -192,7 +192,9 @@ so that the induction hypothesis applies, whence
 \end{lemma}
  \begin{proof}
    Let $g=\wtx\phi$, $w\in\wtx S$, $z=g(w)$ and $z'\in\wtx T$ such that
-   $z\frel z'$. Let us examine the different cases of~\ref{ssubsec:eqform}:
+   $z\frel z'$.
+
+   Let us examine the different cases of~\ref{ssubsec:eqform}:
   In case~(1), there are two $i$-composable cells $y_1,y_2\in D_n$ such that
   $z=(\fid{y_1}\fcomp i \fid{y_2})$ and $z'=\fid{y_1\comp i
     y_2}$. Then $w$ is of the form $(\fid{x_1}\fcomp i\fid{x_2})$ where
@@ -209,8 +211,8 @@ cases~(3) to~(7).
 
 In the first part of
    case~(8), there is a $b:y\to y'\in T$ such that $g(w)=(\fcst b\comp
-   n\finv b)$. Therefore $w$ is of the form $(\fcst{a_1}\comp 
-   n\finv{a_2})$ for some $a_1:x_1\to x'_1\in S$,  $a_1:x_2\to x'_2\in
+   n\finv b)$ and $z'=\fid y$. Therefore $w$ is of the form $(\fcst{a_1}\comp 
+   n\finv{a_2})$ for some $a_1:x_1\to x'_1\in S$,  $a_2:x_2\to x'_2\in
    S$ such that $x'_2=x'_1$, $h(a_1)=h(a_2)=b$ and
    $f_n(x_1)=f_n(x_2)=y$.  Now
    \begin{align*}
@@ -218,17 +220,20 @@ In the first part of
                                      & = f_{n+1}\extend p(\fcst{a_1})\comp n
                                        f_{n+1}\extend p(\finv{a_2})\\
                                      & = \extend q(\fcst b)\comp
-                                       n\extend q(\finv b).
+                                       n\extend q(\finv b)\\
+                                     & = \unit{n+1}(y).
    \end{align*}
-   On the other hand $f_{n+1}\extend p(\fcst{a_1})\comp n
-   f_{n+1}\extend p(\finv{a_1})=\extend q(\fcst b)\comp n\extend
-   q(\finv b)$. By the uniqueness part of Conduché condition~(2), this
-   implies that $\extend p(\finv{a_2})=\extend p(\finv{a_1})=c$. Thus
-   $\finv{a_1}$ and $\finv{a_2}$ both belong to $\wtxr cS$ and as
-   $g(\finv{a_1})=g(\finv{a_2})=\finv b$, $\finv{a_1}=\finv{a_2}$,
-   by~\cref{lemma:injectivity}. Finally, $w=(\fcst{a_1}\fcomp
-   n\finv{a_1})$, so that $w'=\fid{x_1}$ satisfies $g(w')=z'$ and
-   $w\frel w'$, whence the result. The second part of case~(8) is similar.
+   By  Conduché condition~(1), there is a unique $x\in C_n$ such that
+   $c=\extend p(w)=\unit{n+1}(x)$. Thus $\scex nw=\sce n\extend p(w)=x$
+   and $\tgex nw=\tge n\extend p(w)=x$. On the other hand, $\scex
+   nw=\scex n \fcst{a_1}=x_1$ and $\tgex nw=\tgex n\finv{a_2}=x_2$,
+   whence $x_1=x_2=x$. If now $w_1=(\fcst{a_1}\fcomp n\finv{a_1})$,
+   $\extend p(w_1)=\unit{n+1}(x)=\extend p(w)=c$, whence both $w$ and
+   $w_1$
+   belong to $\wtxr cS$ and as 
+   $g(w_1)=g(w)$, by~\cref{lemma:injectivity}, $w=w_1$. Finally, by taking
+   $w'=\fid x$, we get $g(w')=z'$ and $w\frel w'$, whence the result.
+The second part of case~(8) is similar.
  \end{proof}
  \begin{lemma}\label{lemma:backward_lift_frel}
  Suppose $f$ is a Conduché fibration. For each $w\in \wtx S$ and $z'\in\wtx
@@ -256,34 +261,7 @@ In the first part of
 \end{proof}
  
 
- % \begin{lemma}\label{lemma:lift_cfrel}
-%  Suppose $f$ is a Conduché fibration and let $c\in C_{n+1}$. For each $w,w'\in\wtxr c{S}$, if $\wtxr
-%   c\phi(w)\cfrel \wtxr c\phi (w')$, then $w\cfrel w'$.
-% \end{lemma}
-% \begin{proof}
-%   Let $g=\wtxr c\phi$ and $w,w'\in\wtxr cS$ such that $g(w)\cfrel
-%   g(w')$. If (i)~$g(w)\frel g(w')$ we get $w\frel w'$
-%   by~\cref{lemma:lift_frel}, whence $w\cfrel w'$. If~(ii) $g(w)=(y\fcomp
-%   i v)$ and $g(w')=(y\fcomp i v')$ with $v\cfrel v'$, then $w$ is of
-%   the form $(x\fcomp i u)$ and $w'$ is of the form $(x'\fcomp i u')$
-%   with $g(x)=g(x')=v$,  $g(u)=v$ and
-%   $g(u')=v'$. Now $f_{n+1}(c)=\extend p(w)=\extend qg(w)=\extend q
-%   (y)\comp i\extend q (v)$. By the uniqueness property in Conduché
-%   condition~(2), there is a unique pair $c',c''\in C_{n+1}$ such that
-%   $c=c'\comp i c''$, $f_{n+1}(c')=\extend q(y)$ and
-%   $f_{n+1}(c'')=\extend q(v)$. Note also that $v\cfrel v'$ implies $v
-%   \freq v'$, hence $\extend q(v)=\extend q(v')$. On the other hand,
-%   $f_{n+1}(c)=f_{n+1}\extend p(x)\comp i f_{n+1}\extend p(u)=\extend q
-%   (y)\comp i\extend q(v)$, whence $\extend p(x)=c'$ and $\extend
-%   p(u)=c''$. The same argument applies to $w'$ and shows that $\extend
-%   p(x')=c'$ and $\extend p(u')=c''$. Therefore $x,x'\in\wtxr{c'}S$ and
-%   $u,u'\in\wtxr{c''}S$. Thus, 
-% by~\cref{lemma:injectivity}, $x=x'$ and by induction
-% $u\cfrel u'$, whence $w\cfrel w'$. The same argument applies to
-% case~(iii), where  $g(w)=(v\fcomp i y)$ and
-%   $g(w')=(v'\fcomp i y)$ with $v\cfrel v'$.
-% \end{proof}
-\begin{lemma}\label{lemma:lift_freq}
+ \begin{lemma}\label{lemma:lift_freq}
  Suppose $f$ is a Conduché fibration and let $c\in C_{n+1}$. For each $w,w'\in\wtxr c{S}$, if $\wtxr
   c\phi(w)\freq \wtxr c\phi (w')$, then $w\freq w'$.
 \end{lemma}
