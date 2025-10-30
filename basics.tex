@@ -229,7 +229,7 @@ in order to completely determine a map $f$ from $\expr S$ to an arbitrary
 set $X$, it suffices to define $f(e)$ for $e$ of the form $\fcst a$,
 $\finv a$ or $\fid x$ and to provide the rules to evaluate $f((e_1\fcomp
 i e_2))$ from the values $f(e_1)$ and $f(e_2)$ for each $i\leq n$.
-For instance, we may define a {\em lenght} map $\lgh:\expr S\to \N$
+For instance, we may define a {\em length} map $\lgh:\expr S\to \N$
 by setting $\lgh \fcst a=\lgh\finv a= \lgh \fid x=1$ and $\lgh
 (e_1\fcomp i e_2)=\lgh e_1+\lgh e_2$. 
 
@@ -263,11 +263,11 @@ cells in $C_n$, by the following structural induction:
  as $\sce n^S=\scex n^S \finc S$ and $\tge n^S=\tgex n^S\finc S$
  respectively. By composition with
  $\sce i^C,\tge i^C:C_n\to C_i$ for any $i<n$, we define likewise
- $\scex i^S,\tgex i^T:\wtx S\to C_i$. Note that the map $\finc S$ is injective. 
+ $\scex i^S,\tgex i^S:\wtx S\to C_i$. Note that the map $\finc S$ is injective. 
  
  \begin{paragr}\label{paragr:transl}
   Let $C$, $D$ be $\pair nk$-categories, $S$, $T$ two sets,  $\clx
-  CS$, $\clx DT$ cellular extensions. and
+  CS$, $\clx DT$ cellular extensions and
   \[\phi=\pair fh: \clx CS\to\clx DT \]
   a morphism in $\npCatp nk$. A map $g:\wtx S\to\wtx T$ is called a {\em
    $\phi$-compatible translation} if
@@ -427,7 +427,7 @@ binary relation $\frel$ on $\wtx{S}$ as follows:
   $w,w'\in \wtx S$ and $w''=(w\fcomp i w')$, the class $\cans S(w'')=\fcls{w''}$ only
   depends on $\fcls w$ and $\fcls{w'}$. Hence we may define 
  $\comp i$-compositions in $\wtxeq S$ by
- \[\fcls{w}\comp i\fcls{w'}=\fcls{(w\fcomp i w')}.\]
+% \[\fcls{w}\comp i\fcls{w'}=\fcls{(w\fcomp i w')}.\]
  \[\fcls{w}\comp i\fcls{w'}=\fcls{(w\fcomp i w')}.\]
  Also, to any $x\in C_n$ we associate its $n{+}1$-unit in $\wtxeq
   S$ by
