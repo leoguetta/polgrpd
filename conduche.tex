@@ -256,7 +256,16 @@ The second part of case~(8) is similar.
  that $\wtx\phi(w')=z'$ and $w\cfrel w'$.
 \end{lemma}
 \begin{proof}
-  TODO
+ Let $g=\wtx\phi$, $w\in\wtx S$, $z=g(w)$ and $z'\in\wtx T$ such that
+   $z\cfrel z'$. If~(i) $z\frel z'$, then
+   by~\cref{lemma:forward_lift_frel}, there exists $w'\in\wtx S$ such
+   that $g(w')=z'$ and $w\frel w'$, whence also $w\cfrel w'$. If~(ii)
+   $z=(y\fcomp i v)$, $z'=(y\fcomp i v')$ with $v\cfrel v'$, then $w$
+   is of the form $(x\fcomp i u)$ where $g(x)=y$ and $g(u)=v$. By
+   induction, there exists $u'\in\wtx S$ such that $g(u')=v'$ and
+   $u\cfrel u'$, so that $w'=(x\fcomp i u')$ satisfies $g(w')=z'$ and
+   $w\cfrel w'$, as required. Case~(iii) where $z=(v\fcomp i y)$,
+   $z'=(v'\fcomp i y)$ with $v\cfrel v'$ is similar to~(ii).
 \end{proof}
 \begin{lemma}\label{lemma:backward_lift_cfrel}
  For each $w\in \wtx S$ and $z'\in\wtx
@@ -264,7 +273,8 @@ The second part of case~(8) is similar.
  that $\wtx\phi(w')=z'$ and $w'\cfrel w$.
 \end{lemma}
 \begin{proof}
-  TODO
+  Same as~\cref{lemma:forward_lift_cfrel}, but for
+  using~\cref{lemma:backward_lift_frel} instead of~\cref{lemma:forward_lift_frel}.
 \end{proof}
  
 
@@ -276,7 +286,17 @@ The second part of case~(8) is similar.
   Let $g=\wtxr c\phi$ and $w,w'\in\wtxr cS$ such that $g(w)\freq
   g(w')$. By~\ref{ssubsec:eqform}, there is a chain $z_0,...,z_l$ of
   formulas in $\wtx S$ with $l\geq 0$ such that $z_0=g(w)$, $z_l=g(w')$ and for each
-  $i<l$, either $z_i\cfrel z_{i+1}$ or $z_{i+1}\cfrel z_i$.
+  $i<l$, either $z_i\cfrel z_{i+1}$ or $z_{i+1}\cfrel z_i$. We reason
+  by induction on the smallest such $l$. If $l=0$, then $g(w)=g(w')$,
+  and by~\cref{lemma:injectivity} $w=w'$ whence $w\freq w'$. If
+  $l>0$, either $z_0\cfrel z_1$ or $z_1\cfrel z_0$. In the first case,
+  by~\cref{lemma:forward_lift_cfrel}, there is a $w_1\in\wtx S$ such
+  that $g(w_1)=z_1$ and $w\cfrel w_1$, which implies $w_1\in\wtxr cS$,
+  and by induction $w_1\freq w'$, whence also $w\freq w'$. In the
+  second case, by~\cref{lemma:backward_lift_cfrel}, there is a
+  $w_1\in\wtx S$ such that $g(w_1)=z_1$ and $w_1\cfrel w$, which
+  implies $w_1\in\wtxr cS$ and by induction $w_1\freq w'$, whence also
+  $w\freq w'$. 
 \end{proof}
 
 
