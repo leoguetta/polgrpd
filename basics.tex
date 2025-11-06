@@ -99,9 +99,10 @@ Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp 
     x\comp i y & = \unit n(\sce i(x)) \quad \hbox{and}\\
     y\comp i x & =  \unit n(\tge i(x)).
   \end{align*}
-  Such an $n$-cell $y$ is necessarily unique if it exists. A
+  Such an $n$-cell $y$ is necessarily unique if it exists, in which case
+  we say that $y$ is  the {\em $\comp i$-inverse} of $x$. A
   $\comp {n-1}$-invertible $n$-cell $x$ is simply called {\em
-    invertible} and will be denoted by $\inv x$. 
+    invertible} and we denote its $\comp{n-1}$-inverse by $\inv x$. 
   \begin{proposition}\label{prop:invcell}
     If $0\leq i< j<n$ and $x$ is a $\comp i$-invertible cell, it is also $\comp j$-invertible.
   \end{proposition}
@@ -160,8 +161,9 @@ whose precise description plays a central role in the present
 work. The existence of this left-adjoint is proved
 in~\cite{batanin:comfmg} (see also~\cite[Ch.18]{abgmmm:polybk}). To
 avoid tedious distinctions in the following, we recall the convention that
-for any $k\geq n$, $\npCat nk=\nCat n$, and in the same way we set
-$\fgf{n,k}=\fgf n$ and $\frf{n,k}=\frf n$ in this case.
+for any $k\geq n$, $\npCat nk=\nCat n$, \fmcomment{éviter cette convention}and in the same way we set
+$\fgf{n,k}=\fgf n$ and $\frf{n,k}=\frf n$ in this
+case.
 
 \subsubsection{Polygraphs}\label{ssubsec:polyg}
 Let $k\in\N$ be a fixed integer. We define, by induction on $n\in\N$,
