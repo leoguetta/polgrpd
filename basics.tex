@@ -35,7 +35,7 @@ are the only two elements of $\homset{\oGlob}{X_n}{X_m}$. We often drop the subs
 If $n>0$, $x\in X_n$, $u=\sce{n-1}(x)$ and $v=\tge{n-1}(x)$, we shall write $x:u\to v$.
 Finally, two $n$-cells $x,y\in X_n$ are {\em parallel} if either $n=0$ or $n>0$ and $x$, $y$ have the same $(n{-}1)$-source and the same $(n{-}1)$-target.
 \begin{paragr}
-  Let $n\in \N$. By discarding everything above level $n$ in the previous construction, we get the notions of {\em $n$-globular set} and corresponding category $\nGlob n$. For any $m\in\N\cup\set{\omega}$ such that $n<m$, there is an obvious truncation functor $\nGlob m\to \nGlob n$, right adjoint to the inclusion functor $\nGlob n\to \nGlob m$.
+  Let $n\in \N$. By discarding everything above level $n$ in the previous construction, we get the notions of {\em $n$-globular set} and corresponding category $\nGlob n$. For any $m\in\N\cup\set{\oo}$ such that $n<m$, there is an obvious truncation functor $\nGlob m\to \nGlob n$, right adjoint to the inclusion functor $\nGlob n\to \nGlob m$.
 \end{paragr}
 
 
@@ -90,7 +90,7 @@ emphasize that the corresponding source and target maps pertain to the
 \end{remark}
 \subsubsection{$n$-Categories}\label{ssubsec:ncat}
 For a given $n\in\N$, truncating the previous construction at dimension $n$ yields the notion of $n$-category.  We denote by $\nCat n$ the resulting category. For example $\nCat 0$ is the category $\Set$ of sets and $\nCat 1$ is the category of small categories if we interpret $f\comp 0 g$ as the compostion $g\circ f$ of two morphisms.
-For $n\in\N$ and $m\in\N\cup \set{\omega}$ such that $n<m$, there are 
+For $n\in\N$ and $m\in\N\cup \set{\oo}$ such that $n<m$, there are 
 obvious truncation functors $\trk n:\nCat m\to \nCat n$ discarding all cells of dimension $>n$. The functor $\trk n$ is right-adjoint to the inclusion functor  $\inc n:\nCat n\to\nCat m$, which takes an $n$-category $C$ to the $m$-category $C'$ with the same $i$-cells for $i\leq n$ and only the required identity cells in dimensions $n<i\leq m$.
 
 \subsubsection{Invertible cells}\label{ssubsec:invert}
@@ -120,9 +120,7 @@ Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp 
     any $0\leq k<n$.  For example $\npCat 10$ is the category $\Grpd$
     of small groupoids and $\opCat 0$ the category $\oGrpd$ of
     \oo-groupoids. The present article pays a special attention to the
-    cases $k=0$ and $k=1$. It will be convenient to extend the
-    notation for $k\geq n$, in which case $\npCat nk=\nCat n$.
-    \fmcomment{reprendre cette convention}
+    cases $k=0$ and $k=1$. 
  \end{paragr} 
 
 
@@ -160,11 +158,7 @@ This functor $\fgf{n,k}$ admits a left-adjoint
 \[\frf{n,k}:\npCatp nk\to \npCat{n+1}{k}\]
 whose precise description plays a central role in the present
 work. The existence of this left-adjoint is proved
-in~\cite{batanin:comfmg} (see also~\cite[Ch.18]{abgmmm:polybk}). To
-avoid tedious distinctions in the following, we recall the convention that
-for any $k\geq n$, $\npCat nk=\nCat n$, \fmcomment{éviter cette convention}and in the same way we set
-$\fgf{n,k}=\fgf n$ and $\frf{n,k}=\frf n$ in this
-case.
+in~\cite{batanin:comfmg} (see also~\cite[Ch.18]{abgmmm:polybk}). 
 
 \subsubsection{Polygraphs}\label{ssubsec:polyg}
 Let $k\in\N$ be a fixed integer. We define, by induction on $n\in\N$,
