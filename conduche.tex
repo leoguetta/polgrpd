@@ -95,7 +95,7 @@ the complexity of $v_d$ where $d=f_{n+1}(c)$:
    (v_2)$ are $i$-composable and $d=d_1\comp i d_2$. By~\cndii, there is a unique pair $c_1$, $c_2$ of
    $i$-composable cells in $C_{n+1}$ such that $f_{n+1}(c_1)=d_1$,
    $f_{n+1}(c_2)=d_2$ and $c=c_1\comp i c_2$. 
-By the minimal lenght condition $\lgh
+By the minimal length condition $\lgh
    v_{d_1}\leq \lgh v_1 $ and $\lgh v_{d_2}\leq \lgh v_2$, so that
    $\lgh v_{d_1}<\lgh v_d$ and $\lgh v_{d_2}<\lgh v_d$ and the
    induction hypothesis applies. Therefore we get
@@ -197,7 +197,21 @@ In the first part of case~(2)  there is $b:y\to y'\in T$ such that $g(w)=(\fid y
 $a:x\to x'\in S$ such that $h(a)=b$. Then $w'=\fcst a$ satisfies
 $g(w')=z'$ and $w\frel w'$, whence the result.
 The second part of case~(2) is treated similarly, as well as
-cases~(3) to~(7).
+case~(3).
+
+In the first part of case~(4), there is $b:y\to y'\in T$ such that
+$g(w)=(\fid v\fcomp i \fcst b)$ with $v=\unit n(\sce i y)$ and
+$z'=\fcst b$. Hence $w$ is of the form $(\fid u\fcomp i\fcst a)$ for
+$a:x\to x'\in S$ such that $h(a)=b$, and $g(\fid u)=\fid{f_n(u)}=\fid
+v$, which implies $f_n(u)=v=\unit n(\sce i y)$. By~\cndi, there is a unique
+$u^i\in C_i$ such that $u=\unit n(u^i)$. Now $\fid u:u\to u$ and
+$\fcst a:x\to x'$. As $w$
+is well-typed, $\tge i u=\sce i x$. On the other hand, as
+$u=\unit{n}(u^i)$, $\tge i u=u^i$. Therefore $w=(\fid u\fcomp i \fcst a)$
+with $u=\unit n(\sce i x)$, so that $w'=\fcst a$ satisfies $w\frel
+w'$. The second part of case~(3) is similar, as well as case~(5).
+
+Cases~(6) and~(7) are straightforward.
 
 In the first part of
    case~(8), there is a $b:y\to y'\in T$ such that $g(w)=(\fcst b\comp
@@ -251,7 +265,6 @@ $a:x\to x'\in S$ such that $h(a)=b$. Thus $w'=(\fid{x}\fcomp n \fcst
 a)$ satisfies $g(w')=z'$ and $w'\frel w$, whence the result.
 The second part of case~(2) is treated similarly, as well as
 cases~(3) to~(7).
-
 In the first part of
    case~(8), there is a $b:y\to y'\in T$ such that $z=\fid{y}$ and $z'=(\fcst b\comp
    n\finv b)$. Therefore $w$ is of the form $\fid x$ for some $x\in
