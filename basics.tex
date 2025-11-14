@@ -48,7 +48,7 @@ $\unit n:C_{n-1}\to C_n$ for $n>0$ and a family of partial binary composition op
   \begin{enumerate}
   \item For each $n>0$ and $x\in C_{n-1}$, $\unit{n}(x): x\to x$.
   \item If $0\leq i<n$ and $x,y\in X_n$ are $i$-composable, then the composite $z=x\comp i y\in C_n$ is defined and
-    \begin{itemize}
+    \begin{enumerate}
     \item for $i<n-1$,
       \begin{align*}
         \sce{n-1}(z) & =\sce{n-1}(x)\comp i\sce{n-1}(y)\quad \hbox{and}\\
@@ -59,7 +59,7 @@ $\unit n:C_{n-1}\to C_n$ for $n>0$ and a family of partial binary composition op
         \sce{n-1}(z) & =\sce{n-1}(x) \quad \hbox{and}\\
          \tge{n-1}(z) & =\tge{n-1}(y).
       \end{align*}
-    \end{itemize}
+    \end{enumerate}
     \end{enumerate}
 \item
   \begin{enumerate}
@@ -233,7 +233,7 @@ by setting $\lgh \fcst a=\lgh\finv a= \lgh \fid x=1$ and $\lgh
 
 
 \subsubsection{Typing}\label{ssubsec:types}
-We then define the
+We now define the
 subset  $\wtx S\subset\expr S$ of {\em well-typed formulas}.
 Precisely, we define the statement
 \[\type wxy\]
@@ -244,7 +244,7 @@ cells in $C_n$, by the following structural induction:
   $\type{\fcst{a}}{x}{y}$
   and $\type{\finv{a}}{y}{x}$;
 \item for  each $x\in C_n$, $\type{\fid{x}}{x}{x}$;
- \item if $\type wxy$ and $\type{w'}yz$, then $w''=(w\fcomp{n-1}w')$ is
+ \item if $\type wxy$ and $\type{w'}yz$, then $w''=(w\fcomp n w')$ is
    well-typed and $\type{w''}{x}{z}$;
  \item if $0\leq i<n$, $\type wxy$, $\type{w'}{x'}{y'}$, $\sce
    i{x'}=\tge i{x}$, then $w''=(w\fcomp i w')$ is well-typed and
