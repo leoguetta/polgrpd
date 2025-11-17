@@ -224,6 +224,16 @@ induction on $n$.
   of cellular extensions such that $q:Q\to Q'$ is a morphism of
   $\pair nk$-polygraphs and $\frgp q=\frf n q$.
 \end{itemize}
+Polygraphs and morphisms build a  sequence of categories
+\[
+  \xymatrix@C=0.5cm{
+    \nPol 0 &\nPol 1\ar[l]& \cdots\ar[l] & \nPol k\ar[l] & \npPol{k+1}k \ar[l]& \cdots\ar[l] &
+    \npPol nk\ar[l] & \cdots\ar[l]
+    }
+  \]
+  where the arrows represent the obvious truncation functors. Finally,
+  the category $\opPol k$ of \ook k-polygraphs is the projective limit of the
+  above diagram of categories.
 \begin{paragr}
   For $n>k$, the structure of an $\pair nk$-polygraph $P$,  is summarized by the following diagram of sets:
   \[
