@@ -467,16 +467,50 @@ binary relation $\frel$ on $\wtx{S}$ as follows:
   $w,w'\in \wtx S$ and $w''=(w\fcomp i w')$, the class $\cans S(w'')=\fcls{w''}$ only
   depends on $\fcls w$ and $\fcls{w'}$. Hence we may define 
  $\comp i$-compositions in $\wtxeq S$ by
-% \[\fcls{w}\comp i\fcls{w'}=\fcls{(w\fcomp i w')}.\]
  \[\fcls{w}\comp i\fcls{w'}=\fcls{(w\fcomp i w')}.\]
  Also, to any $x\in C_n$ we associate its $n{+}1$-unit in $\wtxeq
   S$ by
   \[\unit{n+1}(x)=\fcls{\fid x}.\]
+  \begin{lemma}\label{lemma:inv}
+    For each $\type wxy\in \wtx S$, there is a $\type{w'}yx\in \wtx S$
+    such that $(w\fcomp n w')\freq\fid x$ and $(w'\fcomp n w)\freq
+    \fid y$.
+  \end{lemma}
+  \begin{proof}
+    We reason by induction on the complexity of $w$:
+    \begin{itemize}
+    \item if $w=\fid u$ for some $u\in C_n$, then $x=y=u$ and we set
+      $w'=w$;
+    \item if $w=\fcst a$ for some $a\in S$, we set $w'=\finv a$;
+    \item if $w=\finv a$ for some $a\in S$, we set $w'=\fcst a$;
+     \item if $w=(w_1\fcomp n w_2)$, then $\type{w_1}xz$ and
+       $\type{w_2}zy$ and by induction we get $\type{w'_1}zx$ and
+       $\type{w'_2}yz$ such that $(w_1\fcomp n w'_1)\freq \fid x$,
+       $(w'_1\fcomp n w_1)\freq \fid z$, $(w_2\fcomp n w'_2)\freq \fid
+       z$
+       and $(w'_2\fcomp n w_2)\freq \fid y$. Thus $w'=(w'_2\fcomp n
+       w'_1)$ is well typed and satisfies $(w\fcomp n w')\freq \fid x$
+       and $(w'\fcomp n w)\freq \fid y$;
+       \item if $w=(w_1\fcomp i w_2)$ for some $i<n$, then
+         $\type{w_1}{x_1}{y_1}$
+         and $\type{w_2}{x_2}{y_2}$ with $x=x_1\comp i x_2$ and
+         $y=y_1\comp i y_2$. By induction, we get
+         $\type{w'_1}{y_1}{x_1}$ and $\type{w'_2}{y_2}{x_2}$ such that
+         $(w_l\fcomp n w'_l)\freq \fid{x_l}$ and $(w'_l\fcomp n
+         w_l)\freq \fid{y_l}$ for $l=1,2$. Thus $w'=(w'_1\fcomp i
+         w'_2$ is well typed and satisfies $(w\fcomp n w')\freq \fid x$
+       and $(w'\fcomp n w)\freq \fid y$.
+    \end{itemize}
+  \end{proof}
   Let us define the $n{+}1$-globular set $\extend C$ by
   $\trk n\extend C=C$ and $\sce n,\tge n:\extend C_{n+1}=\wtxeq S\to C_n$.
   The axioms for $\frel$ ensure that $\extend C$, endowed with
-  the $\comp i$-compositions and units just defined is indeed an
+  the $\comp i$-compositions and units just defined is an
+  $(n{+}1)$-category, and by~\cref{lemma:inv}, all its $(n{+}1)$-cells
+  are invertible, so that $\extend C$ is
+  indeed an
   $\pair{n{+}1}{k}$-category.
+ 
 
   We claim that $\extend C$ so defined is
   in fact, up to isomorphism, the expected $\pair{n{+}1}{k}$-category
