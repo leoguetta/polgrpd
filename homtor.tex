@@ -134,21 +134,26 @@ We fix once and for all a small category $C$.
   Let $C$ be a small category. We define its \emph{homology $\Ho_{\bullet}(C)$} as the
   graded abelian group
   \[
-    \Ho_{\bullet}(C):=\Tor{C}{\bullet}(\Z,\Z).
+    \Ho_{\bullet}(C):=\Tor{C}{\bullet}(\cst{\Z},\cst{\Z}).
   \]
   More generally, if $M$ is a right $C$\nbd-module, we define the
   \emph{homology $\Ho_{\bullet}(C,M)$ of $C$ with coefficient $M$} as the
   graded abelian group
   \[
-    \Ho_{\bullet}(C,M):=\Tor{C}{\bullet}(M,\Z).
+    \Ho_{\bullet}(C,M):=\Tor{C}{\bullet}(M,\cst{\Z}).
   \]
 \end{definition}
 \begin{remark}
   We could also have defined the homology of $C$ with coefficient a left
-  $C$\nbd-module $N$ as $\Tor{C}{\bullet}(\Z,N)$. No generality is
+  $C$\nbd-module $N$ as $\Tor{C}{\bullet}(\cst{\Z},N)$. No generality is
   lost as we
-  have \[\Tor{C}{\bullet}(\Z,N)=\Tor{C^{\op}}{\bullet}(N,\Z).\]
+  have \[\Tor{C}{\bullet}(\cst{\Z},N)=\Tor{C^{\op}}{\bullet}(N,\cst{\Z}).\]
   In other words, the homology of $C$ with coefficient a left
   $C$\nbd-module $N$ is the homology of $C^{\op}$ with coefficient $N$
   seen a right $C^{\op}$\nbd-module.
 \end{remark}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "main"
+%%% End:
