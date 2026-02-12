@@ -119,7 +119,21 @@ Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp 
     k$. Likewise, one defines the truncated version $\npCat nk$ for
     any $0\leq k<n$.  For example $\npCat 10$ is the category $\Grpd$
     of small groupoids and $\opCat 0$ the category $\oGrpd$ of
-    \oo-groupoids. 
+    \oo-groupoids. For any $0 \leq k \leq k'\leq \omega$, there is a canonical
+    inclusion functor
+    \[
+      \emb{k}{k'} \colon \opCat{k} \to \opCat{k'}.
+    \]
+    This functor has a left adjoint
+    \[
+      \pifun{k}{k'} \colon \opCat{k'} \to \opCat{k}
+    \]
+    that formally adds inverses to all $n$-cells with $k \leq n < k'$,
+    as well as a right adjoint (which shall remains nameless)
+    \[
+      \opCat{k'}\to \opCat{k}
+    \]
+    that takes the biggest sub\nbd-\ook{k}\nbd-category of an \ook{k'}\nbd-category.
  \end{paragr} 
 
 
@@ -671,3 +685,8 @@ Thus, by the
  
  
  
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "main"
+%%% End:

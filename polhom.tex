@@ -1,0 +1,102 @@
+\section{Polygraphic homology}
+\begin{paragr}
+  Recall that we have a so-called ``abelianization'' functor $\abel
+  \colon \oCat \to \Chp$ from the category of $\oo$\nbd-categories to
+  the category of chain complexes in non-negative degree, defined in
+  the following way. For an $\oo$\nbd-category $C$ and $n\geq 0$
+  \[
+    \abel_n(C):=\Z C_n/\sim_n,
+  \]
+  where $\Z C_n$ is the free abelian group on the set of $n$\nbd-cells
+  of $C$ and $\sim_n$ is the smallest equivalence relation compatible with
+  the abelian group structure such that $x\comp{i} y
+  \simeq _n x + y$ for any $x,y\in C_n$ that are
+  $\comp{i}$-composables. The boundary operator is defined as
+  \[
+    \begin{aligned}
+      \partial \colon \abel_{n+1}(C) &\to \abel_{n}(C)\\
+      [x] &\mapsto [\target x] - [\source x].
+    \end{aligned}
+  \]
+  One checks that this is well-defined, that we have $\partial
+  \circ \partial=0$ and that the correspondence $C \mapsto
+  \abel_{\bullet}(C)$ can be made functorial in an obvious
+  way. Furthermore, $\abel$ admits a right adjoint. For
+  details we refer to \cite{abgmmm:polybk}.
+
+  By pre-composing with the inclusion functor, for any $k\geq 0$, we
+  also get an abelinization functor
+  \[
+    \abelk{k} \colon \opCat{k} \overset{\emb{k}{\oo}}{\longrightarrow} \oCat \overset{\lambda}{\longrightarrow} \Chp.
+  \]
+  In particular, for $k=\oo$, we have $\abel=\abelk{\oo}$ by
+  definition. Notice that since $\emb{k}{\oo}$ admits a right adjoint, so does $\abelk{k}$.
+\end{paragr}
+
+The abelianization of \ook k-polygraphs admits a useful explicit
+description as stated in the following result.
+\begin{proposition}
+  Let $k \geq 0$, $P$ an \ook k-polygraph and $P_{n}$ a set of
+  generators for each $n \geq 0$. Then $\abel_{\bullet}(\frgp P)$
+  is canonically isomorphic to the chain complex
+  \[
+    \Z P_0 \overset{\partial}{\longleftarrow} \Z P_1
+    \overset{\partial}{\longleftarrow} \dots,
+  \]
+  where $\partial$ is defined on generator by
+  \[
+    \partial[x] = [\target x] - [\source x].
+  \]
+\end{proposition}
+\lgcomment{A-t-on besoin de cette description? Par ailleurs, la définition de l'opérateur bord dans cette proposition
+  n'est pas très précise.}
+\begin{proof}
+\end{proof}
+\begin{paragr}
+  We are now going to analyze the behaviour of the abelianization
+  functor with respect to the left adjoint $\pifun{k}{k'} \colon
+  \opCat{k'} \to \opCat{k}$ of the inclusion functor. Using the unit
+  of this adjunction, we get a natural transformation
+  \[
+    \begin{tikzcd}
+      
+    \end{tikzcd}
+  \]
+\end{paragr}
+\begin{proposition}
+  For any $k \geq 0$, the abelianization functor
+  \[
+    \abel \colon \opCat{k} \to \Chp
+  \]
+  is left Quillen, when $\npCat{\oo}{k}$ is equipped with the folk
+  model structure and $\Chp$ with the projective model structure.
+\end{proposition}
+\begin{proof}
+  \lgcomment{Mettre référence.}
+\end{proof}
+\begin{definition}
+  Let $k\geq 0$. The \emph{$\pair \oo k$\nbd-polygraphic homology} of
+  an \ook k\nbd-category $C$ is defined as
+  \[
+    \Hop{k}_{\bullet}(C):=\Ho_{\bullet}(\LL \abel (C)),
+  \]
+  where $\LL \abel$ is the left derived functor of $\abel \colon
+  \opCat{k} \to \Chp$.
+\end{definition}
+\begin{paragr}
+  The previous definition contains an important subtlety. For $k' \geq
+  k$, any \ook k\nbd-category $C$ is also an \ook k'\nbd-category. In
+  particular, we can consider its \ook k\nbd-polygraphic homology and
+  its \ook k'\nbd-polygraphic homology and, \emph{a priori}, they need
+  not to coincide. 
+
+  Let us be more precise, let $i_{k,k'} \colon \opCat{k} \to
+  \opCat{k'}$ be the canonical inclusion functor and $\tau_{k,k'}
+  \colon \opCat{k'} \to \opCat{k}$ its left adjoint. While $i_{k,k'}$
+  preserves and reflects folk weak equivalences, it is not left
+  Quillen in general. Consider for example
+\end{paragr}
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "main"
+%%% End:
