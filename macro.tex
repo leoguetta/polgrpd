@@ -11,7 +11,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}[subsubsection]{Definition}
 \newtheorem{example}[subsubsection]{Example}
-
+\newtheorem{openquestion}[subsubsection]{Open question}
 
 \theoremstyle{remark}
 \newtheorem{remark}[subsubsection]{Remark}
@@ -114,7 +114,7 @@
 \newcommand{\frf}[1]{\functor{F}_{#1}} %free functor
 
 \newcommand{\abel}{\functor{\lambda}} %Abelianization functor
-\newcommand{\abelk}[1]{\functor{\abel}^{\pair \oo k}}%Abelianization functor from dim #1
+\newcommand{\abelk}[1]{\functor{\abel}^{\pair{\oo}{#1}}}%Abelianization functor from dim #1
 
 % ARROWS
 
@@ -186,12 +186,14 @@
                               
 % HOMOLOGY AND HOMOLOGICAL ALGEBRA
 
- \newcommand{\tens}[1]{\otimes_{#1}} %tensor product
+\newcommand{\tens}[1]{\otimes_{#1}} %tensor product
 \newcommand{\Tor}[2]{\functor{Tor}^{#1}_{#2}} %Tor
 \newcommand{\cst}[1]{\underline{#1}} %Constant module
 \newcommand{\Ho}{\functor{H}} %Homology
 \newcommand{\LL}{\mathbb{L}} %Useful for left derived functor
-\newcommand{\Hop}[1]{\Ho^{k,\mathrm{pol}}} %Polygraphic homology
+\newcommand{\Hop}[1]{\Ho^{\pair{\oo}{#1},\mathrm{pol}}} %Polygraphic homology
+
+\newcommand{\Loc}[1]{\mathrm{Ho}(#1)} %Homotopy categories
 %OTHERS
 
 \newcommand{\nbd}{\nobreakdash} %Shortcut
