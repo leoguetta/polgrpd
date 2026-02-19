@@ -84,13 +84,15 @@ the complexity of $v_d$ where $d=f_{n+1}(c)$:
   f_{n+1}^{-1}(d)$, $c\in S$, so that $c=p(c)=\extend p(\fcst c)$ and we
   choose $u_c=\fcst c$, whence $\scex n^Su_c=\sce n^Cc$
   and $\tgex n^Su_c=\tgex n^Cc$; 
- \item if $v_d=\finv b$ for $b\in T$, then $f_{n+1}(\inv c)=\inv d$
-   but $\inv d=\inv{\extend q(\finv b)}=\extend q(\fcst b)$, which
+ \item if $v_d=\finv b$ for $b\in T$, then $\inv d=\inv{\extend q(\finv b)}=\extend q(\fcst b)$, which
    implies $v_{\inv d}=\fcst b$ because $\fcst b$ is the unique
    formula of minimal length whose image by $\extend q$ is $\inv
-   d$. Thus $\inv c\in S$ and we choose $u_c=\finv{\inv c}$, whence
-   $\scex n^Su_c=\tge n^C\inv c=\sce n^Cc$ and
-   $\tgex n^Su_c=\sce n^C\inv c=\tge n^Cc$;
+   d$. Therefore $\inv d=q(b)\in q(T)$ and as $f_{n+1}(\inv
+   c)=\inv{(f_{n+1}(c))}=\inv d$, we get $\inv c=a\in S$. We then
+   choose $u_c=\finv a$, whence
+   $\scex n^Su_c=\tge n^C\inv c=\sce n^Cc$,
+   $\tgex n^Su_c=\sce n^C\inv c=\tge n^Cc$ and $\extend
+   p(u_c)=\inv{(\inv c)}=c$;
  \item if $v_d$ is of the form $(v_1\fcomp i v_2)$ for $i\leq n$,
    $v_1,v_2\in \wtx T$, then $d_1=\extend q(v_1)$ and $d_2=\extend q
    (v_2)$ are $i$-composable and $d=d_1\comp i d_2$. By~\cndii, there is a unique pair $c_1$, $c_2$ of
