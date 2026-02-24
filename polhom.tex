@@ -83,6 +83,27 @@ The unit defines a natural transformation
 \end{lemma}
 \begin{proof}
 \end{proof}
+\begin{paragr}
+  Recall that the category $\oCat$ admits a monoidal category
+  structure with tensor product the so-called ``Gray tensor product'',
+  simply denoted by $\gray$, and with unit $\Dsk{0}$ (see for example
+  \cite{}). More generally, for any $0 \leq k \leq \omega$, we have
+  the induced tensor product $\grayk{k}$
+\end{paragr}
+\begin{proposition}
+  For any $0 \leq k \leq \omega$, the abelianization functor
+  \[
+    \abelk{k} \colon \opCat{k} \to \Chp
+  \]
+  is strong monoidal with respect to the Gray tensor product $\grayk{k}$ on
+  $\opCat{k}$ and the usual tensor product of chain complexes on $\Chp$.
+\end{proposition}
+\begin{proof}
+  The case $k=\omega$ is standard (see for example \cite{}). The
+  general case follows from  $\abelk{k}\simeq
+  \abelk{\omega}\pifun{\oo}{k}$ (\cref{lemma:abelpi}) and the fact
+  that $\abelk{\omega}$ and $\pifun{\oo}{k}$ are strong monoidal.
+\end{proof}
 \begin{proposition}
   For any $k \geq 0$, the abelianization functor
   \[
@@ -127,7 +148,8 @@ only yields a natural transformation
 \begin{equation}\label{transnat}
   \LL \abelk{k'}\circ \emb{k}{k'} \Rightarrow \LL \abelk{k},
 \end{equation}
-which is \emph{a priori} not an isomorphism.
+which is \emph{a priori} not an isomorphism (and we do not know if it
+is in general, see \cref{openquestion}.)
 
 More concretly, this natural transformation can be defined as follows:
 let $C$ be an \ook k\nbd-category and let
@@ -146,12 +168,7 @@ The above natural transformation is then
   \abelk{k'}(\emb{k}{k'}(P))=\abelk{k}(P)=\LL \abelk{k}(C).
 \]
 \end{paragr}
-\begin{openquestion} Is the natural transformation
-  \eqref{transnat} an isomorphism?
-\end{openquestion}
-As we shall see at the end of this section, we answer positively to
-the above open question in a very particular subcase. Without a
-general answer though, we are led to make the following definition.
+
 \begin{definition}
   Let $k\geq 0$. The \emph{$\pair \oo k$\nbd-polygraphic homology} of
   an \ook k\nbd-category $C$ is defined as
@@ -170,7 +187,40 @@ general answer though, we are led to make the following definition.
   \]
 \end{paragr}
 
+\begin{openquestion}\label{openquestion} With the same notation as
+  above, is the canonical morphism
+  \[
+     \Hop{k'}_{\bullet}(C) \to \Hop{k}_{\bullet}(C)
+   \]
+   an isomorphism of $\Loc{\Chp}$?
+\end{openquestion}
+As we shall see at the end of this section, we answer positively to
+the above open question in a very particular subcase. 
 
+\begin{theorem}
+  Let $C$ be a $\pk 1 i$\nbd-category with $i \in \{0,1\}$. Then, for any $i
+  \leq k \leq \oo$ there is an isomorphism
+  \[
+    \Hop{k}_{\bullet}(C) \to \Ho_{\bullet}(C)
+  \]
+  natural in $C$. Furthermore, this isomorphism can be chosen
+  naturally in $k$, meaning that for $i \leq k \leq k' \leq \oo$, the
+  triangle
+  \[
+    \begin{tikzcd}[column sep=small]
+         \Hop{k'}_{\bullet}(C)\ar[dr]
+         \ar[rr]&&\Hop{k}_{\bullet}(C)\ar[dl]\\
+         &\Ho_{\bullet}(C)&
+    \end{tikzcd}
+  \]
+  is commutative. 
+\end{theorem}
+\begin{proof}
+  We begin by the first part of the statement. Because $k \geq i$, we
+  can see $C$ as an $\ook k$\nbd-category, via the canonical
+  inclusion $\npCat{1}{i} \to \opCat{k}$, which we omit to denote. Let $P \to C$ be a
+  polygraphic resolution in $\opCat{k}$. By 
+\end{proof}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"
