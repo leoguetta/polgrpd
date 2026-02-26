@@ -1,4 +1,5 @@
 \section{Polygraphic homology}
+\subsection{Abelianization of \ook k\nbd-categories}
 \begin{paragr}
   Recall that we have a so-called ``abelianization'' functor $\abel
   \colon \oCat \to \Chp$ from the category of $\oo$\nbd-categories to
@@ -88,9 +89,27 @@ The unit defines a natural transformation
   structure with tensor product the so-called ``Gray tensor product'',
   simply denoted by $\gray$, and with unit $\Dsk{0}$ (see for example
   \cite{}). More generally, for any $0 \leq k \leq \omega$, we have
-  the induced tensor product $\grayk{k}$
+  the induced tensor product $\grayk{k}$ on $\opCat{k}$ defined by the
+  formula
+  \lgcomment{Notations très lourdes...}
+  \[
+    C \grayk{k} D :=\pifun{\oo}{k}(\emb{\oo}{k}C\gray \emb{\oo}{k}D).
+  \]
+  Let $u, v \colon C \to D$ be two morphisms of $\opCat{k}$. We call
+  \emph{oplax transformation} $\alpha \colon C \Rightarrow D$ a morphism
+  \[
+    \alpha \colon \Dsk{1}\grayk{k}C \to D
+  \]
+  such that the following diagram is commutative
+  \[
+    \begin{tikzcd}[column sep=large]
+      \Dsk{0}\grayk{k} C \ar[d] \ar[dr,"u"] & \\
+      \Dsk{1}\grayk{k}C \ar[r,"\alpha"] & D \\
+      \Dsk{0}\grayk{k} C \ar[u]\ar[ur,"v"'] &
+    \end{tikzcd}
+  \]
 \end{paragr}
-\begin{proposition}
+\begin{proposition}\label{prop:abelquillen}
   For any $0 \leq k \leq \omega$, the abelianization functor
   \[
     \abelk{k} \colon \opCat{k} \to \Chp
@@ -103,6 +122,16 @@ The unit defines a natural transformation
   general case follows from  $\abelk{k}\simeq
   \abelk{\omega}\pifun{\oo}{k}$ (\cref{lemma:abelpi}) and the fact
   that $\abelk{\omega}$ and $\pifun{\oo}{k}$ are strong monoidal.
+\end{proof}
+\begin{corollary}
+  For any $0 \leq k \leq \oo$, the abelianization functor
+    \[
+    \abelk{k} \colon \opCat{k} \to \Chp
+  \]
+  sends oplax transformations to chain homotopies.
+\end{corollary}
+\begin{proof}
+  
 \end{proof}
 \begin{proposition}
   For any $k \geq 0$, the abelianization functor
@@ -168,7 +197,6 @@ The above natural transformation is then
   \abelk{k'}(\emb{k}{k'}(P))=\abelk{k}(P)=\LL \abelk{k}(C).
 \]
 \end{paragr}
-
 \begin{definition}
   Let $k\geq 0$. The \emph{$\pair \oo k$\nbd-polygraphic homology} of
   an \ook k\nbd-category $C$ is defined as
@@ -177,7 +205,7 @@ The above natural transformation is then
   \]
 \end{definition}
 
-\begin{paragr}
+\begin{paragr}\label{paragr:cancomp}
   For $0 \leq k \leq k'\leq \omega$ and an \ook k\nbd-category $C$, we shall
   simply write $\Hop{k'}_{\bullet}(C)$ instead of
   $\Hop{k'}_{\bullet}(\emb{k}{k'}(C))$.
@@ -194,10 +222,11 @@ The above natural transformation is then
    \]
    an isomorphism of $\Loc{\Chp}$?
 \end{openquestion}
-As we shall see at the end of this section, we answer positively to
+As we shall see at the end of the next section, we answer positively to
 the above open question in a very particular subcase. 
-
-\begin{theorem}
+\subsection{Homology of 1-categories}
+This section is devoted to proving the following central theorem.
+\begin{theorem}\label{thm:polhom}
   Let $C$ be a $\pk 1 i$\nbd-category with $i \in \{0,1\}$. Then, for any $i
   \leq k \leq \oo$ there is an isomorphism
   \[
@@ -215,12 +244,163 @@ the above open question in a very particular subcase.
   \]
   is commutative. 
 \end{theorem}
-\begin{proof}
-  We begin by the first part of the statement. Because $k \geq i$, we
-  can see $C$ as an $\ook k$\nbd-category, via the canonical
+
+Before proving the above theorem, let us give some comments.
+\begin{remark}
+  The
+  first part of the previous theorem says that the \ook k\nbd-polygraphic
+  homology of $C$, for \emph{any} $i \leq k\leq \oo $, is naturally isomorphic to the
+  homology of $C$ as defined in \cref{def:homtor}. In particular,
+  the homology groups of $\Hop{k}_{\bullet}(C)$ do not depend on $k$
+  for a $1$-category $C$, and they coincide with the usual
+  definition of homology groups of $C$.
+
+  In practise, it is most interesting to take $k$ as low as
+  possible, that is $k=0$ if $C$ is a groupoid and $k=1$ if $C$ is a
+  category. This will indeed ``reduce'' the size of resolutions as is
+  illustrated by the following simple example. Take the group
+  $G=\Z$. It is free as a group, and in particular, in the category
+  $\oGrpd$, it is free on a polygraph (with only one generator in
+  dimension $0$ and one generator in dimension $1$). Consequently,
+   there is no need to take a cofibrant
+  replacement and we directly see that its homology if $\Z$ in degree
+  $0$ and $1$ and $0$ elsewhere.
+
+  On the other hand, $\Z$ is not free as a monoid, and thus if we take
+  it as an object of $\opCat{k}$ for any $k \geq 1$, then we need to
+  take a cofibrant replacement, with an infinite number of non-trivial
+  cells if $k =\oo$ for example. From the above theorem, we know that
+  all these higher cells will be trivial in homology, but this was not
+  \emph{a priori} obvious. 
+\end{remark}
+\begin{remark}
+  The second part of
+  the theorem is only here to say that the natural isomorphism can be
+  chosen to be compatibale with the canonical morphism
+  \[\Hop{k'}_{\bullet}(C)\to \Hop{k}_{\bullet}(C)\] from \ref{paragr:cancomp}.
+  In particular, by an immediate 2-out-of-3 property, it follows that
+  this canonical morphism is an \emph{isomorphism}. Hence, we can
+  answer positively to \cref{openquestion} in the case that $C$ is a
+  $1$-category. Consequently, up to a canonical identification, we can
+  unambiguously speak of the \emph{polygraphic homology} of a
+  $1$-category $C$. 
+\end{remark}
+We know move on to the proof of \cref{prop:polbar}, which consists of
+several steps. 
+\begin{paragr}
+  Let $C$ be a $\pk 1 i$\nbd-category with $i \in \{0,1\}$. For any $i
+  \leq k \leq \omega$, we can consider $C$ as an $\ook
+  k$\nbd-category, via the canonical
   inclusion $\npCat{1}{i} \to \opCat{k}$, which we omit to denote. Let $P \to C$ be a
-  polygraphic resolution in $\opCat{k}$. By 
+  polygraphic resolution in $\opCat{k}$, and consider the functor
+  \[
+    \tr{P}{-} \colon C \to \opCat{k}
+  \]
+  as in section \ref{subsection:polresol}. There is a canonical natural
+  transformation
+  \[
+    \tr{P}{-} \Rightarrow \cst{\Dsk{0}},
+  \]
+  where $\cst{\Dsk{0}}$ is the constant functor with value
+  $\Dsk{0}$. Applying the abelianization functor $\abelk{k}$ pointwise, we get a
+  natural transformation
+  \[
+    \abelk{k}(\tr{P}{-}) \Rightarrow \cst{\Z}
+  \]
+  in the category $\fun{C}{\Chp}$. Here we have used the
+  canonical isomorphism $\abelk{k}{\Dsk{0}}\simeq \Z$. By identifying
+  the category $\fun{C}{\Chp}$ with the category of chain complexes of
+  left $C$-modules, the above natural transformation amounts to an
+  augmented chain complex of left $C$\nbd-modules
+  \[
+    \cst{\Z} \leftarrow \abelk{k}_0(\tr{P}{-})\leftarrow
+    \abelk{k}_1(\tr{P}{-}) \leftarrow \dots
+  \]
+\end{paragr}
+\begin{proposition}\label{prop:polbar}
+  Keeping the notations from the above paragraph, the augmented chain
+  complex of left $C$-modules
+    \[
+    \cst{\Z} \leftarrow \abelk{k}_0(\tr{P}{-})\leftarrow
+    \abelk{k}_1(\tr{P}{-}) \leftarrow \dots
+  \]
+  is a projective resolution of $\cst{\Z}$ as left $C$-modules.
+\end{proposition}
+In order to prove this proposition, we first need the following
+technical lemma.
+\begin{lemma}\label{lemma:liftoplax}
+  Let $0 \leq k \leq \omega$ and consider a diagram as below in $\opCat{k}$, 
+  \[
+    \begin{tikzcd}[row sep=large]
+      A' \ar[d,"p"]\ar[r,bend left,"u'"] \ar[r,bend right,"v'"']& B' \ar[d,"q"] \\
+      A \ar[r,bend left,"u",""{name=A,below}] \ar[r,bend
+      right,"v"',""{name=B,above}]& B,
+      \ar[from=A,to=B,Rightarrow,"\alpha"]
+    \end{tikzcd}
+  \]
+  where the front and back faces are commutative. If $q$ is a trivial
+  fibration and $A'$ is cofibrant, for the folk model structure on
+  $\opCat{k}$, then there exists an oplax transformation $\alpha'
+  \colon u' \Rightarrow v'$ making the whole diagram commutative, which means
+  that
+  \[
+    q\wsk \alpha' = \alpha \wsk p
+  \]
+\end{lemma}
+\begin{proof}
+  The data of the given diagram amounts to the following commutative
+  diagram in $\opCat{k}$
+  \lgcomment{Techniquement ce n'est pas $\Dsk{1}$ dans la diagramme
+    ci-dessous mais la version localisée dans $\opCat{k}$.}
+  \[
+    \begin{tikzcd}
+      \partial \Dsk{1} \grayk{k} A' \ar[r]\ar[d] \ar[rr,bend
+      left,"{(u',v')}"]& \Dsk{1} \grayk{k} A'
+      \ar[d]& B' \ar[d,"q"] \\
+      \partial \Dsk{1} \grayk{k} A \ar[r] & \Dsk{1} \grayk{k} A \ar[r,"\alpha"]
+      & B.
+    \end{tikzcd}
+  \]
+  Since $A'$ is cofibrant and $\grayk{k}$ makes the folk model
+  structure on $\opCat{k}$ a monoidal model structure \cite{}, the
+  arrow $ \partial \Dsk{1}  \grayk{k} A' \to A' \grayk{k} \Dsk{1}$ is a
+  cofibration. Since $q$ is a trivial fibration, there exists a
+  morphism $\alpha' \colon \Dsk{1}  \grayk{k} A' \to B'$ making the
+  whole diagram commute.
 \end{proof}
+
+\begin{proof}[Proof of \cref{prop:polbar}]
+ By \cref{thm:projresol} the
+  the functor $\tr{P}{-} \colon C \to \opCat{k}$ is a cofibrant
+  object of the category  $\fun{C}{\opCat{k}}$. Since $\abelk{k}\colon \opCat{k} \to \Chp$ is left
+  Quillen (\cref{prop:abelquillen}), it follows that the functor
+  \[
+    \begin{aligned}
+      \abelk{k}(\tr{P}(-)) &\colon C \to \Chp\\
+      c &\mapsto \abelk{k}(\tr{P}{c})
+    \end{aligned}
+  \]
+  is a cofibrant object of the projective model structure on the
+  category $\fun(C,\Chp)$, which means, upon identification with the
+  category of chain complexes of left $C$-modules, means exactly that
+  \[
+    \abelk{k}_0(\tr{P}{-})\leftarrow
+    \abelk{k}_1(\tr{P}{-}) \leftarrow \dots
+  \]
+  is a chain complex of project left $C$-modules.\footnote{In fact, a direct inspection shows
+    that it is even a chain complex of \emph{free} left
+    $C$-modules. We won't need this fact.}
+  \lgcomment{Preuve à terminer.}
+\end{proof}
+\begin{proof}[Proof of \cref{thm:polhom}]
+  
+\end{proof}
+% \begin{proof}
+%   We begin by the first part of the statement. Because $k \geq i$, we
+%   can see $C$ as an $\ook k$\nbd-category, via the canonical
+%   inclusion $\npCat{1}{i} \to \opCat{k}$, which we omit to denote. Let $P \to C$ be a
+%   polygraphic resolution in $\opCat{k}$. By 
+% \end{proof}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"
