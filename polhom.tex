@@ -95,6 +95,16 @@ The unit defines a natural transformation
   \[
     C \grayk{k} D :=\pifun{\oo}{k}(\emb{\oo}{k}C\gray \emb{\oo}{k}D).
   \]
+  Since the unit $\Dsk{0}$ is also the terminal object of $\opCat{k}$,
+  for any \ook k\nbd-categories $C$ and $D$, there is a canonical
+  morphism
+  \[
+    C\grayk{k} D \to C \times D,
+  \]
+  which is natural in $C$ and $D$. This is not an isomorphism, except
+  if $C$ or $D$ is a $0$\nbd-category (that is, a set).
+
+  
   Let $u, v \colon C \to D$ be two morphisms of $\opCat{k}$. We call
   \emph{oplax transformation} $\alpha \colon C \Rightarrow D$ a morphism
   \[
@@ -103,10 +113,56 @@ The unit defines a natural transformation
   such that the following diagram is commutative
   \[
     \begin{tikzcd}[column sep=large]
-      \Dsk{0}\grayk{k} C \ar[d] \ar[dr,"u"] & \\
-      \Dsk{1}\grayk{k}C \ar[r,"\alpha"] & D \\
-      \Dsk{0}\grayk{k} C \ar[u]\ar[ur,"v"'] &
+      \Sph{0}\grayk{k} C \ar[d] \ar[dr,"{\left(u,v\right)}"] & \\
+      \Dsk{1}\grayk{k}C \ar[r,"\alpha"] & D. % \\
+      % \Dsk{0}\grayk{k} C \ar[u]\ar[ur,"v"'] &
     \end{tikzcd}
+  \]
+  Here, we used the canonical identification
+  \[
+    \begin{aligned}
+      \Sph{0}\grayk{k}C &=(\Dsk{0}\coprod \Dsk{0})\grayk{k}C \\
+      &\simeq \left(\Dsk{0}\grayk{k}C\right)\coprod
+        \left(\Dsk{0}\grayk{k}C\right) \\
+      &\simeq C \coprod C,
+    \end{aligned}
+\]
+where the isomorphism on the second line comes from the fact that the
+Gray tensor product is bi-closed.
+
+If $f \colon D \to D'$ is another morphism of $\opCat{k}$, we define
+an oplax transformation $f\wsk\alpha\colon fu \Rightarrow fv$ as the
+following composition
+\[
+  \Dsk{1} \grayk{k} C \overset{\alpha}{\longrightarrow} D
+  \overset{f}{\longrightarrow} D'.
+\]
+Similarly, if $g \colon C' \to C$ is a morphism of $\opCat{k}$, we
+define an oplax transformation $\alpha \wsk g \colon ug \Rightarrow
+vg$ as the following composition
+\[
+  \Dsk{1}\grayk{k} C' \overset{\Dsk{1}\grayk{k}g}{\longrightarrow}
+  \Dsk{1}\grayk{y} C \overset{\alpha}{\longrightarrow} D.
+\]
+
+Finally, note that a \emph{natural transformation} $\gamma \colon u \Rightarrow
+v$ amounts to a morphism
+\[
+  \gamma \colon \Dsk{1}\times C \to D
+\]
+such that the following diagram is commutative
+  \[
+    \begin{tikzcd}[column sep=large]
+      \Sph{0}\times C \ar[d] \ar[dr,"{\left(u,v\right)}"] & \\
+      \Dsk{1}\times C \ar[r,"\alpha"] & D. 
+    \end{tikzcd}
+  \]
+  As before, we have used here the canonical identification
+  $\Sph{0}\times C\simeq C \coprod C$. In particular, any such natural
+  transformation defines an oplax transformation $u \Rightarrow v$,
+  abusively still denoted by $\gamma$, defined as the composition
+  \[
+    \Dsk{1}\grayk{k}C \longrightarrow \Dsk{1}\times C \overset{\gamma}{\longrightarrow} D.
   \]
 \end{paragr}
 \begin{proposition}\label{prop:abelquillen}
@@ -123,7 +179,7 @@ The unit defines a natural transformation
   \abelk{\omega}\pifun{\oo}{k}$ (\cref{lemma:abelpi}) and the fact
   that $\abelk{\omega}$ and $\pifun{\oo}{k}$ are strong monoidal.
 \end{proof}
-\begin{corollary}
+\begin{corollary}\label{cor:abeltrans}
   For any $0 \leq k \leq \oo$, the abelianization functor
     \[
     \abelk{k} \colon \opCat{k} \to \Chp
@@ -263,8 +319,8 @@ Before proving the above theorem, let us give some comments.
   $\oGrpd$, it is free on a polygraph (with only one generator in
   dimension $0$ and one generator in dimension $1$). Consequently,
    there is no need to take a cofibrant
-  replacement and we directly see that its homology if $\Z$ in degree
-  $0$ and $1$ and $0$ elsewhere.
+  replacement and we directly see that its homology is $\Z$ in degree
+  $0$ and $1$, and $0$ elsewhere.
 
   On the other hand, $\Z$ is not free as a monoid, and thus if we take
   it as an object of $\opCat{k}$ for any $k \geq 1$, then we need to
@@ -369,6 +425,7 @@ technical lemma.
   whole diagram commute.
 \end{proof}
 
+
 \begin{proof}[Proof of \cref{prop:polbar}]
  By \cref{thm:projresol} the
   the functor $\tr{P}{-} \colon C \to \opCat{k}$ is a cofibrant
@@ -381,7 +438,7 @@ technical lemma.
     \end{aligned}
   \]
   is a cofibrant object of the projective model structure on the
-  category $\fun(C,\Chp)$, which means, upon identification with the
+  category $\fun{C}{\Chp}$, which means, upon identification with the
   category of chain complexes of left $C$-modules, means exactly that
   \[
     \abelk{k}_0(\tr{P}{-})\leftarrow
@@ -390,7 +447,67 @@ technical lemma.
   is a chain complex of project left $C$-modules.\footnote{In fact, a direct inspection shows
     that it is even a chain complex of \emph{free} left
     $C$-modules. We won't need this fact.}
-  \lgcomment{Preuve à terminer.}
+Let us prove now that this yields a resolution of $\cst{\Z}$ as a left
+$C$-module. Since weak equivalences of the category $\fun{C}{\Chp}$
+are defined pointwise, it suffices to show that for every object $c$
+of $C$, the morphism of chain complexes
+\[
+  \abelk{k}(\tr{P}{c})\to \Z,
+  \]
+  where $\Z$ is concentrated in degree $0$, is a
+  quasi-isomorphism.
+
+  The category $\tr{C}{c}$ has a terminal
+  object, which we denote here by $x_0$, hence there  is a natural
+  transformation
+  \[
+    \begin{tikzcd}
+      \tr{C}{c} \ar[r,bend left] \ar[r,bend right] & \tr{C}{c}
+    \end{tikzcd}
+  \]
+  from the identity functor to the constant functor with value
+  $x_0$. By \ref{}, this defines an oplax transformation . By
+  stability of trivial fibrations by pullback, the morphism
+  \[
+    \tr{P}{c} \to \tr{C}{c}
+  \]
+  is a trivial fibration, and in particular it is surjective on
+  objects. Let us then pick an object $y_0$ of $P$ whose image in
+  $\tr{C}{c}$ is $x_0$. All in all, we have a diagram
+  \[
+    \begin{tikzcd}[row sep=large]
+      \tr{P}{c} \ar[d,"p"]\ar[r,bend left,"u'"] \ar[r,bend
+      right,"v'"']& \tr{P}{c} \ar[d,"q"] \\
+      \tr{C}{c} \ar[r,bend left,"u",""{name=A,below}] \ar[r,bend
+      right,"v"',""{name=B,above}]& \tr{C}{c},
+      \ar[from=A,to=B,Rightarrow,"\alpha"]
+    \end{tikzcd}
+  \]
+  such that the front and back faces are commutative. Since
+  $\tr{P}{c}$ is cofibrant, and since the vertical arrows are trivial
+  fibrations, we can apply \cref{lemma:liftoplax}, which yields an
+  oplax transformation ...
+
+  Finally, applying \cref{cor:abeltrans}, we get a chain homotopy
+  between the identity morphism $\abelk{k}(\tr{P}{c}) \to
+  \abelk{k}(\tr{P}{c})$ to  $\abelk{k}(\tr{P}{c}) \to \Z \to
+  \abelk{k}(\tr{P}{c})$, which proves that  $\abelk{k}(\tr{P}{c}) \to
+  \Z$ is a quasi-isomorphism.
+\end{proof}
+\begin{lemma}
+  We have a canonical isomorphism
+  \[
+    \abelk{k}(\tr{P}{-})\tens{C}\cst{\Z} \simeq \abelk{k}(P)
+  \]
+  which is natural in $P$.
+\end{lemma}
+\begin{proof}
+  Since the functor $\abelk{k}$ is a left adjoint it preserves
+  co-ends. In particular, we have
+  \[
+    \abelk{k}(\tr{P}{-})\tens{C}\cst{\Z} \simeq \abelk{k}(\int^{c \in
+      C}\tr{P}{c}\grayk{k} \Dsk{0})\simeq \abelk{k}(\ilim_{c \in C}\tr{P}{c})
+  \]
 \end{proof}
 \begin{proof}[Proof of \cref{thm:polhom}]
   
