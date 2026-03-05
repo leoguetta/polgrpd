@@ -84,7 +84,7 @@ The unit defines a natural transformation
 \end{lemma}
 \begin{proof}
 \end{proof}
-\begin{paragr}
+\begin{paragr}\label{paragr:gray}
   Recall that the category $\oCat$ admits a monoidal category
   structure with tensor product the so-called ``Gray tensor product'',
   simply denoted by $\gray$, and with unit $\Dsk{0}$ (see for example
@@ -253,7 +253,7 @@ The above natural transformation is then
   \abelk{k'}(\emb{k}{k'}(P))=\abelk{k}(P)=\LL \abelk{k}(C).
 \]
 \end{paragr}
-\begin{definition}
+\begin{definition}\label{def:hompol}
   Let $k\geq 0$. The \emph{$\pair \oo k$\nbd-polygraphic homology} of
   an \ook k\nbd-category $C$ is defined as
   \[
@@ -419,7 +419,7 @@ technical lemma.
   \]
   Since $A'$ is cofibrant and $\grayk{k}$ makes the folk model
   structure on $\opCat{k}$ a monoidal model structure \cite{}, the
-  arrow $ \partial \Dsk{1}  \grayk{k} A' \to A' \grayk{k} \Dsk{1}$ is a
+  arrow $ \partial \Dsk{1}  \grayk{k} A' \to  \Dsk{1} \grayk{k} A'$ is a
   cofibration. Since $q$ is a trivial fibration, there exists a
   morphism $\alpha' \colon \Dsk{1}  \grayk{k} A' \to B'$ making the
   whole diagram commute.
@@ -462,11 +462,13 @@ of $C$, the morphism of chain complexes
   transformation
   \[
     \begin{tikzcd}
-      \tr{C}{c} \ar[r,bend left] \ar[r,bend right] & \tr{C}{c}
+      \tr{C}{c} \ar[r,bend left,"\Unit{\tr{C}{c}}",""{name=A,below}]
+      \ar[r,bend right,"\cst{x_0}"',""{name=B,above}] & \tr{C}{c}
+      \ar[from=A,to=B,Rightarrow]
     \end{tikzcd}
   \]
   from the identity functor to the constant functor with value
-  $x_0$. By \ref{}, this defines an oplax transformation . By
+  $x_0$. By \ref{paragr:gray}, this defines an oplax transformation. By
   stability of trivial fibrations by pullback, the morphism
   \[
     \tr{P}{c} \to \tr{C}{c}
@@ -475,18 +477,19 @@ of $C$, the morphism of chain complexes
   objects. Let us then pick an object $y_0$ of $P$ whose image in
   $\tr{C}{c}$ is $x_0$. All in all, we have a diagram
   \[
-    \begin{tikzcd}[row sep=large]
-      \tr{P}{c} \ar[d,"p"]\ar[r,bend left,"u'"] \ar[r,bend
-      right,"v'"']& \tr{P}{c} \ar[d,"q"] \\
-      \tr{C}{c} \ar[r,bend left,"u",""{name=A,below}] \ar[r,bend
-      right,"v"',""{name=B,above}]& \tr{C}{c},
+    \begin{tikzcd}[row sep=huge]
+      \tr{P}{c} \ar[d,"p"]\ar[r,bend left,"\Unit{\tr{P}{c}}"] \ar[r,bend
+      right,"\cst{y_0}"']& \tr{P}{c} \ar[d,"q"] \\
+      \tr{C}{c} \ar[r,bend left,"\Unit{\tr{C}{c}}",""{name=A,below}] \ar[r,bend
+      right,"\cst{x_0}"',""{name=B,above}]& \tr{C}{c},
       \ar[from=A,to=B,Rightarrow,"\alpha"]
     \end{tikzcd}
   \]
   such that the front and back faces are commutative. Since
   $\tr{P}{c}$ is cofibrant, and since the vertical arrows are trivial
   fibrations, we can apply \cref{lemma:liftoplax}, which yields an
-  oplax transformation ...
+  oplax transformation from the identity \oo\nbd-functor on $\tr{P}{c}$ to
+  the constant \oo\nbd-functor with value $y_0$.
 
   Finally, applying \cref{cor:abeltrans}, we get a chain homotopy
   between the identity morphism $\abelk{k}(\tr{P}{c}) \to
@@ -494,7 +497,7 @@ of $C$, the morphism of chain complexes
   \abelk{k}(\tr{P}{c})$, which proves that  $\abelk{k}(\tr{P}{c}) \to
   \Z$ is a quasi-isomorphism.
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{lemma:colim}
   We have a canonical isomorphism
   \[
     \abelk{k}(\tr{P}{-})\tens{C}\cst{\Z} \simeq \abelk{k}(P)
@@ -502,15 +505,58 @@ of $C$, the morphism of chain complexes
   which is natural in $P$.
 \end{lemma}
 \begin{proof}
-  Since the functor $\abelk{k}$ is a left adjoint it preserves
-  co-ends. In particular, we have
+  Notice first that by definition, we have
   \[
-    \abelk{k}(\tr{P}{-})\tens{C}\cst{\Z} \simeq \abelk{k}(\int^{c \in
-      C}\tr{P}{c}\grayk{k} \Dsk{0})\simeq \abelk{k}(\ilim_{c \in C}\tr{P}{c})
+    \begin{aligned}
+      \abelk{k}(\tr{P}{-})\tens{C}\cst{\Z} &= \int^{c \in
+                                             C}\abelk{k}(\tr{P}{-})\otimes
+                                             \Z \\
+                                           &\simeq \int^{c \in C}\abelk{k}(\tr{P}{c})\\
+                                           &\simeq \ilim_{c \in C}\abelk{k}(\tr{P}{c})\\
+      &\simeq \abelk{k}(\ilim_{c \in C}\tr{P}{c}),
+    \end{aligned}
   \]
+  where the last isomorphism comes from the fact that $\abelk{k}$
+  is a left adjoint. Finally, by \cite[Lemma 7.5]{guetta:homcat} and
+  the fact that the canonical inclusion functor $\opCat{k} \to \oCat$
+  preserves and reflects colimits, we have that
+  \[
+    \ilim_{c \in C}\tr{P}{c} \simeq P,
+  \]
+  which concludes the proof.
 \end{proof}
+
 \begin{proof}[Proof of \cref{thm:polhom}]
+  Let $C$ be a \pk{1}{i}\nbd-category, which we consider as an $\ook
+  k$\nbd-category and $\frgp{P} \to C$ a polygraphic resolution in
+  $\oCat{k}$. By \cref{prop:polbar},
+  \[
+    \cst{\Z} \leftarrow \abelk{k}_{\bullet}(\tr{P}{-})
+  \]
+  is a projective resolution of $\cst{\Z}$.
+  \begin{align*}
+     \Ho_{\bullet}(C)&= \cst{\Z}\tens{\Z
+                       C}\abelk{k}_{\bullet}(\tr{P}{-}) \tag{\cref{def:homtor}}\\
+                     &\simeq \abelk{k}_\bullet(P) \tag{\cref{lemma:colim}}\\
+    &= \Hop{k}(C) \tag{\cref{def:hompol}}
+  \end{align*}
+  \lgcomment{Preuve incomplète, mais peut-être faudrait-il s'en tenir
+    à ça dans l'énoncé.
+  }
+ 
+  % We will use the following standard fact on left Quillen functors:
   
+  %   Given a left Quillen functor $F \colon \M \to \M'$ between two
+  %   model categories, any choice of cofibrant replacement $Q_X \to X$
+  %   for every object $X$ of $\M$, defines (uniquely) a left derived
+  %   functor $\LL F \colon \Loc{\M} \to \Loc{\M'}$ such that $\LL
+  %   F(X)=F(Q_X)$. If $Q_X' \to X$ is another choice of cofibrant
+  %   replacement for every object $X$ of $\M$, and $\LL F'$ is the
+  %   associated left derived functor, then there exists a natural
+  %   isomorphism
+  %   \[
+  %     \LL F \simeq \LL F'.
+  %   \]
 \end{proof}
 % \begin{proof}
 %   We begin by the first part of the statement. Because $k \geq i$, we
