@@ -53,7 +53,7 @@ description as stated in the following result.
   n'est pas très précise.}
 \begin{proof}
 \end{proof}
-\begin{paragr}
+\begin{paragr}\label{paragr:abelloc}
   Let $0 \leq k
   \leq k' \leq \omega$. We are now going to analyze the behaviour of
   the abelianization functor with respect to the left adjoint $\pifun{k'}{k} \colon
@@ -83,6 +83,40 @@ The unit defines a natural transformation
   $ is an isomorphism. 
 \end{lemma}
 \begin{proof}
+  Consider $\mu \colon \Chp \to \oCat$ the right adjoint to the
+  abelianization functor $\abel \colon \oCat \to \Chp$. A direct
+  inspection of an explicit description of $\mu$ (see \cite[Paragraph
+  17.4.3]{abgmmm:polybk}) shows that for any chain complex $K$,
+  $\mu(K)$ is actually an \oo\nbd-groupoid. In particular, for any $k
+  \geq 0$, the functor $\mu$ factors through $\opCat{k}$ as
+  \[
+    \Chp \overset{\mu_k}{\longrightarrow} \opCat{k}
+    \overset{\emb{k}{\oo}}{\longrightarrow} \oCat.
+  \]
+  Note that since $\emb{k}{\oo}$ is fully faithful and injective on
+  objects, such a $\mu_k$ is unique.
+  As $\abel$ is left adjoint to
+  $\mu$, and $\emb{k}{\oo}$ is fully faithful, it follows readily that
+  $\abel \circ \emb{k}{\oo}=\abelk{k}$ is left adjoint to $\mu_k$ for
+  any $k \geq 0$.
+
+  
+  Now, let $0 \leq k \leq k' \leq \omega$. It follows from the fully
+  faithfulness and injectivity on object of $\emb{k'}{\omega}$ that $\mu_{k'}$ is equal to the composition
+  \[
+    \Chp \overset{\mu_k}{\longrightarrow} \opCat{k}
+    \overset{\emb{k}{k'}}{\longrightarrow} \opCat{k'}.
+  \]
+In particular, since  since $\pifun{k'}{k}$ is left adjoint to
+  $\emb{k}{k'}$, it follows by composition of adjoints that
+  $\abelk{k}\circ \pifun{k'}{k}$ is left adjoint to $\emb{k}{k'} \circ
+  \mu_k=\mu_{k'}$. By essential uniqueness of left adjoints, this
+  proves that
+  \[
+    \abelk{k'}\simeq \abelk{k}\pifun{k'}{k}.
+  \]
+  An easy verification left to the reader shows that this (iso)morphism
+  is exactly the one constructed in \ref{paragr:abelloc}.
 \end{proof}
 \begin{paragr}\label{paragr:gray}
   Recall that the category $\oCat$ admits a monoidal category
