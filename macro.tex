@@ -111,7 +111,10 @@
 \newcommand{\trk}[1]{\functor{tr}_{#1}}%truncation functor to dim #1
 \newcommand{\inc}[1]{\functor{inc}_{#1}}%inclusion functor from dim #1
 \newcommand{\emb}[2]{\functor{j}_{#1}^{#2}}%inclusion from (oo,#1)-cat to (oo,#2)-cat
-\newcommand{\pifun}[2]{\functor{\pi}_{#1}^{#2}}%left adjoint of the above
+\newcommand{\pifun}[2]{\functor{\pi}_{#1}^{#2}}%left adjoint of the
+                                %above
+\newcommand{\oemb}[1]{\emb{#1}{}}%inclusion from (oo,#1)-cat to oo-cat
+\newcommand{\opifun}[1]{\pifun{#1}{}}%left adjoint of the above                                
 \newcommand{\fgf}[1]{\functor{U}_{#1}} %forgetful functor
 \newcommand{\frf}[1]{\functor{F}_{#1}} %free functor
 
@@ -147,9 +150,9 @@
 \newcommand{\clx}[2]{\pair{#1}{#2}}% cellular extension of #1 by #2
 \newcommand{\gni}[1]{\geninc_{#1}}% inclusion of #1-generators
 
-\newcommand{\Sph}[1]{\mathbb{S}^{#1}} %n-sphere
+\newcommand{\Sph}[1]{\mathbb{S}_{#1}} %n-sphere
 \newcommand{\Dsk}[1]{\mathbb{D}_{#1}} %n-disk
-\newcommand{\trun}[1]{\tau_{#1}} %truncation functor
+\newcommand{\gcof}[1]{\functor{i}_{#1}} % #1th generating cofibration
 \newcommand{\gray}{\otimes}
 \newcommand{\grayk}[1]{\underset{{\pair{\oo}{#1}}}{\gray}} %Gray tens product
 
