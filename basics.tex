@@ -82,9 +82,15 @@ $\comp i$-compositions. Strict \oo-categories and morphisms build a
 category denoted by $\oCat$. Whenever necessary to avoid confusion, we use the notations $\sce i^C$ and
 $\tge i^C$ to
 emphasize that the corresponding source and target maps pertain to the
-\oo-category $C$. 
-
-
+\oo-category $C$.
+\subsubsection{Disks and spheres}\label{ssubsec:disks}
+For each $n\in\N$, we denote by $\Dsk n$ the representable globular
+set $\homset{\glob}{-}{n}$, having exactly two $m$-cells for $m<n$, one
+$n$-cell, and no $m$-cell for $m>n$. By removing the only $n$-cell in
+$\Dsk n$, one obtains a sub-representable globular set we denote by $\Sph{n-1}$. 
+By abuse of notations, $\Dsk n$ and $\Sph{n-1}$ will
+denote the corresponding freely generated  \oo-categories~(see~\cite[14.2]{abgmmm:polybk}). These come
+with a family of inclusion morphisms $\gcof n:\Sph{n-1}\to\Dsk n$.
 \begin{remark}
   For any $n>0$ and $n$-cell $x$, the pair $\pair{\sce{n-1}(x)}{\tge{n-1}(x)}$ will be called the {\em type} of $x$. Thus the conditions of the first group above ensure that the units and composition operations are well-typed. The conditions of the second group are rules of computation and one easily checks that all equations preserve the types. 
 \end{remark}
@@ -116,7 +122,7 @@ Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp 
     condition of $\comp i$-invertibility for {\em all} $k<i<n$ (see
     again~\cite[14.5]{abgmmm:polybk}).  The full subcategory of
     $\oCat$ whose objects are \ook{k}-categories is denoted by $\opCat
-    k$. Likewise, one defines the truncated version $\npCat nk$ for
+    k$. Thus $\opCat{\oo}$ is just $\oCat$. Likewise, one defines the truncated version $\npCat nk$ for
     any $0\leq k<n$.  For example $\npCat 10$ is the category $\Grpd$
     of small groupoids and $\opCat 0$ the category $\oGrpd$ of
     \oo-groupoids. For any $0 \leq k \leq k'\leq \omega$, there is a canonical
@@ -129,11 +135,13 @@ Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp 
       \pifun{k}{k'} \colon \opCat{k'} \to \opCat{k}
     \]
     that formally adds inverses to all $n$-cells with $k \leq n < k'$,
-    as well as a right adjoint (which shall remains nameless)
+    as well as a right adjoint 
     \[
-      \opCat{k'}\to \opCat{k}
+      \maxgr{k}{k'}\colon\opCat{k'}\to \opCat{k}
     \]
-    that takes the biggest sub\nbd-\ook{k}\nbd-category of an \ook{k'}\nbd-category.
+    sending an \ook{k'}\nbd-category to its maximal
+    sub\nbd-\ook{k}\nbd-category. For $k'=\oo$, we shall simply denote
+    by $\oemb k$, $\opifun k$ and $\omaxgr k$ the corresponding functors.
  \end{paragr} 
 
 
