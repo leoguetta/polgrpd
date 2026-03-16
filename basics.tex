@@ -97,7 +97,7 @@ with a family of inclusion morphisms $\gcof n:\Sph{n-1}\to\Dsk n$.
 \subsubsection{$n$-Categories}\label{ssubsec:ncat}
 For a given $n\in\N$, truncating the previous construction at dimension $n$ yields the notion of $n$-category.  We denote by $\nCat n$ the resulting category. For example $\nCat 0$ is the category $\Set$ of sets and $\nCat 1$ is the category of small categories if we interpret $f\comp 0 g$ as the compostion $g\circ f$ of two morphisms.
 For $n\in\N$ and $m\in\N\cup \set{\oo}$ such that $n<m$, there are 
-obvious truncation functors $\trk n:\nCat m\to \nCat n$ discarding all cells of dimension $>n$. The functor $\trk n$ is right-adjoint to the inclusion functor  $\inc n:\nCat n\to\nCat m$, which takes an $n$-category $C$ to the $m$-category $C'$ with the same $i$-cells for $i\leq n$ and only the required identity cells in dimensions $n<i\leq m$.
+obvious truncation functors $\trk n:\nCat m\to \nCat n$ discarding all cells of dimension $>n$. The functor $\trk n$ is right-adjoint to the inclusion functor  $\inc nm:\nCat n\to\nCat m$, which takes an $n$-category $C$ to the $m$-category $C'$ with the same $i$-cells for $i\leq n$ and only the required identity cells in dimensions $n<i\leq m$.
 
 \subsubsection{Invertible cells}\label{ssubsec:invert}
 Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp i$-invertible} if there is an $n$-cell $y$ such that $\sce i(y)=\tge i(x)$, $\tge i(y)=\sce i(x)$ satisfying the equations 
