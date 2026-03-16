@@ -35,10 +35,87 @@
 \end{paragr}
 
 The abelianization of \ook k-polygraphs admits a useful explicit
-description as stated in the following result.
+description which we recall below. First, we need the following useful
+lemma.
+\begin{lemma}\label{lemma:delooping}
+  Let $P$ be an $\ook k$\nbd-polygraph and $C=\frgp P$ the free $\ook
+  k$\nbd-category on this polygraph. For any $n > 0$, and $G$ an
+  abelian group, a function
+  \[
+    f \colon C_n \to G
+  \]
+  such that
+  \begin{enumerate}
+  \item $f(x \comp{k} y)=f(x)+f(y)$, for any $i$\nbd-composable pairs 
+    $(x,y)$ of $n$\nbd-cells of $C$ with $i<n$,
+  \item $f(\unit n(z))=0$, for any $(n-1)$\nbd-cell $z$,
+  \end{enumerate}
+  is completely and uniquely determined by its values $f(x)$ on the
+  generators $x \in P_n$.
+\end{lemma}
+\begin{proof}
+Notice first that for any $n>0$, any
+abelian group $G$ defines an $n$\nbd-groupoid, denoted by $\B^nG$,
+whose set of $i$\nbd-cell is a singleton for $i<n$ and $G$ for $i=n$,
+and all composition operations are equal to the group
+operation. Furthermore, for any $n$\nbd-category $C$, an
+$n$\nbd-functor $C \to \B^nG$ amounts exactly to a function $f \colon
+C_n \to G$ satisfying the conditions of the lemma. The conclusion
+follows from the universal property of
+\cref{prop:univprop}.
+\end{proof}
+\begin{paragr}
+  In particular, for an $\ook k$\nbd-polygraph $P$ and $C=\frgp P$, for
+  any $n > 0$, there exists a unique function
+  \[
+    f \colon C_n \to \Z P_n,
+  \]
+  such that
+  \begin{enumerate}
+  \item $f(x\comp{i}y)=f(x)+f(y)$, for $i<n$ and $(x,y)$ pair of
+    $i$\nbd-composable $n$\nbd-cells,
+  \item $f(\unit{n}(z))=0$ for any
+    $(n-1)$\nbd-cell $z$,
+  \item $f(x)=x$, for any $x \in P_n$.
+  \end{enumerate}
+  We can extend this function by linearity to a morphism of abelian
+  group $\Z C_n \to \Z P_n$, which, by construction, is compatible
+  with the quotient $\sim_n$ and thus defines a morphism of abelian
+  group
+  \[
+    \wght \colon \abel_n(C) \to \Z P_n,
+  \]
+  such that $\wght ([x])=x$ for any $x \in P_n$.
+
+  Furthermore, we consider the morphism of abelian group
+  \[
+    \iota \colon \Z P_n \to \abel_n(C),
+  \]
+  defined on $x \in P_n$ by $\iota(x)=[x]$
+\end{paragr}
+\begin{lemma}\label{lemma:abelpoly}
+  The morphism of abelian group $\wght \colon \abel_n(C) \to \Z P_n$ is an
+  isomorphism, with inverse $\iota \colon \Z P_n \to \abel_n(C)$.
+\end{lemma}
+\begin{proof}
+  By construction, we have $\wght([x])=x$ for any $x \in P_n$, which
+  proves that $\wght \circ \iota = \Unit{\Z P_n}$. For the other
+  equality, it suffices to prove that for any $x \in C_n$, we have
+  \[
+    \iota(\wght[x])=[x].
+  \]
+  Notice that this equality is true for $x \in P_n$ by construction,
+  and furthermore the functions $C_n \to \lambda_n(C)$, $x \mapsto
+  \iota(\wght[x])$ and  $x
+  \mapsto [x]$ satisfy the conditions of lemma
+  \cref{lemma:delooping}. By the uniqueness part of this lemma, we
+  deduce that these two functions are equal.
+\end{proof}
+We obtain now the explicit description of the abelianization of a free
+$\ook k$\nbd-category on an $\ook k$\nbd-polygraph.
 \begin{proposition}
-  Let $k \geq 0$, $P$ an \ook k-polygraph and $P_{n}$ a set of
-  generators for each $n \geq 0$. Then $\abel_{\bullet}(\frgp P)$
+  Let $k \geq 0$, $P$ an \ook k-polygraph and $C=\frgp P$ the free
+  $\ook k$\nbd-category on this polygraph. Then $\abel_{\bullet}(C)$
   is canonically isomorphic to the chain complex
   \[
     \Z P_0 \overset{\partial}{\longleftarrow} \Z P_1
@@ -46,12 +123,12 @@ description as stated in the following result.
   \]
   where $\partial$ is defined on generator by
   \[
-    \partial[x] = [\target x] - [\source x].
+    \partial x = \wght([\target x]) - \wght([\source x]).
   \]
 \end{proposition}
-\lgcomment{A-t-on besoin de cette description? Par ailleurs, la définition de l'opérateur bord dans cette proposition
-  n'est pas très précise.}
 \begin{proof}
+  Notice that $\abel_0(C)=\Z P_0$ by construction. The rest follows
+  from \cref{lemma:abelpoly}.
 \end{proof}
 \begin{paragr}\label{paragr:abelloc}
   Let $0 \leq k
@@ -120,9 +197,9 @@ In particular, since  since $\pifun{k'}{k}$ is left adjoint to
 \end{proof}
 \begin{paragr}\label{paragr:gray}
   Recall that the category $\oCat$ admits a monoidal category
-  structure with tensor product the so-called ``Gray tensor product'',
+  structure with the so-called ``Gray tensor product'',
   simply denoted by $\gray$, and with unit $\Dsk{0}$ (see for example
-  \cite{}). More generally, for any $0 \leq k \leq \omega$, we have
+  \cite[Appendice A]{ara_maltsiniotis:joint}). More generally, for any $0 \leq k \leq \omega$, we have
   the induced tensor product $\grayk{k}$ on $\opCat{k}$ defined by the
   formula
   \lgcomment{Notations très lourdes...}
