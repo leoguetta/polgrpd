@@ -9,12 +9,22 @@
     \item[\cndii] For $0\leq i<n$, if $y_1$, $y_2$ are $i$-composable cells in
       $D_n$ and $x\in C_n$ is such that $f(x)=y_1\comp i y_2$, there is a unique pair $\pair{x_1}{x_2}$ of $i$-composable cells in $C_n$ such that $x=x_1\comp i x_2$, $f(x_1)=y_1$ and $f(x_2)=y_2$.
     \end{description}
+     It can be proved that the first condition logically
+    follows from the second one, but it will be more convenient to treat
+    them as separate conditions in the forthcoming arguments. 
   \end{paragr}
-  \begin{remark}
-    It can be proved that the first condition logically
-    follows from the second one, but we shall not use this fact. 
- \end{remark}
-\begin{paragr}  
+  \begin{paragr}\label{paragr:conduche_pullback}
+    Of course discrete Conduché fibrations can be defined by the same
+    conditions in  $\npCat nk$ for any $n\in\N$. Moreover, $f:C\to D$
+    is a discrete Conduché fibration in $\npCat nk$ if and only if
+    $\oinc n f:\oinc n C\to\oinc n D$ is one in $\opCat k$. In
+    particular, for $n=k=1$, we recover the original notion of
+    discrete Conduché fibration among small
+    categories~\cite{conduche:exisad}.  Note that, as conditions~\cndi\ 
+    and~\cndii\ can be expressed as right-lifting conditions, 
+    discrete Conduché fibrations are stable by pullback. 
+  \end{paragr}
+  \begin{paragr}  
 In the case where $C$, $D$ are plain \oo-categories, that is if
 $k=\omega$, we know from~\cite[Theorem 6.11]{guetta:poldcf} that if
 $f:C\to D$ is a discrete Conduché fibration and $D$ is freely
