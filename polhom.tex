@@ -21,17 +21,17 @@
   \]
   One checks that this is well-defined, that we have $\partial
   \circ \partial=0$ and that the correspondence $C \mapsto
-  \abel_{\bullet}(C)$ can be made functorial in an obvious
+  \abel(C)$ can be made functorial in an obvious
   way. Furthermore, $\abel$ admits a right adjoint. For
   details we refer to \cite{abgmmm:polybk}.
 
   By pre-composing with the inclusion functor, for any $k\geq 0$, we
   also get an abelinization functor
   \[
-    \abelk{k} \colon \opCat{k} \overset{\emb{k}{\oo}}{\longrightarrow} \oCat \overset{\lambda}{\longrightarrow} \Chp.
+    \abelk{k} \colon \opCat{k} \overset{\oemb{k}}{\longrightarrow} \oCat \overset{\lambda}{\longrightarrow} \Chp.
   \]
   In particular, for $k=\oo$, we have $\abel=\abelk{\oo}$ by
-  definition. Notice that since $\emb{k}{\oo}$ admits a right adjoint, so does $\abelk{k}$.
+  definition. Notice that since $\oemb{k}$ admits a right adjoint, so does $\abelk{k}$.
 \end{paragr}
 
 The abelianization of \ook k-polygraphs admits a useful explicit
@@ -78,7 +78,11 @@ follows from the universal property of
     $(n-1)$\nbd-cell $z$,
   \item $f(x)=x$, for any $x \in P_n$.
   \end{enumerate}
-  We can extend this function by linearity to a morphism of abelian
+  (Note that since $\Z P_n$ is free, condition (2) is
+  actually implied by condition (1). This is because we have
+  $\unit{n}(z)\comp{n-1}\unit{n}(z)=\unit{n}(z)$, hence
+  $f(\unit{n}(z))=2f(\unit{n}(z))$.)
+  We can now extend this function by linearity to a morphism of abelian
   group $\Z C_n \to \Z P_n$, which, by construction, is compatible
   with the quotient $\sim_n$ and thus defines a morphism of abelian
   group
@@ -115,7 +119,7 @@ We obtain now the explicit description of the abelianization of a free
 $\ook k$\nbd-category on an $\ook k$\nbd-polygraph.
 \begin{proposition}
   Let $k \geq 0$, $P$ an \ook k-polygraph and $C=\frgp P$ the free
-  $\ook k$\nbd-category on this polygraph. Then $\abel_{\bullet}(C)$
+  $\ook k$\nbd-category on this polygraph. Then $\abelk{k}(C)$
   is canonically isomorphic to the chain complex
   \[
     \Z P_0 \overset{\partial}{\longleftarrow} \Z P_1
@@ -131,14 +135,14 @@ $\ook k$\nbd-category on an $\ook k$\nbd-polygraph.
   from \cref{lemma:abelpoly}.
 \end{proof}
 \begin{paragr}\label{paragr:abelloc}
-  Let $0 \leq k
-  \leq k' \leq \omega$. We are now going to analyze the behaviour of
-  the abelianization functor with respect to the left adjoint $\pifun{k'}{k} \colon
-  \opCat{k'} \to \opCat{k}$ of the inclusion functor. By definition,
+  Let $0 \leq k < \omega$. We are now going to analyze the behaviour of
+  the abelianization functor with respect to the left adjoint $\opifun
+  k \colon
+  \oCat \to \opCat{k}$ of the inclusion functor. By definition,
   we have a commutative triangle
   \[
     \begin{tikzcd}[column sep=small]
-      \opCat{k}\ar[rr,"\emb{k}{k'}"]\ar[rd,"\abelk{k}"']&& \opCat{k'}\ar[dl,"\abelk{k'}"] \\
+      \opCat{k}\ar[rr,"\oemb{k}"]\ar[rd,"\abelk{k}"']&& \oCat\ar[dl,"\abel"] \\
       &\Chp&.
   \end{tikzcd}
   \]
@@ -146,17 +150,17 @@ $\ook k$\nbd-category on an $\ook k$\nbd-polygraph.
   following, \emph{a priori} not commutative, triangle
   \[
     \begin{tikzcd}[column sep=small]
-      \opCat{k'}\ar[rr,"\pifun{k'}{k}"]\ar[rd,"\abelk{k'}"']&& \opCat{k}\ar[dl,"\abelk{k}"] \\
+      \oCat\ar[rr,"\opifun{k}"]\ar[rd,"\abel"']&& \opCat{k}\ar[dl,"\abelk{k}"] \\
     &\Chp&.
   \end{tikzcd}
 \]
 The unit defines a natural transformation
 \[
- \abelk{k'}\Longrightarrow \abelk{k'} \emb{k}{k'}\pifun{k'}{k}= \abelk{k}\pifun{k'}{k}
+ \abel\Longrightarrow \abel \oemb{k}\opifun{k}= \abelk{k}\opifun{k}
 \]
 \end{paragr}
 \begin{lemma}\label{lemma:abelpi}
-  The above natural transformation $\abelk{k'} \Rightarrow \abelk{k}\pifun{k'}{k}
+  The above natural transformation $\abel \Rightarrow \abelk{k}\opifun{k}
   $ is an isomorphism. 
 \end{lemma}
 \begin{proof}
@@ -168,29 +172,17 @@ The unit defines a natural transformation
   \geq 0$, the functor $\mu$ factors through $\opCat{k}$ as
   \[
     \Chp \overset{\mu_k}{\longrightarrow} \opCat{k}
-    \overset{\emb{k}{\oo}}{\longrightarrow} \oCat.
+    \overset{\oemb{k}}{\longrightarrow} \oCat.
   \]
-  Note that since $\emb{k}{\oo}$ is fully faithful and injective on
+  Note that since $\oemb{k}$ is fully faithful and injective on
   objects, such a $\mu_k$ is unique.
   As $\abel$ is left adjoint to
-  $\mu$, and $\emb{k}{\oo}$ is fully faithful, it follows readily that
-  $\abel \circ \emb{k}{\oo}=\abelk{k}$ is left adjoint to $\mu_k$ for
-  any $k \geq 0$.
-
-  
-  Now, let $0 \leq k \leq k' \leq \omega$. It follows from the fully
-  faithfulness and injectivity on object of $\emb{k'}{\omega}$ that $\mu_{k'}$ is equal to the composition
-  \[
-    \Chp \overset{\mu_k}{\longrightarrow} \opCat{k}
-    \overset{\emb{k}{k'}}{\longrightarrow} \opCat{k'}.
-  \]
-In particular, since  since $\pifun{k'}{k}$ is left adjoint to
-  $\emb{k}{k'}$, it follows by composition of adjoints that
-  $\abelk{k}\circ \pifun{k'}{k}$ is left adjoint to $\emb{k}{k'} \circ
-  \mu_k=\mu_{k'}$. By essential uniqueness of left adjoints, this
+  $\mu$, and $\oemb{k}$ is fully faithful, it follows readily that
+  $\abel \circ \oemb{k}=\abelk{k}$ is left adjoint to $\mu_k$ for
+  any $k \geq 0$. By essential uniqueness of left adjoints, this
   proves that
   \[
-    \abelk{k'}\simeq \abelk{k}\pifun{k'}{k}.
+    \abel\simeq \abelk{k}\opifun{k}.
   \]
   An easy verification left to the reader shows that this (iso)morphism
   is exactly the one constructed in \ref{paragr:abelloc}.
@@ -202,9 +194,8 @@ In particular, since  since $\pifun{k'}{k}$ is left adjoint to
   \cite[Appendice A]{ara_maltsiniotis:joint}). More generally, for any $0 \leq k \leq \omega$, we have
   the induced tensor product $\grayk{k}$ on $\opCat{k}$ defined by the
   formula
-  \lgcomment{Notations très lourdes...}
   \[
-    C \grayk{k} D :=\pifun{\oo}{k}(\emb{\oo}{k}C\gray \emb{\oo}{k}D).
+    C \grayk{k} D :=\opifun{k}(\oemb{k}C\gray \oemb{k}D).
   \]
   Since the unit $\Dsk{0}$ is also the terminal object of $\opCat{k}$,
   for any \ook k\nbd-categories $C$ and $D$, there is a canonical
@@ -287,8 +278,8 @@ such that the following diagram is commutative
 \begin{proof}
   The case $k=\omega$ is standard (see for example \cite{}). The
   general case follows from  $\abelk{k}\simeq
-  \abelk{\omega}\pifun{\oo}{k}$ (\cref{lemma:abelpi}) and the fact
-  that $\abelk{\omega}$ and $\pifun{\oo}{k}$ are strong monoidal.
+  \abel\opifun{k}$ (\cref{lemma:abelpi}) and the fact
+  that $\abel$ and $\opifun{k}$ are strong monoidal.
 \end{proof}
 \begin{corollary}\label{cor:abeltrans}
   For any $0 \leq k \leq \oo$, the abelianization functor
@@ -311,38 +302,36 @@ such that the following diagram is commutative
 \begin{proof}
     The case $k=\omega$ is \cite[Theorem 22.2.7]{abgmmm:polybk}. For the
   general case, since the folk model structure on $\opCat{k}$ is right induced from
-  the inclusion functor $\emb{k}{\omega} \colon \opCat{k} \to \oCat
+  the inclusion functor $\oemb{k} \colon \opCat{k} \to \oCat
   $, this means that a set of generating cofibrations (resp.\ trivial
-  cofibrations) is given by the image by $\pifun{k}{\omega} \colon \oCat
+  cofibrations) is given by the image by $\opifun{k} \colon \oCat
   \to \opCat{k}$ of generating cofibrations of
-  $\pifun{k}{\omega}$. The result follows then immediatly from \cref{lemma:abelpi}.
+  $\opifun{k}$. The result follows then immediatly from \cref{lemma:abelpi}.
 \end{proof}
 \begin{paragr}
-  The previous proposition contains an important subtlety. % For any $0
-  % \leq k \leq k' \leq \omega$, the inclusion functor
-  % $\embed{k}{k'}\colon \opCat{k} \to \opCat{k}$ is
-  Even though for any  $0 \leq k \leq k' \leq \omega$ we have a
+  The previous proposition contains an important subtlety.
+  Even though we have a
   commutative triangle,
   \[
     \begin{tikzcd}[column sep=small]
-      \opCat{k}\ar[rr,"\emb{k}{k'}"]\ar[rd,"\abelk{k}"']&& \opCat{k'}\ar[dl,"\abelk{k'}"] \\
+      \opCat{k}\ar[rr,"\oemb{k}"]\ar[rd,"\abelk{k}"']&& \oCat\ar[dl,"\abel"] \\
       &\Chp&,
   \end{tikzcd}
 \]
-and even though $\emb{k}{k'}$ passes to the homotopy categories, as
+and even though $\oemb{k}$ passes to the homotopy categories, as
 it trivially preserves the weak equivalences, this doesn't \emph{a
   priori} imply that the following triangle at the level of homotopy categories
 \[
   \begin{tikzcd}[column sep=small]
-    \Loc{\opCat{k}}\ar[rr,"\emb{k}{k'}"]\ar[rd,"\LL \abelk{k}"']&&
-    \Loc{\opCat{k'}}\ar[dl,"\LL \abelk{k'}"] \\
+    \Loc{\opCat{k}}\ar[rr,"\oemb{k}"]\ar[rd,"\LL \abelk{k}"']&&
+    \Loc{\oCat}\ar[dl,"\LL \abel"] \\
     &\Loc{\Chp}&,
   \end{tikzcd}
 \]
 is also commutative, and the universal property of left derived functors
 only yields a natural transformation
 \begin{equation}\label{transnat}
-  \LL \abelk{k'}\circ \emb{k}{k'} \Rightarrow \LL \abelk{k},
+  \LL \abel\circ \oemb{k} \Rightarrow \LL \abelk{k},
 \end{equation}
 which is \emph{a priori} not an isomorphism (and we do not know if it
 is in general, see \cref{openquestion}.)
@@ -350,18 +339,18 @@ is in general, see \cref{openquestion}.)
 More concretly, this natural transformation can be defined as follows:
 let $C$ be an \ook k\nbd-category and let
 \[
-  P\to C
+  \frgp P\to C
 \]
-be a cofibrant resolution in $\opCat{k}$. Since $\emb{k}{k'}$ does
-not preserve cofibrant objects in general, we need to take a cofibrant
-resolution in $\opCat{k'}$
+be a polygraphic resolution in $\opCat{k}$. Since $\oemb{k}$ does
+not preserve cofibrant objects, in general we need to take a polygraphic
+resolution in $\oCat$
 \[
-  P' \to \emb{k}{k'}P.
+  \frcat Q \to \oemb{k}\frgp{P}.
 \]
 The above natural transformation is then
 \[
-  \LL \abelk{k'}(\emb{k}{k'}(C))=\abelk{k'}(P') \longrightarrow
-  \abelk{k'}(\emb{k}{k'}(P))=\abelk{k}(P)=\LL \abelk{k}(C).
+  \LL \abel(\oemb{k}(C))=\abel(\frcat Q) \longrightarrow
+  \abel(\oemb{k}(\frgp P))=\abelk{k}(\frgp P)=\LL \abelk{k}(C).
 \]
 \end{paragr}
 \begin{definition}\label{def:hompol}
@@ -373,24 +362,24 @@ The above natural transformation is then
 \end{definition}
 
 \begin{paragr}\label{paragr:cancomp}
-  For $0 \leq k \leq k'\leq \omega$ and an \ook k\nbd-category $C$, we shall
-  simply write $\Hop{k'}_{\bullet}(C)$ instead of
-  $\Hop{k'}_{\bullet}(\emb{k}{k'}(C))$.
+  Give an \ook k\nbd-category $C$, we shall
+  simply write $\Hop{\oo}_{\bullet}(C)$ instead of
+  $\Hop{\oo}_{\bullet}(\oemb{k}(C))$.
   In particular, the natural transformation \eqref{transnat} becomes
   \[
-    \Hop{k'}_{\bullet}(C) \to \Hop{k}_{\bullet}(C).
+    \Hop{\oo}_{\bullet}(C) \to \Hop{k}_{\bullet}(C).
   \]
 \end{paragr}
 
 \begin{openquestion}\label{openquestion} With the same notation as
   above, is the canonical morphism
   \[
-     \Hop{k'}_{\bullet}(C) \to \Hop{k}_{\bullet}(C)
+     \Hop{\oo}_{\bullet}(C) \to \Hop{k}_{\bullet}(C)
    \]
    an isomorphism of $\Loc{\Chp}$?
 \end{openquestion}
 As we shall see at the end of the next section, we answer positively to
-the above open question in a very particular subcase. 
+the above open question in the cases $k=0$ and $1$. 
 \subsection{Homology of 1-categories}
 This section is devoted to proving the following central theorem.
 \begin{theorem}\label{thm:polhom}
