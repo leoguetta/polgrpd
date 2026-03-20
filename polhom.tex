@@ -422,25 +422,25 @@ The above natural transformation is then
 As we shall see at the end of the next section, we answer positively to
 the above question in a particular case. 
 \subsection{Homology of 1-categories}
-\begin{paragr}
-  Let $C$ be a (1-)category, and consider the functor $C \to \Cat, c
-  \mapsto \tr{C}{c}$. Recall that we have a canonical isomorphism
-  \[
-    \ilim_{c \in C}\tr{C}{c} \to C,
-  \]
-  induced by the projections $\tr{C}{c}\to C$. In particular, for any
-  $1 \leq k \leq \oo$, we have 
-  \[
-    \abelk{k}{C}\simeq \abelk{k}(\ilim_{c \in C}\tr{C}{c}) \simeq \ilim_{c
-      \in C}\abelk{k}(\tr{C}{c}).
-  \]
-  Now, using the unique morphism $\tr{C}{c} \to \Dsk{0}$, which is
-  obviously natural in $c$, we get
-  \[
-    \abelk{k}(C) \longrightarrow \ilim_{c \in C}\abelk{k}(\Dsk{0})\simeq\ilim_{c \in C}\cst{\Z}.
-  \]
-  This morphism is natural in $C$ and 
-\end{paragr}
+% \begin{paragr}
+%   Let $C$ be a (1-)category, and consider the functor $C \to \Cat, c
+%   \mapsto \tr{C}{c}$. Recall that we have a canonical isomorphism
+%   \[
+%     \ilim_{c \in C}\tr{C}{c} \to C,
+%   \]
+%   induced by the projections $\tr{C}{c}\to C$. In particular, for any
+%   $1 \leq k \leq \oo$, we have 
+%   \[
+%     \abelk{k}{C}\simeq \abelk{k}(\ilim_{c \in C}\tr{C}{c}) \simeq \ilim_{c
+%       \in C}\abelk{k}(\tr{C}{c}).
+%   \]
+%   Now, using the unique morphism $\tr{C}{c} \to \Dsk{0}$, which is
+%   obviously natural in $c$, we get
+%   \[
+%     \abelk{k}(C) \longrightarrow \ilim_{c \in C}\abelk{k}(\Dsk{0})\simeq\ilim_{c \in C}\cst{\Z}.
+%   \]
+%   This morphism is natural in $C$ and 
+% \end{paragr}
 This section is devoted to proving the following central theorem.
 \begin{theorem}\label{thm:polhom}
   Let $C$ be a (1-)category. Then, for any $1
@@ -448,23 +448,22 @@ This section is devoted to proving the following central theorem.
   \[
     \Hop{k}_{\bullet}(C) \to \Ho_{\bullet}(C)
   \]
-  natural in $C$. Furthermore, if we consider $k=1$ and $\oo$, this isomorphism can be chosen
-  so that 
-  \[
-    \begin{tikzcd}[column sep=small]
-         \Hop{1}_{\bullet}(C)\ar[dr]
-         \ar[rr]&&\Hop{\oo}_{\bullet}(C)\ar[dl]\\
-         &\Ho_{\bullet}(C)&
-    \end{tikzcd}
-  \]
-  is commutative. 
+  natural in $C$. % Furthermore, if we consider $k=1$ and $\oo$, this isomorphism can be chosen
+  % so that 
+  % \[
+  %   \begin{tikzcd}[column sep=small]
+  %        \Hop{1}_{\bullet}(C)\ar[dr]
+  %        \ar[rr]&&\Hop{\oo}_{\bullet}(C)\ar[dl]\\
+  %        &\Ho_{\bullet}(C)&
+  %   \end{tikzcd}
+  % \]
+  % is commutative. 
 \end{theorem}
 
 Before proving the above theorem, let us give some comments.
 \begin{remark}
-  The
-  first part of the previous theorem says that the \ook k\nbd-polygraphic
-  homology of $C$, for \emph{any} $i \leq k\leq \oo $, is naturally isomorphic to the
+  The previous theorem says that the \ook k\nbd-polygraphic
+  homology of $C$, for \emph{any} $1 \leq k\leq \oo $, is naturally isomorphic to the
   homology of $C$ as defined in \cref{def:homtor}. In particular,
   the homology groups of $\Hop{k}_{\bullet}(C)$ do not depend on $k$
   for a $1$-category $C$, and they coincide with the usual
@@ -488,18 +487,18 @@ Before proving the above theorem, let us give some comments.
   all these higher cells will be trivial in homology, but this was not
   \emph{a priori} obvious. 
 \end{remark}
-\begin{remark}
-  The second part of
-  the theorem is only here to say that the natural isomorphism can be
-  chosen to be compatibale with the canonical morphism
-  \[\Hop{k'}_{\bullet}(C)\to \Hop{k}_{\bullet}(C)\] from \ref{paragr:cancomp}.
-  In particular, by an immediate 2-out-of-3 property, it follows that
-  this canonical morphism is an \emph{isomorphism}. Hence, we can
-  answer positively to \cref{openquestion} in the case that $C$ is a
-  $1$-category. Consequently, up to a canonical identification, we can
-  unambiguously speak of the \emph{polygraphic homology} of a
-  $1$-category $C$. 
-\end{remark}
+% \begin{remark}
+%   The second part of
+%   the theorem is only here to say that the natural isomorphism can be
+%   chosen to be compatibale with the canonical morphism
+%   \[\Hop{k'}_{\bullet}(C)\to \Hop{k}_{\bullet}(C)\] from \ref{paragr:cancomp}.
+%   In particular, by an immediate 2-out-of-3 property, it follows that
+%   this canonical morphism is an \emph{isomorphism}. Hence, we can
+%   answer positively to \cref{openquestion} in the case that $C$ is a
+%   $1$-category. Consequently, up to a canonical identification, we can
+%   unambiguously speak of the \emph{polygraphic homology} of a
+%   $1$-category $C$. 
+% \end{remark}
 We know move on to the proof of \cref{prop:polbar}, which consists of
 several steps. 
 \begin{paragr}
@@ -511,7 +510,7 @@ several steps.
   \[
     \tr{P}{-} \colon C \to \opCat{k}
   \]
-  as in section \ref{subsection:polresol}. There is a canonical natural
+  as in section \ref{subsec:polres}. There is a canonical natural
   transformation
   \[
     \tr{P}{-} \Rightarrow \cst{\Dsk{0}},
@@ -565,22 +564,20 @@ technical lemma.
 \begin{proof}
   The data of the given diagram amounts to the following commutative
   diagram in $\opCat{k}$
-  \lgcomment{Techniquement ce n'est pas $\Dsk{1}$ dans la diagramme
-    ci-dessous mais la version localisée dans $\opCat{k}$.}
   \[
     \begin{tikzcd}
-      \partial \Dsk{1} \grayk{k} A' \ar[r]\ar[d] \ar[rr,bend
-      left,"{(u',v')}"]& \Dsk{1} \grayk{k} A'
+      \Sph{0} \grayk{k} A' \ar[r]\ar[d] \ar[rr,bend
+      left,"{(u',v')}"]& \opifun{k}\Dsk{1} \grayk{k} A'
       \ar[d]& B' \ar[d,"q"] \\
-      \partial \Dsk{1} \grayk{k} A \ar[r] & \Dsk{1} \grayk{k} A \ar[r,"\alpha"]
+      \Sph{0} \grayk{k} A \ar[r] & \opifun{k}\Dsk{1} \grayk{k} A \ar[r,"\alpha"]
       & B.
     \end{tikzcd}
   \]
   Since $A'$ is cofibrant and $\grayk{k}$ makes the folk model
   structure on $\opCat{k}$ a monoidal model structure \cite{}, the
-  arrow $ \partial \Dsk{1}  \grayk{k} A' \to  \Dsk{1} \grayk{k} A'$ is a
+  arrow $ \Sph{0}  \grayk{k} A' \to  \opifun{k}\Dsk{1} \grayk{k} A'$ is a
   cofibration. Since $q$ is a trivial fibration, there exists a
-  morphism $\alpha' \colon \Dsk{1}  \grayk{k} A' \to B'$ making the
+  morphism $\alpha' \colon \opifun{k}\Dsk{1}  \grayk{k} A' \to B'$ making the
   whole diagram commute.
 \end{proof}
 
@@ -699,8 +696,11 @@ of $C$, the morphism of chain complexes
                      &\simeq \abelk{k}_\bullet(P) \tag{\cref{lemma:colim}}\\
     &= \Hop{k}(C) \tag{\cref{def:hompol}}
   \end{align*}
-  \lgcomment{Preuve incomplète, mais peut-être faudrait-il s'en tenir
-    à ça dans l'énoncé.
+  \lgcomment{Pour le moment j'ai abandonné le fait de répondre à la
+    \cref{openquestion}. On a bien un iso $\Hop{1}(C)\simeq
+    \Hop{\oo}(C)$, mais il s'agit de vérifier que c'est bien l'iso
+    canonique de la \cref{openquestion}, ce que je n'arrive pas à
+    faire sans être très très lourd.
   }
  
   % We will use the following standard fact on left Quillen functors:
