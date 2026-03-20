@@ -66,13 +66,13 @@ in the folk model structure of $\opCat k$.
     \end{aligned}
   \]
   Also, for each object $c$, we get a canonical forgetful functor
-  $\sld:\tr Cc\to C$
+  $\tr Cc\to C$
   taking $\pair x{f:x\to c}$ to $x$.
 \end{paragr}
 
 \begin{lemma}\label{lemma:slicescond}
   For each small category $C$ the canonical functor
- $\sld:\tr Cc\to C$
+ $\tr Cc\to C$
   is a discrete Conduché fibration.
 \end{lemma}
 \begin{proof}
@@ -109,12 +109,12 @@ in $\opCat 1$ by the inclusion functor $\oinc 1:\npCat 11\to \opCat 1$
 (\ref{ssubsec:ncat}), and all diagrams are drawn in $\opCat 1$. Thus
 let $C$ be a small category, $P$ an \ook 1-polygraph and $p:\frgp P\to
 C$ a polygraphic resolution of $C$ in $\opCat 1$. Given an object $c$
-of $C$, we may form the pullback of $\sld:\tr Cc\to C$ by $p:\frgp
+of $C$, we may form the pullback of $\tr Cc\to C$ by $p:\frgp
 P\to C$ in $\opCat 1$:
   \begin{equation}
   \label{eq:pullback}
   \begin{tikzcd}
-      \tr{\frgp P\!}{c} \ar[d] \ar[r] & \tr{C}{c} \ar[d,"\sld"] \\
+      \tr{\frgp P\!}{c} \ar[d] \ar[r] & \tr{C}{c} \ar[d] \\
       \frgp P \ar[r,"p"'] & C.
       \ar[from=1-1,to=2-2,phantom,"\lrcorner",very near start]
     \end{tikzcd}
@@ -135,7 +135,7 @@ Clearly, given a resolution $p$, the construction of $\tr{\frgp
   P\!}{c}$ is functorial in $c$, thus defining a functor
   \[
     \begin{aligned}
-      \tr{\frgp P\!}{-} \colon C &\to \opCat{k} \\
+      \tr{\frgp P\!}{-} \colon C &\to \opCat{1} \\
       c &\mapsto \tr{\frgp P\!}{c}.
     \end{aligned}
   \]
@@ -149,7 +149,7 @@ Clearly, given a resolution $p$, the construction of $\tr{\frgp
   \begin{proof}
    Let $c$ be an object of $C$ and consider the
    square~(\ref{eq:pullback}). By~\cref{lemma:slicescond}, the
-   morphism $\sld:\tr Cc\to C$ is a discrete Conduché fibration. Therefore
+   morphism $\tr Cc\to C$ is a discrete Conduché fibration. Therefore
    the pullback morphism $\tr{\frgp P\!}c\to \frgp
    P$ is also a discrete Conduché fibration. As $P$ is an $\ook
    1$-polygraph, it follows from \cref{thm:main} and the description
@@ -201,11 +201,12 @@ Clearly, given a resolution $p$, the construction of $\tr{\frgp
   \[
     \xymatrix@C=0.5cm{0\ar[r] &\oinc 0\trk 0(\tr{\frgp{P}\!}{-})\ar[r] &\cdots\ar[r]
       &\oinc{n-1}\trk{n-1}(\tr{\frgp{P}\!}{-})\ar[r]&
-      \oinc{n}\trk{n}(\tr{\frgp{P}\!}{-})\ar[r] &\cdots},
+      \oinc{n}\trk{n}(\tr{\frgp{P}\!}{-})\ar[r] &\cdots}
   \]
-  where $0$ is the initial object, and therefore a cofibrant object.
-  
-  \end{proof} 
+ and therefore a cofibrant object. Here $0$ denotes the constant
+ functor taking each object of $C$ to the empty \ook 1-category, which
+ is of course the initial object of $\fun{C}{\opCat 1}$.
+ \end{proof} 
   
 
 
