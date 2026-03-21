@@ -116,14 +116,16 @@
 \newcommand{\emb}[2]{\functor{j}_{#1}^{#2}}%inclusion from (oo,#1)-cat to (oo,#2)-cat
 \newcommand{\pifun}[2]{\functor{\pi}_{#1}^{#2}}%left adjoint of the
                                 %above
-\newcommand{\maxgr}[2]{\functor{\iota}_{#1}^{#2}}%right-adjoint to \emb                               
+\newcommand{\maxgr}[2]{\functor{\iota}_{#1}^{#2}}%right-adjoint to
+                                %\emb
+\newcommand{\skl}[1]{\functor{sk}_{#1}}% #1-skeleton                                
 \newcommand{\oemb}[1]{\emb{#1}{}}%inclusion from (oo,#1)-cat to oo-cat
 \newcommand{\opifun}[1]{\pifun{#1}{}}%left adjoint of the above
 \newcommand{\omaxgr}[1]{\maxgr{#1}{}}%right-adjoint to \oemb
 \newcommand{\fgf}[1]{\functor{U}_{#1}} %forgetful functor
 \newcommand{\frf}[1]{\functor{F}_{#1}} %free functor
 
-\newcommand{\sld}{\functor{d}}% forgetful functor C/c-->C
+
 
 \newcommand{\abel}{\functor{\lambda}} %Abelianization functor
 \newcommand{\abelk}[1]{\functor{\abel}^{\pair{\oo}{#1}}}%Abelianization functor from dim #1

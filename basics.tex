@@ -117,7 +117,13 @@ cells of dimension $>n$. The functor $\trk n$ is right-adjoint to the
 inclusion functor  $\inc nm:\nCat n\to\nCat m$, which takes an
 $n$-category $C$ to the $m$-category with the same $i$-cells for
 $i\leq n$ and only the required identity cells in dimensions
-$i>n$. The functor $\inc n{\oo}$ will be simply denoted by $\oinc n$. 
+$i>n$. The functor $\inc n{\oo}$ will be simply denoted by $\oinc
+n$. Finally, for each $n\in\N$, the {\em $n$-skeleton functor} is by
+definition the endofunctor 
+\[
+  \skl n=\oinc n\circ\trk n:\oCat\to \oCat.
+  \]
+
 
 \subsubsection{Invertible cells}\label{ssubsec:invert}
 Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp i$-invertible} if there is an $n$-cell $y$ such that $\sce i(y)=\tge i(x)$, $\tge i(y)=\sce i(x)$ satisfying the equations 
@@ -165,7 +171,11 @@ Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp 
     \]
     sending an \ook{k'}\nbd-category to its maximal
     sub\nbd-\ook{k}\nbd-category. For $k'=\oo$, we shall simply denote
-    by $\oemb k$, $\opifun k$ and $\omaxgr k$ the corresponding functors.
+    by $\oemb k$, $\opifun k$ and $\omaxgr k$ the corresponding
+    functors. Remark that for each $k$, the category $\opCat k$ is
+    preserved by the above defined $n$-skeleton functors. The
+    corresponding restricted functors will be still denoted by $\skl n:\opCat
+    k\to\opCat k$ in the following.
  \end{paragr} 
 
 
@@ -301,20 +311,21 @@ Polygraphs and morphisms build a  sequence of categories
   k$-category $\frgp P$ is the limit of the following diagram of
   $\ook k$-categories
   \[
-    \xymatrix{\oinc 0\trk 0\frgp P\ar[r] & \cdots\ar[r] &\oinc {n-1}\trk{n-1}\frgp P\ar[r] &\oinc{n}\trk {n}\frgp P\ar[r]&\cdots}
+    \xymatrix{0\ar[r]&\skl 0\frgp P\ar[r] & \cdots\ar[r] &\skl{n-1}\frgp
+      P\ar[r] &\skl n\frgp P\ar[r]&\cdots}
   \]
-  where $\oinc{n-1}\trk{n-1}\frgp P\to\oinc{n}\trk {n}\frgp P$ is
+  where $\skl{n-1}\frgp P\to\skl n\frgp P$ is
   obtained by taking the following pushout in $\opCat k$:
   \begin{equation}
     \label{eq:polpushout}
     \xymatrix{
      \coprod_{P_{n}} \opifun k \Sph{n-1}
-     \ar[d]_{\coprod_{P_{n}}\opifun k\gcof {n}}\ar[r]& \oinc{n-1}\trk{n-1}\frgp P\ar[d]\\
-      \coprod_{P_{n}}\opifun k\Dsk{n}\ar[r]& \oinc{n}\trk {n}\frgp P
+     \ar[d]_{\coprod_{P_{n}}\opifun k\gcof {n}}\ar[r]& \skl{n-1}\frgp P\ar[d]\\
+      \coprod_{P_{n}}\opifun k\Dsk{n}\ar[r]& \skl n\frgp P
     }.
   \end{equation}
   Here the top arrow picks a set $P_n$ of pairs of parallel $(n{-}1)$-cells in
-  $\oinc{n-1}\trk{n-1}\frgp P$. This defines a cellular extension 
+  $\skl{n-1}\frgp P$. This defines a cellular extension 
   $\clx{\trk{n-1}\frgp P}{P_n}$.  Now the fact that
   (\ref{eq:polpushout}) is a pushout square exactly amounts to the statement $\trk n\frgp
   P=\frf{n-1,k}\clx{\trk{n-1}\frgp P}{P_n}$.
