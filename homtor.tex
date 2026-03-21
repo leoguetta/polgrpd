@@ -52,8 +52,20 @@ to treat the case of right modules.
   an epimorphism. Since coproducts of projective objects
   are projective, the conclusion follows from \cref{lemma:freeisproj}.
 \end{proof}
+\begin{paragr}
+ For a small category $C$, we shall denote by $\Derp{C}$ the derived
+ category of $C$ in non-negative degree, that is $\Derp{C}$ is the
+ localization of the category $\Chp(\RMod{C})$ of chain complexes of
+ right $C$\nbd-modules in non-negative degrees with respect to
+ quasi-isomorphisms. By what we said above, it is standard fact that
+ $\Chp(\RMod{C})$ can be equipped with the \emph{projective} model
+ structure, whose weak equivalences are the quasi-isomorphisms and the
+ cofibrations are the monomorphisms with degreewise projective
+ cokernels. In the case of the terminal category $e$, we shall use the
+ notation $\Derp{\Z}$ instead of $\Derp{e}$. Finally, for left $C$\nbd-modules, we simply consider $\Derp{C^{\op}}$.
+\end{paragr}
 \subsection{Tensor product}
-We fix once and for all a small category $C$.
+We fix once and for all a small category $C$. 
 \begin{paragr}
    Let $F$ be a right $C$\nbd-module and $G$ a left $C$\nbd-module. We
   define their tensor product, denoted by $F\tens{C}G$, as the
@@ -85,19 +97,26 @@ We fix once and for all a small category $C$.
   \]
   natural in $F$, $G$ and $A$. In particular, $-\tens{C}-$ preserves
   epimorphisms in each variable and thus is right exact in each
-  variable. Together with \cref{prop:enoughproj}, this justifies the
-  following definition.
+  variable. Together with \cref{prop:enoughproj}, it follows
+  classically that $\tens{C}$ is left derivable (in each variable),
+  and we denote by
+  \[
+    - \Ltens{C}- \colon \Derp{C}\times \Derp{C^{\op}} \to \Derp{\Z},
+  \]
+  the total derived functor.
 \end{paragr}
 
 \begin{definition}
-  Let $F$ be a right $C$\nbd-module and $G$ a left $C$\nbd-module. For
-  an integer $k \geq 0$, we
-  define the abelian group $\Tor{C}{k}(F,G)$ as
+  Let $F$ be a right $C$\nbd-module and $G$ a left $C$\nbd-module. We
+  define the object $\Tor{C}{}(F,G)$ of $\Derp{\Z}$ as
   \[
-    \Tor{C}{k}(F,G) := F \overset{\mathbb{L}_k}{\tens{C}} G,
+    \Tor{C}{}(F,G) := F \Ltens{C} G.
   \]
-  where $\overset{\mathbb{L}_k}{\tens{C}}$ is the $k$\nbd-th left
-  derived functor of $-\tens{C}-$.
+  For $k \geq 0$, we also define the abelian group
+  \[
+    \Tor{C}{k}(F,G):= H_k(F\Ltens{C}G),
+  \]
+  where $H_k$ is the ``$k$\nbd-th homology group'' functor.
 \end{definition}
 \begin{paragr}
   Explicitly, the previous definition means that $\Tor{C}{k}(F,G)$ is
@@ -131,28 +150,104 @@ We fix once and for all a small category $C$.
   with value $\Z$.
 \end{paragr}
 \begin{definition}\label{def:homtor}
-  Let $C$ be a small category. We define its \emph{homology $\Ho_{\bullet}(C)$} as the
-  graded abelian group
+  Let $C$ be a small category. We define its \emph{total homology
+    $\Ho_{\bullet}(C)$} as the object of $\Derp{\Z}$
   \[
-    \Ho_{\bullet}(C):=\Tor{C}{\bullet}(\cst{\Z},\cst{\Z}).
+    \Ho(C):=\Tor{C}{}(\cst{\Z},\cst{\Z}).
   \]
-  More generally, if $M$ is a right $C$\nbd-module, we define the
-  \emph{homology $\Ho_{\bullet}(C,M)$ of $C$ with coefficient $M$} as the
-  graded abelian group
+  For $k \geq 0$, we also define
   \[
-    \Ho_{\bullet}(C,M):=\Tor{C}{\bullet}(M,\cst{\Z}).
+    \Ho_k(C):=H_k(\Ho(C)).
   \]
 \end{definition}
 \begin{remark}
-  We could also have defined the homology of $C$ with coefficient a left
-  $C$\nbd-module $N$ as $\Tor{C}{\bullet}(\cst{\Z},N)$. No generality is
-  lost as we
-  have \[\Tor{C}{\bullet}(\cst{\Z},N)=\Tor{C^{\op}}{\bullet}(N,\cst{\Z}).\]
-  In other words, the homology of $C$ with coefficient a left
-  $C$\nbd-module $N$ is the homology of $C^{\op}$ with coefficient $N$
-  seen a right $C^{\op}$\nbd-module.
+  More generally, if $M$ is a right (resp.\ left) $C$\nbd-module, we
+  define the homology $\Ho_{\bullet}(C,M)$ of $C$ with coefficient $M$ as 
+  \[
+    \Ho(C,M):=\Tor{C}{}(M,\cst{\Z}) \quad\text{(resp. }\Tor{C}{}(\cst{\Z},M)).
+  \]
+  For simplicity, we shall only consider homology with coefficient in
+  $\Z$ in this paper.
+  % We could also have defined the homology of $C$ with coefficient a left
+  % $C$\nbd-module $N$ as $\Tor{C}{\bullet}(\cst{\Z},N)$. No generality is
+  % lost as we
+  % have \[\Tor{C}{\bullet}(\cst{\Z},N)=\Tor{C^{\op}}{\bullet}(N,\cst{\Z}).\]
+  % In other words, the homology of $C$ with coefficient a left
+  % $C$\nbd-module $N$ is the homology of $C^{\op}$ with coefficient $N$
+  % seen a right $C^{\op}$\nbd-module.
 \end{remark}
+\begin{paragr}
+  Let us now study the functoriality of $\Ho_{\bullet}(C)$ in
+  $C$. First notice that for $F$ a right $C$\nbd-module, we have
+  \[
+    F\tens{C}\cst{\Z} \simeq \ilim_{C^{\op}}F
+  \]
+  as follows directly from the co-end definition of $\tens{C}$. In
+  other words, the homology of $C$ is just the left derived functor of
+  the colimit functor (also called ``homotopy colimit'') evaluated on $\cst{\Z}$
+  \[
+    \Ho(C)\simeq \LL \ilim_{C^{\op}}\cst{\Z}.
+  \]
+  Let now $u \colon C \to D$ be a functor. It induces an adjunction
+  \[
+    u_! \colon \RMod{C} \leftrightarrows \RMod{D} \colon u^*,
+  \]
+  where $u^*$ is induced by precomposition and $u_!$ is given by the
+  usual ``pointwise Kan extension'' formula
+  \[
+    u_!(F)(d)=\ilim_{(\tr{C}{d})^{\op}}F\vert_{(\tr{C}{d})^{\op}}.
+  \]
+  We recall the standard facts that $u^*$ is exact and $u_!$ is right
+  exact. In particular, $u^*$ preserves quasi-isomorphisms, and the
+  adjunction $u_!\dashv u^*$
+  induces a Quillen adjunction between the projective model structure
+  of chain complexes of non-negative degrees. Therefore, we have an induced adjunction at the level of
+  derived categories
+  \[
+    \LL u_! \colon \Derp{C} \leftrightarrows \Derp{D} \colon u^*,
+  \]
+  where we abusively wrote again $u^*$ for the functor induced by
+  $u^*$ at the level of derived categories.
+  A case of particular interest is when $D=e$ is the terminal category
+  and $u=p_C \colon C \to e$ is the unique possible functor. Then for
+  an abelian group $G$, $p_C^*(G)$ is nothing but the constant right
+  $C$\nbd-module $\cst{G}$ with value $G$ and 
+  $p_{C!}$ is nothing but the colimit functor $\ilim_{C^{\op}}$ .
 
+  
+  Consider now the
+  commutative triangle
+  \[
+    \begin{tikzcd}[column sep=small]
+      C \ar[rr,"u"] \ar[rd,"p_C"']&&D\ar[dl,"p_D"] \\
+      & e. &
+    \end{tikzcd}
+  \]
+  It induces a commutative triangle (up to a
+  canonical isomorphism) of left
+  derived functors
+  \[
+    \begin{tikzcd}[column sep=small]
+      \Derp{C} \ar[rr,"\LL u_!"] \ar[rd,"\LL \ilim_{C^{\op}}"']&&\Derp{D}\ar[dl,"\LL \ilim_{D^{\op}}"] \\
+      & \Derp{\Z}. &
+    \end{tikzcd}
+  \]
+  For $F$ a right $D$\nbd-module, we define a canonical morphism
+  \[
+    \LL \ilim_{C^{\op}}u^*(F) \simeq \LL \ilim_{D^{\op}}\LL u_! u^*(F)
+    \to \LL \ilim_{D^{op}} F, 
+  \]
+  induced by the co-unit of the adjunction $\LL u_! \dashv u^*$. In
+  particular, for $F=\cst{\Z}$, we get a morphism
+  \[
+    \Ho(C) \to \Ho(D).
+  \]
+  It is straightforward to verify that this definition is functorial
+  and thus we have defined a functor
+  \[
+    \Ho(-)\colon \Cat \to \Derp{C}.
+  \]
+\end{paragr}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"
