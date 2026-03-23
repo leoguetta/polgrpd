@@ -422,85 +422,6 @@ The above natural transformation is then
 As we shall see at the end of the next section, we answer positively to
 the above question in a particular case. 
 \subsection{Homology of 1-categories}
-% \begin{paragr}
-%   Let $C$ be a (1-)category, and consider the functor $C \to \Cat, c
-%   \mapsto \tr{C}{c}$. Recall that we have a canonical isomorphism
-%   \[
-%     \ilim_{c \in C}\tr{C}{c} \to C,
-%   \]
-%   induced by the projections $\tr{C}{c}\to C$. In particular, for any
-%   $1 \leq k \leq \oo$, we have 
-%   \[
-%     \abelk{k}{C}\simeq \abelk{k}(\ilim_{c \in C}\tr{C}{c}) \simeq \ilim_{c
-%       \in C}\abelk{k}(\tr{C}{c}).
-%   \]
-%   Now, using the unique morphism $\tr{C}{c} \to \Dsk{0}$, which is
-%   obviously natural in $c$, we get
-%   \[
-%     \abelk{k}(C) \longrightarrow \ilim_{c \in C}\abelk{k}(\Dsk{0})\simeq\ilim_{c \in C}\cst{\Z}.
-%   \]
-%   This morphism is natural in $C$ and 
-% \end{paragr}
-This section is devoted to proving the following central theorem.
-\begin{theorem}\label{thm:polhom}
-  Let $C$ be a (1-)category. Then, for any $1
-  \leq k \leq \oo$ there is an isomorphism
-  \[
-    \Hop{k}_{\bullet}(C) \to \Ho_{\bullet}(C)
-  \]
-  natural in $C$. % Furthermore, if we consider $k=1$ and $\oo$, this isomorphism can be chosen
-  % so that 
-  % \[
-  %   \begin{tikzcd}[column sep=small]
-  %        \Hop{1}_{\bullet}(C)\ar[dr]
-  %        \ar[rr]&&\Hop{\oo}_{\bullet}(C)\ar[dl]\\
-  %        &\Ho_{\bullet}(C)&
-  %   \end{tikzcd}
-  % \]
-  % is commutative. 
-\end{theorem}
-
-Before proving the above theorem, let us give some comments.
-\begin{remark}
-  The previous theorem says that the \ook k\nbd-polygraphic
-  homology of $C$, for \emph{any} $1 \leq k\leq \oo $, is naturally isomorphic to the
-  homology of $C$ as defined in \cref{def:homtor}. In particular,
-  the homology groups of $\Hop{k}_{\bullet}(C)$ do not depend on $k$
-  for a $1$-category $C$, and they coincide with the usual
-  definition of homology groups of $C$.
-
-  In practise, it is most interesting to take $k$ as low as
-  possible, that is $k=0$ if $C$ is a groupoid and $k=1$ if $C$ is a
-  category. This will indeed ``reduce'' the size of resolutions as is
-  illustrated by the following simple example. Take the group
-  $G=\Z$. It is free as a group, and in particular, in the category
-  $\oGrpd$, it is free on a polygraph (with only one generator in
-  dimension $0$ and one generator in dimension $1$). Consequently,
-   there is no need to take a cofibrant
-  replacement and we directly see that its homology is $\Z$ in degree
-  $0$ and $1$, and $0$ elsewhere.
-
-  On the other hand, $\Z$ is not free as a monoid, and thus if we take
-  it as an object of $\opCat{k}$ for any $k \geq 1$, then we need to
-  take a cofibrant replacement, with an infinite number of non-trivial
-  cells if $k =\oo$ for example. From the above theorem, we know that
-  all these higher cells will be trivial in homology, but this was not
-  \emph{a priori} obvious. 
-\end{remark}
-% \begin{remark}
-%   The second part of
-%   the theorem is only here to say that the natural isomorphism can be
-%   chosen to be compatibale with the canonical morphism
-%   \[\Hop{k'}_{\bullet}(C)\to \Hop{k}_{\bullet}(C)\] from \ref{paragr:cancomp}.
-%   In particular, by an immediate 2-out-of-3 property, it follows that
-%   this canonical morphism is an \emph{isomorphism}. Hence, we can
-%   answer positively to \cref{openquestion} in the case that $C$ is a
-%   $1$-category. Consequently, up to a canonical identification, we can
-%   unambiguously speak of the \emph{polygraphic homology} of a
-%   $1$-category $C$. 
-% \end{remark}
-We know move on to the proof of \cref{prop:polbar}, which consists of
-several steps. 
 \begin{paragr}
   Let $C$ be a $\pk 1 i$\nbd-category with $i \in \{0,1\}$. For any $i
   \leq k \leq \omega$, we can consider $C$ as an $\ook
@@ -653,56 +574,157 @@ of $C$, the morphism of chain complexes
   \abelk{k}(\tr{P}{c})$, which proves that  $\abelk{k}(\tr{P}{c}) \to
   \Z$ is a quasi-isomorphism.
 \end{proof}
-\begin{lemma}\label{lemma:colim}
-  We have a canonical isomorphism
+\begin{paragr}
+  Let $C$ be a $1$\nbd-category. We define a functor
+  \begin{align*}
+    \tr{\opCat{k}}{C} &\to \fun{C}{\opCat{k}}\\
+    (X, X \overset{p}{\to} C) &\mapsto \left(c \mapsto \tr{X}{c}\right).
+  \end{align*}
+  Notice that for $(X, X \overset{p}{\to} C)$ in $\tr{\opCat{k}}{C}$,
+  we have a cocone
   \[
-    \abelk{k}(\tr{P}{-})\tens{C}\cst{\Z} \simeq \abelk{k}(P)
+    (\tr{X}{c} \to X)_{c \in \Ob{C}},
   \]
-  which is natural in $P$.
+  where each $\tr{X}{c} \to X$ is the canonical projection, and hence
+  a canonical morphism
+  \[
+    \ilim_{c \in C}\tr{X}{c} \to X,
+  \]
+  which is natural in the sense that it defines a natural
+  transformation from the functor
+  \begin{align*}
+    \tr{\opCat{k}}{C} &\to \opCat{k}\\
+    (X, X \overset{p}{\to} C) &\mapsto \ilim_{c \in C} \tr{X}{c},
+  \end{align*}
+  to the projection functor
+    \begin{align*}
+    \tr{\opCat{k}}{C} &\to \opCat{k}\\
+    (X, X \overset{p}{\to} C) &\mapsto X,
+  \end{align*}
+\end{paragr}
+\begin{lemma}\label{lemma:colim}
+  The natural morphism
+  \[
+     \ilim_{c \in C}\tr{X}{c} \to X,
+   \]
+   is an isomorphism.
 \end{lemma}
 \begin{proof}
-  Notice first that by definition, we have
-  \[
-    \begin{aligned}
-      \abelk{k}(\tr{P}{-})\tens{C}\cst{\Z} &= \int^{c \in
-                                             C}\abelk{k}(\tr{P}{-})\otimes
-                                             \Z \\
-                                           &\simeq \int^{c \in C}\abelk{k}(\tr{P}{c})\\
-                                           &\simeq \ilim_{c \in C}\abelk{k}(\tr{P}{c})\\
-      &\simeq \abelk{k}(\ilim_{c \in C}\tr{P}{c}),
-    \end{aligned}
-  \]
-  where the last isomorphism comes from the fact that $\abelk{k}$
-  is a left adjoint. Finally, by \cite[Lemma 7.5]{guetta:homcat} and
-  the fact that the canonical inclusion functor $\opCat{k} \to \oCat$
-  preserves and reflects colimits, we have that
-  \[
-    \ilim_{c \in C}\tr{P}{c} \simeq P,
-  \]
-  which concludes the proof.
+The case $k=\oo$ is \cite[Lemma 7.5]{guetta:homcat}. The general case
+follows from the fact that $\opCat{k} \to \oCat$
+  preserves colimits.
 \end{proof}
-
-\begin{proof}[Proof of \cref{thm:polhom}]
-  Let $C$ be a \pk{1}{i}\nbd-category, which we consider as an $\ook
-  k$\nbd-category and $\frgp{P} \to C$ a polygraphic resolution in
-  $\oCat{k}$. By \cref{prop:polbar},
+\begin{paragr}
+  Let $u \colon C \to D$ be a functor between (small) categories, and
+  consider the functor induced by pre-composition with $u$
   \[
-    \cst{\Z} \leftarrow \abelk{k}_{\bullet}(\tr{P}{-})
+    u^* \colon \fun{D}{\opCat{k}} \to \fun{C}{\opCat{k}},
   \]
-  is a projective resolution of $\cst{\Z}$.
+  and $u_!$ its left adjoint. 
+\end{paragr}
+\begin{theorem}\label{thm:polhom}
+  Let $C$ be a (1-)category. Then, for any $1
+  \leq k \leq \oo$, there is an isomorphism
+  \[
+    \Hop{k}_{\bullet}(C) \to \Ho_{\bullet}(C)
+  \]
+  natural in $C$. Furthermore, this
+  isomorphism can be chosen natural in $k$ in the sense that for $k
+  \leq k'$, the triangle 
+  \[
+    \begin{tikzcd}[column sep=small]
+         \Hop{1}_{\bullet}(C)\ar[dr]
+         \ar[rr]&&\Hop{\oo}_{\bullet}(C)\ar[dl]\\
+         &\Ho_{\bullet}(C)&
+    \end{tikzcd}
+  \]
+  is commutative. 
+\end{theorem}
+
+% Before proving the above theorem, let us give some comments.
+% \begin{remark}
+%   The previous theorem says that the \ook k\nbd-polygraphic
+%   homology of $C$, for \emph{any} $1 \leq k\leq \oo $, is naturally isomorphic to the
+%   homology of $C$ as defined in \cref{def:homtor}. In particular,
+%   the homology groups of $\Hop{k}_{\bullet}(C)$ do not depend on $k$
+%   for a $1$-category $C$, and they coincide with the usual
+%   definition of homology groups of $C$.
+
+%   In practise, it is most interesting to take $k$ as low as
+%   possible, that is $k=0$ if $C$ is a groupoid and $k=1$ if $C$ is a
+%   category. This will indeed ``reduce'' the size of resolutions as is
+%   illustrated by the following simple example. Take the group
+%   $G=\Z$. It is free as a group, and in particular, in the category
+%   $\oGrpd$, it is free on a polygraph (with only one generator in
+%   dimension $0$ and one generator in dimension $1$). Consequently,
+%    there is no need to take a cofibrant
+%   replacement and we directly see that its homology is $\Z$ in degree
+%   $0$ and $1$, and $0$ elsewhere.
+
+%   On the other hand, $\Z$ is not free as a monoid, and thus if we take
+%   it as an object of $\opCat{k}$ for any $k \geq 1$, then we need to
+%   take a cofibrant replacement, with an infinite number of non-trivial
+%   cells if $k =\oo$ for example. From the above theorem, we know that
+%   all these higher cells will be trivial in homology, but this was not
+%   \emph{a priori} obvious. 
+% \end{remark}
+% \begin{remark}
+%   The second part of
+%   the theorem is only here to say that the natural isomorphism can be
+%   chosen to be compatibale with the canonical morphism
+%   \[\Hop{k'}_{\bullet}(C)\to \Hop{k}_{\bullet}(C)\] from \ref{paragr:cancomp}.
+%   In particular, by an immediate 2-out-of-3 property, it follows that
+%   this canonical morphism is an \emph{isomorphism}. Hence, we can
+%   answer positively to \cref{openquestion} in the case that $C$ is a
+%   $1$-category. Consequently, up to a canonical identification, we can
+%   unambiguously speak of the \emph{polygraphic homology} of a
+%   $1$-category $C$. 
+% \end{remark}
+
+
+
+
+\begin{proof}
+  Let's start with the first part of the theorem without any
+  naturality condition.  Let $C$ be a $1$\nbd-category, and $\frgp{P} \to C$ a polygraphic resolution in
+  $\opCat{k}$. By \cref{prop:polbar},
+  \[
+    \cst{\Z} \leftarrow \abelk{k}(\tr{\frgp P}{-})
+  \]
+  is a projective resolution of $\cst{\Z}$. Hence, we have
   \begin{align*}
-     \Ho_{\bullet}(C)&= \cst{\Z}\tens{\Z
-                       C}\abelk{k}_{\bullet}(\tr{P}{-}) \tag{\cref{def:homtor}}\\
-                     &\simeq \abelk{k}_\bullet(P) \tag{\cref{lemma:colim}}\\
-    &= \Hop{k}(C) \tag{\cref{def:hompol}}
+    \Ho_{\bullet}(C)&= \LL \ilim_{C}\cst{\Z} \tag{\cref{def:homtor}
+                       \text{ and paragraph }\ref{paragr:funhomology}}\\
+    &\simeq \ilim_{C}\abelk{k}{(\tr{\frgp P}{-})}
+      \tag{\cref{lemma:colim}}\\
+                     &\simeq \abelk{k}(P)\\
+    &\simeq \LL \abelk{k}(C)=\Hop{k}(C)
   \end{align*}
-  \lgcomment{Pour le moment j'ai abandonné le fait de répondre à la
-    \cref{openquestion}. On a bien un iso $\Hop{1}(C)\simeq
-    \Hop{\oo}(C)$, mais il s'agit de vérifier que c'est bien l'iso
-    canonique de la \cref{openquestion}, ce que je n'arrive pas à
-    faire sans être très très lourd.
-  }
- 
+  Now the naturality in $C$ as well as the commutativity of the
+  triangle is harmless but tedious bookkeeping, which we carefully
+  carry out now.
+
+  First of all, we suppose given a cofibrant replacement functor
+  \[
+    Q \colon \opCat{k} \to \opCat{k},
+  \]
+  that is for an $\ook{k}$\nbd-category $C$, $Q(C)$ is free on a $\ook
+  k$\nbd-polygraph, and the functor comes equipped with a natural
+  transformation
+  \[
+    \alpha \colon Q \Rightarrow \Unit{\opCat{k}},
+  \]
+  which is a trivial fibration pointwise. This is possible because the
+  folk model structure on $\opCat{k}$ is combinatorial. Then, we
+  consider the functor
+  \begin{align*}
+    \Cat &\to \Derp{\Z}\\
+    C &\mapsto \abelk{k}(Q(C)),
+  \end{align*}
+  which we consider, by definition, as the polygraphic homology functor for
+  $1$\nbd-categories.
+
+  Now, 
   % We will use the following standard fact on left Quillen functors:
   
   %   Given a left Quillen functor $F \colon \M \to \M'$ between two
