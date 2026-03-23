@@ -52,7 +52,7 @@ in the folk model structure of $\opCat k$.
   for all object $c$ of $C$ and $n \in \N$ (see~\cite[Theorem 11.6.1]{hirschhorn:modctl}).
 \end{paragr}
 \subsection{Slice categories}\label{subsection:slice_cat}
-\begin{paragr}
+\begin{paragr}\label{paragr:slice_cat}
   Let $C$ be a small category. Recall that each object $c$ of $C$
   determines the slice category $\tr Cc$ whose objects are pairs
   $\pair{x}{f:x\to c}$ where $x$ is an object of $C$ and $f:x\to c$ is
@@ -144,7 +144,7 @@ Clearly, given a resolution $p$, the construction of $\tr{\frgp
 \end{paragr}
 \begin{theorem}\label{thm:projresol}
     Let $C$ be a small category and $p:\frgp P\to C$ a polygraphic
-    resolution of $C$ in $\opCat k$. The functor
+    resolution of $C$ in $\opCat k$, with $1\leq k\leq\oo$. The functor
     \[\tr{\frgp P\!}{-}:C\to \opCat k\]
     is a cofibrant object of the category $\fun{C}{\opCat{k}}$, equipped with the projective model structure.
 \end{theorem}
@@ -207,7 +207,37 @@ Clearly, given a resolution $p$, the construction of $\tr{\frgp
  and therefore a cofibrant object. Here $0$ denotes the constant
  functor taking each object of $C$ to the empty \ook k-category, which
  is of course the initial object of $\fun{C}{\opCat k}$.
- \end{proof} 
+\end{proof}
+\subsubsection{Groupoids}\label{ssubsec:resol_grp}
+Let $C$ be a groupoid, that is a small category where all arrows are
+isomorphisms. For each
+object $c$ of $C$, the slice category $\tr Cc$ is still a groupoid and
+all the results of~\cref{subsection:slice_cat} hold when restricted to the
+subcategory $\Grpd=\npCat 10$ of groupoids. Moreover $C$ can be
+identified with its image $\oinc 0 C$ in $\opCat 0$. We may therefore
+define polygraphic resolutions of $C$ in $\opCat 0$ as pairs $\pair
+Pp$ where $P$ is an $\ook
+0$-polygraph and  $p:\frgp P\to C$ an acyclic fibration
+in the folk model structure on $\opCat 0$.  Thus, we may state a
+groupoidal version of~\cref{thm:projresol}.
+\begin{theorem}\label{thm:projresol_grp}
+  Let $C$ be a groupoid and $p:\frgp P\to C$ a polygraphic
+    resolution of $C$ in $\opCat 0$. The functor
+    \[\tr{\frgp P\!}{-}:C\to \opCat 0\]
+    is a cofibrant object of the category $\fun{C}{\opCat{0}}$, equipped with the projective model structure.
+  \end{theorem}
+  \begin{proof}
+    Same as for~\cref{thm:projresol}, with the
+    square~(\ref{eq:pullback}) now drawn in $\opCat 0$, and the
+    parameter $k$ everywhere replaced by $0$.
+  \end{proof}
+  \begin{remark}
+    Note that the proofs of Theorems~\ref{thm:projresol}
+    and~\ref{thm:projresol_grp} do not use the acyclicity of $p$, only
+    the fact that $\frgp P$ is freely generated. However the
+    statements are interesting only in the case where $\frgp P$ is a
+    cofibrant replacement of $C$.
+  \end{remark}
   
 
 
