@@ -214,22 +214,21 @@ isomorphisms. For each
 object $c$ of $C$, the slice category $\tr Cc$ is still a groupoid and
 all the results of~\cref{subsection:slice_cat} hold when restricted to the
 subcategory $\Grpd=\npCat 10$ of groupoids. Moreover $C$ can be
-identified with its image $\oinc 0 C$ in $\opCat 0$. We may therefore
-define polygraphic resolutions of $C$ in $\opCat 0$ as pairs $\pair
+identified with its image $\oinc 0 C$ in $\opCat 0$, and more
+generally with its image $\oinc k C$ in $\opCat k$ for any $k\geq 0$. We may therefore
+define polygraphic resolutions of $C$ in $\opCat k$ as pairs $\pair
 Pp$ where $P$ is an $\ook
-0$-polygraph and  $p:\frgp P\to C$ an acyclic fibration
-in the folk model structure on $\opCat 0$.  Thus, we may state a
+k$-polygraph and  $p:\frgp P\to C$ an acyclic fibration
+in the folk model structure on $\opCat k$ for any $k\geq 0$.  Thus, we may state a
 groupoidal version of~\cref{thm:projresol}.
 \begin{theorem}\label{thm:projresol_grp}
   Let $C$ be a groupoid and $p:\frgp P\to C$ a polygraphic
-    resolution of $C$ in $\opCat 0$. The functor
-    \[\tr{\frgp P\!}{-}:C\to \opCat 0\]
-    is a cofibrant object of the category $\fun{C}{\opCat{0}}$, equipped with the projective model structure.
+    resolution of $C$ in $\opCat k$, with $0\leq k\leq \oo$. The functor
+    \[\tr{\frgp P\!}{-}:C\to \opCat k\]
+    is a cofibrant object of the category $\fun{C}{\opCat{k}}$, equipped with the projective model structure.
   \end{theorem}
   \begin{proof}
-    Same as for~\cref{thm:projresol}, with the
-    square~(\ref{eq:pullback}) now drawn in $\opCat 0$, and the
-    parameter $k$ everywhere replaced by $0$.
+    Same as for~\cref{thm:projresol}, now allowing the value $k=0$.
   \end{proof}
   \begin{remark}
     Note that the proofs of Theorems~\ref{thm:projresol}
