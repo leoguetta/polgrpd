@@ -198,21 +198,21 @@ so that the induction hypothesis applies, whence
    $z\frel z'$.
 
    Let us examine the different cases of~\ref{ssubsec:eqform}:
-  In case~(1), there are two $i$-composable cells $y_1,y_2\in D_n$ such that
+  In case~\ref{ei}, there are two $i$-composable cells $y_1,y_2\in D_n$ such that
   $z=(\fid{y_1}\fcomp i \fid{y_2})$ and $z'=\fid{y_1\comp i
     y_2}$. Then $w$ is of the form $(\fid{x_1}\fcomp i\fid{x_2})$ where
   $x_1$, $x_2$ are $i$-composable cells in $C_n$,
   $f_n(x_1)=y_1$ and $f_n(x_2)=y_2$. Let $w'=\fid{x_1\comp i
     x_2}$. We get $w\frel w'$ and $g(w')=z'$, whence the result.
   
-In the first part of case~(2)  there is $b:y\to y'\in T$ such that $g(w)=(\fid y\fcomp n
+In the first part of case~\ref{eii}  there is $b:y\to y'\in T$ such that $g(w)=(\fid y\fcomp n
 \fcst b)$ and $z'=\fcst b$. Hence $w$ is of the form $(\fid x\fcomp n\fcst a)$ for
 $a:x\to x'\in S$ such that $h(a)=b$. Then $w'=\fcst a$ satisfies
 $g(w')=z'$ and $w\frel w'$, whence the result.
-The second part of case~(2) is treated similarly, as well as
-case~(3).
+The second part of case~\ref{eii} is treated similarly, as well as
+case~\ref{eiii}.
 
-In the first part of case~(4), there is $b:y\to y'\in T$ such that
+In the first part of case~\ref{eiv}, there is $b:y\to y'\in T$ such that
 $g(w)=(\fid v\fcomp i \fcst b)$ with $v=\unit n(\sce i y)$ and
 $z'=\fcst b$. Hence $w$ is of the form $(\fid u\fcomp i\fcst a)$ for
 $a:x\to x'\in S$ such that $h(a)=b$, and $g(\fid u)=\fid{f_n(u)}=\fid
@@ -222,12 +222,12 @@ $\fcst a:x\to x'$. As $w$
 is well-typed, $\tge i u=\sce i x$. On the other hand, as
 $u=\unit{n}(u^i)$, $\tge i u=u^i$. Therefore $w=(\fid u\fcomp i \fcst a)$
 with $u=\unit n(\sce i x)$, so that $w'=\fcst a$ satisfies $w\frel
-w'$. The second part of case~(4) is similar, as well as case~(5).
+w'$. The second part of case~\ref{eiv} is similar, as well as case~\ref{ev}.
 
-Cases~(6) and~(7) are straightforward.
+Cases~\ref{evi} and~\ref{evii} are straightforward.
 
 In the first part of
-   case~(8), there is a $b:y\to y'\in T$ such that $g(w)=(\fcst b\comp
+   case~\ref{eviii}, there is a $b:y\to y'\in T$ such that $g(w)=(\fcst b\comp
    n\finv b)$ and $z'=\fid y$. Therefore $w$ is of the form $(\fcst{a_1}\comp 
    n\finv{a_2})$ for some $a_1:x_1\to x'_1\in S$,  $a_2:x_2\to x'_2\in
    S$ such that $x'_2=x'_1$, $h(a_1)=h(a_2)=b$ and
@@ -250,7 +250,7 @@ In the first part of
    belong to $\wtxr cS$ and as 
    $g(w_1)=g(w)$, by~\cref{lemma:injectivity}, $w=w_1$. Finally, by taking
    $w'=\fid x$, we get $g(w')=z'$ and $w\frel w'$, whence the result.
-The second part of case~(8) is similar.
+The second part of case~\ref{eviii} is similar.
  \end{proof}
  \begin{lemma}\label{lemma:backward_lift_frel}
  For each $w\in \wtx S$ and $z'\in\wtx
@@ -262,7 +262,7 @@ The second part of case~(8) is similar.
   $z'\frel z$.
 
   Let us examine the different cases of~\ref{ssubsec:eqform}: In
-  case~(1), there are two $i$-composable cells $y_1,y_2\in D_n$ such that
+  case~\ref{ei}, there are two $i$-composable cells $y_1,y_2\in D_n$ such that
   $z=\fid{y_1\comp i y_2}$ and $z'=(\fid{y_1}\fcomp i \fid{y_2})$. As
   $g(w)=z$, there is $x\in C_n$ such that $f_n(x)=y_1\comp i y_2$ and
   $w=\fid{x}$. By \cndii, there is a unique pair
@@ -271,15 +271,15 @@ The second part of case~(8) is similar.
   i\fid{x_2})$ satisfies $g(w')=z'$ and $w'\frel w$, whence the
   result.
 
-  In the first part of case~(2)  there is $b:y\to y'\in T$ such that
+  In the first part of case~\ref{eii}  there is $b:y\to y'\in T$ such that
   $z=\fcst b$ and $z'=(\fid y\fcomp n
 \fcst b)$ and $z'=\fcst b$. Hence $w$ is of the form $\fcst a$ for
 $a:x\to x'\in S$ such that $h(a)=b$. Thus $w'=(\fid{x}\fcomp n \fcst
 a)$ satisfies $g(w')=z'$ and $w'\frel w$, whence the result.
-The second part of case~(2) is treated similarly, as well as
-cases~(3) to~(7).
+The second part of case~\ref{eii} is treated similarly, as well as
+cases~\ref{eiii} to~\ref{evii}.
 In the first part of
-   case~(8), there is a $b:y\to y'\in T$ such that $z=\fid{y}$ and $z'=(\fcst b\comp
+   case~\ref{eviii}, there is a $b:y\to y'\in T$ such that $z=\fid{y}$ and $z'=(\fcst b\comp
    n\finv b)$. Therefore $w$ is of the form $\fid x$ for some $x\in
    C_n$ such that $f_n(x)=y$. Let $c=\extend p(w)$. As
    $f_{n+1}(c)=\extend q(z)=\extend q(z')=\extend q(\fcst b)\comp n
@@ -288,7 +288,7 @@ In the first part of
    q(\fcst b)=q(b)$ and $f_{n+1}(a')=\extend q(\finv b)$. By
    definition, $a\in S$ so that $w'=(\fcst a\fcomp n\finv a)$ satisfies
    $g(w')=z'$ and $w'\frel w$, whence the result. The second part of
-   case~(8) is similar.
+   case~\ref{eviii} is similar.
  \end{proof}
 
 
@@ -380,7 +380,7 @@ In the first part of
  $\frf n\clx CS$  is decribed by means of formal expressions $\wtxo S$
  and their equivalence classes $\wtxeqo S$. We simply drop from our
  language all  constants $\finv a$ as well as the
- axioms~\ref{ssubsec:eqform} (3), (5) and (8) 
+ axioms~\ref{ssubsec:eqform} \ref{eiii}, \ref{ev} and \ref{eviii} 
  pertaining to these formal inverses, and define relations $\frel$,
  $\cfrel$ and $\freq$ accordingly. Clearly all lemmas~\ref{lemma:surj}
  to~\ref{lemma:inj} still hold in this restricted setting
