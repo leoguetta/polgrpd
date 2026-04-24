@@ -420,7 +420,88 @@ The above natural transformation is then
    an isomorphism of $\Loc{\Chp}$?
 \end{openquestion}
 As we shall see at the end of the next section, we answer positively to
-the above question in a particular case. 
+the above question in a particular case.
+\begin{paragr}
+  Let $C$ be a $1$\nbd-category and some $k \geq 1$. We define a functor
+  \begin{align*}
+    \tr{\opCat{k}}{C} &\to \fun{C}{\opCat{k}}\\
+    (X, X \overset{p}{\to} C) &\mapsto \left(c \mapsto \tr{X}{c}\right).
+  \end{align*}
+  Notice that for $(X, X \overset{p}{\to} C)$ in $\tr{\opCat{k}}{C}$,
+  we have a cocone
+  \[
+    (\tr{X}{c} \to X)_{c \in \Ob{C}},
+  \]
+  where each $\tr{X}{c} \to X$ is the canonical projection, and hence
+  a canonical morphism
+  \[
+    \ilim_{c \in C}\tr{X}{c} \to X,
+  \]
+  which is natural in the sense that it defines a natural
+  transformation from the functor
+  \begin{align*}
+    \tr{\opCat{k}}{C} &\to \opCat{k}\\
+    (X, X \overset{p}{\to} C) &\mapsto \ilim_{c \in C} \tr{X}{c},
+  \end{align*}
+  to the projection functor
+    \begin{align*}
+    \tr{\opCat{k}}{C} &\to \opCat{k}\\
+    (X, X \overset{p}{\to} C) &\mapsto X,
+  \end{align*}
+\end{paragr}
+\begin{lemma}\label{lemma:colim}
+  The natural morphism of $\opCat{k}$
+  \[
+     \ilim_{c \in C}\tr{X}{c} \to X,
+   \]
+   is an isomorphism.
+\end{lemma}
+\begin{proof}
+The case $k=\oo$ is \cite[Lemma 7.5]{guetta:homcat}. The general case
+follows from the fact that $\opCat{k} \to \oCat$
+  preserves colimits.
+\end{proof}
+% Note that if we start with a groupoid $G$, then we proceed in exactly
+% the same way
+\begin{proposition}
+  Let $C$ be a $1$\nbd-category. Then for any $k\geq 1$, the canonical morphism of
+  $\Loc{\opCat{k}}$
+  \[
+    \hoilim_{c \in C}\tr{C}{c} \to C
+  \]
+  is an isomorphism. If $C$ is a groupoid, then this also works for
+  $k=0$.
+\end{proposition}
+\begin{proof}
+  Let $\frgp{P} \to C$ be a polygraphic resolution of $C$ in
+  $\opCat{k}$ and $\tr{\frgp P\!}{-} \colon C \to \opCat{k}$ obtained
+  as in section \ref{subsec:polres}. We get a commutative diagram in
+  $\Loc(\opCat{k})$
+  \[
+    \begin{tikzcd}
+      \displaystyle\hoilim_{c \in C}\tr{\frgp P\!}{c} \ar[d] \ar[r]& \displaystyle\ilim_{c \in
+        C}\tr{\frgp P\!}{c} \ar[d] \ar[r] & \frgp P \ar[d] \\
+      \displaystyle\hoilim_{c \in C}\tr{C}{c} \ar[r]&\displaystyle\ilim_{c \in C}\tr{C}{c}\ar[r] & C
+    \end{tikzcd}
+  \]
+  Note that $\ilim_{c \in C}$ in the middle are the image by the
+  localisation function \[\opCat{k} \to \Loc{\opCat{k}}\]
+  of the actual
+  colimits taken in the category $\opCat{k}$. The far right vertical
+  arrow is an isomorphism by hypothesis, the horizontal arrows of the
+  square on the right are isomorphism by \cref{lemma:colim}. The far left
+  vertical arrow is an isomorphism because the natural transformation
+  $\tr{\frgp P\!}{c} \to \tr{C}{c}$ is a pointwise weak equivalence by
+  stability of trivial fibrations by pull back. Finally, the top
+  horizontal arrow of the square on the left is an isomorphism
+  because $\tr{\frgp P\!}{-}$ is cofibrant by \cref{thm:projresol} (or
+  \cref{thm:projresol_grp} in the case $k=0$). By a two-out-of-three
+  applied twice, we get that all the remaining arrows of this diagram
+  are isomorphisms too. 
+\end{proof}
+\begin{corollary}
+  Let $C$ be a $1$\nbd-category, and $k \leq k' \leq \oo$. The  
+\end{corollary}
 \subsection{Homology of 1-categories}
 \begin{paragr}
   Let $C$ be a $\pk 1 i$\nbd-category with $i \in \{0,1\}$. For any $i
@@ -574,46 +655,7 @@ of $C$, the morphism of chain complexes
   \abelk{k}(\tr{P}{c})$, which proves that  $\abelk{k}(\tr{P}{c}) \to
   \Z$ is a quasi-isomorphism.
 \end{proof}
-\begin{paragr}
-  Let $C$ be a $1$\nbd-category. We define a functor
-  \begin{align*}
-    \tr{\opCat{k}}{C} &\to \fun{C}{\opCat{k}}\\
-    (X, X \overset{p}{\to} C) &\mapsto \left(c \mapsto \tr{X}{c}\right).
-  \end{align*}
-  Notice that for $(X, X \overset{p}{\to} C)$ in $\tr{\opCat{k}}{C}$,
-  we have a cocone
-  \[
-    (\tr{X}{c} \to X)_{c \in \Ob{C}},
-  \]
-  where each $\tr{X}{c} \to X$ is the canonical projection, and hence
-  a canonical morphism
-  \[
-    \ilim_{c \in C}\tr{X}{c} \to X,
-  \]
-  which is natural in the sense that it defines a natural
-  transformation from the functor
-  \begin{align*}
-    \tr{\opCat{k}}{C} &\to \opCat{k}\\
-    (X, X \overset{p}{\to} C) &\mapsto \ilim_{c \in C} \tr{X}{c},
-  \end{align*}
-  to the projection functor
-    \begin{align*}
-    \tr{\opCat{k}}{C} &\to \opCat{k}\\
-    (X, X \overset{p}{\to} C) &\mapsto X,
-  \end{align*}
-\end{paragr}
-\begin{lemma}\label{lemma:colim}
-  The natural morphism
-  \[
-     \ilim_{c \in C}\tr{X}{c} \to X,
-   \]
-   is an isomorphism.
-\end{lemma}
-\begin{proof}
-The case $k=\oo$ is \cite[Lemma 7.5]{guetta:homcat}. The general case
-follows from the fact that $\opCat{k} \to \oCat$
-  preserves colimits.
-\end{proof}
+
 \begin{paragr}
   Let $u \colon C \to D$ be a functor between (small) categories, and
   consider the functor induced by pre-composition with $u$
