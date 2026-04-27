@@ -476,7 +476,7 @@ follows from the fact that $\opCat{k} \to \oCat$
   Let $\frgp{P} \to C$ be a polygraphic resolution of $C$ in
   $\opCat{k}$ and $\tr{\frgp P\!}{-} \colon C \to \opCat{k}$ obtained
   as in section \ref{subsec:polres}. We get a commutative diagram in
-  $\Loc(\opCat{k})$
+  $\Loc{\opCat{k}}$
   \[
     \begin{tikzcd}
       \displaystyle\hoilim_{c \in C}\tr{\frgp P\!}{c} \ar[d] \ar[r]& \displaystyle\ilim_{c \in
@@ -660,9 +660,43 @@ of $C$, the morphism of chain complexes
   Let $u \colon C \to D$ be a functor between (small) categories, and
   consider the functor induced by pre-composition with $u$
   \[
-    u^* \colon \fun{D}{\opCat{k}} \to \fun{C}{\opCat{k}},
+    u^* \colon \fun{D}{\opCat{k}} \to \fun{C}{\opCat{k}}.
   \]
-  and $u_!$ its left adjoint. 
+  and $u_!$ its left adjoint. This adjunction is a Quillen adjunction
+  with respect
+  the projective model structure, and furthermore $u^*$ preserves all
+  the pointwise weak equivalences by construction. Therefore we have an induced
+  adjunction at the level of homotopy categories
+  \[
+    \LL u_! \colon \Loc{\fun{D}{\opCat{k}}} \leftrightarrows \Loc{\fun{C}{\opCat{k}}}
+    \colon u^*,
+  \]
+  where we abusively kept the same notation for $u^*$, as it preserves
+  all weak equivalences. Consider now
+  the abelianization functor $\abelk{k} \colon \opCat{k} \to
+  \Chp$. As a left Quillen functor (\cref{prop:abelquillen}), for any
+  small category $C$, the induced functor by post-composition
+  \[
+    \abelk{k} \colon \fun{C}{\opCat{k}} \to \Chp(\RMod{C^{\op}}),
+  \]
+  which we abusively denote the same, is again left Quillen with
+  respect to the projective model structure. As a consequence, for any
+  functor $u \colon C \to D$ between small categories, both the squares are commutative up to a canonical isomorphism
+  \[
+    \begin{tikzcd}
+      \Loc{\fun{D}{\opCat{k}}} \ar[d,"u^*"]\ar[r,"\LL \abelk{k}"] &
+      \Derp{D^{\op}}\ar[d,"u^*"]\\
+      \Loc{\fun{D}{\opCat{k}}} \ar[u,"\LL u_!"]\ar[r,"\LL \abelk{k}"]
+      & \Derp{C^{\op}}\ar[u,"\LL u!"]
+    \end{tikzcd}
+  \]
+  % \[
+  %   \begin{tikzcd}
+  %     \Loc{\fun{C}{\opCat{k}}} \ar[d,"\LL u_!"]\ar[r,"\LL \abelk{k}"] &
+  %     \Derp{C^{\op}}\ar[d,"\LL u_!"]\\
+  %     \Loc{\fun{D}{\opCat{k}}} \ar[r,"\LL \abelk{k}"] & \Derp{D^{\op}}
+  %   \end{tikzcd}
+  % \]
 \end{paragr}
 \begin{theorem}\label{thm:polhom}
   Let $C$ be a (1-)category. Then, for any $1
@@ -670,7 +704,8 @@ of $C$, the morphism of chain complexes
   \[
     \Hop{k}_{\bullet}(C) \to \Ho_{\bullet}(C)
   \]
-  natural in $C$. Furthermore, this
+  natural in $C$. If $C$ is a groupoid, this isomorphism also exists
+  for $k=0$. Furthermore, this
   isomorphism can be chosen natural in $k$ in the sense that for $k
   \leq k'$, the triangle 
   \[
@@ -727,8 +762,16 @@ of $C$, the morphism of chain complexes
 
 
 \begin{proof}
-  Let's start with the first part of the theorem without any
-  naturality condition.  Let $C$ be a $1$\nbd-category, and $\frgp{P} \to C$ a polygraphic resolution in
+  Let's start with the first part of the theorem. Let $C$ be a
+  $1$\nbd-category and consider the following zig-zag of natural
+  transformations in the category $\opCat k$
+  \[
+    \cst{\Dsk{0}} \Leftarrow \tr{C}{-} \Rightarrow \cst{C},
+  \]
+  where the map on the left is the canonical map to the terminal
+  object of $\opCat k$. By taking the image of this zig-zag in
+  $\Loc{\opCat{k}}$ and then apply the functor $\LL \abelk{k} \colon $
+  Let $C$ be a $1$\nbd-category, and $\frgp{P} \to C$ a polygraphic resolution in
   $\opCat{k}$. By \cref{prop:polbar},
   \[
     \cst{\Z} \leftarrow \abelk{k}(\tr{\frgp P}{-})
