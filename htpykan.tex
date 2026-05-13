@@ -1,0 +1,298 @@
+\section{Recollection on homotopy kan extensions in Model categories}
+\subsection{Projective model structure}\label{projms}
+
+\begin{paragr}\label{paragr:htpykan} Let $\M$ be a cofibrantly generated model
+category. Recall that for any small category $I$, we can equip the
+category of functors $\fun{I}{\M}$ with the \emph{projective model
+structure}, where the weak equivalences and the fibrations are these
+natural transformations which are pointwise weak equivalences and
+fibrations of $\M$ respectively. Any functor $u \colon I \to J$
+between small categories induces by precomposition a functor
+  \begin{align*} u^* \colon \fun{J}{\M} &\to \fun{I}{\M}\\ X &\mapsto
+X\circ u.
+  \end{align*} This functor admits a left adjoint $u_!
+\colon\fun{I}{\M} \to \fun{J}{\M} $ given by the pointwise Kan
+extension formula:
+  \[ u_!(X)(j)=\ilim_{\tr{I}{j}}X\vert_{\tr{I}{j}}.
+  \] By construction, $u^*$ preserves the weak equivalences and the
+fibrations of the projective model structure. Hence, the adjunction
+$u_! \dashv u^*$ is a Quillen adjunction and we get an adjunction at
+the level of homotopy categories
+  \[ \LL u_! \colon \Loc{\fun{I}{\M}} \leftrightarrows
+\Loc{\fun{J}{\M}} \colon u^*.
+  \] Here, we kept the same notation $u^*$ at the level of homotopy
+categories (instead of, say, $\mathbb{R} u^*$) because the functor
+$u^*$ preserves weak equivalences and thus we have a commutative
+square
+  \[
+    \begin{tikzcd} \fun{J}{\M} \ar[d] \ar[r,"u^*"] &
+\fun{I}{\M}\ar[d]\\ \Loc{\fun{J}{\M}} \ar[r,"u^*"] &
+\Loc{\fun{I}{\M}},
+    \end{tikzcd}
+  \] where the vertical arrows are the localization functors.
+\end{paragr}
+\begin{paragr} We denote by $\Term$ the terminal category and make the
+canonical identification $\fun{\Term}{\M}=\M$. For a small category
+$I$, we denote by $p_I \colon I \to \Term$ the unique such
+functor. The functor $p_I^* \colon \M \to \fun{I}{\M}$ is the
+``diagonal'' functor that associates to an object $X$ of $\M$, the
+constant diagram $I \to \M$ with value $X$. Hence, $p_{I!}$ is nothing
+but the colimit functor $\ilim_I \colon \fun{I}{\M} \to \M$, and we
+shall use the two notations interchangeably. Consequently, $\LL
+p_{I!}$ is nothing but the \emph{homotopy colimit functor}
+  \[ \hoilim_I \colon \Loc{\fun{I}{\M}} \to \Loc{\M}.
+  \]
+\end{paragr}
+\begin{paragr} Let $I$ be a small category and $i \in \Ob(I)$ an
+object of $I$. This can be seen as a functor $i \colon \Term \to I$,
+which induces a ``evaluation at $i$'' functor
+  \begin{align*} i^* \colon \fun{I}{\M} &\to \M\\ X &\mapsto X(i).
+  \end{align*} It is a standard fact of category theory that the
+family of functors
+  \[\left(i^*\colon \fun{I}{\M} \to \M\right)_{i\in \Ob(I)}\] is
+\emph{conservative}, meaning that a morphism $\alpha \colon X \to Y$
+of $\fun{I}{\M}$ is an isomorphism if and only if for each object $i$
+of $I$, $i^*(\alpha)=\alpha_i$ is an isomorphism. The same is true at
+the level of homotopy categories as we recall in the following result.
+\end{paragr}
+\begin{proposition} Let $\M$ be a (cofibrantly generated) model
+category and $I$ a small category. The family of functors
+  \[ \left(i^* \colon \Loc{\fun{I}{\M}}\to \Loc{\M}\right)_{i \in
+\Ob(I)}
+  \] is conservative.
+\end{proposition}
+\begin{proof}
+  
+\end{proof}
+\subsection{Homotopy cocontinuous functors}\label{hptycocts}
+\begin{paragr} Let $F \colon \M \to \M'$ be a left Quillen functor
+between (cofibrantly generated) model categories. For any small
+category $I$, we consider the functor induced by post-composition
+  \begin{align*} F^I \colon \fun{I}{\M} &\to \fun{I}{\M'}\\ X &\mapsto
+F\circ X.
+  \end{align*} This functor is also a left Quillen functor with
+respect to the projective model structures. Hence, it induces a left
+derived functor
+  \[ \LL F^I \colon \Loc{\fun{I}{\M}}\to \Loc{\fun{I}{\M'}}.
+  \]
+
+  Now, let $u \colon I \to J$ be a functor between small
+categories. By construction, we have a commutative square
+  \[
+    \begin{tikzcd} \fun{J}{\M} \ar[r,"F^J"] \ar[d,"u^*"']&
+\fun{J}{\M'} \ar[d,"u^*"]\\ \fun{I}{\M} \ar[r,"F^I"'] & \fun{I}{\M'},
+    \end{tikzcd}
+  \] and, because $F$ is a left adjoint, the following square is
+commutative up to a canonical isomorphism
+  \[
+    \begin{tikzcd} \fun{I}{\M} \ar[r,"F^I"] \ar[d,"u_!"']&
+\fun{I}{\M'} \ar[d,"u_!"]\\ \fun{J}{\M} \ar[r,"F^J"'] & \fun{J}{\M'}.
+\ar[from=1-1,to=2-2,phantom,"\simeq" description]
+    \end{tikzcd}
+  \]
+  This fact is usually referred to as ``$F$ preserves Kan
+extension''. We recall now the following result which says that the
+same holds at the level of homotopy categories for a left Quillen
+functor.
+\end{paragr}
+\begin{proposition} Let $\M$ and $\M'$ be two (cofibrantly generated)
+  model categories, $F \colon \M \to \M'$ be a left Quillen functor and
+  $u \colon I \to J$ a functor between small categories. Then the
+  squares
+  \[
+    \begin{tikzcd} \Loc{\fun{J}{\M}} \ar[r,"\LL F^J"] \ar[d,"u^*"']&
+      \Loc{\fun{J}{\M'}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M}} \ar[r,"\LL F^I"']
+      & \Loc{\fun{I}{\M'}},
+    \end{tikzcd}
+  \] and
+  \[
+    \begin{tikzcd} \Loc{ \fun{I}{\M}} \ar[r,"\LL F^I"] \ar[d,"\LL
+      u_!"']& \Loc{\fun{I}{\M'}} \ar[d,"\LL u_!"]\\ \Loc{\fun{J}{\M}}
+      \ar[r,"\LL F^J"'] & \Loc{\fun{J}{\M'}},
+    \end{tikzcd}
+  \] are commutative up to a canonical isomorphism.
+\end{proposition}
+\begin{proof}
+\end{proof}
+\subsection{Abstract homology of small categories}\label{abstracthom}
+\begin{definition}\label{def:abstracthom}
+  Let $\M$ be a (cofibrantly generated) model category. For a small
+  category $I$ and $X$ an object of $\fun{I}{\M}$, we define the \emph{$\M$\nbd-valued
+    homology of $I$ with coefficient $X$} as the object of $\Loc{\M}$
+  \[
+    \Ho_{\M}(I,X):=\LL p_{I!}X=\hoilim_IX.
+  \]
+\end{definition}
+\begin{remark}
+  Note that the use of the word ``homology'' here is arguably slightly
+  abusive as we don't make any hypothesis of additivity or stability
+  property of any kind on (the localization of) $\M$. 
+\end{remark}
+\begin{paragr}
+ Obviously, for a fixed object small category $I$, the previous
+ construction yields a functor
+ \[
+   \Ho_{\M}(I,-) \colon \Loc{\fun{I}{\M}}\to \Loc{\M}.
+ \]
+ Let us now explore the functoriality of $\Ho_{\M}(I,X)$ in $I$. Let
+  $u \colon I \to J$ be a functor between small categories. We have a
+  commutative triangle
+  \[
+    \begin{tikzcd}[column sep=small]
+      I \ar[rr,"u"]\ar[rd,"p_I"'] && J\ar[ld,"p_J"] \\
+      &\Term&
+    \end{tikzcd}
+  \]
+  which induces a commutative triangle
+  \[
+    \begin{tikzcd}[column sep=small]
+      \Loc{\fun{I}{\M}}  && \Loc{\fun{J}{\M}}\ar[ll,"u^*"'] \\
+      &\Loc{\M}.\ar[lu,"p_I^*"]\ar[ru,"p_J^*"']&
+    \end{tikzcd}
+  \]
+  Hence, by uniqueness of adjoints, this yields a triangle commutative
+  up to a canonical isomorphism
+  \[
+        \begin{tikzcd}[column sep=small]
+      \Loc{\fun{I}{\M}} \ar[rr,"\LL u_!"]\ar[rd,"\LL p_{I!}"'] &&
+      \Loc{\fun{J}{\M}}\ar[ld,"\LL p_{J!}"] \\
+      &\Loc{\M}.&
+    \end{tikzcd}
+  \]
+  Now let $X$ be an object of $\fun{J}{\M}$. Then we have a morphism
+  \[
+    \LL p_{I!}u^*X \simeq \LL p_{J!} \LL u_! u^*X\to \LL p_{J!}X,
+  \]
+  where the morphism of the right is the co-unit of the ajdunction
+  $\LL u_! \dashv u^*$. On other words, this defines a morphism
+  \[
+  \Ho_{\M}(u,X)\colon  \Ho_{\M}(I,u^*X)\to \Ho_{\M}(J,X).
+  \]
+  We then have the following functoriality result.
+\end{paragr}
+\begin{proposition}\label{prop:functorialityhomology}
+  Let $\M$ a (cofibrantly generated) model category, $K$ a small
+  category and $X$ an object of $\fun{K}{\M}$. We have a functor
+  \[
+      \Ho_{\M}(-,X) \colon \tr{\Cat}{K} \to \Loc{\M},
+    \]
+    whose action on object is 
+  \[
+    (I,p \colon I \to K) \longmapsto \Ho_{\M}(I,p^*X)
+  \]
+  and whose action on morphisms is
+  \[
+    u\colon (I,p)\to (J,q) \longmapsto \Ho_{\M}(u,q^*X)\colon \Ho_{\M}(I,p^*X) \to \Ho_{\M}(J,q^*X).
+\]
+ 
+\end{proposition}
+\begin{proof}
+\end{proof}
+
+\begin{paragr}
+  The main case of interest of the previous proposition will be in the
+  case that $K=\Term$ is the terminal category. Then $F$ is simply an
+  object $X$ of $\M$ and we can make the identification
+  $\tr{\Cat}{K}\simeq \Cat$. We speak of the (abstract) homology of a
+  small category $I$ with \emph{constant} coefficient $X$ for
+  \[
+    \Ho(I,p_I^*X).
+  \]
+  \cref{prop:functorialityhomology} in this case yields the following corollary.
+\end{paragr}
+\begin{corollary}
+  Let $\M$ be a (cofibrantly generated) model category and $X$ an
+  object of $\M$. We have a functor
+  \[
+    \Ho(-,X) \colon \Cat \to \Loc{\M},
+  \]
+  whose action on objects is
+  \[
+    I \longmapsto \Ho_{\M}(I,p_I^*X),
+  \]
+  and whose action on morphisms is
+  \[
+    u \colon I \to J \longmapsto \Ho_{\M}(u,X) \colon
+    \Ho_{\M}(I,p_I^*X) \to \Ho_{\M}(J,p_J^*X).
+  \]
+\end{corollary}
+\subsection{Homology of categories}
+\begin{paragr}\label{paragr:homalg}
+  For $C$ a small category, we denote by $\LMod{C}$ the category of
+  \emph{right $C$\nbd-modules}, that is of functors
+  \[
+    C \to \Ab
+  \]
+  from $C$ to the category of abelian groups, and of natural
+  transformations between them. By definition, the category of \emph{right}
+  $C$\nbd-modules is the category
+  \[
+    \RMod{C}:=\LMod{C^{\op}}
+  \]
+  and everything that follows is dualized accordingly. 
+  
+  We denote by $\Chp(C)$ the category of chain complexes
+  of left $C$\nbd-modules in non-negative degree. For $C=\Term$ the
+  terminal category, we use the notation $\Chp(\Z)$ instead. 
+  We denote by $\Derp{C}$ the \emph{derived
+ category of $C$} in non-negative degree, that is the
+localization of $\Chp(C)$ with respect to
+ quasi-isomorphisms (and we use the notation $\Derp{\Z}$ when
+ $C=\Term$ is the terminal category). This localization is controlled by the
+  so-called \emph{projective} model structure on $\Chp(C)$, which is
+  cofibrantly generated,
+  characterized as follows:
+  \begin{itemize}
+  \item the weak equivalences are the quasi-isomorphisms,
+  \item the fibrations are the levelwise epimorphisms in each positive
+    degree,
+  \item the cofibrations are the levelwise monomorphisms with
+    projective cokernel in each non-negative degree.
+  \end{itemize}
+  In particular, cofibrant objects are the chain complexes (in
+  non-negative degree) of projective
+  $C$\nbd-modules. The following lemma is useful to
+  construct and recognize such objects.
+\end{paragr}
+\begin{lemma}\label{lemma:freeisproj}
+  Let $c$ be an object of $C$. The left $C$\nbd-module $\Z[\homset{C}{c}{-}]$
+  \[
+    \begin{aligned}
+      C &\to \Ab\\
+      d &\mapsto \Z[\homset{C}{c}{d}],
+    \end{aligned}
+  \]
+  is a projective object of $\LMod{C}$.
+\end{lemma}
+\begin{proof}
+  This follows straightforwardly from the Yoneda lemma.
+\end{proof}
+
+\begin{paragr}
+   Notice that for a small category $C$, we have a canonical
+   \emph{isomorphism} of categories
+  \[
+    \Chp(C)\simeq \fun{C}{\Chp(\Z)},
+  \]
+  and we shall make this identification implictly. Note that this identification is compatible with
+  model structures in the sense that the projective model structure
+  on $\fun{C}{\Chp(\Z)}$ in the sense of \ref{paragr:htpykan} is the
+  same, via the previous isomorphism, as the projective model
+  structure on $\Chp(C)$ in the sense of \ref{paragr:homalg}.
+
+  This allows us to use all the results from the sections
+  \ref{projms}, \ref{hptycocts} and \ref{abstracthom}. 
+\end{paragr}
+\begin{definition}
+  Let $C$ be a small category and $X$ a left $C$\nbd-module. We define
+  the \emph{homology of $C$ with coefficient $X$}, and denote by
+  \[
+    \Ho(C,X),
+  \]
+  the $\Chp(\Z)$\nbd-valued homology of $C$ with coefficient $X$
+  (\cref{def:abstracthom}).
+\end{definition}
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "main"
+%%% End:
