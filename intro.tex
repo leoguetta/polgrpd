@@ -1,7 +1,7 @@
 \section{Introduction}\label{sec:intro}
 
 The category $\oCat$ of strict, globular $\omega$-categories bears a
-``canonical'' model structure structure introduced
+``canonical'' model structure  introduced
 in~\cite{lafontetal:folkms}. In this structure, the cofibrant objects
 are of the form $\frcat P$ where $P$ is a polygraph
 (see~\cite{abgmmm:polybk}) and $\frcat P$ denotes the \oo-category
@@ -19,7 +19,7 @@ an acyclic fibration $p:\frcat P\to C$, then apply the functor $\abel$
 directly to $\frcat P$, whence the name.
 
 Now for each integer $k\geq 0$, an \ook k-category is an \oo-category
-in which all cells are invertible in dimensions $>k$. The full
+in which all $i$-cells are invertible if  $i>k$. The full
 subcategory of $\oCat$ whose objects are \ook k-categories is denoted
 by $\opCat k$. For instance $\opCat 0$ is just the category of strict
 \oo-groupoids.
@@ -33,6 +33,23 @@ $\abel=\abelk k\circ\opifun k$, and $\LL\abel$ is naturally isomorphic
 to $\LL\abelk k\circ \LL\opifun k$. This leads to define the
 polygraphic homology of an \ook k-category $C$ by
 \[\Hop{k}(C)=\LL\abelk k(C).\]
+On the other hand, each \ook k-category $C$ has a polygraphic homology
+when considered as a plain \oo-category,  that is just $\Hopol(\oemb k
+C)$. The following diagram gives the general picture:
+\[
+  \xymatrix{\opCat k \ar[r]^{\oemb k}\ar[d]& \oCat\ar[r]^{\opifun k}\ar[d] & \opCat k\ar[r]^{\abelk k}\ar[d] & \Chp\ar[d]\\
+  \Loc{\opCat k}\ar[r]_{\RR\oemb k} & \Loc{\oCat}\ar[r]_{\LL\opifun k}\ar@{=>}[ru] & \Loc{\opCat
+  k}\ar[r]_{\LL\abelk k} \ar@{=>}[ru]& \Loc{\Chp}}.
+\]
+As the model structure on $\opCat k$ is right-induced by $\oemb k$,
+the left-hand square commutes on the nose. However $\LL\opifun k\circ
+\RR\oemb k$ is {\em not} the identity on $\Loc{\opCat k}$, but has
+only a natural transformation $\epsilon:\LL\opifun k\circ
+\RR\oemb k\to \Unit{\Loc{\opCat k}}$. This yields a natural
+transformation from $\LL\abel\circ\RR\oemb k$ to $\LL\abel k k$. In
+other words, for each \ook k-category $C$, there is a morphism
+\[\Hopol{\oemb k C}\to \Hop k (C),\]
+natural in $C$.
 
  
   
