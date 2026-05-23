@@ -48,8 +48,37 @@ only a natural transformation $\epsilon:\LL\opifun k\circ
 \RR\oemb k\to \Unit{\Loc{\opCat k}}$. This yields a natural
 transformation from $\LL\abel\circ\RR\oemb k$ to $\LL\abelk k$. In
 other words, for each \ook k-category $C$, there is a morphism
-\[\Hopol(\oemb k C)\to \Hop k (C),\]
+\begin{equation}
+  \label{eq:natural}
+  \Hopol(\oemb k C)\to \Hop k (C),
+\end{equation}
 natural in $C$.
+
+The present work addresses the question if  the
+morphism~(\ref{eq:natural}) is an isomorphism.  A very simple example
+already shows that the answer is by no means trivial: consider $\Z$ as an
+\ook 0-category $C$ where $C_0$ is a single point, $C_1=\Z$ and all
+$i$-cells are identies for $i>1$. As an object of $\opCat 0$, $C$ is
+cofibrant and therefore $\Hop 0(C)$ is just $\abelk 0(C)$. However,
+$\oemb 0 C$ is {\em not} a cofibrant object in $\oCat$, and to compute
+$\Hopol(\oemb 0 C)$ we first need a polygraphic resolution $\frcat P\to
+C$. Now, for any such $P$ and each $k>1$, the set of $k$-dimensional
+generators must be non-empty and the direct computation of the homology of
+$\abel\frcat P$ is far from obvious.
+
+The main result of this paper is that~(\ref{eq:natural}) is in fact an
+isomorphism in the following two cases:
+\begin{itemize}
+\item $C$ is a $1$-category, seen as an \ook k-category for $k\geq 1$;
+  \item $C$ is a group, seen as an \ook k-category for $k\geq 0$.
+  \end{itemize}
+  As for the general case, the problem remains wide open.
+
+  
+
+  
+
+
 
  
   
