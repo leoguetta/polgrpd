@@ -421,7 +421,8 @@ The above natural transformation is then
 \end{openquestion}
 As we shall see at the end of the next section, we answer positively to
 the above question in a particular case.
-\begin{paragr}
+\subsection{The two fundamental properties}
+\begin{paragr}\label{paragr:colimtr}
   Let $C$ be a $1$\nbd-category and some $k \geq 1$. We define a functor
   \begin{align*}
     \tr{\opCat{k}}{C} &\to \fun{C}{\opCat{k}}\\
@@ -446,8 +447,10 @@ the above question in a particular case.
   to the projection functor
     \begin{align*}
     \tr{\opCat{k}}{C} &\to \opCat{k}\\
-    (X, X \overset{p}{\to} C) &\mapsto X,
-  \end{align*}
+    (X, X \overset{p}{\to} C) &\mapsto X.
+    \end{align*}
+    Finally, if we take $C$ a groupoid and $k=0$, then everything said
+    above still makes sense.
 \end{paragr}
 \begin{lemma}\label{lemma:colim}
   The natural morphism of $\opCat{k}$
@@ -499,197 +502,249 @@ follows from the fact that $\opCat{k} \to \oCat$
   applied twice, we get that all the remaining arrows of this diagram
   are isomorphisms too. 
 \end{proof}
-\begin{corollary}
-  Let $C$ be a $1$\nbd-category, and $k \leq k' \leq \oo$. The  
-\end{corollary}
-\subsection{Homology of 1-categories}
-\begin{paragr}
-  Let $C$ be a $\pk 1 i$\nbd-category with $i \in \{0,1\}$. For any $i
-  \leq k \leq \omega$, we can consider $C$ as an $\ook
-  k$\nbd-category, via the canonical
-  inclusion $\npCat{1}{i} \to \opCat{k}$, which we omit to denote. Let $P \to C$ be a
-  polygraphic resolution in $\opCat{k}$, and consider the functor
+% \begin{corollary}
+%   Let $C$ be a $1$\nbd-category, and $k \leq k' \leq \oo$. The  
+% \end{corollary}
+\begin{proposition}
+  Let $C$ be a small category with a terminal object, then for any $1
+  \leq k \leq \oo$ the
+  canonical morphism of $\Derp{\Z}$
   \[
-    \tr{P}{-} \colon C \to \opCat{k}
+    \Hop{k}(C) \to \Z,
   \]
-  as in section \ref{subsec:polres}. There is a canonical natural
-  transformation
-  \[
-    \tr{P}{-} \Rightarrow \cst{\Dsk{0}},
-  \]
-  where $\cst{\Dsk{0}}$ is the constant functor with value
-  $\Dsk{0}$. Applying the abelianization functor $\abelk{k}$ pointwise, we get a
-  natural transformation
-  \[
-    \abelk{k}(\tr{P}{-}) \Rightarrow \cst{\Z}
-  \]
-  in the category $\fun{C}{\Chp}$. Here we have used the
-  canonical isomorphism $\abelk{k}{\Dsk{0}}\simeq \Z$. By identifying
-  the category $\fun{C}{\Chp}$ with the category of chain complexes of
-  left $C$-modules, the above natural transformation amounts to an
-  augmented chain complex of left $C$\nbd-modules
-  \[
-    \cst{\Z} \leftarrow \abelk{k}_0(\tr{P}{-})\leftarrow
-    \abelk{k}_1(\tr{P}{-}) \leftarrow \dots
-  \]
-\end{paragr}
-\begin{proposition}\label{prop:polbar}
-  Keeping the notations from the above paragraph, the augmented chain
-  complex of left $C$-modules
-    \[
-    \cst{\Z} \leftarrow \abelk{k}_0(\tr{P}{-})\leftarrow
-    \abelk{k}_1(\tr{P}{-}) \leftarrow \dots
-  \]
-  is a projective resolution of $\cst{\Z}$ as left $C$-modules.
+  induced by the canonical functor $C \to \Term$, is an
+  isomorphism. If $C$ is a groupoid, then it is also an isomorphism
+  for $k=0$.
 \end{proposition}
-In order to prove this proposition, we first need the following
-technical lemma.
-\begin{lemma}\label{lemma:liftoplax}
-  Let $0 \leq k \leq \omega$ and consider a diagram as below in $\opCat{k}$, 
-  \[
-    \begin{tikzcd}[row sep=large]
-      A' \ar[d,"p"]\ar[r,bend left,"u'"] \ar[r,bend right,"v'"']& B' \ar[d,"q"] \\
-      A \ar[r,bend left,"u",""{name=A,below}] \ar[r,bend
-      right,"v"',""{name=B,above}]& B,
-      \ar[from=A,to=B,Rightarrow,"\alpha"]
-    \end{tikzcd}
-  \]
-  where the front and back faces are commutative. If $q$ is a trivial
-  fibration and $A'$ is cofibrant, for the folk model structure on
-  $\opCat{k}$, then there exists an oplax transformation $\alpha'
-  \colon u' \Rightarrow v'$ making the whole diagram commutative, which means
-  that
-  \[
-    q\wsk \alpha' = \alpha \wsk p
-  \]
-\end{lemma}
 \begin{proof}
-  The data of the given diagram amounts to the following commutative
-  diagram in $\opCat{k}$
-  \[
+  Let us denote by $c_0$ the terminal object of $C$. We then have a
+  natural transformation
+    \[
     \begin{tikzcd}
-      \Sph{0} \grayk{k} A' \ar[r]\ar[d] \ar[rr,bend
-      left,"{(u',v')}"]& \opifun{k}\Dsk{1} \grayk{k} A'
-      \ar[d]& B' \ar[d,"q"] \\
-      \Sph{0} \grayk{k} A \ar[r] & \opifun{k}\Dsk{1} \grayk{k} A \ar[r,"\alpha"]
-      & B.
-    \end{tikzcd}
-  \]
-  Since $A'$ is cofibrant and $\grayk{k}$ makes the folk model
-  structure on $\opCat{k}$ a monoidal model structure \cite{}, the
-  arrow $ \Sph{0}  \grayk{k} A' \to  \opifun{k}\Dsk{1} \grayk{k} A'$ is a
-  cofibration. Since $q$ is a trivial fibration, there exists a
-  morphism $\alpha' \colon \opifun{k}\Dsk{1}  \grayk{k} A' \to B'$ making the
-  whole diagram commute.
-\end{proof}
-
-
-\begin{proof}[Proof of \cref{prop:polbar}]
- By \cref{thm:projresol} the
-  the functor $\tr{P}{-} \colon C \to \opCat{k}$ is a cofibrant
-  object of the category  $\fun{C}{\opCat{k}}$. Since $\abelk{k}\colon \opCat{k} \to \Chp$ is left
-  Quillen (\cref{prop:abelquillen}), it follows that the functor
-  \[
-    \begin{aligned}
-      \abelk{k}(\tr{P}(-)) &\colon C \to \Chp\\
-      c &\mapsto \abelk{k}(\tr{P}{c})
-    \end{aligned}
-  \]
-  is a cofibrant object of the projective model structure on the
-  category $\fun{C}{\Chp}$, which means, upon identification with the
-  category of chain complexes of left $C$-modules, means exactly that
-  \[
-    \abelk{k}_0(\tr{P}{-})\leftarrow
-    \abelk{k}_1(\tr{P}{-}) \leftarrow \dots
-  \]
-  is a chain complex of project left $C$-modules.\footnote{In fact, a direct inspection shows
-    that it is even a chain complex of \emph{free} left
-    $C$-modules. We won't need this fact.}
-Let us prove now that this yields a resolution of $\cst{\Z}$ as a left
-$C$-module. Since weak equivalences of the category $\fun{C}{\Chp}$
-are defined pointwise, it suffices to show that for every object $c$
-of $C$, the morphism of chain complexes
-\[
-  \abelk{k}(\tr{P}{c})\to \Z,
-  \]
-  where $\Z$ is concentrated in degree $0$, is a
-  quasi-isomorphism.
-
-  The category $\tr{C}{c}$ has a terminal
-  object, which we denote here by $x_0$, hence there  is a natural
-  transformation
-  \[
-    \begin{tikzcd}
-      \tr{C}{c} \ar[r,bend left,"\Unit{\tr{C}{c}}",""{name=A,below}]
-      \ar[r,bend right,"\cst{x_0}"',""{name=B,above}] & \tr{C}{c}
+      C \ar[r,bend left,"\Unit{C}",""{name=A,below}]
+      \ar[r,bend right,"\cst{c_0}"',""{name=B,above}] & \C
       \ar[from=A,to=B,Rightarrow]
     \end{tikzcd}
   \]
-  from the identity functor to the constant functor with value
-  $x_0$. By \ref{paragr:gray}, this defines an oplax transformation. By
-  stability of trivial fibrations by pullback, the morphism
+  from the identity functor on $C$ to the constant functor with value
+  $c_0$.  By \ref{paragr:gray}, this defines an oplax
+  transformation. Now, let
   \[
-    \tr{P}{c} \to \tr{C}{c}
+    \frgp{P} \to C
   \]
-  is a trivial fibration, and in particular it is surjective on
-  objects. Let us then pick an object $y_0$ of $P$ whose image in
-  $\tr{C}{c}$ is $x_0$. All in all, we have a diagram
+  be a polygraphic resolution of $C$. Since trivial fibrations are
+  surjective on objects, we can pick an object $x_0$ of $P$ whose image in
+  $C$ is $c_0$. All in all, we have a diagram
   \[
     \begin{tikzcd}[row sep=huge]
-      \tr{P}{c} \ar[d,"p"]\ar[r,bend left,"\Unit{\tr{P}{c}}"] \ar[r,bend
-      right,"\cst{y_0}"']& \tr{P}{c} \ar[d,"q"] \\
-      \tr{C}{c} \ar[r,bend left,"\Unit{\tr{C}{c}}",""{name=A,below}] \ar[r,bend
-      right,"\cst{x_0}"',""{name=B,above}]& \tr{C}{c},
-      \ar[from=A,to=B,Rightarrow,"\alpha"]
+      \frgp{P} \ar[d]\ar[r,bend left,"\Unit{\frgp{P}}"] \ar[r,bend
+      right,"\cst{x_0}"']& \frgp{P} \ar[d] \\
+      C \ar[r,bend left,"\Unit{C}",""{name=A,below}] \ar[r,bend
+      right,"\cst{c_0}"',""{name=B,above}]& C,
+      \ar[from=A,to=B,Rightarrow]
     \end{tikzcd}
   \]
   such that the front and back faces are commutative. Since
-  $\tr{P}{c}$ is cofibrant, and since the vertical arrows are trivial
+  $\frgp{P}$ is cofibrant, and since the vertical arrows are trivial
   fibrations, we can apply \cref{lemma:liftoplax}, which yields an
-  oplax transformation from the identity \oo\nbd-functor on $\tr{P}{c}$ to
-  the constant \oo\nbd-functor with value $y_0$.
+  oplax transformation from the identity \oo\nbd-functor on $P$ to
+  the constant \oo\nbd-functor with value $x_0$.
 
   Finally, applying \cref{cor:abeltrans}, we get a chain homotopy
-  between the identity morphism $\abelk{k}(\tr{P}{c}) \to
-  \abelk{k}(\tr{P}{c})$ to  $\abelk{k}(\tr{P}{c}) \to \Z \to
-  \abelk{k}(\tr{P}{c})$, which proves that  $\abelk{k}(\tr{P}{c}) \to
+  between the identity morphism \[\abelk{k}(P) \to
+    \abelk{k}(P)\] and the composition
+  \[\abelk{k}(P) \to \Z \to
+  \abelk{k}(P),\] which proves that  $\abelk{k}(P) \to
   \Z$ is a quasi-isomorphism.
 \end{proof}
+\subsection{The comparison theorem}
+% \begin{paragr}
+%   Let $C$ be a $\pk 1 i$\nbd-category with $i \in \{0,1\}$. For any $i
+%   \leq k \leq \omega$, we can consider $C$ as an $\ook
+%   k$\nbd-category, via the canonical
+%   inclusion $\npCat{1}{i} \to \opCat{k}$, which we omit to denote. Let $P \to C$ be a
+%   polygraphic resolution in $\opCat{k}$, and consider the functor
+%   \[
+%     \tr{P}{-} \colon C \to \opCat{k}
+%   \]
+%   as in section \ref{subsec:polres}. There is a canonical natural
+%   transformation
+%   \[
+%     \tr{P}{-} \Rightarrow \cst{\Dsk{0}},
+%   \]
+%   where $\cst{\Dsk{0}}$ is the constant functor with value
+%   $\Dsk{0}$. Applying the abelianization functor $\abelk{k}$ pointwise, we get a
+%   natural transformation
+%   \[
+%     \abelk{k}(\tr{P}{-}) \Rightarrow \cst{\Z}
+%   \]
+%   in the category $\fun{C}{\Chp}$. Here we have used the
+%   canonical isomorphism $\abelk{k}{\Dsk{0}}\simeq \Z$. By identifying
+%   the category $\fun{C}{\Chp}$ with the category of chain complexes of
+%   left $C$-modules, the above natural transformation amounts to an
+%   augmented chain complex of left $C$\nbd-modules
+%   \[
+%     \cst{\Z} \leftarrow \abelk{k}_0(\tr{P}{-})\leftarrow
+%     \abelk{k}_1(\tr{P}{-}) \leftarrow \dots
+%   \]
+% \end{paragr}
+% \begin{proposition}\label{prop:polbar}
+%   Keeping the notations from the above paragraph, the augmented chain
+%   complex of left $C$-modules
+%     \[
+%     \cst{\Z} \leftarrow \abelk{k}_0(\tr{P}{-})\leftarrow
+%     \abelk{k}_1(\tr{P}{-}) \leftarrow \dots
+%   \]
+%   is a projective resolution of $\cst{\Z}$ as left $C$-modules.
+% \end{proposition}
+% In order to prove this proposition, we first need the following
+% technical lemma.
+% \begin{lemma}\label{lemma:liftoplax}
+%   Let $0 \leq k \leq \omega$ and consider a diagram as below in $\opCat{k}$, 
+%   \[
+%     \begin{tikzcd}[row sep=large]
+%       A' \ar[d,"p"]\ar[r,bend left,"u'"] \ar[r,bend right,"v'"']& B' \ar[d,"q"] \\
+%       A \ar[r,bend left,"u",""{name=A,below}] \ar[r,bend
+%       right,"v"',""{name=B,above}]& B,
+%       \ar[from=A,to=B,Rightarrow,"\alpha"]
+%     \end{tikzcd}
+%   \]
+%   where the front and back faces are commutative. If $q$ is a trivial
+%   fibration and $A'$ is cofibrant, for the folk model structure on
+%   $\opCat{k}$, then there exists an oplax transformation $\alpha'
+%   \colon u' \Rightarrow v'$ making the whole diagram commutative, which means
+%   that
+%   \[
+%     q\wsk \alpha' = \alpha \wsk p
+%   \]
+% \end{lemma}
+% \begin{proof}
+%   The data of the given diagram amounts to the following commutative
+%   diagram in $\opCat{k}$
+%   \[
+%     \begin{tikzcd}
+%       \Sph{0} \grayk{k} A' \ar[r]\ar[d] \ar[rr,bend
+%       left,"{(u',v')}"]& \opifun{k}\Dsk{1} \grayk{k} A'
+%       \ar[d]& B' \ar[d,"q"] \\
+%       \Sph{0} \grayk{k} A \ar[r] & \opifun{k}\Dsk{1} \grayk{k} A \ar[r,"\alpha"]
+%       & B.
+%     \end{tikzcd}
+%   \]
+%   Since $A'$ is cofibrant and $\grayk{k}$ makes the folk model
+%   structure on $\opCat{k}$ a monoidal model structure \cite{}, the
+%   arrow $ \Sph{0}  \grayk{k} A' \to  \opifun{k}\Dsk{1} \grayk{k} A'$ is a
+%   cofibration. Since $q$ is a trivial fibration, there exists a
+%   morphism $\alpha' \colon \opifun{k}\Dsk{1}  \grayk{k} A' \to B'$ making the
+%   whole diagram commute.
+% \end{proof}
 
-\begin{paragr}
-  Let $u \colon C \to D$ be a functor between (small) categories, and
-  consider the functor induced by pre-composition with $u$
-  \[
-    u^* \colon \fun{D}{\opCat{k}} \to \fun{C}{\opCat{k}}.
-  \]
-  and $u_!$ its left adjoint. This adjunction is a Quillen adjunction
-  with respect
-  the projective model structure, and furthermore $u^*$ preserves all
-  the pointwise weak equivalences by construction. Therefore we have an induced
-  adjunction at the level of homotopy categories
-  \[
-    \LL u_! \colon \Loc{\fun{D}{\opCat{k}}} \leftrightarrows \Loc{\fun{C}{\opCat{k}}}
-    \colon u^*,
-  \]
-  where we abusively kept the same notation for $u^*$, as it preserves
-  all weak equivalences. Consider now
-  the abelianization functor $\abelk{k} \colon \opCat{k} \to
-  \Chp$. As a left Quillen functor (\cref{prop:abelquillen}), for any
-  small category $C$, the induced functor by post-composition
-  \[
-    \abelk{k} \colon \fun{C}{\opCat{k}} \to \Chp(\RMod{C^{\op}}),
-  \]
-  which we abusively denote the same, is again left Quillen with
-  respect to the projective model structure. As a consequence, for any
-  functor $u \colon C \to D$ between small categories, both the squares are commutative up to a canonical isomorphism
-  \[
-    \begin{tikzcd}
-      \Loc{\fun{D}{\opCat{k}}} \ar[d,"u^*"]\ar[r,"\LL \abelk{k}"] &
-      \Derp{D^{\op}}\ar[d,"u^*"]\\
-      \Loc{\fun{D}{\opCat{k}}} \ar[u,"\LL u_!"]\ar[r,"\LL \abelk{k}"]
-      & \Derp{C^{\op}}\ar[u,"\LL u!"]
-    \end{tikzcd}
-  \]
+
+% \begin{proof}[Proof of \cref{prop:polbar}]
+%  By \cref{thm:projresol} the
+%   the functor $\tr{P}{-} \colon C \to \opCat{k}$ is a cofibrant
+%   object of the category  $\fun{C}{\opCat{k}}$. Since $\abelk{k}\colon \opCat{k} \to \Chp$ is left
+%   Quillen (\cref{prop:abelquillen}), it follows that the functor
+%   \[
+%     \begin{aligned}
+%       \abelk{k}(\tr{P}(-)) &\colon C \to \Chp\\
+%       c &\mapsto \abelk{k}(\tr{P}{c})
+%     \end{aligned}
+%   \]
+%   is a cofibrant object of the projective model structure on the
+%   category $\fun{C}{\Chp}$, which means, upon identification with the
+%   category of chain complexes of left $C$-modules, means exactly that
+%   \[
+%     \abelk{k}_0(\tr{P}{-})\leftarrow
+%     \abelk{k}_1(\tr{P}{-}) \leftarrow \dots
+%   \]
+%   is a chain complex of project left $C$-modules.\footnote{In fact, a direct inspection shows
+%     that it is even a chain complex of \emph{free} left
+%     $C$-modules. We won't need this fact.}
+% Let us prove now that this yields a resolution of $\cst{\Z}$ as a left
+% $C$-module. Since weak equivalences of the category $\fun{C}{\Chp}$
+% are defined pointwise, it suffices to show that for every object $c$
+% of $C$, the morphism of chain complexes
+% \[
+%   \abelk{k}(\tr{P}{c})\to \Z,
+%   \]
+%   where $\Z$ is concentrated in degree $0$, is a
+%   quasi-isomorphism.
+
+%   The category $\tr{C}{c}$ has a terminal
+%   object, which we denote here by $x_0$, hence there  is a natural
+%   transformation
+%   \[
+%     \begin{tikzcd}
+%       \tr{C}{c} \ar[r,bend left,"\Unit{\tr{C}{c}}",""{name=A,below}]
+%       \ar[r,bend right,"\cst{x_0}"',""{name=B,above}] & \tr{C}{c}
+%       \ar[from=A,to=B,Rightarrow]
+%     \end{tikzcd}
+%   \]
+%   from the identity functor to the constant functor with value
+%   $x_0$. By \ref{paragr:gray}, this defines an oplax transformation. By
+%   stability of trivial fibrations by pullback, the morphism
+%   \[
+%     \tr{P}{c} \to \tr{C}{c}
+%   \]
+%   is a trivial fibration, and in particular it is surjective on
+%   objects. Let us then pick an object $y_0$ of $P$ whose image in
+%   $\tr{C}{c}$ is $x_0$. All in all, we have a diagram
+%   \[
+%     \begin{tikzcd}[row sep=huge]
+%       \tr{P}{c} \ar[d,"p"]\ar[r,bend left,"\Unit{\tr{P}{c}}"] \ar[r,bend
+%       right,"\cst{y_0}"']& \tr{P}{c} \ar[d,"q"] \\
+%       \tr{C}{c} \ar[r,bend left,"\Unit{\tr{C}{c}}",""{name=A,below}] \ar[r,bend
+%       right,"\cst{x_0}"',""{name=B,above}]& \tr{C}{c},
+%       \ar[from=A,to=B,Rightarrow,"\alpha"]
+%     \end{tikzcd}
+%   \]
+%   such that the front and back faces are commutative. Since
+%   $\tr{P}{c}$ is cofibrant, and since the vertical arrows are trivial
+%   fibrations, we can apply \cref{lemma:liftoplax}, which yields an
+%   oplax transformation from the identity \oo\nbd-functor on $\tr{P}{c}$ to
+%   the constant \oo\nbd-functor with value $y_0$.
+
+%   Finally, applying \cref{cor:abeltrans}, we get a chain homotopy
+%   between the identity morphism $\abelk{k}(\tr{P}{c}) \to
+%   \abelk{k}(\tr{P}{c})$ to  $\abelk{k}(\tr{P}{c}) \to \Z \to
+%   \abelk{k}(\tr{P}{c})$, which proves that  $\abelk{k}(\tr{P}{c}) \to
+%   \Z$ is a quasi-isomorphism.
+% \end{proof}
+
+% \begin{paragr}
+%   Let $u \colon C \to D$ be a functor between (small) categories, and
+%   consider the functor induced by pre-composition with $u$
+%   \[
+%     u^* \colon \fun{D}{\opCat{k}} \to \fun{C}{\opCat{k}}.
+%   \]
+%   and $u_!$ its left adjoint. This adjunction is a Quillen adjunction
+%   with respect
+%   the projective model structure, and furthermore $u^*$ preserves all
+%   the pointwise weak equivalences by construction. Therefore we have an induced
+%   adjunction at the level of homotopy categories
+%   \[
+%     \LL u_! \colon \Loc{\fun{D}{\opCat{k}}} \leftrightarrows \Loc{\fun{C}{\opCat{k}}}
+%     \colon u^*,
+%   \]
+%   where we abusively kept the same notation for $u^*$, as it preserves
+%   all weak equivalences. Consider now
+%   the abelianization functor $\abelk{k} \colon \opCat{k} \to
+%   \Chp$. As a left Quillen functor (\cref{prop:abelquillen}), for any
+%   small category $C$, the induced functor by post-composition
+%   \[
+%     \abelk{k} \colon \fun{C}{\opCat{k}} \to \Chp(\RMod{C^{\op}}),
+%   \]
+%   which we abusively denote the same, is again left Quillen with
+%   respect to the projective model structure. As a consequence, for any
+%   functor $u \colon C \to D$ between small categories, both the squares are commutative up to a canonical isomorphism
+%   \[
+%     \begin{tikzcd}
+%       \Loc{\fun{D}{\opCat{k}}} \ar[d,"u^*"]\ar[r,"\LL \abelk{k}"] &
+%       \Derp{D^{\op}}\ar[d,"u^*"]\\
+%       \Loc{\fun{D}{\opCat{k}}} \ar[u,"\LL u_!"]\ar[r,"\LL \abelk{k}"]
+%       & \Derp{C^{\op}}\ar[u,"\LL u!"]
+%     \end{tikzcd}
+%   \]
   % \[
   %   \begin{tikzcd}
   %     \Loc{\fun{C}{\opCat{k}}} \ar[d,"\LL u_!"]\ar[r,"\LL \abelk{k}"] &
@@ -697,21 +752,20 @@ of $C$, the morphism of chain complexes
   %     \Loc{\fun{D}{\opCat{k}}} \ar[r,"\LL \abelk{k}"] & \Derp{D^{\op}}
   %   \end{tikzcd}
   % \]
-\end{paragr}
 \begin{theorem}\label{thm:polhom}
   Let $C$ be a (1-)category. Then, for any $1
   \leq k \leq \oo$, there is an isomorphism
   \[
     \Hop{k}_{\bullet}(C) \to \Ho_{\bullet}(C)
   \]
-  natural in $C$. If $C$ is a groupoid, this isomorphism also exists
+  natural in $C$. If $C$ is a groupoid, this also holds
   for $k=0$. Furthermore, this
   isomorphism can be chosen natural in $k$ in the sense that for $k
   \leq k'$, the triangle 
   \[
     \begin{tikzcd}[column sep=small]
-         \Hop{1}_{\bullet}(C)\ar[dr]
-         \ar[rr]&&\Hop{\oo}_{\bullet}(C)\ar[dl]\\
+         \Hop{k}_{\bullet}(C)\ar[dr]
+         \ar[rr]&&\Hop{k'}_{\bullet}(C)\ar[dl]\\
          &\Ho_{\bullet}(C)&
     \end{tikzcd}
   \]
@@ -762,74 +816,32 @@ of $C$, the morphism of chain complexes
 
 
 \begin{proof}
-  Let's start with the first part of the theorem. Let $C$ be a
-  $1$\nbd-category and consider the following zig-zag of natural
-  transformations in the category $\opCat k$
-  \[
-    \cst{\Dsk{0}} \Leftarrow \tr{C}{-} \Rightarrow \cst{C},
-  \]
-  where the map on the left is the canonical map to the terminal
-  object of $\opCat k$. By taking the image of this zig-zag in
-  $\Loc{\opCat{k}}$ and then apply the functor $\LL \abelk{k} \colon $
-  Let $C$ be a $1$\nbd-category, and $\frgp{P} \to C$ a polygraphic resolution in
-  $\opCat{k}$. By \cref{prop:polbar},
-  \[
-    \cst{\Z} \leftarrow \abelk{k}(\tr{\frgp P}{-})
-  \]
-  is a projective resolution of $\cst{\Z}$. Hence, we have
-  \begin{align*}
-    \Ho_{\bullet}(C)&= \LL \ilim_{C}\cst{\Z} \tag{\cref{def:homtor}
-                       \text{ and paragraph }\ref{paragr:funhomology}}\\
-    &\simeq \ilim_{C}\abelk{k}{(\tr{\frgp P}{-})}
-      \tag{\cref{lemma:colim}}\\
-                     &\simeq \abelk{k}(P)\\
-    &\simeq \LL \abelk{k}(C)=\Hop{k}(C)
-  \end{align*}
-  Now the naturality in $C$ as well as the commutativity of the
-  triangle is harmless but tedious bookkeeping, which we carefully
-  carry out now.
+  Let's start with the first part of the theorem. Recall that if $F
+  \colon \M \to \M'$ is a functor, and $C$ is a small category we
+  denote by $\fun{C}{F} \colon \fun{C}{\M} \to \fun{C}{\M'}$ the
+  functor induced by post-composition. Consider the
+  following zig-zag of isomorphisms
+  in $\Derp{\Z}$
 
-  First of all, we suppose given a cofibrant replacement functor
-  \[
-    Q \colon \opCat{k} \to \opCat{k},
-  \]
-  that is for an $\ook{k}$\nbd-category $C$, $Q(C)$ is free on a $\ook
-  k$\nbd-polygraph, and the functor comes equipped with a natural
-  transformation
-  \[
-    \alpha \colon Q \Rightarrow \Unit{\opCat{k}},
-  \]
-  which is a trivial fibration pointwise. This is possible because the
-  folk model structure on $\opCat{k}$ is combinatorial. Then, we
-  consider the functor
-  \begin{align*}
-    \Cat &\to \Derp{\Z}\\
-    C &\mapsto \abelk{k}(Q(C)),
-  \end{align*}
-  which we consider, by definition, as the polygraphic homology functor for
-  $1$\nbd-categories.
-
-  Now, 
-  % We will use the following standard fact on left Quillen functors:
-  
-  %   Given a left Quillen functor $F \colon \M \to \M'$ between two
-  %   model categories, any choice of cofibrant replacement $Q_X \to X$
-  %   for every object $X$ of $\M$, defines (uniquely) a left derived
-  %   functor $\LL F \colon \Loc{\M} \to \Loc{\M'}$ such that $\LL
-  %   F(X)=F(Q_X)$. If $Q_X' \to X$ is another choice of cofibrant
-  %   replacement for every object $X$ of $\M$, and $\LL F'$ is the
-  %   associated left derived functor, then there exists a natural
-  %   isomorphism
-  %   \[
-  %     \LL F \simeq \LL F'.
-  %   \]
+  % \[
+  %   \begin{tikzcd}
+  %     \hoilim_{C}p^*_C(\LL \abelk{k}(\Term))&&\\
+  %   \hoilim_{C}\LL \fun{C}{\abelk{k}}(p_C^*\Term)\ar[u,"(1)")]&\ar[l,"(2)"'] \hoilim_{C}\fun{C}{\LL
+  %   \abelk{k}}(\tr{C}{-})\ar[r,"(3)"]&  \LL
+  % \abelk{k}(\hoilim_{C}\tr{C}{-})\ar[d,"(4)"]\\
+  % &&\ \LL\abelk{k}(C),
+  % \end{tikzcd}
+  % \]
+  where
+  \begin{itemize}
+    \item $(1)$ and $(3)$ comes from the fact that 
+    \item $(2)$ comes from the fact that $p_C^*\Term$ is the terminal
+  object of $\fun{C}{\opCat{k}}$ and $(4)$ is induced by the cocone $(\tr{C}{c}\to
+  C)_{c \in \Ob(C)}$ (see \ref{paragr:colimtr}).
+\item
+\end{itemize}
 \end{proof}
-% \begin{proof}
-%   We begin by the first part of the statement. Because $k \geq i$, we
-%   can see $C$ as an $\ook k$\nbd-category, via the canonical
-%   inclusion $\npCat{1}{i} \to \opCat{k}$, which we omit to denote. Let $P \to C$ be a
-%   polygraphic resolution in $\opCat{k}$. By 
-% \end{proof}
+
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"

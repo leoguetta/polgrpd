@@ -65,35 +65,56 @@ category and $I$ a small category. The family of functors
   
 \end{proof}
 \subsection{Homotopy cocontinuous functors}\label{hptycocts}
-\begin{paragr} Let $F \colon \M \to \M'$ be a left Quillen functor
-between (cofibrantly generated) model categories. For any small
-category $I$, we consider the functor induced by post-composition
-  \begin{align*} F^I \colon \fun{I}{\M} &\to \fun{I}{\M'}\\ X &\mapsto
+\begin{paragr} Let $F \colon \M \leftrightarrows \M' \colon G$ be a
+  Quillen adjunction between (cofibrantly generated) model categories
+  and let us assume that $G$ \emph{preserves all weak equivalences}, which is the case, for example, if all objects of $\M'$ are fibrant. For any small
+category $I$, we consider the functors induced by post-composition
+  \[\begin{aligned} \fun{I}{F} \colon \fun{I}{\M} &\to \fun{I}{\M'}\\ X &\mapsto
 F\circ X.
-  \end{align*} This functor is also a left Quillen functor with
-respect to the projective model structures. Hence, it induces a left
-derived functor
-  \[ \LL F^I \colon \Loc{\fun{I}{\M}}\to \Loc{\fun{I}{\M'}}.
-  \]
+  \end{aligned} \quad \quad \begin{aligned} \fun{I}{G} \colon \fun{I}{\M'} &\to \fun{I}{\M}\\ X &\mapsto
+G\circ X.
+  \end{aligned}\]
+The adjunction $\fun{I}{F} \colon \fun{I}{\M} \leftrightarrows
+\fun{I}{\M'} \colon \fun{I}{G}$ is again a Quillen adjunction with
+respect to the projective model structures, and $\fun{I}{G}$ again
+preserves all weak equivalences. Hence, it induces an adjunction at
+the level of homotopy categories
 
-  Now, let $u \colon I \to J$ be a functor between small
-categories. By construction, we have a commutative square
+  \[ \LL \fun{I}{F} \colon \Loc{\fun{I}{\M}}\leftrightarrows
+    \Loc{\fun{I}{\M'}} \colon \fun{I}{G},
+  \]
+where, similarly to \ref{paragr:htpykan}, we abusively wrote $\fun{I}{G}$ instead of
+$\mathbb{R}\fun{I}{G}$ because it all weak equivalences.
+
+Now, let $u \colon I \to J$ be a functor between small
+categories. Since $G$ preserves all weak equivalences, we have a
+\emph{strictly} commutative square
   \[
-    \begin{tikzcd} \fun{J}{\M} \ar[r,"F^J"] \ar[d,"u^*"']&
-\fun{J}{\M'} \ar[d,"u^*"]\\ \fun{I}{\M} \ar[r,"F^I"'] & \fun{I}{\M'},
-    \end{tikzcd}
-  \] and, because $F$ is a left adjoint, the following square is
-commutative up to a canonical isomorphism
-  \[
-    \begin{tikzcd} \fun{I}{\M} \ar[r,"F^I"] \ar[d,"u_!"']&
-\fun{I}{\M'} \ar[d,"u_!"]\\ \fun{J}{\M} \ar[r,"F^J"'] & \fun{J}{\M'}.
-\ar[from=1-1,to=2-2,phantom,"\simeq" description]
+    \begin{tikzcd} \Loc{\fun{J}{\M'}} \ar[r,"\fun{J}{G}"] \ar[d,"u^*"']&
+\Loc{\fun{J}{\M}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M'}} \ar[r,"\fun{I}{G}"'] & \Loc{\fun{I}{\M}}.
     \end{tikzcd}
   \]
-  This fact is usually referred to as ``$F$ preserves Kan
-extension''. We recall now the following result which says that the
-same holds at the level of homotopy categories for a left Quillen
-functor.
+  By adjunction, we can then define a canonical natural transformation
+  \[
+    \begin{tikzcd} \Loc{\fun{J}{\M}} \ar[r,"\LL \fun{J}{F}"] \ar[d,"u^*"']&
+\Loc{\fun{J}{\M'}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M}} \ar[r,"\LL \fun{I}{F}"'] & \Loc{\fun{I}{\M'}}.
+\ar[from=2-1,to=1-2,Rightarrow]
+    \end{tikzcd}
+  \]
+  as
+  % \[
+  %    \LL \fun{I}{F}\circ u^* \overset{\epsilon}{\Longrightarrow}   \LL \fun{I}{F}\circ u^*
+  %    \circ \fun{J}{G}\circ \LL \fun{J}{F} = \LL \fun{I}{F}\circ
+  %    \fun{I}{G} \circ u^* \circ \LL
+  %    \fun{J}{F}\overset{\eta}{\Longrightarrow} u^*\circ \LL \fun{J}{F}.
+  %  \]
+     \[
+     \LL \fun{I}{F}  u^* \overset{\eta}{\Longrightarrow}   \LL \fun{I}{F}  u^*
+       \fun{J}{G}  \LL \fun{J}{F} = \LL \fun{I}{F} 
+     \fun{I}{G}   u^*   \LL
+     \fun{J}{F}\overset{\epsilon}{\Longrightarrow} u^*  \LL \fun{J}{F}.
+   \]
+   
 \end{paragr}
 \begin{proposition} Let $\M$ and $\M'$ be two (cofibrantly generated)
   model categories, $F \colon \M \to \M'$ be a left Quillen functor and
@@ -126,7 +147,9 @@ functor.
 \begin{remark}
   Note that the use of the word ``homology'' here is arguably slightly
   abusive as we don't make any hypothesis of additivity or stability
-  property of any kind on (the localization of) $\M$. 
+  property of any kind on (the localization of) $\M$. Later, we will
+  focus on the case where $\M$ is the category of non-negatively
+  graded chain complexes, whence recovering the usual setting of homology.
 \end{remark}
 \begin{paragr}
  Obviously, for a fixed object small category $I$, the previous
@@ -292,6 +315,18 @@ localization of $\Chp(C)$ with respect to
   the $\Chp(\Z)$\nbd-valued homology of $C$ with coefficient $X$
   (\cref{def:abstracthom}).
 \end{definition}
+\begin{remark}
+  By definition, $\Ho(C,X)$ is an object of $\Derp{\Z}$. To recover
+  homology groups in the usual sense, it suffices to post-compose with the $n$-th
+  homology group functor $H_n \colon \Derp{\Z}\to \Ab$. In other
+  words, we can make the following definition
+  \[
+    \Ho_n(C,X):=H_n(\Ho(C,X)).
+  \]
+\end{remark}
+\begin{paragr}
+  Let us quickly unfold the previous definition. Given
+\end{paragr}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"
