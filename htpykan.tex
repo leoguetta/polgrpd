@@ -96,24 +96,37 @@ categories. Since $G$ preserves all weak equivalences, we have a
   \]
   By adjunction, we can then define a canonical natural transformation
   \[
-    \begin{tikzcd} \Loc{\fun{J}{\M}} \ar[r,"\LL \fun{J}{F}"] \ar[d,"u^*"']&
-\Loc{\fun{J}{\M'}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M}} \ar[r,"\LL \fun{I}{F}"'] & \Loc{\fun{I}{\M'}}.
-\ar[from=2-1,to=1-2,Rightarrow]
+     \LL \fun{I}{F}  u^* \Rightarrow u^*  \LL \fun{J}{F}
+   \]
+   as the following composition
+     \[
+       \begin{tikzcd}
+         \Loc{\fun{J}{\M}}\ar[d,"\LL \fun{J}{F}"'] \ar[rd,"\Unit{}"] & \\
+         \Loc{\fun{J}{\M'}} \ar[r,"\fun{J}{G}"] \ar[d,"u^*"']&
+\Loc{\fun{J}{\M}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M'}}
+\ar[r,"\fun{I}{G}"']\ar[rd,"\Unit{}"'] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
+&\Loc{\fun{I}{\M'}}.
     \end{tikzcd}
   \]
-  as
+%   \[
+%     \begin{tikzcd} \Loc{\fun{J}{\M}} \ar[r,"\LL \fun{J}{F}"] \ar[d,"u^*"']&
+% \Loc{\fun{J}{\M'}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M}} \ar[r,"\LL \fun{I}{F}"'] & \Loc{\fun{I}{\M'}}.
+% \ar[from=2-1,to=1-2,Rightarrow]
+%     \end{tikzcd}
+%   \]
+
   % \[
   %    \LL \fun{I}{F}\circ u^* \overset{\epsilon}{\Longrightarrow}   \LL \fun{I}{F}\circ u^*
   %    \circ \fun{J}{G}\circ \LL \fun{J}{F} = \LL \fun{I}{F}\circ
   %    \fun{I}{G} \circ u^* \circ \LL
   %    \fun{J}{F}\overset{\eta}{\Longrightarrow} u^*\circ \LL \fun{J}{F}.
   %  \]
-     \[
-     \LL \fun{I}{F}  u^* \overset{\eta}{\Longrightarrow}   \LL \fun{I}{F}  u^*
-       \fun{J}{G}  \LL \fun{J}{F} = \LL \fun{I}{F} 
-     \fun{I}{G}   u^*   \LL
-     \fun{J}{F}\overset{\epsilon}{\Longrightarrow} u^*  \LL \fun{J}{F}.
-   \]
+   %   \[
+   %   \LL \fun{I}{F}  u^* \overset{\eta}{\Longrightarrow}   \LL \fun{I}{F}  u^*
+   %     \fun{J}{G}  \LL \fun{J}{F} = \LL \fun{I}{F} 
+   %   \fun{I}{G}   u^*   \LL
+   %   \fun{J}{F}\overset{\epsilon}{\Longrightarrow} u^*  \LL \fun{J}{F}.
+   % \]
    
 \end{paragr}
 \begin{proposition} Let $\M$ and $\M'$ be two (cofibrantly generated)
@@ -187,7 +200,7 @@ categories. Since $G$ preserves all weak equivalences, we have a
     \LL p_{I!}u^*X \simeq \LL p_{J!} \LL u_! u^*X\to \LL p_{J!}X,
   \]
   where the morphism of the right is the co-unit of the ajdunction
-  $\LL u_! \dashv u^*$. On other words, this defines a morphism
+  $\LL u_! \dashv u^*$. In other words, this defines a morphism
   \[
   \Ho_{\M}(u,X)\colon  \Ho_{\M}(I,u^*X)\to \Ho_{\M}(J,X).
   \]
