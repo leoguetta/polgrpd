@@ -55,7 +55,7 @@ of $\fun{I}{\M}$ is an isomorphism if and only if for each object $i$
 of $I$, $i^*(\alpha)=\alpha_i$ is an isomorphism. The same is true at
 the level of homotopy categories as we recall in the following result.
 \end{paragr}
-\begin{proposition} Let $\M$ be a (cofibrantly generated) model
+\begin{proposition}\label{prop:der2} Let $\M$ be a (cofibrantly generated) model
 category and $I$ a small category. The family of functors
   \[ \left(i^* \colon \Loc{\fun{I}{\M}}\to \Loc{\M}\right)_{i \in
 \Ob(I)}
@@ -83,8 +83,9 @@ the level of homotopy categories
   \[ \LL \fun{I}{F} \colon \Loc{\fun{I}{\M}}\leftrightarrows
     \Loc{\fun{I}{\M'}} \colon \fun{I}{G},
   \]
-where, similarly to \ref{paragr:htpykan}, we abusively wrote $\fun{I}{G}$ instead of
-$\mathbb{R}\fun{I}{G}$ because it all weak equivalences.
+where, similarly to \ref{paragr:htpykan}, we abusively wrote
+$\fun{I}{G}$, instead of say
+$\mathbb{R}\fun{I}{G}$, because it preserves all weak equivalences.
 
 Now, let $u \colon I \to J$ be a functor between small
 categories. Since $G$ preserves all weak equivalences, we have a
@@ -101,11 +102,34 @@ categories. Since $G$ preserves all weak equivalences, we have a
    as the following composition
      \[
        \begin{tikzcd}
-         \Loc{\fun{J}{\M}}\ar[d,"\LL \fun{J}{F}"'] \ar[rd,"\Unit{}"] & \\
-         \Loc{\fun{J}{\M'}} \ar[r,"\fun{J}{G}"] \ar[d,"u^*"']&
+         \Loc{\fun{J}{\M}}\ar[d,"\LL \fun{J}{F}"']
+         \ar[rd,"\Unit{\Loc{\fun{J}{\M}}}",""{name=A,below left}] & \\
+         \Loc{\fun{J}{\M'}} \ar[r,"\fun{J}{G}"'] \ar[d,"u^*"']&
 \Loc{\fun{J}{\M}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M'}}
-\ar[r,"\fun{I}{G}"']\ar[rd,"\Unit{}"'] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
+\ar[r,"\fun{I}{G}"]\ar[rd,"\Unit{\Loc{\fun{I}{\M'}}}"',""{name=B,above
+right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 &\Loc{\fun{I}{\M'}}.
+\ar[from=A,to=2-1,Rightarrow,"\eta"]
+\ar[from=3-2,to=B,Rightarrow,"\epsilon"]
+    \end{tikzcd}
+  \]
+  This, in turns, allows to define a canonical natural transformation
+  \[
+    u_!\LL \fun{I}{F} \Rightarrow \LL \fun{J}{F} u_! 
+  \]
+  as the following composition
+  \[
+    \begin{tikzcd}
+    &  \Loc{\fun{J}{\M'}}\ar[d,"u^*"]
+    \ar[dl,"\Unit{\Loc{\fun{J}{\M'}}}"',""{name=A,below right}]& \Loc{\fun{J}{\M}} \ar[l,"\LL
+    \fun{J}{F}"'] \ar[d,"u^*"'] & \Loc{\fun{I}{\M}} \ar[l,"\LL u_!"']
+    \ar[dl,"\Unit{\Loc{\fun{I}{\M}}}",""{name=B,above left}]
+      \\
+    \Loc{\fun{J}{\M'}} & \ar[l,"\LL u_!"]
+    \Loc{\fun{I}{\M'}}&\Loc{\fun{I}{\M}}. \ar[l,"\LL \fun{I}{F}"]
+    \ar[from=2-2,to=A,Rightarrow,"\epsilon"]
+    \ar[from=B,to=1-3,Rightarrow,"\eta"]
+    \ar[from=2-3,to=1-2,Rightarrow]
     \end{tikzcd}
   \]
 %   \[
@@ -129,25 +153,33 @@ categories. Since $G$ preserves all weak equivalences, we have a
    % \]
    
 \end{paragr}
-\begin{proposition} Let $\M$ and $\M'$ be two (cofibrantly generated)
-  model categories, $F \colon \M \to \M'$ be a left Quillen functor and
+\begin{proposition}\label{prop:htpycocts} Let $\M$ and $\M'$ be two (cofibrantly generated)
+  model categories, $F \colon \M \to \M'$ be a Quillen adjunction such
+  that the right adjoint preserves all weak equivalences, and
   $u \colon I \to J$ a functor between small categories. Then the
-  squares
-  \[
-    \begin{tikzcd} \Loc{\fun{J}{\M}} \ar[r,"\LL F^J"] \ar[d,"u^*"']&
-      \Loc{\fun{J}{\M'}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M}} \ar[r,"\LL F^I"']
-      & \Loc{\fun{I}{\M'}},
-    \end{tikzcd}
-  \] and
-  \[
-    \begin{tikzcd} \Loc{ \fun{I}{\M}} \ar[r,"\LL F^I"] \ar[d,"\LL
-      u_!"']& \Loc{\fun{I}{\M'}} \ar[d,"\LL u_!"]\\ \Loc{\fun{J}{\M}}
-      \ar[r,"\LL F^J"'] & \Loc{\fun{J}{\M'}},
-    \end{tikzcd}
-  \] are commutative up to a canonical isomorphism.
+  canonical natural transformations
+  \begin{equation}
+     \LL \fun{I}{F}  u^* \Rightarrow u^*  \LL \fun{J}{F}
+   \end{equation}
+   and
+   \begin{equation}\label{eq:cocontinuous}
+     u_!\LL \fun{I}{F} \Rightarrow \LL \fun{J}{F} u_! 
+   \end{equation}
+   are isomorphisms.
 \end{proposition}
 \begin{proof}
 \end{proof}
+\begin{remark}
+  The fact that \eqref{eq:cocontinuous} is an isomorphism is commonly
+  referred as the fact that \emph{left Quillen functors preserves
+    homotopy left Kan extensions}. In particular, taking $J=\Term$,
+  $u=p_I \colon I \to \Term$ the unique such function and $X$ an
+  object $\Loc{\fun{I}{\M}}$, we get an isomorphism of $\Loc{\M}$
+  \begin{equation}\label{eq:htpycolim}
+    \hoilim_I \LL \fun{I}{F}(X) \simeq \LL F (\hoilim_IX),
+  \end{equation}
+  natural in $X$.
+\end{remark}
 \subsection{Abstract homology of small categories}\label{abstracthom}
 \begin{definition}\label{def:abstracthom}
   Let $\M$ be a (cofibrantly generated) model category. For a small
@@ -232,7 +264,7 @@ categories. Since $G$ preserves all weak equivalences, we have a
   $\tr{\Cat}{K}\simeq \Cat$. We speak of the (abstract) homology of a
   small category $I$ with \emph{constant} coefficient $X$ for
   \[
-    \Ho(I,p_I^*X).
+    \Ho_{\M}(I,p_I^*X).
   \]
   \cref{prop:functorialityhomology} in this case yields the following corollary.
 \end{paragr}
@@ -252,7 +284,7 @@ categories. Since $G$ preserves all weak equivalences, we have a
     \Ho_{\M}(I,p_I^*X) \to \Ho_{\M}(J,p_J^*X).
   \]
 \end{corollary}
-\subsection{Homology of categories}
+\subsection{Classical homology of categories}
 \begin{paragr}\label{paragr:homalg}
   For $C$ a small category, we denote by $\LMod{C}$ the category of
   \emph{right $C$\nbd-modules}, that is of functors
@@ -319,26 +351,74 @@ localization of $\Chp(C)$ with respect to
   This allows us to use all the results from the sections
   \ref{projms}, \ref{hptycocts} and \ref{abstracthom}. 
 \end{paragr}
-\begin{definition}
-  Let $C$ be a small category and $X$ a left $C$\nbd-module. We define
+\begin{definition}\label{def:classicalhomology}
+  Let $C$ be a small category and $M$ a left $C$\nbd-module. We define
   the \emph{homology of $C$ with coefficient $X$}, and denote by
   \[
-    \Ho(C,X),
+    \Ho(C,M),
   \]
-  the $\Chp(\Z)$\nbd-valued homology of $C$ with coefficient $X$
+  as the $\Chp(\Z)$\nbd-valued homology of $C$ with coefficient $M$
   (\cref{def:abstracthom}).
 \end{definition}
-\begin{remark}
-  By definition, $\Ho(C,X)$ is an object of $\Derp{\Z}$. To recover
+\begin{remark}\label{remark:homologygroups}
+  By definition, $\Ho(C,M)$ is an object of $\Derp{\Z}$. To recover
   homology groups in the usual sense, it suffices to post-compose with the $n$-th
   homology group functor $H_n \colon \Derp{\Z}\to \Ab$. In other
   words, we can make the following definition
   \[
-    \Ho_n(C,X):=H_n(\Ho(C,X)).
+    \Ho_n(C,M):=H_n(\Ho(C,M)).
   \]
 \end{remark}
 \begin{paragr}
-  Let us quickly unfold the previous definition. Given
+  Let us quickly unfold \cref{def:classicalhomology}. By definition,
+  the homology of small category $C$ with coefficient a left
+  $C$\nbd-module $M$ is
+  \[
+    \Ho(C,M)=\hoilim_{C}(M).
+  \]
+  In order to make this formula look more familiar, let us introduce
+  the following construction. Given a left $C$\nbd-module $M$ and right $C$\nbd-module $N$, we define their (total) tensor product as
+  the following co-end, taken in the category of abelian groups,
+  \[
+    N\tens{C}M :=\int^{c \in C}N(c)\tens{\Z} M(c).
+  \]
+  Note that when $C$ is a group, $C=G$, then this is indeed the usual
+  tensor product of $\Z G$\nbd-modules, where $\Z G$ is the group ring
+  of $G$. The above tensor product defines a functor
+  \[
+    -\tens{C}-\colon \RMod{C} \times \LMod{C} \to \Ab.
+  \]
+  By co-end calculus, if we take $N=\Z$ the constant right
+  $C$\nbd-module with value $\Z$ (which is formally $p_C^*\Z$
+  if we follow the notations from \ref{paragr:htpykan}), the we have a
+  natural isomorphism
+  \[
+    \Z \tens{C}M \simeq \hoilim_{C}M.
+  \]
+  In particular, this implies that we have
+  \[
+    \Ho(C,M)\simeq \Z \Ltens{C} M,
+  \]
+  where $\Ltens{C}$ is the left-derived functor of
+  $\tens{C}$. If we define
+  \[
+    \Tor{C}{n}(N,M):=H_n(N \Ltens{C} M),
+  \]
+  then, following \cref{remark:homologygroups}, we have
+  \[
+    H_n(C,M)\simeq \Tor{C}{n}(\Z,M).
+  \]
+  Note that in the case that $C$ is a group $C=G$, we recover indeed
+  the usual notion of $\Tor{}{}$, and thus the classical definition of
+  group homology.
+
+  Concretely, in order to compute $H_n(C,M)$, one has to take either a
+  projective resolution $P_{\bullet} \to \Z$ in the category of
+  right $C$\nbd-modules, or a projective resolution of $Q_{\bullet} \to
+  M$ in the category of left $C$\nbd-modules, and then
+  \[
+    H_n(C,M)\simeq H_n(P_{\bullet}\tens{C}M) \simeq H_n(\Z\tens{C}Q_{\bullet}).
+  \]
 \end{paragr}
 %%% Local Variables:
 %%% mode: LaTeX

@@ -466,7 +466,7 @@ follows from the fact that $\opCat{k} \to \oCat$
 \end{proof}
 % Note that if we start with a groupoid $G$, then we proceed in exactly
 % the same way
-\begin{proposition}
+\begin{proposition}\label{prop:hocolimtr}
   Let $C$ be a $1$\nbd-category. Then for any $k\geq 1$, the canonical morphism of
   $\Loc{\opCat{k}}$
   \[
@@ -505,7 +505,7 @@ follows from the fact that $\opCat{k} \to \oCat$
 % \begin{corollary}
 %   Let $C$ be a $1$\nbd-category, and $k \leq k' \leq \oo$. The  
 % \end{corollary}
-\begin{proposition}
+\begin{proposition}\label{prop:hlgycontrcat}
   Let $C$ be a small category with a terminal object, then for any $1
   \leq k \leq \oo$ the
   canonical morphism of $\Derp{\Z}$
@@ -820,26 +820,51 @@ follows from the fact that $\opCat{k} \to \oCat$
   \colon \M \to \M'$ is a functor, and $C$ is a small category we
   denote by $\fun{C}{F} \colon \fun{C}{\M} \to \fun{C}{\M'}$ the
   functor induced by post-composition. Consider the
-  following zig-zag of isomorphisms
-  in $\Derp{\Z}$
+  following zig-zag in $\Derp{\Z}$
 
-  % \[
-  %   \begin{tikzcd}
-  %     \hoilim_{C}p^*_C(\LL \abelk{k}(\Term))&&\\
-  %   \hoilim_{C}\LL \fun{C}{\abelk{k}}(p_C^*\Term)\ar[u,"(1)")]&\ar[l,"(2)"'] \hoilim_{C}\fun{C}{\LL
-  %   \abelk{k}}(\tr{C}{-})\ar[r,"(3)"]&  \LL
-  % \abelk{k}(\hoilim_{C}\tr{C}{-})\ar[d,"(4)"]\\
-  % &&\ \LL\abelk{k}(C),
-  % \end{tikzcd}
-  % \]
+  \[
+    \begin{tikzcd}
+      \hoilim_{C}p^*_C(\LL \abelk{k}(\Term))&&\\
+    \hoilim_{C}\LL \fun{C}{\abelk{k}}(p_C^*\Term) \ar[u,"(a)"]&\ar[l,"(b)"'] \hoilim_{C}\fun{C}{\LL
+     \abelk{k}}(\tr{C}{-})\ar[r,"(c)"]&  \LL
+   \abelk{k}(\hoilim_{C}\tr{C}{-})\ar[d,"(d)"]\\
+   && \LL\abelk{k}(C),
+  \end{tikzcd}
+  \]
   where
   \begin{itemize}
-    \item $(1)$ and $(3)$ comes from the fact that 
-    \item $(2)$ comes from the fact that $p_C^*\Term$ is the terminal
-  object of $\fun{C}{\opCat{k}}$ and $(4)$ is induced by the cocone $(\tr{C}{c}\to
+    \item $(a)$ and $(c)$ are induced by  \ref{paragr:htpykan},
+    \item $(b)$ comes from the fact that $p_C^*\Term$ is the terminal
+      object of $\fun{C}{\opCat{k}}$
+      \item $(d)$ is induced by the cocone $(\tr{C}{c}\to
   C)_{c \in \Ob(C)}$ (see \ref{paragr:colimtr}).
-\item
 \end{itemize}
+All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
+\begin{itemize}
+  \item $(a)$ and $(c)$ by \cref{prop:htpycocts} and the fact that $\abelk{k}$
+    is a left Quillen functor (\cref{prop:abelquillen}),
+  \item $(b)$ by \cref{prop:der2}, \cref{prop:hlgycontrcat} and the
+    fact that for each object $c$ of $C$, the category $\tr{C}{c}$ has
+    a terminal object,
+  \item $(d)$ by \cref{prop:hocolimtr}.
+  \end{itemize}
+  Note that we have also implicitly used in the first two items the trivial fact that
+  $\hoilim_{C}$ preserves isomorphisms of $\Derp{C}$. And similarly
+  with $\LL \abelk{k}$ and isomorphisms of
+  $\Loc{\opCat{k}}$ for the third item. Finally, since by
+  \cref{paragr:abeldisk} and the fact that $\Dsk{0}=\Term$, we have
+  \[
+    \LL \abel{k}(\Term) \simeq \Z.
+  \]
+  All in all, this yields an isomorphism
+  \[
+    \Ho(C,\Z) \simeq \Hop{k}(C),
+  \]
+  which is natural in $C$ by construction, as all the morphisms in the
+  previous zig-zag are.
+
+  \lgcomment{Deuxième partie du théorème a écrire, mais ça devrait être
+    trivial maintenant.}
 \end{proof}
 
 %%% Local Variables:
