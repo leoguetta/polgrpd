@@ -505,6 +505,44 @@ follows from the fact that $\opCat{k} \to \oCat$
 % \begin{corollary}
 %   Let $C$ be a $1$\nbd-category, and $k \leq k' \leq \oo$. The  
 % \end{corollary}
+\begin{lemma}\label{lemma:liftoplax}
+  Let $0 \leq k \leq \omega$ and consider a diagram as below in $\opCat{k}$, 
+  \[
+    \begin{tikzcd}[row sep=large]
+      A' \ar[d,"p"]\ar[r,bend left,"u'"] \ar[r,bend right,"v'"']& B' \ar[d,"q"] \\
+      A \ar[r,bend left,"u",""{name=A,below}] \ar[r,bend
+      right,"v"',""{name=B,above}]& B,
+      \ar[from=A,to=B,Rightarrow,"\alpha"]
+    \end{tikzcd}
+  \]
+  where the front and back faces are commutative. If $q$ is a trivial
+  fibration and $A'$ is cofibrant, for the folk model structure on
+  $\opCat{k}$, then there exists an oplax transformation $\alpha'
+  \colon u' \Rightarrow v'$ making the whole diagram commutative, which means
+  that
+  \[
+    q\wsk \alpha' = \alpha \wsk p
+  \]
+\end{lemma}
+\begin{proof}
+  The data of the given diagram amounts to the following commutative
+  diagram in $\opCat{k}$
+  \[
+    \begin{tikzcd}
+      \Sph{0} \grayk{k} A' \ar[r]\ar[d] \ar[rr,bend
+      left,"{(u',v')}"]& \opifun{k}\Dsk{1} \grayk{k} A'
+      \ar[d]& B' \ar[d,"q"] \\
+      \Sph{0} \grayk{k} A \ar[r] & \opifun{k}\Dsk{1} \grayk{k} A \ar[r,"\alpha"]
+      & B.
+    \end{tikzcd}
+  \]
+  Since $A'$ is cofibrant and $\grayk{k}$ makes the folk model
+  structure on $\opCat{k}$ a monoidal model structure \cite{}, the
+  arrow $ \Sph{0}  \grayk{k} A' \to  \opifun{k}\Dsk{1} \grayk{k} A'$ is a
+  cofibration. Since $q$ is a trivial fibration, there exists a
+  morphism $\alpha' \colon \opifun{k}\Dsk{1}  \grayk{k} A' \to B'$ making the
+  whole diagram commute.
+\end{proof}
 \begin{proposition}\label{prop:hlgycontrcat}
   Let $C$ be a small category with a terminal object, then for any $1
   \leq k \leq \oo$ the
@@ -599,44 +637,7 @@ follows from the fact that $\opCat{k} \to \oCat$
 % \end{proposition}
 % In order to prove this proposition, we first need the following
 % technical lemma.
-% \begin{lemma}\label{lemma:liftoplax}
-%   Let $0 \leq k \leq \omega$ and consider a diagram as below in $\opCat{k}$, 
-%   \[
-%     \begin{tikzcd}[row sep=large]
-%       A' \ar[d,"p"]\ar[r,bend left,"u'"] \ar[r,bend right,"v'"']& B' \ar[d,"q"] \\
-%       A \ar[r,bend left,"u",""{name=A,below}] \ar[r,bend
-%       right,"v"',""{name=B,above}]& B,
-%       \ar[from=A,to=B,Rightarrow,"\alpha"]
-%     \end{tikzcd}
-%   \]
-%   where the front and back faces are commutative. If $q$ is a trivial
-%   fibration and $A'$ is cofibrant, for the folk model structure on
-%   $\opCat{k}$, then there exists an oplax transformation $\alpha'
-%   \colon u' \Rightarrow v'$ making the whole diagram commutative, which means
-%   that
-%   \[
-%     q\wsk \alpha' = \alpha \wsk p
-%   \]
-% \end{lemma}
-% \begin{proof}
-%   The data of the given diagram amounts to the following commutative
-%   diagram in $\opCat{k}$
-%   \[
-%     \begin{tikzcd}
-%       \Sph{0} \grayk{k} A' \ar[r]\ar[d] \ar[rr,bend
-%       left,"{(u',v')}"]& \opifun{k}\Dsk{1} \grayk{k} A'
-%       \ar[d]& B' \ar[d,"q"] \\
-%       \Sph{0} \grayk{k} A \ar[r] & \opifun{k}\Dsk{1} \grayk{k} A \ar[r,"\alpha"]
-%       & B.
-%     \end{tikzcd}
-%   \]
-%   Since $A'$ is cofibrant and $\grayk{k}$ makes the folk model
-%   structure on $\opCat{k}$ a monoidal model structure \cite{}, the
-%   arrow $ \Sph{0}  \grayk{k} A' \to  \opifun{k}\Dsk{1} \grayk{k} A'$ is a
-%   cofibration. Since $q$ is a trivial fibration, there exists a
-%   morphism $\alpha' \colon \opifun{k}\Dsk{1}  \grayk{k} A' \to B'$ making the
-%   whole diagram commute.
-% \end{proof}
+% 
 
 
 % \begin{proof}[Proof of \cref{prop:polbar}]
