@@ -1,4 +1,23 @@
 \section{Recollection on homotopy kan extensions in Model categories}
+\subsection{A simplifying technical hypothesis}
+\begin{paragr}
+  All the Quillen adjunctions $F \colon \M \leftrightarrows \M' \colon G$
+  that show up in this paper have the extra property that $G$
+  preserves \emph{all} weak equivalences. This property allows for a
+  simplification of certain coherence issues. Because $G$ preserves
+  all weak equivalences, it induces a functor $\GZ{G}$ at the level of
+  homotopy categories such that the following square is
+  \emph{commutative}
+  \[
+    \begin{tikzcd} \M \ar[d] \ar[r,"G"] &
+\M'\ar[d]\\ \Loc{\M} \ar[r,"\GZ{G}"] &
+\Loc{\M'},
+    \end{tikzcd}
+  \]
+  where $\Loc{\M}$ and $\Loc{M'}$ are the localizations with respect
+  to weak equivalences in the sense of Gabriel--Zisman \cite{}, and
+  the vertical arrows are the localization functor. It follows
+\end{paragr}
 \subsection{Projective model structure}\label{projms}
 
 \begin{paragr}\label{paragr:htpykan} Let $\M$ be a cofibrantly generated model
@@ -209,7 +228,7 @@ Let us now show that isomorphisms \eqref{eq:morphder} and
   graded chain complexes, whence recovering the usual setting of homology.
 \end{remark}
 \begin{paragr}
- Obviously, for a fixed object small category $I$, the previous
+ Obviously, for a fixed small category $I$, the previous
  construction yields a functor
  \[
    \Ho_{\M}(I,-) \colon \Loc{\fun{I}{\M}}\to \Loc{\M}.
