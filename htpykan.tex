@@ -3,21 +3,56 @@
 \begin{paragr}
   All the Quillen adjunctions $F \colon \M \leftrightarrows \M' \colon G$
   that show up in this paper have the extra property that $G$
-  preserves \emph{all} weak equivalences. This property allows for a
-  simplification of certain coherence issues. Because $G$ preserves
-  all weak equivalences, it induces a functor $\GZ{G}$ at the level of
-  homotopy categories such that the following square is
-  \emph{commutative}
+  preserves \emph{all} weak equivalences. This allows for a
+  simplification of certain coherence issues: $G$ induces a unique functor $\GZ{G}$ at the level of
+  homotopy categories such that the following square is \emph{genuinely}
+  commutative
   \[
     \begin{tikzcd} \M \ar[d] \ar[r,"G"] &
 \M'\ar[d]\\ \Loc{\M} \ar[r,"\GZ{G}"] &
 \Loc{\M'},
     \end{tikzcd}
   \]
-  where $\Loc{\M}$ and $\Loc{M'}$ are the localizations with respect
-  to weak equivalences in the sense of Gabriel--Zisman \cite{}, and
-  the vertical arrows are the localization functor. It follows
-\end{paragr}
+  where $\Loc{\M}$ and $\Loc{\M'}$ are the localizations with respect
+  to the weak equivalences in the sense of Gabriel--Zisman \cite{gabrielzisman:calfrh}, and
+  the vertical arrows are the localization functor. It follows from
+  the universal property of localization that
+  $\GZ{G}$ is a total right derived
+  functor of $G$ and we can define $\mathbb{R}G=\overline{G}$, the
+  former being usually only defined up to isomorphism. In addition to giving a canonical choice of right derived functor, this construction
+  has also a very nice $2$\nbd-functorial property. Given another
+  Quillen adjunction $F' \colon \M \leftrightarrows \M' \colon G'$, 
+  any natural transformation \[\alpha \colon G \Rightarrow G'\] induces
+  a unique natural transformation \[\GZ{\alpha} \colon \GZ{G}
+    \Rightarrow \GZ{G'}\]
+  that makes the appropriate $2$\nbd-diagram commute. It follows that the
+  construction
+    \begin{align*}
+    \M &\longmapsto\Loc{\M}\\
+    G &\longmapsto\GZ{G}\\
+    \alpha &\longmapsto\GZ{\alpha}\\
+    \end{align*}
+   defines a \emph{strict} $2$\nbd-functor from the $2$\nbd-category of
+  model categories, right Quillen functors that preserves all weak
+  equivalences and natural transformations between them, to the
+  $2$\nbd-category of (large) categories.
+
+  In contrast, there is no canonical choice for the total left derived functor $\LL F$ associated with
+  a left Quillen functor $F$. Furthermore, even if we make a choice for any such
+  functor, and consider the $2$\nbd-functoriality which associates with
+  any natural transformation $\beta \colon F \Rightarrow F'$ a natural
+  transformation $\LL \beta \colon \LL F \Rightarrow \LL F'$, the
+  following correspondence
+  \begin{align*}
+    \M &\longmapsto\Loc{\M}\\
+    F &\longmapsto\LL F\\
+    \beta &\longmapsto \LL \beta\\
+    \end{align*}
+  is only \emph{pseudo}-functorial. Hence, it involves coherence 
+  data which makes some proofs uneasy.
+
+  The upshot is that since each 
+    \end{paragr}
 \subsection{Projective model structure}\label{projms}
 
 \begin{paragr}\label{paragr:htpykan} Let $\M$ be a cofibrantly generated model
