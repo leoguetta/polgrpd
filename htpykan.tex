@@ -29,13 +29,16 @@ square
 \fun{I}{\M}\ar[d]\\ \Loc{\fun{J}{\M}} \ar[r,"u^*"] &
 \Loc{\fun{I}{\M}},
     \end{tikzcd}
-  \] where the vertical arrows are the localization functors.
+  \] where the vertical arrows are the localization
+  functors. Furthermore, it follows that the bottom functor of the
+  previous square is a total right derived functor of the top
+  functor. In other words $u^*=\mathbb{R} u^*$.
 \end{paragr}
 \begin{paragr} We denote by $\Term$ the terminal category and make the
 canonical identification $\fun{\Term}{\M}=\M$. For a small category
 $I$, we denote by $p_I \colon I \to \Term$ the unique such
 functor. The functor $p_I^* \colon \M \to \fun{I}{\M}$ is the
-``diagonal'' functor that associates to an object $X$ of $\M$, the
+``diagonal'' functor that associates with an object $X$ of $\M$ the
 constant diagram $I \to \M$ with value $X$. Hence, $p_{I!}$ is nothing
 but the colimit functor $\ilim_I \colon \fun{I}{\M} \to \M$, and we
 shall use the two notations interchangeably. Consequently, $\LL
@@ -62,7 +65,7 @@ category and $I$ a small category. The family of functors
   \] is conservative.
 \end{proposition}
 \begin{proof}
-  
+  See \cite[Lemme 2.4]{cisinski:images}.
 \end{proof}
 \subsection{Homotopy cocontinuous functors}\label{hptycocts}
 \begin{paragr} Let $F \colon \M \leftrightarrows \M' \colon G$ be a
@@ -154,11 +157,11 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
    
 \end{paragr}
 \begin{proposition}\label{prop:htpycocts} Let $\M$ and $\M'$ be two (cofibrantly generated)
-  model categories, $F \colon \M \to \M'$ be a Quillen adjunction such
+  model categories, $F \colon \M \to \M'$ be a left Quillen functor such
   that the right adjoint preserves all weak equivalences, and
   $u \colon I \to J$ a functor between small categories. Then the
   canonical natural transformations
-  \begin{equation}
+  \begin{equation}\label{eq:morphder}
      \LL \fun{I}{F}  u^* \Rightarrow u^*  \LL \fun{J}{F}
    \end{equation}
    and
@@ -168,6 +171,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
    are isomorphisms.
 \end{proposition}
 \begin{proof}
+ This is a particular case of the dual of \cite[Proposition 6.12]{cisinski:images}.
 \end{proof}
 \begin{remark}
   The fact that \eqref{eq:cocontinuous} is an isomorphism is commonly
@@ -180,6 +184,14 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
   \end{equation}
   natural in $X$.
 \end{remark}
+Let us now show that isomorphisms \eqref{eq:morphder} and
+\eqref{eq:cocontinuous} are natural in $F$.
+\begin{paragr}
+  Recall that if $F,F' \colon \M \to \M'$ are left Quillen functors
+  and $\alpha \colon F \Rightarrow F'$ is a natural transformation,
+  then it induces a natural transformation between the left derived
+  functors 
+\end{paragr}
 \subsection{Abstract homology of small categories}\label{abstracthom}
 \begin{definition}\label{def:abstracthom}
   Let $\M$ be a (cofibrantly generated) model category. For a small
