@@ -349,7 +349,7 @@ such that the following diagram is commutative
   \to \opCat{k}$ of generating cofibrations of
   $\opifun{k}$. The result follows then immediatly from \cref{lemma:abelpi}.
 \end{proof}
-\begin{paragr}
+\begin{paragr}\label{paragr:subtlety}
   The previous proposition contains an important subtlety.
   Even though we have a
   commutative triangle,
@@ -537,7 +537,7 @@ follows from the fact that $\opCat{k} \to \oCat$
     \end{tikzcd}
   \]
   Since $A'$ is cofibrant and $\grayk{k}$ makes the folk model
-  structure on $\opCat{k}$ a monoidal model structure \cite{}, the
+  structure on $\opCat{k}$ a monoidal model structure \cite{ara_lucas:folmon}, the
   arrow $ \Sph{0}  \grayk{k} A' \to  \opifun{k}\Dsk{1} \grayk{k} A'$ is a
   cofibration. Since $q$ is a trivial fibration, there exists a
   morphism $\alpha' \colon \opifun{k}\Dsk{1}  \grayk{k} A' \to B'$ making the
@@ -834,7 +834,7 @@ follows from the fact that $\opCat{k} \to \oCat$
   \]
   where
   \begin{itemize}
-    \item $(a)$ and $(c)$ are induced by  \ref{paragr:htpykan},
+    \item $(a)$ and $(c)$ are the universal morphisms constructed in \ref{paragr:univmor},
     \item $(b)$ comes from the fact that $p_C^*\Term$ is the terminal
       object of $\fun{C}{\opCat{k}}$
       \item $(d)$ is induced by the cocone $(\tr{C}{c}\to
@@ -842,17 +842,20 @@ follows from the fact that $\opCat{k} \to \oCat$
 \end{itemize}
 All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
 \begin{itemize}
-  \item $(a)$ and $(c)$ by \cref{prop:htpycocts} and the fact that $\abelk{k}$
+  \item $(a)$ by \eqref{eq:morphder} of \cref{prop:htpycocts} and the fact that $\abelk{k}$
     is a left Quillen functor (\cref{prop:abelquillen}),
-  \item $(b)$ by \cref{prop:der2}, \cref{prop:hlgycontrcat} and the
+      \item $(b)$ by \cref{prop:der2}, \cref{prop:hlgycontrcat} and the
     fact that for each object $c$ of $C$, the category $\tr{C}{c}$ has
     a terminal object,
+  \item $(c)$ by \eqref{eq:cocontinuous} of \cref{prop:htpycocts} and the fact that $\abelk{k}$
+    is a left Quillen functor,
   \item $(d)$ by \cref{prop:hocolimtr}.
   \end{itemize}
-  Note that we have also implicitly used in the first two items the trivial fact that
-  $\hoilim_{C}$ preserves isomorphisms of $\Derp{C}$. And similarly
-  with $\LL \abelk{k}$ and isomorphisms of
-  $\Loc{\opCat{k}}$ for the third item. Finally, since by
+  % Note that we have also implicitly used in the first two items the trivial fact that
+  % $\hoilim_{C}$ preserves isomorphisms of $\Derp{C}$. And similarly
+  % with $\LL \abelk{k}$ and isomorphisms of
+  % $\Loc{\opCat{k}}$ for the third item.
+  Finally, since by
   \cref{paragr:abeldisk} and the fact that $\Dsk{0}=\Term$, we have
   \[
     \LL \abelk{k}(\Term) \simeq \Z.
@@ -864,8 +867,46 @@ All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
   which is natural in $C$ by construction, as all the morphisms in the
   previous zig-zag are.
 
-  \lgcomment{Deuxième partie du théorème a écrire, mais ça devrait être
-    trivial maintenant.}
+  For the second part, consider the following diagram in $\Derp{\Z}$:
+  \[
+    \begin{tikzcd}
+      \LL\abelk{k}(C)\ar[r] & \LL\abelk{k'}(C)\\
+       \LL\abelk{k}(\hoilim_{C}\tr{C}{-})\ar[r]\ar[u]&
+       \LL\abelk{k'}(\hoilim_{C}\tr{C}{-})\ar[u]\\
+       \hoilim_{C}\fun{C}{\LL
+     \abelk{k}}(\tr{C}{-})\ar[r] \ar[u]\ar[d]& \hoilim_{C}\fun{C}{\LL
+     \abelk{k'}}(\tr{C}{-})\ar[u]\ar[d]\\
+   \hoilim_{C}\LL \fun{C}{\abelk{k}}(p_C^*\Term)\ar[r] \ar[d]& \hoilim_{C}\LL
+   \fun{C}{\abelk{k'}}(p_C^*\Term)\ar[d] \\
+    \hoilim_{C}p^*_C(\LL \abelk{k}(\Term))\ar[r]& \hoilim_{C}p^*_C(\LL
+    \abelk{k'}(\Term)),
+    \ar[from=1-1,to=2-2,phantom,description, "(A)"]
+    \ar[from=2-1,to=3-2,phantom,description,"(B)"]
+    \ar[from=3-1,to=4-2,phantom,description,"(C)"]
+    \ar[from=4-1,to=5-2,phantom,description,"(D)"]
+  \end{tikzcd}
+\]
+where the horizontal arrows are induced by the natural transformation
+\eqref{transnat} from \cref{paragr:subtlety}
+\[
+    \LL \abelk{k'}\circ \oemb{k} \Rightarrow \LL \abelk{k}.
+  \]
+  (Note that for simplicity we have not make appear the functor
+  $\oemb{k} \colon \Loc{\opCat{k}}\to \Loc{\opCat{k'}}$ in the above
+  diagram.) This naturality implies that the squares $(A)$ and $(C)$ are
+  commutative. Furthermore, the commutativity of the squares $(B)$ and
+  $(D)$ follows from the naturality in $F$ of \eqref{eq:morphder} and
+  \eqref{eq:cocontinuous} from \cref{prop:htpycocts}.
+
+  To conclude, we only need to notice that the following triangle is
+  commutative as an immediate computation shows
+  \[
+    \begin{tikzcd}
+      \LL \abelk{k}(\Term) \ar[d,"\simeq"]\ar[r] & \LL \abelk{k}(\Term)\ar[dl,"\simeq"]\\
+      \Z.
+    \end{tikzcd}
+  \]
+  
 \end{proof}
 
 %%% Local Variables:

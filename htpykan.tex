@@ -1,9 +1,10 @@
 \section{Recollection on homotopy kan extensions in Model categories}
 \subsection{A simplifying technical hypothesis}
-\begin{paragr}
+\begin{paragr}\label{paragr:techyp}
   All the Quillen adjunctions $F \colon \M \leftrightarrows \M' \colon G$
   that show up in this paper have the extra property that $G$
-  preserves \emph{all} weak equivalences. This allows for a
+  preserves \emph{all} weak equivalences (e.g.\ if all objects of
+  $\M'$ are fibrant). This allows for a
   simplification of certain coherence issues: $G$ induces a unique functor $\GZ{G}$ at the level of
   homotopy categories such that the following square is \emph{genuinely}
   commutative
@@ -40,8 +41,9 @@
   In contrast, there is no canonical choice for the total left derived functor $\LL F$ associated with
   a left Quillen functor $F$. Furthermore, even if we make a choice for any such
   functor, and consider the $2$\nbd-functoriality which associates with
-  any natural transformation $\beta \colon F \Rightarrow F'$ a natural
-  transformation $\LL \beta \colon \LL F \Rightarrow \LL F'$, the
+  any natural transformation $\beta \colon F \Rightarrow F'$ the (unique) natural
+  transformation $\LL \beta \colon \LL F \Rightarrow \LL F'$ making
+  the appropriate $2$\nbd-diagram commute, the
   following correspondence
   \begin{align*}
     \M &\longmapsto\Loc{\M}\\
@@ -49,9 +51,13 @@
     \beta &\longmapsto \LL \beta\\
     \end{align*}
   is only \emph{pseudo}-functorial. Hence, it involves coherence 
-  data which makes some proofs uneasy.
+  data which we have to keep track of, making some proofs uneasy.
 
-  The upshot is that since each 
+  The upshot is that since each $\LL F$ is left adjoint to $\GZ{G}$,
+  we can often exploit this fact to reduce a proof concerning the left
+  adjoints $\LL F$ to a proof concerning the right adjoints $\GZ{G}$,
+  which turns out to be much simpler thanks to the \emph{strict}
+  $2$\nbd-functoriality stated above.
     \end{paragr}
 \subsection{Projective model structure}\label{projms}
 
@@ -65,28 +71,28 @@ between small categories induces by precomposition a functor
   \begin{align*} u^* \colon \fun{J}{\M} &\to \fun{I}{\M}\\ X &\mapsto
 X\circ u.
   \end{align*} This functor admits a left adjoint $u_!
-\colon\fun{I}{\M} \to \fun{J}{\M} $ given by the pointwise Kan
+\colon\fun{I}{\M} \to \fun{J}{\M} $, which satisfies the pointwise Kan
 extension formula:
-  \[ u_!(X)(j)=\ilim_{\tr{I}{j}}X\vert_{\tr{I}{j}}.
+  \[ u_!(X)(j)\simeq\ilim_{\tr{I}{j}}X\vert_{\tr{I}{j}}.
   \] By construction, $u^*$ preserves the weak equivalences and the
 fibrations of the projective model structure. Hence, the adjunction
 $u_! \dashv u^*$ is a Quillen adjunction and we get an adjunction at
 the level of homotopy categories
   \[ \LL u_! \colon \Loc{\fun{I}{\M}} \leftrightarrows
-\Loc{\fun{J}{\M}} \colon u^*.
-  \] Here, we kept the same notation $u^*$ at the level of homotopy
-categories (instead of, say, $\mathbb{R} u^*$) because the functor
-$u^*$ preserves weak equivalences and thus we have a commutative
-square
-  \[
-    \begin{tikzcd} \fun{J}{\M} \ar[d] \ar[r,"u^*"] &
-\fun{I}{\M}\ar[d]\\ \Loc{\fun{J}{\M}} \ar[r,"u^*"] &
-\Loc{\fun{I}{\M}},
-    \end{tikzcd}
-  \] where the vertical arrows are the localization
-  functors. Furthermore, it follows that the bottom functor of the
-  previous square is a total right derived functor of the top
-  functor. In other words $u^*=\mathbb{R} u^*$.
+\Loc{\fun{J}{\M}} \colon \GZ{u^*}.
+  \]%  Here, we kept the same notation $u^*$ at the level of homotopy
+% categories (instead of, say, $\mathbb{R} u^*$) because the functor
+% $u^*$ preserves weak equivalences and thus we have a commutative
+% square
+%   \[
+%     \begin{tikzcd} \fun{J}{\M} \ar[d] \ar[r,"u^*"] &
+% \fun{I}{\M}\ar[d]\\ \Loc{\fun{J}{\M}} \ar[r,"u^*"] &
+% \Loc{\fun{I}{\M}},
+%     \end{tikzcd}
+%   \] where the vertical arrows are the localization
+%   functors. Furthermore, it follows that the bottom functor of the
+%   previous square is a total right derived functor of the top
+%   functor. In other words $u^*=\mathbb{R} u^*$.
 \end{paragr}
 \begin{paragr} We denote by $\Term$ the terminal category and make the
 canonical identification $\fun{\Term}{\M}=\M$. For a small category
@@ -114,7 +120,7 @@ the level of homotopy categories as we recall in the following result.
 \end{paragr}
 \begin{proposition}\label{prop:der2} Let $\M$ be a (cofibrantly generated) model
 category and $I$ a small category. The family of functors
-  \[ \left(i^* \colon \Loc{\fun{I}{\M}}\to \Loc{\M}\right)_{i \in
+  \[ \left(\GZ{i^*} \colon \Loc{\fun{I}{\M}}\to \Loc{\M}\right)_{i \in
 \Ob(I)}
   \] is conservative.
 \end{proposition}
@@ -122,9 +128,9 @@ category and $I$ a small category. The family of functors
   See \cite[Lemme 2.4]{cisinski:images}.
 \end{proof}
 \subsection{Homotopy cocontinuous functors}\label{hptycocts}
-\begin{paragr} Let $F \colon \M \leftrightarrows \M' \colon G$ be a
+\begin{paragr}\label{paragr:univmor} Let $F \colon \M \leftrightarrows \M' \colon G$ be a
   Quillen adjunction between (cofibrantly generated) model categories
-  and let us assume that $G$ \emph{preserves all weak equivalences}, which is the case, for example, if all objects of $\M'$ are fibrant. For any small
+  and such that $G$ preserves all weak equivalences. For any small
 category $I$, we consider the functors induced by post-composition
   \[\begin{aligned} \fun{I}{F} \colon \fun{I}{\M} &\to \fun{I}{\M'}\\ X &\mapsto
 F\circ X.
@@ -138,32 +144,32 @@ preserves all weak equivalences. Hence, it induces an adjunction at
 the level of homotopy categories
 
   \[ \LL \fun{I}{F} \colon \Loc{\fun{I}{\M}}\leftrightarrows
-    \Loc{\fun{I}{\M'}} \colon \fun{I}{G},
+    \Loc{\fun{I}{\M'}} \colon \GZ{\fun{I}{G}}.
   \]
-where, similarly to \ref{paragr:htpykan}, we abusively wrote
-$\fun{I}{G}$, instead of say
-$\mathbb{R}\fun{I}{G}$, because it preserves all weak equivalences.
+% where, similarly to \ref{paragr:htpykan}, we abusively wrote
+% $\fun{I}{G}$, instead of say
+% $\mathbb{R}\fun{I}{G}$, because it preserves all weak equivalences.
 
 Now, let $u \colon I \to J$ be a functor between small
-categories. Since $G$ preserves all weak equivalences, we have a
-\emph{strictly} commutative square
+categories. By the strict $2$\nbd-functoriality property stated in
+\ref{paragr:techyp}, we have a strictly commutative diagram
   \[
-    \begin{tikzcd} \Loc{\fun{J}{\M'}} \ar[r,"\fun{J}{G}"] \ar[d,"u^*"']&
-\Loc{\fun{J}{\M}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M'}} \ar[r,"\fun{I}{G}"'] & \Loc{\fun{I}{\M}}.
+    \begin{tikzcd} \Loc{\fun{J}{\M'}} \ar[r,"\GZ{\fun{J}{G}}"] \ar[d,"\GZ{u^*}"']&
+\Loc{\fun{J}{\M}} \ar[d,"\GZ{u^*}"]\\ \Loc{\fun{I}{\M'}} \ar[r,"\GZ{\fun{I}{G}}"'] & \Loc{\fun{I}{\M}}.
     \end{tikzcd}
   \]
   By adjunction, we can then define a canonical natural transformation
   \[
-     \LL \fun{I}{F}  u^* \Rightarrow u^*  \LL \fun{J}{F}
+     \LL \fun{I}{F}  \GZ{u^*} \Rightarrow \GZ{u^*}  \LL \fun{J}{F}
    \]
    as the following composition
      \[
        \begin{tikzcd}
          \Loc{\fun{J}{\M}}\ar[d,"\LL \fun{J}{F}"']
          \ar[rd,"\Unit{\Loc{\fun{J}{\M}}}",""{name=A,below left}] & \\
-         \Loc{\fun{J}{\M'}} \ar[r,"\fun{J}{G}"'] \ar[d,"u^*"']&
-\Loc{\fun{J}{\M}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M'}}
-\ar[r,"\fun{I}{G}"]\ar[rd,"\Unit{\Loc{\fun{I}{\M'}}}"',""{name=B,above
+         \Loc{\fun{J}{\M'}} \ar[r,"\GZ{\fun{J}{G}}"'] \ar[d,"\GZ{u^*}"']&
+\Loc{\fun{J}{\M}} \ar[d,"\GZ{u^*}"]\\ \Loc{\fun{I}{\M'}}
+\ar[r,"\GZ{\fun{I}{G}}"]\ar[rd,"\Unit{\Loc{\fun{I}{\M'}}}"',""{name=B,above
 right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 &\Loc{\fun{I}{\M'}}.
 \ar[from=A,to=2-1,Rightarrow,"\eta"]
@@ -172,14 +178,14 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
   \]
   This, in turns, allows to define a canonical natural transformation
   \[
-    u_!\LL \fun{I}{F} \Rightarrow \LL \fun{J}{F} u_! 
+    \LL u_!\LL \fun{I}{F} \Rightarrow \LL \fun{J}{F} \LL u_! 
   \]
   as the following composition
   \[
     \begin{tikzcd}
-    &  \Loc{\fun{J}{\M'}}\ar[d,"u^*"]
+    &  \Loc{\fun{J}{\M'}}\ar[d,"\GZ{u^*}"]
     \ar[dl,"\Unit{\Loc{\fun{J}{\M'}}}"',""{name=A,below right}]& \Loc{\fun{J}{\M}} \ar[l,"\LL
-    \fun{J}{F}"'] \ar[d,"u^*"'] & \Loc{\fun{I}{\M}} \ar[l,"\LL u_!"']
+    \fun{J}{F}"'] \ar[d,"\GZ{u^*}"'] & \Loc{\fun{I}{\M}} \ar[l,"\LL u_!"']
     \ar[dl,"\Unit{\Loc{\fun{I}{\M}}}",""{name=B,above left}]
       \\
     \Loc{\fun{J}{\M'}} & \ar[l,"\LL u_!"]
@@ -211,21 +217,31 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
    
 \end{paragr}
 \begin{proposition}\label{prop:htpycocts} Let $\M$ and $\M'$ be two (cofibrantly generated)
-  model categories, $F \colon \M \to \M'$ be a left Quillen functor such
-  that the right adjoint preserves all weak equivalences, and
+  model categories, $F \colon \M \leftrightarrows \M' \colon G$ a Quillen adjunction such
+  that $G$ preserves all weak equivalences, and
   $u \colon I \to J$ a functor between small categories. Then the
   canonical natural transformations
   \begin{equation}\label{eq:morphder}
-     \LL \fun{I}{F}  u^* \Rightarrow u^*  \LL \fun{J}{F}
+     \LL \fun{I}{F}  \GZ{u^*} \Rightarrow \GZ{u^*}  \LL \fun{J}{F}
    \end{equation}
    and
    \begin{equation}\label{eq:cocontinuous}
-     u_!\LL \fun{I}{F} \Rightarrow \LL \fun{J}{F} u_! 
+     \LL u_!\LL \fun{I}{F} \Rightarrow \LL \fun{J}{F} \LL u_! 
    \end{equation}
-   are isomorphisms.
+   are isomorphisms, which are natural in $F$ in the obvious sense.
 \end{proposition}
 \begin{proof}
- This is a particular case of the dual of \cite[Proposition 6.12]{cisinski:images}.
+ The fact that they are isomorphisms is a particular case of the dual
+ of \cite[Proposition 6.12]{cisinski:images}. For the naturality, a
+ calculus of mates argument shows that this is imply by the naturality
+ in $G$
+ of the equality
+ \[
+   \GZ{\fun{I}{G}}\GZ{u^*}=\GZ{u^*}\GZ{\fun{J}{G}},
+ \]
+ which is a straightforward consequence of the strict
+ $2$\nbd-functoriality property stated in \ref{paragr:techyp}. Details
+ are left to the reader.
 \end{proof}
 \begin{remark}
   The fact that \eqref{eq:cocontinuous} is an isomorphism is commonly
@@ -236,16 +252,8 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
   \begin{equation}\label{eq:htpycolim}
     \hoilim_I \LL \fun{I}{F}(X) \simeq \LL F (\hoilim_IX),
   \end{equation}
-  natural in $X$.
+  natural in $X$ and in $F$.
 \end{remark}
-Let us now show that isomorphisms \eqref{eq:morphder} and
-\eqref{eq:cocontinuous} are natural in $F$.
-\begin{paragr}
-  Recall that if $F,F' \colon \M \to \M'$ are left Quillen functors
-  and $\alpha \colon F \Rightarrow F'$ is a natural transformation,
-  then it induces a natural transformation between the left derived
-  functors 
-\end{paragr}
 \subsection{Abstract homology of small categories}\label{abstracthom}
 \begin{definition}\label{def:abstracthom}
   Let $\M$ be a (cofibrantly generated) model category. For a small
@@ -277,11 +285,11 @@ Let us now show that isomorphisms \eqref{eq:morphder} and
       &\Term&
     \end{tikzcd}
   \]
-  which induces a commutative triangle
+  which induces a (strictly) commutative triangle
   \[
     \begin{tikzcd}[column sep=small]
-      \Loc{\fun{I}{\M}}  && \Loc{\fun{J}{\M}}\ar[ll,"u^*"'] \\
-      &\Loc{\M}.\ar[lu,"p_I^*"]\ar[ru,"p_J^*"']&
+      \Loc{\fun{I}{\M}}  && \Loc{\fun{J}{\M}}\ar[ll,"\GZ{u^*}"'] \\
+      &\Loc{\M}.\ar[lu,"\GZ{p_I^*}"]\ar[ru,"\GZ{p_J^*}"']&
     \end{tikzcd}
   \]
   Hence, by uniqueness of adjoints, this yields a triangle commutative
@@ -295,20 +303,21 @@ Let us now show that isomorphisms \eqref{eq:morphder} and
   \]
   Now let $X$ be an object of $\fun{J}{\M}$. Then we have a morphism
   \[
-    \LL p_{I!}u^*X \simeq \LL p_{J!} \LL u_! u^*X\to \LL p_{J!}X,
+    \LL p_{I!}\GZ{u^*}X \simeq \LL p_{J!} \LL u_! \GZ{u^*}X\to \LL p_{J!}X,
   \]
   where the morphism of the right is the co-unit of the ajdunction
-  $\LL u_! \dashv u^*$. In other words, this defines a morphism
+  $\LL u_! \dashv \GZ{u^*}$. In other words, this defines a morphism
   \[
   \Ho_{\M}(u,X)\colon  \Ho_{\M}(I,u^*X)\to \Ho_{\M}(J,X).
   \]
-  We then have the following functoriality result.
+  We then have the following functoriality result, whose proof is a
+  straightforward verification left to the reader.
 \end{paragr}
 \begin{proposition}\label{prop:functorialityhomology}
   Let $\M$ a (cofibrantly generated) model category, $K$ a small
   category and $X$ an object of $\fun{K}{\M}$. We have a functor
   \[
-      \Ho_{\M}(-,X) \colon \tr{\Cat}{K} \to \Loc{\M},
+      \tr{\Cat}{K} \to \Loc{\M},
     \]
     whose action on object is 
   \[
@@ -320,13 +329,11 @@ Let us now show that isomorphisms \eqref{eq:morphder} and
 \]
  
 \end{proposition}
-\begin{proof}
-\end{proof}
 
 \begin{paragr}
   The main case of interest of the previous proposition will be in the
-  case that $K=\Term$ is the terminal category. Then $F$ is simply an
-  object $X$ of $\M$ and we can make the identification
+  case that $K=\Term$ is the terminal category. Then $X$ is simply an
+  object of $\M$ and we can make the identification
   $\tr{\Cat}{K}\simeq \Cat$. We speak of the (abstract) homology of a
   small category $I$ with \emph{constant} coefficient $X$ for
   \[
@@ -338,7 +345,7 @@ Let us now show that isomorphisms \eqref{eq:morphder} and
   Let $\M$ be a (cofibrantly generated) model category and $X$ an
   object of $\M$. We have a functor
   \[
-    \Ho(-,X) \colon \Cat \to \Loc{\M},
+    \Ho_{\M}(-,X) \colon \Cat \to \Loc{\M},
   \]
   whose action on objects is
   \[
