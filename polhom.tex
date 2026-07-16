@@ -889,10 +889,12 @@ All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
 where the horizontal arrows are induced by the natural transformation
 \eqref{transnat} from \cref{paragr:subtlety}
 \[
-    \LL \abelk{k'}\circ \oemb{k} \Rightarrow \LL \abelk{k}.
+    \LL \abelk{k'}\circ \emb{k}{k'} \Rightarrow \LL \abelk{k}.
   \]
+  \lgcomment{En fait, en \eqref{transnat} on parle seulement de
+    $\oemb{k}$ et pas $\emb{k}{k'}$. Faut-il changer?}
   (Note that for simplicity we have not make appear the functor
-  $\oemb{k} \colon \Loc{\opCat{k}}\to \Loc{\opCat{k'}}$ in the above
+  $\emb{k}{k'} \colon \Loc{\opCat{k}}\to \Loc{\opCat{k'}}$ in the above
   diagram.) This naturality implies that the squares $(A)$ and $(C)$ are
   commutative. Furthermore, the commutativity of the squares $(B)$ and
   $(D)$ follows from the naturality in $F$ of \eqref{eq:morphder} and
