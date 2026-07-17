@@ -61,7 +61,8 @@ The present work addresses the following question:
 already shows that the answer is by no means trivial: consider $\Z$ as an
 \ook 0-category $C$ where $C_0$ is a single point, $C_1=\Z$ and all
 $i$-cells are identities for $i>1$. As an object of $\opCat 0$, $C$ is
-cofibrant and therefore $\Hop 0(C)$ is just $\abelk 0(C)$. However,
+cofibrant and therefore $\Hop 0(C)$ is just $\abelk 0(C)$, which a
+direction shows that it is simply $\Z$ concentrated in degree $0$. However,
 $\oemb 0 C$ is {\em not} a cofibrant object in $\oCat$, and to compute
 $\Hopol(\oemb 0 C)$ we first need a polygraphic resolution $\frcat P\to
 \oemb 0 C$. Now, for any such $P$ and each $k>1$, the set of $k$-dimensional
@@ -76,11 +77,59 @@ isomorphism in the following two cases:
   \end{itemize}
   As for the general case, the problem remains wide open.
 
-  
 
-  
+  The strategy of the proof of this result is indirect. When $C$ is a
+  $1$-category or a groupoid, we have access to another possible
+  definition of homology groups of $C$ which goes as follows. We
+  consider the category $\LMod{C}$ of left $C$\nbd-modules, that is
+  the category of functors $F \colon C \to \Ab$ from $C$ to the
+  category of abelian groups and natural transformations between them,
+  as well as the category of right $C$\nbd-modules
+  $\RMod{C}:=\LMod{C^{\op}}$. Given a right $C$\nbd-module $F$ and a
+  left $C$\nbd-module $G$, we can then define their total tensor
+  product as the following co-end
+  \[
+    F \tens{C}G := \int^{c \in C}F(c)\tens{\Z} G(c).
+  \]
+  This defines thus a functor $\RMod{C}\times \LMod{C} \to \Ab$, which
+  is right exact in each variable and thus right derivable as the
+  categories of left and right $C$\nbd-modules have enough
+  projectives. This allows us to define the (classical) homology of $C$
+  as
+  \[
+    \Ho(C):=\cst{\Z}\Ltens{C}\cst{\Z},
+  \]
+  wher $\Ltens{C}$ is the total left derived functor of $\tens{C}$,
+  and $\cst{\Z}$ denotes both the constant left and right
+  $C$\nbd-module with value $\Z$. Note that in the case that $C$ is a
+  group $G$, this definition is the usual definition of the homology
+  of $G$ with coefficient $\Z$. Note also that by a standard result,
+  $\Ho(C)$ coincide with the homology of the classifying space of $C$,
+  that is the homology of the nerve of $C$. \lgcomment{Ce serait bien de
+    mettre des références ici.}
 
+  Now, for $C$ a $1$\nbd-category, which we consider as an $\ook{1}$\nbd-category, the morphism \eqref{eq:natural} is
+  actually part of a commutative triangle
+  \[
+    \begin{tikzcd}[column sep=small]
+      \Hopol(\oemb 1 C)\ar[rr] \ar[dr]&&\Hop 1 (C)\ar[dl]\\
+      &\Ho(C).&
+    \end{tikzcd}
+  \]
+  The strategy we use is then to prove that both the vertical
+  morphisms are quasi-isomorphisms, and we can then deduce by
+  2-out-of-3 that the horizontal morphism is also a quasi-isomorphism,
+  hence answering the question stated above in this case.
 
-
- 
-  
+  Similarly, when $C=G$ is a groupoid, considered as a strict
+  $\omega$-groupoid, we have a commutative triangle
+  \[
+    \begin{tikzcd}[column sep=small]
+      \Hopol(\oemb 0 G)\ar[rr] \ar[dr]&&\Hop 0 (G)\ar[dl]\\
+      &\Ho(G).&
+    \end{tikzcd}
+  \]
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "main"
+%%% End:
