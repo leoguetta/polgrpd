@@ -116,11 +116,6 @@ isomorphism in the following two cases:
       &\Ho(C).&
     \end{tikzcd}
   \]
-  The strategy we use is then to prove that both the vertical
-  morphisms are quasi-isomorphisms, and we can then deduce by
-  2-out-of-3 that the horizontal morphism is also a quasi-isomorphism,
-  hence answering the question stated above in this case.
-
   Similarly, when $C=G$ is a groupoid, considered as a strict
   $\omega$-groupoid, we have a commutative triangle
   \[
@@ -129,6 +124,56 @@ isomorphism in the following two cases:
       &\Ho(G).&
     \end{tikzcd}
   \]
+  The strategy we use is to prove that the vertical morphisms of these
+  two triangles are quasi-isomorphisms, and then deduce by 2-out-of-3
+  that the horizontal morphisms are also quasi-isomorphisms. In fact,
+  one of the main result that we prove in this paper is the following
+  \begin{theoremintro}\label{thmprincipal}
+    Let $C$ be a $1$\nbd-category and $1 \leq k \leq \omega$. Then the
+    morphism
+    \[
+       \Hop k (C) \to \Ho(C)
+    \]
+    is a quasi-isomorphism. When $C$ is a groupoid, this also works
+    for $k=0$. 
+  \end{theoremintro}
+
+  This theorem is an important result on its own: it says that the
+  standard homology of $C$, that is $\Ho(C)$, is canonically
+  isomorphic to its polygraphic homology computed using polygraphic
+  resolutions in $\opCat{k}$ for any chosen $k\geq 1$ or even $k=0$ if $C$ is
+  a groupoid. For example, for a group $G$ this means that we can
+  compute the singular homology of the Eilenberg--MacLane space
+  $K(G,1)$, using \emph{strict} $\omega$\nbd-groupoids.
+
+  In fact, several cases of \cref{thmprincipal} were already
+  known. First, the case $k=\oo$ is the main result of
+  \cite{guetta:homcat}. Second, the case $k=1$ \lgcomment{À finir, il
+    faut parler des travaux de Philippe et Yves ici.}
+
+  The proof of \cref{thmprincipal} given in the present article follows exactly
+  the same strategy as in \cite{guetta:homcat} and relies on two
+  auxilliary results, which are interesting on their own.
+
+  \begin{propositionintro}
+    Let $C$ be a $1$\nbd-category with a terminal object. Then for any
+    $1 \leq k \leq \oo$, we have
+    \[
+      \Hop k (C) \simeq \Z,
+    \]
+    where $\Z$ is considered as a chain complex concentrated in degree
+    $0$. If $C$ is a groupoid, then this also works for $k=0$. 
+  \end{propositionintro}
+  \begin{propositionintro}
+    Let $C$ be a $1$\nbd-category. Then the
+    colimit
+    \[
+      C \simeq \ilim_{c \in C} \tr{C}{c}
+    \]
+    is a \emph{homotopy colimit} in $\opCat{k}$ with respect to the
+    canonical model structure for any $1 \leq k \leq \oo$. If $C$ is a
+    groupoid, then this also works for $k=0$. 
+  \end{propositionintro}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"
