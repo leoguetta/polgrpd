@@ -14,7 +14,7 @@ categories. The {\em polygraphic homology} of an \oo-category $C$
 is by definition
 \[\Hopol(C)=\LL\abel(C).\]
 To compute this homology, we first produce
-a cofibrant replacement of $C$, namely a polygraph $P$ together with an 
+a cofibrant replacement of $C$, namely a polygraph $P$ together with 
 an acyclic fibration $p:\frcat P\to C$, then apply the functor $\abel$
 directly to $\frcat P$, whence the name.
 
@@ -33,9 +33,11 @@ $\abel=\abelk k\circ\opifun k$, and $\LL\abel$ is naturally isomorphic
 to $\LL\abelk k\circ \LL\opifun k$. This leads to define the
 polygraphic homology of an \ook k-category $C$ by
 \[\Hop{k}(C)=\LL\abelk k(C).\]
-On the other hand, each \ook k-category $C$ has a polygraphic homology
-when considered as a plain \oo-category,  that is just $\Hopol(\oemb k
-C)$. The following diagram gives the general picture:
+On the other hand, each \ook k-category $C$ can be seen as an \ook
+{k'}-category for any $k'$ such that $k\leq k'\leq \oo$ and has
+therefore also an \ook{k'}-homology $\Hop{k'\!}(C)$. In particular, for
+$k'=\oo$, we recover its polygraphic homology $\Hopol(C)$, as shown in 
+the following diagram:
 \[
   \xymatrix{\opCat k \ar[r]^{\oemb k}\ar[d]& \oCat\ar[r]^{\opifun k}\ar[d] & \opCat k\ar[r]^{\abelk k}\ar[d] & \Chp\ar[d]\\
   \Loc{\opCat k}\ar[r]_{\RR\oemb k} & \Loc{\oCat}\ar[r]_{\LL\opifun k}\ar@{=>}[ru] & \Loc{\opCat
@@ -50,95 +52,67 @@ transformation from $\LL\abel\circ\RR\oemb k$ to $\LL\abelk k$. In
 other words, for each \ook k-category $C$, there is a morphism
 \begin{equation}
   \label{eq:natural}
-  \Hopol(\oemb k C)\to \Hop k (C),
+  \Hopol(C)\to \Hop k (C),
 \end{equation}
 natural in $C$.
 The present work addresses the following question:
 \begin{quote}
-  In which cases is the morphism~(\ref{eq:natural}) is an isomorphism?
+ {\em In which cases is the morphism~(\ref{eq:natural}) an isomorphism?}
 \end{quote}
  A very simple example
 already shows that the answer is by no means trivial: consider $\Z$ as an
 \ook 0-category $C$ where $C_0$ is a single point, $C_1=\Z$ and all
 $i$-cells are identities for $i>1$. As an object of $\opCat 0$, $C$ is
-cofibrant and therefore $\Hop 0(C)$ is just $\abelk 0(C)$, which a
-direction shows that it is simply $\Z$ concentrated in degree $0$. However,
-$\oemb 0 C$ is {\em not} a cofibrant object in $\oCat$, and to compute
-$\Hopol(\oemb 0 C)$ we first need a polygraphic resolution $\frcat P\to
-\oemb 0 C$. Now, for any such $P$ and each $k>1$, the set of $k$-dimensional
+cofibrant and therefore $\Hop 0(C)$ is just $\abelk 0(C)$, that is $\Z$ concentrated in degree $0$. However,
+$C$ is {\em not} a cofibrant object in $\oCat$, and to compute
+$\Hopol(C)$ we first need a polygraphic resolution $\frcat P\to C$. Now, for any such $P$ and each $k>1$, the set of $k$-dimensional
 generators must be non-empty and the direct computation of the homology of
 $\abel\frcat P$ is far from obvious.
 
-The main result of this paper is that~(\ref{eq:natural}) is in fact an
+The main result of this paper is that~(\ref{eq:natural}) is an
 isomorphism in the following two cases:
 \begin{itemize}
 \item $C$ is a $1$-category, seen as an \ook k-category for $k\geq 1$;
   \item $C$ is a groupoid, seen as an \ook k-category for $k\geq 0$.
   \end{itemize}
-  As for the general case, the problem remains wide open.
-
-
-  The strategy of the proof of this result is indirect. When $C$ is a
-  $1$-category or a groupoid, we have access to another possible
-  definition of homology groups of $C$ which goes as follows. We
-  consider the category $\LMod{C}$ of left $C$\nbd-modules, that is
-  the category of functors $F \colon C \to \Ab$ from $C$ to the
+In fact, if $C$ is a $1$-category or a groupoid,  we take advantage of the existence
+of the usual homology $\Ho(C)$ obtained by deriving the tensor product
+of $C$-modules. Precisely, the
+category $\LMod{C}$ of left $C$\nbd-modules is the category of
+functors $F \colon C \to \Ab$ from $C$ to the
   category of abelian groups and natural transformations between them,
-  as well as the category of right $C$\nbd-modules
-  $\RMod{C}:=\LMod{C^{\op}}$. Given a right $C$\nbd-module $F$ and a
+  and the category $\RMod{C}$ of right $C$\nbd-modules is the category
+  of functors $G \colon C^{\op} \to \Ab$. Given a right $C$\nbd-module $F$ and a
   left $C$\nbd-module $G$, we can then define their total tensor
   product as the following co-end
   \[
     F \tens{C}G := \int^{c \in C}F(c)\tens{\Z} G(c).
   \]
-  This defines thus a functor $\RMod{C}\times \LMod{C} \to \Ab$, which
-  is right exact in each variable and thus right derivable as the
+  This defines a functor $\RMod{C}\times \LMod{C} \to \Ab$,
+   right exact in each variable and thus right derivable as the
   categories of left and right $C$\nbd-modules have enough
   projectives. This allows us to define the (classical) homology of $C$
   as
   \[
     \Ho(C):=\cst{\Z}\Ltens{C}\cst{\Z},
   \]
-  wher $\Ltens{C}$ is the total left derived functor of $\tens{C}$,
+  where $\Ltens{C}$ is the total left derived functor of $\tens{C}$,
   and $\cst{\Z}$ denotes both the constant left and right
-  $C$\nbd-module with value $\Z$. Note that in the case that $C$ is a
-  group $G$, this definition is the usual definition of the homology
-  of $G$ with coefficient $\Z$. Note also that by a standard result,
-  $\Ho(C)$ coincide with the homology of the classifying space of $C$,
-  that is the homology of the nerve of $C$. \lgcomment{Ce serait bien de
-    mettre des références ici.}
+  $C$\nbd-module with value $\Z$. Note that if $C$ is a
+  group, this definition is the usual definition of the homology
+  of $C$ with coefficient $\Z$.
 
-  Now, for $C$ a $1$\nbd-category, which we consider as an $\ook{1}$\nbd-category, the morphism \eqref{eq:natural} is
-  actually part of a commutative triangle
-  \[
-    \begin{tikzcd}[column sep=small]
-      \Hopol(\oemb 1 C)\ar[rr] \ar[dr]&&\Hop 1 (C)\ar[dl]\\
-      &\Ho(C).&
-    \end{tikzcd}
-  \]
-  Similarly, when $C=G$ is a groupoid, considered as a strict
-  $\omega$-groupoid, we have a commutative triangle
-  \[
-    \begin{tikzcd}[column sep=small]
-      \Hopol(\oemb 0 G)\ar[rr] \ar[dr]&&\Hop 0 (G)\ar[dl]\\
-      &\Ho(G).&
-    \end{tikzcd}
-  \]
-  The strategy we use is to prove that the vertical morphisms of these
-  two triangles are quasi-isomorphisms, and then deduce by 2-out-of-3
-  that the horizontal morphisms are also quasi-isomorphisms. In fact,
-  one of the main result that we prove in this paper is the following
-  \begin{theoremintro}\label{thmprincipal}
-    Let $C$ be a $1$\nbd-category and $1 \leq k \leq \omega$. Then the
-    morphism
-    \[
-       \Hop k (C) \to \Ho(C)
-    \]
-    is a quasi-isomorphism. When $C$ is a groupoid, this also works
-    for $k=0$. 
-  \end{theoremintro}
+  Now, if $1\leq k\leq \oo$ and $C$ is a $1$-category seen as an  \ook
+  k-category, we are able to build a map
+  \begin{equation}
+    \label{eq:poltoclassical}
+     \Hop k (C) \to \Ho(C)
+   \end{equation}
+   natural in $C$ and show that~(\ref{eq:poltoclassical}) is an
+   isomorphism. Likewise, if $C$ is a groupoid, the same holds
+   for $0\leq k\leq \oo$.
 
-  This theorem is an important result on its own: it says that the
+ This is a significant result on its own: it says that the
   standard homology of $C$, that is $\Ho(C)$, is canonically
   isomorphic to its polygraphic homology computed using polygraphic
   resolutions in $\opCat{k}$ for any chosen $k\geq 1$ or even $k=0$ if $C$ is
@@ -146,34 +120,53 @@ isomorphism in the following two cases:
   compute the singular homology of the Eilenberg--MacLane space
   $K(G,1)$, using \emph{strict} $\omega$\nbd-groupoids.
 
-  In fact, several cases of \cref{thmprincipal} were already
-  known. First, the case $k=\oo$ is the main result of
-  \cite{guetta:homcat}. Second, the case $k=1$ \lgcomment{À finir, il
-    faut parler des travaux de Philippe et Yves ici.}
+  We then complete the argument by showing that, in the case of
+  $1$-categories, the map~(\ref{eq:natural}) fits into a commutative triangle
+ \[
+    \begin{tikzcd}[column sep=small]
+      \Hopol(C) \ar[dr]\ar[rr,"(1)"]&&\Hop k (C)\ar[dl]\\
+      &\Ho(C)&
+    \end{tikzcd}
+  \]
+  where both downfacing arrows are instances of the
+  isomorphism~(\ref{eq:poltoclassical}). Therefore the horizontal
+  arrow is also an isomorphism. When $C$ is a groupoid, the same
+  result extends to the value $k=0$.
 
-  The proof of \cref{thmprincipal} given in the present article follows exactly
-  the same strategy as in \cite{guetta:homcat} and relies on two
-  auxilliary results, which are interesting on their own.
+  
+ 
+Partial results about the isomorphism~(\ref{eq:poltoclassical}) have
+already been established in earlier works. First, the case $k=\oo$ is the main result of
+\cite{guetta:homcat}. 
 
-  \begin{propositionintro}
-    Let $C$ be a $1$\nbd-category with a terminal object. Then for any
-    $1 \leq k \leq \oo$, we have
-    \[
-      \Hop k (C) \simeq \Z,
-    \]
-    where $\Z$ is considered as a chain complex concentrated in degree
-    $0$. If $C$ is a groupoid, then this also works for $k=0$. 
-  \end{propositionintro}
-  \begin{propositionintro}
-    Let $C$ be a $1$\nbd-category. Then the
-    colimit
-    \[
-      C \simeq \ilim_{c \in C} \tr{C}{c}
-    \]
-    is a \emph{homotopy colimit} in $\opCat{k}$ with respect to the
-    canonical model structure for any $1 \leq k \leq \oo$. If $C$ is a
-    groupoid, then this also works for $k=0$. 
-  \end{propositionintro}
+% Second, the case $k=1$ \lgcomment{À finir, il
+%     faut parler des travaux de Philippe et Yves ici.}
+
+%   The proof of \cref{thmprincipal} given in the present article follows exactly
+%   the same strategy as in \cite{guetta:homcat} and relies on two
+%   auxilliary results, which are interesting on their own.
+
+%   \begin{propositionintro}
+%     Let $C$ be a $1$\nbd-category with a terminal object. Then for any
+%     $1 \leq k \leq \oo$, we have
+%     \[
+%       \Hop k (C) \simeq \Z,
+%     \]
+%     where $\Z$ is considered as a chain complex concentrated in degree
+%     $0$. If $C$ is a groupoid, then this also works for $k=0$. 
+%   \end{propositionintro}
+%   \begin{propositionintro}
+%     Let $C$ be a $1$\nbd-category. Then the
+%     colimit
+%     \[
+%       C \simeq \ilim_{c \in C} \tr{C}{c}
+%     \]
+%     is a \emph{homotopy colimit} in $\opCat{k}$ with respect to the
+%     canonical model structure for any $1 \leq k \leq \oo$. If $C$ is a
+%     groupoid, then this also works for $k=0$. 
+%   \end{propositionintro}
+
+  
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"
