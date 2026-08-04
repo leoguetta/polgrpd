@@ -398,24 +398,24 @@ The above natural transformation is then
   Let $k\geq 0$. The \emph{$\pair \oo k$\nbd-polygraphic homology} of
   an \ook k\nbd-category $C$ is defined as
   \[
-    \Hop{k}_{\bullet}(C):=\Ho_{\bullet}(\LL \abelk{k} (C)).
+    \Hop{k}(C):=\Ho(\LL \abelk{k} (C)).
   \]
 \end{definition}
 
 \begin{paragr}\label{paragr:cancomp}
   Given an \ook k\nbd-category $C$, we shall
-  simply write $\Hop{\oo}_{\bullet}(C)$ instead of
-  $\Hop{\oo}_{\bullet}(\oemb{k}(C))$.
+  simply write $\Hop{\oo}(C)$ instead of
+  $\Hop{\oo}(\oemb{k}(C))$.
   In particular, the natural transformation \eqref{transnat} becomes
   \[
-    \Hop{\oo}_{\bullet}(C) \to \Hop{k}_{\bullet}(C).
+    \Hop{\oo}(C) \to \Hop{k}(C).
   \]
 \end{paragr}
 
 \begin{openquestion}\label{openquestion} With the same notation as
   above, is the canonical morphism
   \[
-     \Hop{\oo}_{\bullet}(C) \to \Hop{k}_{\bullet}(C)
+     \Hop{\oo}(C) \to \Hop{k}(C)
    \]
    an isomorphism of $\Loc{\Chp}$?
 \end{openquestion}
@@ -757,7 +757,7 @@ follows from the fact that $\opCat{k} \to \oCat$
   Let $C$ be a (1-)category. Then, for any $1
   \leq k \leq \oo$, there is an isomorphism
   \[
-    \Hop{k}_{\bullet}(C) \to \Ho_{\bullet}(C)
+    \Hop{k}(C) \to \Ho(C)
   \]
   natural in $C$. If $C$ is a groupoid, this also holds
   for $k=0$. Furthermore, this
@@ -765,9 +765,9 @@ follows from the fact that $\opCat{k} \to \oCat$
   \leq k'$, the triangle 
   \[
     \begin{tikzcd}[column sep=small]
-         \Hop{k}_{\bullet}(C)\ar[dr]
-         \ar[rr]&&\Hop{k'}_{\bullet}(C)\ar[dl]\\
-         &\Ho_{\bullet}(C)&
+         \Hop{k}(C)\ar[dr]
+         \ar[rr]&&\Hop{k'}(C)\ar[dl]\\
+         &\Ho(C)&
     \end{tikzcd}
   \]
   is commutative. 
