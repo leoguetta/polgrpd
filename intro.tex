@@ -135,38 +135,54 @@ functors $F \colon C \to \Ab$ from $C$ to the
 
   
  
-Partial results about the isomorphism~(\ref{eq:poltoclassical}) have
-already been established in earlier works. First, the case $k=\oo$ is the main result of
-\cite{guetta:homcat}. 
+Partial results about the isomorphism~\eqref{eq:poltoclassical} have
+already been established in earlier works. The case $k=\oo$ is the main result of
+\cite{guetta:homcat} and a proof for the case $k=1$ can be
+extracted from Guiraud and Malbos' work \cite[Theorem
+5.4.3]{guiraudmalbos:higcfd}. 
 
-% Second, the case $k=1$ \lgcomment{À finir, il
-%     faut parler des travaux de Philippe et Yves ici.}
+The proof given in the present article that the
+morphism~\eqref{eq:poltoclassical} is an isomorphism follows exactly
+ the same strategy as in \cite{guetta:homcat} and relies on two
+ auxilliary results, which are interesting on their own.
 
-%   The proof of \cref{thmprincipal} given in the present article follows exactly
-%   the same strategy as in \cite{guetta:homcat} and relies on two
-%   auxilliary results, which are interesting on their own.
+ First, we prove that any $1$-category $C$ with a terminal object has a
+ trivial polygraphic homology as an \ook k-category for any $1 \leq k
+ \leq \oo$. This means that for any such $k$, we have a natural isomorphism
+   \begin{equation}\label{eq:trivhlgy}
+      \Hop k (C) \simeq \Z,
+    \end{equation}
+    where $\Z$ is considered as a chain complex concentrated in degree
+    $0$. If $C$ is a groupoid, then this also works for $k=0$.
 
-%   \begin{propositionintro}
-%     Let $C$ be a $1$\nbd-category with a terminal object. Then for any
-%     $1 \leq k \leq \oo$, we have
-%     \[
-%       \Hop k (C) \simeq \Z,
-%     \]
-%     where $\Z$ is considered as a chain complex concentrated in degree
-%     $0$. If $C$ is a groupoid, then this also works for $k=0$. 
-%   \end{propositionintro}
-%   \begin{propositionintro}
-%     Let $C$ be a $1$\nbd-category. Then the
-%     colimit
-%     \[
-%       C \simeq \ilim_{c \in C} \tr{C}{c}
-%     \]
-%     is a \emph{homotopy colimit} in $\opCat{k}$ with respect to the
-%     canonical model structure for any $1 \leq k \leq \oo$. If $C$ is a
-%     groupoid, then this also works for $k=0$. 
-%   \end{propositionintro}
+    Second, we prove that for any $1$-category, the colimit
+    \begin{equation}\label{eq:htpycolim}
+      C \simeq \ilim_{c \in C} \tr{C}{c}
+    \end{equation}
+    is a \emph{homotopy colimit} in $\opCat{k}$ with respect to the
+    canonical model structure for any $1 \leq k \leq \oo$, and if $C$ is a
+    groupoid this also works for $k=0$. 
 
-  
+The proof of the existence of the natural
+isomorphism~\eqref{eq:trivhlgy} is not too hard and follows straightforwardly from
+the monoidal properties of the canonical model structure on $\opCat{k}$
+with respect to the Gray tensor product. On the other hand, the proof
+that~\eqref{eq:htpycolim} is a homotopy colimit is more elaborate and
+relies on the theory of discrete Conduché fibrations for strict \ook k-categories, extending the case $k=\oo$ treated in
+\cite{guetta:poldcf}. They key result that we prove is that if \[f \colon D
+\to C\] is a discrete Conduché fibration between \ook k-categories and
+if $C$ is free on a \ook k-polygraph $P$, then $D$ is also free on an
+\ook k-polygraph $Q$ which is constructed functorially out of $P$.
+
+\subsection*{Organisation of the paper}
+After some recollection on strict \ook k-categories in
+Section \ref{sec:basics}, the paper is divided in two main parts which are mostly
+independent: Sections \ref{sec:syntax} and \ref{sec:basislift} are
+dedicated to the theory of discrete Conduché fibrations and Sections
+\ref{} to \ref{} are dedicated to the homotopical and homological
+results. For the reader only interested in these results, it suffices
+to admit 
+
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"
