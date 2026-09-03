@@ -14,7 +14,7 @@
   the abelian group structure such that $x\comp{i} y
   \simeq _n x + y$ for any $x,y\in C_n$ that are
   $\comp{i}$-composable. For $x\in C_n$, we denote by $[x]$ its
-  equivalence class in $\abel_n(C)$. The boundary operator is defined as
+  equivalence class in $\abel_n(C)$. The boundary operator is defined by
   \[
     \begin{aligned}
       \partial \colon \abel_{n+1}(C) &\to \abel_{n}(C)\\
@@ -105,7 +105,7 @@ satisfying the conditions (1),
   isomorphism, with inverse $v \colon \Z P_n \to \abel_n(C)$.
 \end{lemma}
 \begin{paragr}
-  Let $k \geq 0$, $P$ an \ook k-polygraph $P$ and $C=\frgp P$ the free
+  Let $k \geq 0$, $P$ an \ook k-polygraph and $C=\frgp P$ the free
   \ook k-category on $P$. We denote by $\pair{\Z P}{\partial}$ the chain complex
   \[
     \Z P_0 \overset{\partial_0}{\longleftarrow} \Z P_1
@@ -115,9 +115,9 @@ satisfying the conditions (1),
   P_{n+1}$ to
   \[\partial_n x=u([\target\geninc_{n+1} x])-u([\source\geninc_{n+1}
     x]),\]
-  using the isomorphism of \cref{lemma:abelpoly}. 
+  using the isomorphism $u$ of \cref{lemma:abelpoly}. 
 \end{paragr}
-\begin{proposition}
+\begin{proposition}\label{prop:isocomplex}
   The chain complex $\abelk{k}(C)$
   is canonically isomorphic to~$\pair{\Z P}{\partial}$.
   \end{proposition}
@@ -126,25 +126,26 @@ satisfying the conditions (1),
   By construction $\abel_0(C)=\Z P_0$ . The rest follows
   from \cref{lemma:abelpoly}.
 \end{proof}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{paragr}\label{paragr:abeldisk}
-  As an immediate consequence of the previous proposition, in the case
-  $k=\oo$, we can compute the abelianization of $\Dsk{n}$ for any $n \geq 0$.
+  
+  As an application of~\cref{prop:isocomplex}, for $k=\oo$ and $n\geq
+  0$,  we can compute the chain complex $\abel(\Dsk{n})$ as follows.
 
   \[
-    \abel_k(\Dsk{n})\simeq \begin{cases} \Z &\text{ if } k=n\\
-      \Z\oplus
-      \Z &\text{ if } 0 \leq k < n\end{cases}
+    \abel_i(\Dsk{n})\simeq \begin{cases}
+      \Z\oplus\Z &\text{ if } 0 \leq i < n\\
+      \Z &\text{ if } i=n\\
+        0 &\text{ if } i>n \end{cases}
   \]
-  and $0$ elsewhere. For $n>0$ the differential $\partial
-  \colon \abel_k(\Dsk{n}) \to \abel_{k-1}(\Dsk{n})$ sends $1$ to
-  $(1,1)$ for $k=n$ and is given by the matrix $\begin{pmatrix} 1 & 1
+  For $n>0$ the differential $\partial
+  \colon \abel_i(\Dsk{n}) \to \abel_{i-1}(\Dsk{n})$ sends $1$ to
+  $(1,1)$ for $i=n$ and is given by the matrix $\begin{pmatrix} 1 & 1
     \\ -1 & -1 \end{pmatrix}$, 
-  for $0 \leq k < n$.
+  for $0 \leq i < n$.
 
-  The abelianization of $\Sph{n}$ is computed similarly and is equal
-  to that of $\Dsk{n}$, except for $\abel_n(\Sph{n})=0$. 
+  As for $\Sph{n}$, we get $\abel_n(\Sph{n})=0$ and, for all $i\neq n$, $\abel_i(\Sph{n})=\abel_i(\Dsk{n})$. 
 \end{paragr}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{paragr}\label{paragr:abelloc}
   Let $0 \leq k < \omega$. We are now going to analyze the behaviour of
   the abelianization functor with respect to the left adjoint $\opifun
@@ -167,8 +168,7 @@ satisfying the conditions (1),
 \]
 The unit defines a natural transformation
 \[
- \abel\Longrightarrow \abel \oemb{k}\opifun{k}= \abelk{k}\opifun{k}
-\]
+ \abel\Longrightarrow \abel \oemb{k}\opifun{k}= \abelk{k}\opifun{k}\]
 \end{paragr}
 \begin{lemma}\label{lemma:abelpi}
   The above natural transformation $\abel \Rightarrow \abelk{k}\opifun{k}
