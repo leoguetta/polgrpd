@@ -145,59 +145,58 @@ satisfying the conditions (1),
 
   As for $\Sph{n}$, we get $\abel_n(\Sph{n})=0$ and, for all $i\neq n$, $\abel_i(\Sph{n})=\abel_i(\Dsk{n})$. 
 \end{paragr}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{paragr}\label{paragr:abelloc}
-  Let $0 \leq k < \omega$. We are now going to analyze the behaviour of
-  the abelianization functor with respect to the left adjoint $\opifun
-  k \colon
-  \oCat \to \opCat{k}$ of the inclusion functor. By definition,
+  Let $0 \leq k < \omega$. By definition,
   we have a commutative triangle
   \[
     \begin{tikzcd}[column sep=small]
       \opCat{k}\ar[rr,"\oemb{k}"]\ar[rd,"\abelk{k}"']&& \oCat\ar[dl,"\abel"] \\
       &\Chp&.
   \end{tikzcd}
-  \]
-  Now, consider the
-  following, \emph{a priori} not commutative, triangle
-  \[
+\]
+Now the triangle
+ \[
     \begin{tikzcd}[column sep=small]
-      \oCat\ar[rr,"\opifun{k}"]\ar[rd,"\abel"']&& \opCat{k}\ar[dl,"\abelk{k}"] \\
-    &\Chp&.
+      \opCat{k}\ar[rd,"\abelk{k}"']&& \oCat\ar[dl,"\abel"] \ar[ll,"\opifun{k}"']\\
+      &\Chp&.
   \end{tikzcd}
 \]
-The unit defines a natural transformation
-\[
- \abel\Longrightarrow \abel \oemb{k}\opifun{k}= \abelk{k}\opifun{k}\]
+does not {\em a priori} commute. However, it commutes up to a natural
+isomorphism, as shown below.
 \end{paragr}
 \begin{lemma}\label{lemma:abelpi}
-  The above natural transformation $\abel \Rightarrow \abelk{k}\opifun{k}
-  $ is an isomorphism. 
+  The functors $\abel$ and $\abelk{k}\opifun{k}$ are naturally isomorphic.
 \end{lemma}
 \begin{proof}
-  Consider $\mu \colon \Chp \to \oCat$ the right adjoint to the
-  abelianization functor $\abel \colon \oCat \to \Chp$. A direct
-  inspection of an explicit description of $\mu$ (see \cite[Paragraph
-  17.4.3]{abgmmm:polybk}) shows that for any chain complex $K$,
-  $\mu(K)$ is actually an \oo\nbd-groupoid. In particular, for any $k
-  \geq 0$, the functor $\mu$ factors through $\opCat{k}$ as
+The abelianization functor $\abel$ admits a right adjoint $\mu \colon
+\Chp \to \oCat$. It turns out that, for any chain complex $K$, the
+\oo-category $\mu(K)$ is actually an \oo\nbd-groupoid (see \cite[Paragraph
+  17.4.3]{abgmmm:polybk}). Therefore, $\mu$ factors uniquely through  $\opCat{k}$ as
   \[
-    \Chp \overset{\mu_k}{\longrightarrow} \opCat{k}
+    \Chp \overset{\mu^k}{\longrightarrow} \opCat{k}
     \overset{\oemb{k}}{\longrightarrow} \oCat.
-  \]
-  Note that since $\oemb{k}$ is fully faithful and injective on
-  objects, such a $\mu_k$ is unique.
-  As $\abel$ is left adjoint to
-  $\mu$, and $\oemb{k}$ is fully faithful, it follows readily that
-  $\abel \circ \oemb{k}=\abelk{k}$ is left adjoint to $\mu_k$ for
-  any $k \geq 0$. By essential uniqueness of left adjoints, this
-  proves that
-  \[
-    \abel\simeq \abelk{k}\opifun{k}.
-  \]
-  An easy verification left to the reader shows that this (iso)morphism
-  is exactly the one constructed in \ref{paragr:abelloc}.
+  \] 
+  For any $C\in\opCat{k}$ and $K\in\Chp$
+  \begin{align*}
+    \homset{\Chp}{\abelk{k}(C)}{K} &\simeq
+                                     \homset{\Chp}{\abel\oemb{k}(C)}{K}\\
+                                                     &\simeq
+                                                       \homset{\oCat}{\oemb{k}(C)}{\mu(K)}\\
+                                                     & \simeq
+                                                       \homset{\oCat}{\oemb{k}(C)}{\oemb{k}\mu^k(K)}\\
+                                   &\simeq \homset{\opCat{k}}{C}{\mu^k(K)}
+                                   \end{align*}
+  as $\oemb{k}$ is fully faithful. Hence $\abelk{k}$ is left adjoint
+  to $\mu^k$. It follows that $\abelk{k}\opifun{k}$ is left adjoint to
+  $\oemb{k}\mu^k$, which is $\mu$. Now $\abelk{k}\opifun{k}$ and
+  $\abel$ are both left adjoint to the same functor $\mu$, whence
+  naturally isomorphic.
 \end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{paragr}\label{paragr:gray}
   Recall that the category $\oCat$ admits a monoidal category
   structure with the so-called ``Gray tensor product'',
