@@ -217,50 +217,57 @@ The abelianization functor $\abel$ admits a right adjoint $\mu \colon
   if $C$ or $D$ is a $0$\nbd-category (that is, a set).
 
   
-  Let $u, v \colon C \to D$ be two morphisms of $\opCat{k}$. We call
-  \emph{oplax transformation} $\alpha \colon C \Rightarrow D$ a morphism
-  \[
-    \alpha \colon \opifun{k}(\Dsk{1})\grayk{k}C \to D
-  \]
-  such that the following diagram is commutative
-  \[
-    \begin{tikzcd}[column sep=large]
-      \Sph{0}\grayk{k} C \ar[d] \ar[dr,"{\left(u,v\right)}"] & \\
-      \opifun{k}(\Dsk{1})\grayk{k}C \ar[r,"\alpha"] & D. % \\
-      % \Dsk{0}\grayk{k} C \ar[u]\ar[ur,"v"'] &
-    \end{tikzcd}
-  \]
-  Here, we used the fact that $\opifun{k}(\Sph{0})=\Sph{0}$ as well as
-  the canonical identification
-  \[
+  A pair $u, v \colon C \to D$ of morphisms in $\opCat{k}$ amounts to
+  a morphism
+  \[\pair{u}{v}\colon \Sph{0}\grayk{k}C\to D\]
+  because of the canonical isomorphisms
+   \[
     \begin{aligned}
       \Sph{0}\grayk{k}C &=(\Dsk{0}\coprod \Dsk{0})\grayk{k}C \\
       &\simeq \left(\Dsk{0}\grayk{k}C\right)\coprod
         \left(\Dsk{0}\grayk{k}C\right) \\
-      &\simeq C \coprod C,
+      &\simeq C \coprod C.
     \end{aligned}
-\]
-where the isomorphism on the second line comes from the fact that the
-Gray tensor product is bi-closed.
-
-If $f \colon D \to D'$ is another morphism of $\opCat{k}$, we define
-an oplax transformation $f\wsk\alpha\colon fu \Rightarrow fv$ as the
-following composition
+  \]
+  Here the second line uses the fact that the Gray tensor product is
+  bi-closed. On the other hand, $\opifun{k}(\Sph 0)=\Sph 0$ and the
+  canonical inclusion $\gcof 1\colon\Sph 0\to \Dsk 1$ yields  a
+  morphism $\Sph 0\to \opifun{k}(\Dsk 1)$. Thus we may set the
+  following definition.
+\end{paragr}
+\begin{definition}\label{def:oplax}
+  Let $u,v\colon C\to D$ be a pair of morphisms in $\opCat k$. An {\em
+    oplax transformation} $\alpha\colon u \Rightarrow v$ is a morphism
+$ \alpha \colon \opifun{k}(\Dsk{1})\grayk{k}C \to D$
+  such that the following diagram commutes:
+  \[
+    \begin{tikzcd}[column sep=large]
+      \Sph{0}\grayk{k} C \ar[d] \ar[dr,"{\left(u,v\right)}"] & \\
+      \opifun{k}(\Dsk{1})\grayk{k}C \ar[r,"\alpha"'] & D. 
+    \end{tikzcd}
+  \]
+\end{definition}
+  
+\begin{paragr}
+Let $u,v\colon C\to D$ be morphisms in $\opCat k$, $\alpha\colon
+u\Rightarrow v$ an oplax transformation and $f\colon D\to D'$ a
+morphism in $\opCat  k$.  The following composition
 \[
  \opifun{k}(\Dsk{1}) \grayk{k} C \overset{\alpha}{\longrightarrow} D
   \overset{f}{\longrightarrow} D'.
 \]
-Similarly, if $g \colon C' \to C$ is a morphism of $\opCat{k}$, we
-define an oplax transformation $\alpha \wsk g \colon ug \Rightarrow
-vg$ as the following composition
+defines an oplax transformation $f\wsk\alpha\colon fu \Rightarrow fv$.
+
+Similarly, if $g \colon C' \to C$ is a morphism in $\opCat{k}$, the composition
 \[
   \begin{tikzcd}
     \opifun{k}(\Dsk{1})\grayk{k} C'
     \ar[rr,"\Unit{\opifun{k}(\Dsk{1})}\grayk{k}g"]&&
     \opifun{k}(\Dsk{1})\grayk{k} C\ar[r,"\alpha"]&
-    D.
+    D
   \end{tikzcd}
 \]
+defines an oplax transformation $\alpha \wsk g \colon ug \Rightarrow vg$.
 
 Finally, note that a \emph{natural transformation} $\gamma \colon u \Rightarrow
 v$ amounts to a morphism
@@ -304,26 +311,35 @@ such that the following diagram is commutative
   sends oplax transformations to chain homotopies. 
 \end{corollary}
 \begin{proof}
-  Let
+  Let $u,v\colon C\to D$ be morphisms in $\opCat k$ and $\alpha:
+  u\Rightarrow v$ an oplax transformation. By applying the functor
+  $\abelk k$ to the diagram
    \[
     \begin{tikzcd}[column sep=large]
       \Sph{0}\grayk{k} C \ar[d] \ar[dr,"{\left(u,v\right)}"] & \\
-      \opifun{k}(\Dsk{1})\grayk{k}C \ar[r,"\alpha"'] & D.
+      \opifun{k}(\Dsk{1})\grayk{k}C \ar[r,"\alpha"'] & D
     \end{tikzcd}
   \]
-  be an oplax
-  transformation. Using the computations from \ref{paragr:abeldisk},
-  \cref{lemma:abelpi} and the strong monoidality of $\abelk{k}$
-  (\cref{prop:abelmonoidal}), we get a commutative diagram
+  and using \cref{prop:abelmonoidal} we get a commutative diagram in
+  $\Chp$:
   \[
+  \begin{tikzcd}[column sep=large]
+      \abelk{k}(\Sph{0})\otimes\abelk{k}(C) \ar[d] \ar[dr,"\abelk{k}\pair{u}{v}"] & \\
+      \abelk{k}\opifun{k}(\Dsk{1})\otimes\abelk{k}(C) \ar[r,"\abelk{k}(\alpha)"'] & D,
+    \end{tikzcd}
+  \] 
+which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
+\[
     \begin{tikzcd}[column sep=large]
      \abelk{k}(C)\oplus \abelk{k}(C) \ar[d] \ar[dr,"{\left(\abelk{k}(u),\abelk{k}(v)\right)}"] & \\
-      \abel(\Dsk{1})\grayk{k}\abelk{k}(C) \ar[r,"\abelk{k}(\alpha)"'] & \abelk{k}(D).
+      \abel(\Dsk{1})\otimes\abelk{k}(C) \ar[r,"\abelk{k}(\alpha)"'] & \abelk{k}(D).
     \end{tikzcd}
   \]
-  By the description of $\abel(\Dsk{1})$ from \ref{paragr:abeldisk},
+ By the description of $\abel(\Dsk{1})$ from \ref{paragr:abeldisk},
   this amounts exactly to a chain homotopy from $\abelk{k}(u)$ to $\abelk{k}(v)$.
 \end{proof}
+
+%%%%%%%%%%%%%%%%%%%
 
 \subsection{Deriving the abelianization functor}\label{subsec:abelderiv}
 \begin{proposition}\label{prop:abelquillen}
