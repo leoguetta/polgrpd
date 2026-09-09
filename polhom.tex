@@ -339,7 +339,7 @@ which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
   this amounts exactly to a chain homotopy from $\abelk{k}(u)$ to $\abelk{k}(v)$.
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%
+
 
 \subsection{Deriving the abelianization functor}\label{subsec:abelderiv}
 \begin{proposition}\label{prop:abelquillen}
@@ -351,14 +351,21 @@ which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
   model structure and $\Chp$ with the projective model structure.
 \end{proposition}
 \begin{proof}
-    The case $k=\omega$ is \cite[Theorem 22.2.7]{abgmmm:polybk}. For the
-  general case, since the folk model structure on $\opCat{k}$ is right induced from
-  the inclusion functor $\oemb{k} \colon \opCat{k} \to \oCat
-  $, this means that a set of generating cofibrations (resp.\ trivial
-  cofibrations) is given by the image by $\opifun{k} \colon \oCat
-  \to \opCat{k}$ of generating cofibrations of
-  $\opifun{k}$. The result follows then immediatly from \cref{lemma:abelpi}.
+   Let $I$ (resp.\ $J$) be a set of generating cofibrations (resp.\ generating
+  trivial cofibrations) in $\oCat$. Since the folk model structure on
+  $\opCat k$ is right induced from
+  the inclusion functor $\oemb{k} \colon \opCat{k} \to \oCat$,
+  $\opifun k(I)$ and $\opifun k(J)$ are respectively sets of
+  generating cofibrations and generating trivial cofibrations in
+  $\opCat k$. By \cref{lemma:abelpi}, $\abelk k\opifun k(I)\simeq
+  \abel(I)$ and  $\abelk k\opifun k(J)\simeq \abel(J)$. Thus it
+  suffices to prove that $\abel (I)$ and $\abel (J)$ are respectively
+  sets of cofibrations and weak equivalences in $\oCat$, which follows
+  from~\cite[Theorem 22.2.7]{abgmmm:polybk}. 
 \end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{paragr}\label{paragr:subtlety}
   The previous proposition contains an important subtlety.
   Even though we have a
