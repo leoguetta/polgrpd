@@ -347,8 +347,8 @@ which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
   \[
     \abelk{k} \colon \opCat{k} \to \Chp
   \]
-  is left Quillen, when $\npCat{\oo}{k}$ is equipped with the folk
-  model structure and $\Chp$ with the projective model structure.
+  is left Quillen with respect to the folk model structure on
+  $\npCat{\oo}{k}$ and the projective model structure in $\Chp$.
 \end{proposition}
 \begin{proof}
    Let $I$ (resp.\ $J$) be a set of generating cofibrations (resp.\ generating
@@ -364,77 +364,94 @@ which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
   from~\cite[Theorem 22.2.7]{abgmmm:polybk}. 
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{paragr}\label{paragr:subtlety}
-  The previous proposition contains an important subtlety.
-  Even though we have a
-  commutative triangle,
+  By definition of $\abelk k$, there is a commutative triangle
   \[
     \begin{tikzcd}[column sep=small]
       \opCat{k}\ar[rr,"\oemb{k}"]\ar[rd,"\abelk{k}"']&& \oCat\ar[dl,"\abel"] \\
-      &\Chp&,
+      &\Chp&.
   \end{tikzcd}
 \]
-and even though $\oemb{k}$ passes to the homotopy categories, as
-it trivially preserves the weak equivalences, this doesn't \emph{a
-  priori} imply that the following triangle at the level of homotopy categories
+Since the embedding functor $\oemb{k}$ preserves the weak
+equivalences, it induces a functor
+\[\oemb{k}\colon \Loc{\opCat{k}}\to  \Loc{\oCat}\]
+at the level fo homotopy categories. However, this does {\em not}
+imply the commutation of the triangle
 \[
   \begin{tikzcd}[column sep=small]
     \Loc{\opCat{k}}\ar[rr,"\oemb{k}"]\ar[rd,"\LL \abelk{k}"']&&
     \Loc{\oCat}\ar[dl,"\LL \abel"] \\
-    &\Loc{\Chp}&,
+    &\Loc{\Chp}&.
   \end{tikzcd}
 \]
-is also commutative, and the universal property of left derived functors
-only yields a natural transformation
+The universal property of left derived functors only yields a natural transformation
 \begin{equation}\label{transnat}
-  \LL \abel\circ \oemb{k} \Rightarrow \LL \abelk{k},
+  \homnat\colon\LL \abel\circ \oemb{k} \Rightarrow \LL \abelk{k}.
 \end{equation}
-which is \emph{a priori} not an isomorphism (and we do not know if it
-is in general, see \cref{openquestion}.)
-
-More concretly, this natural transformation can be defined as follows:
-let $C$ be an \ook k\nbd-category and let
+Let $C$ is an \ook k-category and
 \[
-  \frgp P\to C
+  p\colon\frgp P\to C
 \]
-be a polygraphic resolution in $\opCat{k}$. Since $\oemb{k}$ does
-not preserve cofibrant objects, in general we need to take a polygraphic
-resolution in $\oCat$
-\[
-  \frcat Q \to \oemb{k}\frgp{P}.
-\]
-The above natural transformation is then
-\[
-  \LL \abel(\oemb{k}(C))=\abel(\frcat Q) \longrightarrow
-  \abel(\oemb{k}(\frgp P))=\abelk{k}(\frgp P)=\LL \abelk{k}(C).
-\]
+a resolution of $C$ by an \ook k-polygraph $P$. As $\frgp P$ is
+cofibrant in $\opCat k$, $\Loc\abelk k(C)\simeq \abelk k(\frgp P)$. On
+the other hand, $\oemb{k}(\frgp P)$ is generally {\em not} cofibrant
+in $\oCat$, but admits a cofibrant replacement
+\[q\colon \frcat Q\to \oemb{k}(\frgp P).\]
+Thus $\LL\abel(\oemb{k}(C))\simeq \abel(\frcat Q)$ and the component
+$\homnat_C$ of~(\ref{transnat}) is
+\[\abel(q):\abel(\frcat Q)\to \abelk{k}(\frgp P)\]
+up to isomorphisms depending on the choice of resolutions. Note that
+resolutions in $\oCat$ as well as in $\opCat k$ may be chosen
+functorial in $C$ and therefore the above isomorphisms can be chosen
+natural in $C$. 
 \end{paragr}
 \begin{definition}\label{def:hompol}
   Let $k\geq 0$. The \emph{$\pair \oo k$\nbd-polygraphic homology} of
   an \ook k\nbd-category $C$ is defined as
   \[
-    \Hop{k}(C):=\Ho(\LL \abelk{k} (C)).
+    \Hop{k}(C):=\LL \abelk{k} (C).
   \]
 \end{definition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{paragr}\label{paragr:mainquestion}
+  Let $C$ be an \ook k-category. Besides its \ook k-polygraphic
+  homology, we may consider its polygraphic homology when considered
+  as an \oo-category. Precisely, we shall denote by $\Hop{\oo}(C)$ the
+  \ook{\oo}-polygraphic homology of $\oemb{k}(C)$, that is,
+  $\Hop{\oo}(\oemb{k}(C))$. The main question we address in this paper
+  is then whether the natural morphism
+  \[\homnat_C\colon \Hop{\oo}(C)\to \Hop{k}(C)  \]
+  is an isomorphism.
 
-\begin{paragr}\label{paragr:cancomp}
-  Given an \ook k\nbd-category $C$, we shall
-  simply write $\Hop{\oo}(C)$ instead of
-  $\Hop{\oo}(\oemb{k}(C))$.
-  In particular, the natural transformation \eqref{transnat} becomes
-  \[
-    \Hop{\oo}(C) \to \Hop{k}(C).
-  \]
+  Whereas the general question remains wide open,
+  we shall prove that $\homnat_c$ is indeed an isomorphism in two
+  useful cases:
+  \begin{itemize}
+  \item $C$ is a $1$-category, seen as an \ook k-category for any $k\geq
+    1$;
+  \item $C$ is a groupoid, seen an \ook k-category for some $k\geq
+    0$.
+  \end{itemize}
+  In the course of the proof, we first recall a few fundamental
+  properties of the usual homology of small categories, and finally
+  compare the latter with its polygraphic counterpart.
 \end{paragr}
+%\% begin{paragr}\label{paragr:cancomp}
+%   Given an \ook k\nbd-category $C$, we shall
+%   simply write $\Hop{\oo}(C)$ instead of
+%   $\Hop{\oo}(\oemb{k}(C))$.
+%   In particular, the natural transformation \eqref{transnat} becomes
+%   \[
+%     \Hop{\oo}(C) \to \Hop{k}(C).
+%   \]
+% \end{paragr}
 
-\begin{openquestion}\label{openquestion} With the same notation as
-  above, is the canonical morphism
-  \[
-     \Hop{\oo}(C) \to \Hop{k}(C)
-   \]
-   an isomorphism of $\Loc{\Chp}$?
-\end{openquestion}
-As we shall see at the end of the next section, we answer positively to
-the above question in a particular case.
+% \begin{openquestion}\label{openquestion} With the same notation as
+%   above, is the canonical morphism
+%   \[
+%      \Hop{\oo}(C) \to \Hop{k}(C)
+%    \]
+%    an isomorphism of $\Loc{\Chp}$?
+% \end{openquestion}
+% As we shall see at the end of the next section, we answer positively to
+% the above question in a particular case.
