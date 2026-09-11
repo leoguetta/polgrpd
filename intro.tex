@@ -142,9 +142,8 @@ extracted from Guiraud and Malbos' work \cite[Theorem
 5.4.3]{guiraudmalbos:higcfd}, up to naturality issues not adressed in
 the latter.
 
-The proof given in the present article that the
-morphism~\eqref{eq:poltoclassical} is an isomorphism follows exactly
- the same strategy as in \cite{guetta:homcat} and relies on two
+The present article follows the same strategy as~\cite{guetta:homcat}
+in proving that~\eqref{eq:poltoclassical} is an isomorphism and relies on two
  auxilliary results, which are interesting on their own.
 
  First, we prove that any $1$-category $C$ with a terminal object has a
@@ -156,7 +155,7 @@ morphism~\eqref{eq:poltoclassical} is an isomorphism follows exactly
     where $\Z$ is considered as a chain complex concentrated in degree
     $0$. If $C$ is a groupoid, then this also works for $k=0$.
 
-    Second, we prove that for any $1$-category, the colimit
+    Second, we prove that for any $1$-category $C$, the colimit
     \begin{equation}\label{eq:htpycolimintro}
       C \simeq \ilim_{c \in C} \tr{C}{c}
     \end{equation}
@@ -164,16 +163,16 @@ morphism~\eqref{eq:poltoclassical} is an isomorphism follows exactly
     canonical model structure for any $1 \leq k \leq \oo$, and if $C$ is a
     groupoid this also works for $k=0$. 
 
-The proof of the existence of the natural
-isomorphism~\eqref{eq:trivhlgy} is not too hard and follows straightforwardly from
+The existence of the natural
+isomorphism~\eqref{eq:trivhlgy} directly follows from
 the monoidal properties of the canonical model structure on $\opCat{k}$
 with respect to the Gray tensor product. On the other hand, the proof
 that~\eqref{eq:htpycolimintro} is a homotopy colimit is more elaborate and
 relies on the theory of discrete Conduché fibrations for strict \ook k-categories, extending the case $k=\oo$ treated in
-\cite{guetta:poldcf}. They key result that we prove is that if \[f \colon D
+\cite{guetta:poldcf}. The key result is that if \[f \colon D
 \to C\] is a discrete Conduché fibration between \ook k-categories and
 if $C$ is free on a \ook k-polygraph $P$, then $D$ is also free on an
-\ook k-polygraph $Q$ which is constructed functorially out of $P$.
+\ook k-polygraph $Q$ constructed functorially out of $P$.
 
 \subsection*{Organisation of the paper}
 After some recollection on strict \ook k-categories in
@@ -181,8 +180,8 @@ Section \ref{sec:basics}, the paper is divided in two main parts which are mostl
 independent: Sections \ref{sec:syntax} and \ref{sec:basislift} are
 dedicated to the theory of discrete Conduché fibrations and Sections
 \ref{sec:projresol}, \ref{sec:polhom}, \ref{sec:htpykan} and \ref{sec:comparison} are dedicated to the homotopical and homological
-results. For the reader only interested in these latter results, it suffices
-to admit Theorem \ref{thm:main} and start at Section \ref{sec:projresol}.
+results. The reader willing to admit Theorem \ref{thm:main} can safely
+skip the first part and start at Section \ref{sec:projresol}.
 
 %%% Local Variables:
 %%% mode: LaTeX
