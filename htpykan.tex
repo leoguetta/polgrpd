@@ -1,11 +1,12 @@
-\section{Recollection on homotopy kan extensions in Model categories}\label{sec:htpykan}
+\section{Recollection on homotopy Kan extensions in Model categories}\label{sec:htpykan}
 \subsection{A simplifying technical hypothesis}
 \begin{paragr}\label{paragr:techyp}
   All the Quillen adjunctions $F \colon \M \leftrightarrows \M' \colon G$
   that show up in this paper have the extra property that $G$
-  preserves \emph{all} weak equivalences (e.g.\ if all objects of
-  $\M'$ are fibrant). This allows for a
-  simplification of certain coherence issues: $G$ induces a unique functor $\GZ{G}$ at the level of
+  preserves \emph{all} weak equivalences. This is for instance the
+  case when all objects of $\M'$ are fibrant.
+This allows for a
+  simplification of certain coherence issues: $G$ induces a \emph{unique} functor $\GZ{G}$ at the level of
   homotopy categories such that the following square is \emph{genuinely}
   commutative
   \[
@@ -28,12 +29,14 @@
     \Rightarrow \GZ{G'}\]
   that makes the appropriate $2$\nbd-diagram commute. It follows that the
   construction
-    \begin{align*}
+  \[
+    \begin{aligned}
     \M &\longmapsto\Loc{\M}\\
     G &\longmapsto\GZ{G}\\
     \alpha &\longmapsto\GZ{\alpha}\\
-    \end{align*}
-   defines a \emph{strict} $2$\nbd-functor from the $2$\nbd-category of
+  \end{aligned}
+\]
+defines a \emph{strict} $2$\nbd-functor from the $2$\nbd-category of
   model categories, right Quillen functors that preserves all weak
   equivalences and natural transformations between them, to the
   $2$\nbd-category of (large) categories.
@@ -45,18 +48,20 @@
   transformation $\LL \beta \colon \LL F \Rightarrow \LL F'$ making
   the appropriate $2$\nbd-diagram commute, the
   following correspondence
-  \begin{align*}
+  \[
+  \begin{aligned}
     \M &\longmapsto\Loc{\M}\\
     F &\longmapsto\LL F\\
     \beta &\longmapsto \LL \beta\\
-    \end{align*}
+  \end{aligned}
+ \] 
   is only \emph{pseudo}-functorial. Hence, it involves coherence 
   data which we have to keep track of, making some proofs uneasy.
 
   The upshot is that since each $\LL F$ is left adjoint to $\GZ{G}$,
-  we can often exploit this fact to reduce a proof concerning the left
-  adjoints $\LL F$ to a proof concerning the right adjoints $\GZ{G}$,
-  which turns out to be much simpler thanks to the \emph{strict}
+  we can often exploit this fact to reduce a proof concerning left
+  adjoints to one concerning right adjoints.
+  This turns out to be much simpler thanks to the \emph{strict}
   $2$\nbd-functoriality stated above.
     \end{paragr}
 \subsection{Projective model structure}\label{projms}
@@ -105,6 +110,13 @@ shall use the two notations interchangeably. Consequently, $\LL
 p_{I!}$ is nothing but the \emph{homotopy colimit functor}
   \[ \hoilim_I \colon \Loc{\fun{I}{\M}} \to \Loc{\M}.
   \]
+  % \[
+  %   \underset{\longrightarrow I}{\mathrm{holim}}\colon \Loc{\fun{I}{\M}} \to \Loc{\M}
+  % \]
+ 
+  % \[
+  %   \hocolim_I\colon \Loc{\fun{I}{\M}} \to \Loc{\M}
+  %   \]
 \end{paragr}
 \begin{paragr} Let $I$ be a small category and $i \in \Ob(I)$ an
 object of $I$. This can be seen as a functor $i \colon \Term \to I$,
@@ -245,7 +257,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 \end{proof}
 \begin{remark}
   The fact that \eqref{eq:cocontinuous} is an isomorphism is commonly
-  referred as the fact that \emph{left Quillen functors preserves
+  referred as the fact that \emph{left Quillen functors preserve
     homotopy left Kan extensions}. In particular, taking $J=\Term$,
   $u=p_I \colon I \to \Term$ the unique such function and $X$ an
   object $\Loc{\fun{I}{\M}}$, we get an isomorphism of $\Loc{\M}$

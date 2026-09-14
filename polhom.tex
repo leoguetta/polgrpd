@@ -202,11 +202,13 @@ The abelianization functor $\abel$ admits a right adjoint $\mu \colon
   structure with the so-called ``Gray tensor product'',
   simply denoted by $\gray$, and with unit $\Dsk{0}$ (see for example
   \cite[Appendice A]{ara_maltsiniotis:joint}). More generally, for any $0 \leq k \leq \omega$, we have
-  the induced tensor product $\grayk{k}$ on $\opCat{k}$ defined by the
+  the induced tensor product $\grayk{k}$ on $\opCat{k}$
+  (see~\cite[Section 6]{ara_lucas:folmon}) defined by the
   formula
   \[
     C \grayk{k} D :=\opifun{k}(\oemb{k}C\gray \oemb{k}D).
   \]
+  
   Since the unit $\Dsk{0}$ is also the terminal object of $\opCat{k}$,
   for any \ook k\nbd-categories $C$ and $D$, there is a canonical
   morphism
@@ -269,8 +271,7 @@ Similarly, if $g \colon C' \to C$ is a morphism in $\opCat{k}$, the composition
 \]
 defines an oplax transformation $\alpha \wsk g \colon ug \Rightarrow vg$.
 
-Finally, note that a \emph{natural transformation} $\gamma \colon u \Rightarrow
-v$ amounts to a morphism
+Finally, we call \emph{natural transformation from $u$ to $v$} a morphism
 \[
   \gamma \colon \opifun{k}(\Dsk{1})\times C \to D
 \]
@@ -282,10 +283,12 @@ such that the following diagram is commutative
     \end{tikzcd}
   \]
   As before, we have used here the canonical identification
-  $\Sph{0}\times C\simeq C \coprod C$. In particular, any such natural
-  transformation defines an oplax transformation $u \Rightarrow v$,
-  abusively still denoted by $\gamma$, defined as the composition
-  \[
+  $\Sph{0}\times C\simeq C \coprod C$. Note that in case $C$, $D$ are
+  $1$-categories, this coincides with the usual notion.
+
+  Any  natural
+  transformation $\gamma$ defines an oplax transformation given by the composition
+\[
      \opifun{k}(\Dsk{1})\grayk{k}C \longrightarrow  \opifun{k}(\Dsk{1})\times C \overset{\gamma}{\longrightarrow} D.
   \]
 \end{paragr}
