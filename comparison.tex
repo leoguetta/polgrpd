@@ -62,8 +62,8 @@ follows from the fact that $\opCat{k} \to \oCat$
   Let $C$ be a $1$\nbd-category. Then for any $k\geq 1$, the canonical morphism of
   $\Loc{\opCat{k}}$
   \[
-    \hoilim_{c \in C}\tr{C}{c} \to C
-  \]
+    \hocolim_{c\in C }\tr{C}{c} \to C
+    \]
   is an isomorphism. If $C$ is a groupoid, then this also works for
   $k=0$.
 \end{proposition}
@@ -74,9 +74,9 @@ follows from the fact that $\opCat{k} \to \oCat$
   $\Loc{\opCat{k}}$
   \[
     \begin{tikzcd}
-      \displaystyle\hoilim_{c \in C}\tr{\frgp P\!}{c} \ar[d] \ar[r]& \displaystyle\ilim_{c \in
+      \displaystyle\hocolim_{c \in C}\tr{\frgp P\!}{c} \ar[d] \ar[r]& \displaystyle\ilim_{c \in
         C}\tr{\frgp P\!}{c} \ar[d] \ar[r] & \frgp P \ar[d] \\
-      \displaystyle\hoilim_{c \in C}\tr{C}{c} \ar[r]&\displaystyle\ilim_{c \in C}\tr{C}{c}\ar[r] & C
+      \displaystyle\hocolim_{c \in C}\tr{C}{c} \ar[r]&\displaystyle\ilim_{c \in C}\tr{C}{c}\ar[r] & C
     \end{tikzcd}
   \]
   Note that $\ilim_{c \in C}$ in the middle are the image by the
@@ -371,10 +371,10 @@ follows from the fact that $\opCat{k} \to \oCat$
   following zig-zag in $\Derp{\Z}$
   \[
     \begin{tikzcd}
-      \hoilim_{C}p^*_C(\LL \abelk{k}(\Term))&&\\
-    \hoilim_{C}\LL \fun{C}{\abelk{k}}(p_C^*\Term) \ar[u,"(a)"]&\ar[l,"(b)"'] \hoilim_{C}\fun{C}{\LL
+      \hocolim_{C}p^*_C(\LL \abelk{k}(\Term))&&\\
+    \hocolim_{C}\LL \fun{C}{\abelk{k}}(p_C^*\Term) \ar[u,"(a)"]&\ar[l,"(b)"'] \hocolim_{C}\fun{C}{\LL
      \abelk{k}}(\tr{C}{-})\ar[r,"(c)"]&  \LL
-   \abelk{k}(\hoilim_{C}\tr{C}{-})\ar[d,"(d)"]\\
+   \abelk{k}(\hocolim_{C}\tr{C}{-})\ar[d,"(d)"]\\
    && \LL\abelk{k}(C),
   \end{tikzcd}
   \]
@@ -413,14 +413,14 @@ All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
   \[
     \begin{tikzcd}
       \LL\abel(C)\ar[r] & \LL\abelk{k}(C)\\
-       \LL\abel(\hoilim_{C}\tr{C}{-})\ar[r]\ar[u]&
-       \LL\abelk{k}(\hoilim_{C}\tr{C}{-})\ar[u]\\
-       \hoilim_{C}\fun{C}{\LL
-     \abel}(\tr{C}{-})\ar[r] \ar[u]\ar[d]& \hoilim_{C}\fun{C}{\LL
+       \LL\abel(\hocolim_{C}\tr{C}{-})\ar[r]\ar[u]&
+       \LL\abelk{k}(\hocolim_{C}\tr{C}{-})\ar[u]\\
+       \hocolim_{C}\fun{C}{\LL
+     \abel}(\tr{C}{-})\ar[r] \ar[u]\ar[d]& \hocolim_{C}\fun{C}{\LL
      \abelk{k}}(\tr{C}{-})\ar[u]\ar[d]\\
-   \hoilim_{C}\LL \fun{C}{\abel}(p_C^*\Term)\ar[r] \ar[d]& \hoilim_{C}\LL
+   \hocolim_{C}\LL \fun{C}{\abel}(p_C^*\Term)\ar[r] \ar[d]& \hocolim_{C}\LL
    \fun{C}{\abelk{k}}(p_C^*\Term)\ar[d] \\
-    \hoilim_{C}p^*_C(\LL \abel(\Term))\ar[r]& \hoilim_{C}p^*_C(\LL
+    \hocolim_{C}p^*_C(\LL \abel(\Term))\ar[r]& \hocolim_{C}p^*_C(\LL
     \abelk{k}(\Term)),
     \ar[from=1-1,to=2-2,phantom,description, "(A)"]
     \ar[from=2-1,to=3-2,phantom,description,"(B)"]

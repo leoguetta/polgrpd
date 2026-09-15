@@ -108,8 +108,10 @@ constant diagram $I \to \M$ with value $X$. Hence, $p_{I!}$ is nothing
 but the colimit functor $\ilim_I \colon \fun{I}{\M} \to \M$, and we
 shall use the two notations interchangeably. Consequently, $\LL
 p_{I!}$ is nothing but the \emph{homotopy colimit functor}
-  \[ \hoilim_I \colon \Loc{\fun{I}{\M}} \to \Loc{\M}.
+\[
+  \hocolim_I \colon \Loc{\fun{I}{\M}} \to \Loc{\M}.
   \]
+  
   % \[
   %   \underset{\longrightarrow I}{\mathrm{holim}}\colon \Loc{\fun{I}{\M}} \to \Loc{\M}
   % \]
@@ -262,7 +264,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
   $u=p_I \colon I \to \Term$ the unique such function and $X$ an
   object $\Loc{\fun{I}{\M}}$, we get an isomorphism of $\Loc{\M}$
   \begin{equation}\label{eq:htpycolim}
-    \hoilim_I \LL \fun{I}{F}(X) \simeq \LL F (\hoilim_IX),
+    \hocolim_I \LL \fun{I}{F}(X) \simeq \LL F (\hocolim_I X),
   \end{equation}
   natural in $X$ and in $F$.
 \end{remark}
@@ -272,7 +274,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
   category $I$ and $X$ an object of $\M$, we define the \emph{$\M$\nbd-valued
     homology of $I$ with constant coefficient $X$} as the object of $\Loc{\M}$
   \[
-    \Ho_{\M}(I,X):=\LL p_{I!}\GZ{p_I^*}X=\varhocolim I (\GZ{p_I^*}X).
+    \Ho_{\M}(I,X):=\LL p_{I!}\GZ{p_I^*}X=\hocolim_I (\GZ{p_I^*}X).
   \]
 \end{definition}
 
@@ -436,7 +438,7 @@ localization of $\Chp(C)$ with respect to
   Let us quickly unfold \cref{def:classicalhomology}. By definition,
   the homology of small category $C$ is
   \[
-    \Ho(C)=\hoilim_{C}\cst{\Z}.
+    \Ho(C)=\hocolim_C\cst{\Z}.
   \]
   In order to make this formula look more familiar, let us introduce
   the following construction. Given a left $C$\nbd-module $M$ and right $C$\nbd-module $N$, we define their (total) tensor product as
@@ -453,7 +455,7 @@ localization of $\Chp(C)$ with respect to
   By co-end calculus, if we take $N=\cst{\Z}$ the we have a
   natural isomorphism
   \[
-    \cst{\Z} \tens{C}M \simeq \hoilim_{C}M.
+    \cst{\Z} \tens{C}M \simeq \hocolim_C M.
   \]
   In particular, this implies that we have
   \[

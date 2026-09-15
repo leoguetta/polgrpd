@@ -226,8 +226,7 @@
 \newcommand{\Loc}[1]{\mathrm{Ho}(#1)} %Homotopy categories
 
 \newcommand{\hoilim}{\underset{\longrightarrow}{\mathrm{holim}}} % colimit
-\DeclareMathOperator{\hocolim}{\underset{\longrightarrow}{\mathrm{holim}}} % limit
-%\newcommand{\hocolim}{\DeclareMathOperator{\underset{\longrightarrow}{\mathrm{holim}}}}
+
 \newcommand{\GZ}[1]{\overline{#1}} %Functor induced by localization
 
 \newlength{\mylen}
@@ -237,7 +236,15 @@
       \draw[->] (0,0) -- (\mylen,0) ;
     \end{tikzpicture}}
 
-\newcommand{\varhocolim}[1]{\underset{\extarrow #1}{\mathrm{holim}}} 
+  \newcommand{\varhocolim}[1]{\underset{\extarrow #1}{\mathrm{holim}}}
+
+  \NewCommandCopy{\hocolim}{\varinjlim}
+  \makeatletter
+  \NewCommandCopy{\holim@}{\varlim@}
+  \xpatchcmd{\hocolim}{\varlim@}{\holim@}{}{}
+  \xpatchcmd{\holim@}{lim}{holim}{}{}
+  \makeatother
+  
 
 
 
