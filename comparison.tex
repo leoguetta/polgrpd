@@ -2,7 +2,20 @@
 
 \subsection{The two fundamental properties}
 \begin{paragr}\label{paragr:colimtr}
-  Let $C$ be a $1$\nbd-category and some $k \geq 1$. We define a functor
+  Let $C$ be a $1$\nbd-category. Given an $\ook
+  k$\nbd-category
+  $X$ and an $\ook k$\nbd-functor $p \colon X \to C$, with $k \geq
+  1$, we define the slice
+  $\tr{X}{c}$ as the following fibred product
+    \[
+      \begin{tikzcd}
+        \tr{X}{c} \ar[r] \ar[d] & X \ar[d,"p"] \\
+        \tr{C}{c} \ar[r] & C,
+        \ar[from=1-1, to=2-2, phantom,very near start ,"\lrcorner"]
+      \end{tikzcd}
+    \]
+    where $\tr{C}{c}$ is the usual $1$-categorical slice. This
+    construction is functorial in that it canonically defines a functor
   \begin{align*}
     \tr{\opCat{k}}{C} &\to \fun{C}{\opCat{k}}\\
     (X, X \overset{p}{\to} C) &\mapsto \left(c \mapsto \tr{X}{c}\right).
@@ -12,7 +25,7 @@
   \[
     (\tr{X}{c} \to X)_{c \in \Ob{C}},
   \]
-  where each $\tr{X}{c} \to X$ is the canonical projection, and hence
+  hence
   a canonical morphism
   \[
     \ilim_{c \in C}\tr{X}{c} \to X,
@@ -338,62 +351,17 @@ follows from the fact that $\opCat{k} \to \oCat$
   \[
     \Hop{k}(C) \to \Ho(C)
   \]
-  natural in $C$. If $C$ is a groupoid, this also holds
-  for $k=0$. Furthermore, this
-  isomorphism can be chosen natural in $k$ in the sense that for $k
-  \leq k'$, the triangle 
+  natural in $C$. In particular, for $k=\oo$, we get an isomorphism
+  $\Hop{\oo}(C) \to \Ho(C)$. Furthermore, for any $k\geq 1$, these
+  isomorphisms can be chosen so that the following triangle is commutative
   \[
-    \begin{tikzcd}[column sep=small]
-         \Hop{k}(C)\ar[dr]
-         \ar[rr]&&\Hop{k'}(C)\ar[dl]\\
-         &\Ho(C)&
+    \begin{tikzcd}[column sep=small]      
+         \Hop{\oo}(C)\ar[dr]
+         \ar[rr,"\homnat_C"]&&\Hop{k}(C)\ar[dl]\\
+         &\Ho(C).&
     \end{tikzcd}
   \]
-  is commutative. 
 \end{theorem}
-
-% Before proving the above theorem, let us give some comments.
-% \begin{remark}
-%   The previous theorem says that the \ook k\nbd-polygraphic
-%   homology of $C$, for \emph{any} $1 \leq k\leq \oo $, is naturally isomorphic to the
-%   homology of $C$ as defined in \cref{def:homtor}. In particular,
-%   the homology groups of $\Hop{k}_{\bullet}(C)$ do not depend on $k$
-%   for a $1$-category $C$, and they coincide with the usual
-%   definition of homology groups of $C$.
-
-%   In practise, it is most interesting to take $k$ as low as
-%   possible, that is $k=0$ if $C$ is a groupoid and $k=1$ if $C$ is a
-%   category. This will indeed ``reduce'' the size of resolutions as is
-%   illustrated by the following simple example. Take the group
-%   $G=\Z$. It is free as a group, and in particular, in the category
-%   $\oGrpd$, it is free on a polygraph (with only one generator in
-%   dimension $0$ and one generator in dimension $1$). Consequently,
-%    there is no need to take a cofibrant
-%   replacement and we directly see that its homology is $\Z$ in degree
-%   $0$ and $1$, and $0$ elsewhere.
-
-%   On the other hand, $\Z$ is not free as a monoid, and thus if we take
-%   it as an object of $\opCat{k}$ for any $k \geq 1$, then we need to
-%   take a cofibrant replacement, with an infinite number of non-trivial
-%   cells if $k =\oo$ for example. From the above theorem, we know that
-%   all these higher cells will be trivial in homology, but this was not
-%   \emph{a priori} obvious. 
-% \end{remark}
-% \begin{remark}
-%   The second part of
-%   the theorem is only here to say that the natural isomorphism can be
-%   chosen to be compatibale with the canonical morphism
-%   \[\Hop{k'}_{\bullet}(C)\to \Hop{k}_{\bullet}(C)\] from \ref{paragr:cancomp}.
-%   In particular, by an immediate 2-out-of-3 property, it follows that
-%   this canonical morphism is an \emph{isomorphism}. Hence, we can
-%   answer positively to \cref{openquestion} in the case that $C$ is a
-%   $1$-category. Consequently, up to a canonical identification, we can
-%   unambiguously speak of the \emph{polygraphic homology} of a
-%   $1$-category $C$. 
-% \end{remark}
-
-
-
 
 \begin{proof}
   Let's start with the first part of the theorem. Recall that if $F
@@ -401,7 +369,6 @@ follows from the fact that $\opCat{k} \to \oCat$
   denote by $\fun{C}{F} \colon \fun{C}{\M} \to \fun{C}{\M'}$ the
   functor induced by post-composition. Consider the
   following zig-zag in $\Derp{\Z}$
-
   \[
     \begin{tikzcd}
       \hoilim_{C}p^*_C(\LL \abelk{k}(\Term))&&\\
@@ -430,10 +397,6 @@ All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
     is a left Quillen functor,
   \item $(d)$ by \cref{prop:hocolimtr}.
   \end{itemize}
-  % Note that we have also implicitly used in the first two items the trivial fact that
-  % $\hoilim_{C}$ preserves isomorphisms of $\Derp{C}$. And similarly
-  % with $\LL \abelk{k}$ and isomorphisms of
-  % $\Loc{\opCat{k}}$ for the third item.
   Finally, since by
   \cref{paragr:abeldisk} and the fact that $\Dsk{0}=\Term$, we have
   \[
@@ -449,16 +412,16 @@ All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
   For the second part, consider the following diagram in $\Derp{\Z}$:
   \[
     \begin{tikzcd}
-      \LL\abelk{k}(C)\ar[r] & \LL\abelk{k'}(C)\\
-       \LL\abelk{k}(\hoilim_{C}\tr{C}{-})\ar[r]\ar[u]&
-       \LL\abelk{k'}(\hoilim_{C}\tr{C}{-})\ar[u]\\
+      \LL\abel(C)\ar[r] & \LL\abelk{k}(C)\\
+       \LL\abel(\hoilim_{C}\tr{C}{-})\ar[r]\ar[u]&
+       \LL\abelk{k}(\hoilim_{C}\tr{C}{-})\ar[u]\\
        \hoilim_{C}\fun{C}{\LL
-     \abelk{k}}(\tr{C}{-})\ar[r] \ar[u]\ar[d]& \hoilim_{C}\fun{C}{\LL
-     \abelk{k'}}(\tr{C}{-})\ar[u]\ar[d]\\
-   \hoilim_{C}\LL \fun{C}{\abelk{k}}(p_C^*\Term)\ar[r] \ar[d]& \hoilim_{C}\LL
-   \fun{C}{\abelk{k'}}(p_C^*\Term)\ar[d] \\
-    \hoilim_{C}p^*_C(\LL \abelk{k}(\Term))\ar[r]& \hoilim_{C}p^*_C(\LL
-    \abelk{k'}(\Term)),
+     \abel}(\tr{C}{-})\ar[r] \ar[u]\ar[d]& \hoilim_{C}\fun{C}{\LL
+     \abelk{k}}(\tr{C}{-})\ar[u]\ar[d]\\
+   \hoilim_{C}\LL \fun{C}{\abel}(p_C^*\Term)\ar[r] \ar[d]& \hoilim_{C}\LL
+   \fun{C}{\abelk{k}}(p_C^*\Term)\ar[d] \\
+    \hoilim_{C}p^*_C(\LL \abel(\Term))\ar[r]& \hoilim_{C}p^*_C(\LL
+    \abelk{k}(\Term)),
     \ar[from=1-1,to=2-2,phantom,description, "(A)"]
     \ar[from=2-1,to=3-2,phantom,description,"(B)"]
     \ar[from=3-1,to=4-2,phantom,description,"(C)"]
@@ -468,12 +431,10 @@ All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
 where the horizontal arrows are induced by the natural transformation
 \eqref{transnat} from \cref{paragr:subtlety}
 \[
-    \LL \abelk{k'}\circ \emb{k}{k'} \Rightarrow \LL \abelk{k}.
+    \homnat \colon \LL \abel\circ \oemb{k} \Rightarrow \LL \abelk{k}.
   \]
-  \lgcomment{En fait, en \eqref{transnat} on parle seulement de
-    $\oemb{k}$ et pas $\emb{k}{k'}$. Faut-il changer?}
-  (Note that for simplicity we have not make appear the functor
-  $\emb{k}{k'} \colon \Loc{\opCat{k}}\to \Loc{\opCat{k'}}$ in the above
+  (Note that for simplicity we have not made the functor
+  $\oemb{k} \colon \Loc{\opCat{k}}\to \Loc{\oCat}$ appear in the above
   diagram.) This naturality implies that the squares $(A)$ and $(C)$ are
   commutative. Furthermore, the commutativity of the squares $(B)$ and
   $(D)$ follows from the naturality in $F$ of \eqref{eq:morphder} and
@@ -483,13 +444,27 @@ where the horizontal arrows are induced by the natural transformation
   commutative as an immediate computation shows
   \[
     \begin{tikzcd}
-      \LL \abelk{k}(\Term) \ar[d,"\simeq"']\ar[r] & \LL \abelk{k'}(\Term)\ar[dl,"\simeq"]\\
-      \Z.
+      \LL \abel(\Term) \ar[d,"\simeq"']\ar[r] & \LL \abelk{k}(\Term)\ar[dl,"\simeq"]\\
+      \Z.&
     \end{tikzcd}
   \]
-  
 \end{proof}
-
+\begin{corollary}
+  For any $1$\nbd-category $C$ and any $1 \leq k \leq \oo$, the
+  canonical natural morphism
+  \[
+   \homnat_C \colon \Hop{\oo}(C) \to \Hop{k}(C)
+  \]
+  is an isomorphism. If $C$ is a groupoid, this also holds for $k=0$.
+\end{corollary}
+\begin{remark}
+  Using \emph{mutatis mutandis} the technique of proof of
+  \cref{thm:polhom}, one can prove more generally that for a
+  $1$-category $C$ and for any $1 \leq k \leq k' \leq \oo$, there is a canonical natural isomorphism
+  \[
+     \Hop{k'}(C)\simeq  \Hop{k}(C).
+  \]
+\end{remark}
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"
