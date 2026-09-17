@@ -355,13 +355,20 @@ form
 is a morphism of cellular extensions
     and the following diagram commutes:
     \begin{equation}
-     \label{eq:main_diagram}
-     \xymatrix{
-     C_{n+1} \ar[d]_{f_{n+1}}& \wtxeq S\ar[l]^{\fcls{p}}\ar[d]_{\wtxeq\phi} & \wtx S
-      \ar[l]^(.4){\cans{S}}\ar[d]^{\wtx\phi} & S\ar[l]^(.3){\finc{S}}
-      \ar@/_1em/[lll]_p\ar[d]^h\\
-      D_{n+1} & \wtxeq T\ar[l]_{\fcls{q}} & \wtx T
-      \ar[l]_(.4){\cans{T}} & T\ar[l]_(.3){\finc{T}} \ar@/^1em/[lll]^q}.
+      \label{eq:main_diagram}
+      \begin{tikzcd}
+       C_{n+1} \ar[d,"f_{n+1}"']& \wtxeq S\ar[l,"\fcls{p}"]\ar[d,"\wtxeq\phi"'] & \wtx S
+      \ar[l,"\cans{S}"]\ar[d,"\wtx\phi"] & S\ar[l,"\finc{S}"]\ar[d,"h"]
+      \ar[lll,bend right=15,"p"']\\
+      D_{n+1} & \wtxeq T\ar[l,"\fcls{q}"'] & \wtx T
+      \ar[l,"\cans{T}"'] & T.\ar[l,"\finc{T}"'] \ar[lll,bend left=15,"q"]
+      \end{tikzcd}
+     % \xymatrix{
+     % C_{n+1} \ar[d]_{f_{n+1}}& \wtxeq S\ar[l]^{\fcls{p}}\ar[d]_{\wtxeq\phi} & \wtx S
+     %  \ar[l]^(.4){\cans{S}}\ar[d]^{\wtx\phi} & S\ar[l]^(.3){\finc{S}}
+     %  \ar@/_1em/[lll]_p\ar[d]^h\\
+     %  D_{n+1} & \wtxeq T\ar[l]_{\fcls{q}} & \wtx T
+     %  \ar[l]_(.4){\cans{T}} & T\ar[l]_(.3){\finc{T}} \ar@/^1em/[lll]^q}.
      \end{equation}
    \end{lemma}
    \begin{proof}
