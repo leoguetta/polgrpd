@@ -53,7 +53,7 @@ lemma.
  satisfying the following conditions:
  \begin{enumerate}
   \item  for all $x\in P_n$, $\extend{f}(\geninc_n x)=f(x)$;
-  \item $\extend{f}(x \comp{k} y)=\extend{f}(x)+\extend{f}(y)$, for any $i$\nbd-composable pairs 
+  \item $\extend{f}(x \comp{i} y)=\extend{f}(x)+\extend{f}(y)$, for any $i$\nbd-composable pairs 
     $(x,y)$ of $n$\nbd-cells of $C$ with $i<n$;
   \item $\extend f(\unit n(z))=0$, for any $(n-1)$\nbd-cell $z$.
   \end{enumerate}
@@ -95,7 +95,7 @@ satisfying the conditions (1),
   $\Z$-linear extension
   \[v\colon \Z P_n\to\abelk{k}_n(C),\]
   that is, $vf=g$. Note that $s$ is then precisely $\extend g$ as
-  defined in~\cref{lemma:delooping}. Now $uvf=us\geninc_n=\extend{f}\geninc_n=f$,which implies $uv=\Unit{\Z P_n}$. Also
+  defined in~\cref{lemma:delooping}. Now $uvf=us\geninc_n=\extend{f}\geninc_n=f$, which implies $uv=\Unit{\Z P_n}$. Also
   $vus\geninc_n=v\extend{f}\geninc_n=vf=s\geninc_n$. By the uniqueness
   part of \cref{lemma:delooping}, this implies $vus=s=\extend{g}$,
   whence $vu=\Unit{\abelk{k}_n(C)}$. This proves the following lemma.
@@ -123,7 +123,7 @@ satisfying the conditions (1),
   \end{proposition}
 
 \begin{proof}
-  By construction $\abelk{k}_0(C)=\Z P_0$ . The rest follows
+  By construction $\abelk{k}_0(C)=\Z P_0$. The rest follows
   from \cref{lemma:abelpoly}.
 \end{proof}
 \begin{paragr}\label{paragr:abeldisk}
@@ -328,7 +328,7 @@ such that the following diagram is commutative
   \[
   \begin{tikzcd}[column sep=large]
       \abelk{k}(\Sph{0})\otimes\abelk{k}(C) \ar[d] \ar[dr,"\abelk{k}\pair{u}{v}"] & \\
-      \abelk{k}\opifun{k}(\Dsk{1})\otimes\abelk{k}(C) \ar[r,"\abelk{k}(\alpha)"'] & D,
+      \abelk{k}\opifun{k}(\Dsk{1})\otimes\abelk{k}(C) \ar[r,"\abelk{k}(\alpha)"'] & \abelk{k}(D),
     \end{tikzcd}
   \] 
 which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
@@ -378,7 +378,7 @@ which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
 Since the embedding functor $\oemb{k}$ preserves the weak
 equivalences, it induces a functor
 \[\oemb{k}\colon \Loc{\opCat{k}}\to  \Loc{\oCat}\]
-at the level fo homotopy categories. However, this does {\em not}
+at the level of homotopy categories. However, this does {\em not}
 imply the commutation of the triangle
 \[
   \begin{tikzcd}[column sep=small]
@@ -391,7 +391,7 @@ The universal property of left derived functors only yields a natural transforma
 \begin{equation}\label{transnat}
   \homnat\colon\LL \abel\circ \oemb{k} \Rightarrow \LL \abelk{k}.
 \end{equation}
-Let $C$ is an \ook k-category and
+Let $C$ be an \ook k-category and
 \[
   p\colon\frgp P\to C
 \]
@@ -413,7 +413,7 @@ functorial in $C$ and therefore the above isomorphisms can be chosen
 natural in $C$. 
 \end{paragr}
 \begin{definition}\label{def:hompol}
-  Let $k\geq 0$. The \emph{$\pair \oo k$\nbd-polygraphic homology} of
+  Let $k\geq 0$. The \emph{$\ook k$\nbd-polygraphic homology} of
   an \ook k\nbd-category $C$ is defined as
   \[
     \Hop{k}(C):=\LL \abelk{k} (C).
@@ -436,29 +436,16 @@ natural in $C$.
   \begin{itemize}
   \item $C$ is a $1$-category, seen as an \ook k-category for any $k\geq
     1$;
-  \item $C$ is a groupoid, seen an \ook k-category for any $k\geq
+  \item $C$ is a groupoid, seen as an \ook k-category for any $k\geq
     0$.
   \end{itemize}
   In the course of the proof, we first recall a few fundamental
   properties of the usual homology of small categories, and finally
   compare the latter with its polygraphic counterpart.
 \end{paragr}
-%\% begin{paragr}\label{paragr:cancomp}
-%   Given an \ook k\nbd-category $C$, we shall
-%   simply write $\Hopol(C)$ instead of
-%   $\Hopol(\oemb{k}(C))$.
-%   In particular, the natural transformation \eqref{transnat} becomes
-%   \[
-%     \Hopol(C) \to \Hop{k}(C).
-%   \]
-% \end{paragr}
 
-% \begin{openquestion}\label{openquestion} With the same notation as
-%   above, is the canonical morphism
-%   \[
-%      \Hopol(C) \to \Hop{k}(C)
-%    \]
-%    an isomorphism of $\Loc{\Chp}$?
-% \end{openquestion}
-% As we shall see at the end of the next section, we answer positively to
-% the above question in a particular case.
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "main"
+%%% End:
