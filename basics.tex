@@ -311,17 +311,17 @@ Polygraphs and morphisms build a  sequence of categories
   k$-category $\frgp P$ is the colimit of the following diagram of
   $\ook k$-categories
   \[
-    \xymatrix{0\ar[r]&\skl 0\frgp P\ar[r] & \cdots\ar[r] &\skl{n-1}\frgp
-      P\ar[r] &\skl n\frgp P\ar[r]&\cdots}
+    \xymatrix{0\ar[r]&\skl 0(\frgp P)\ar[r] & \cdots\ar[r] &\skl{n-1}(\frgp
+      P)\ar[r] &\skl n(\frgp P)\ar[r]&\cdots}
   \]
   where $\skl{n-1}\frgp P\to\skl n\frgp P$ is
   obtained by taking the following pushout in $\opCat k$:
   \begin{equation}
     \label{eq:polpushout}
     \xymatrix{
-     \coprod_{P_{n}} \opifun k \Sph{n-1}
-     \ar[d]_{\coprod_{P_{n}}\opifun k\gcof {n}}\ar[r]& \skl{n-1}\frgp P\ar[d]\\
-      \coprod_{P_{n}}\opifun k\Dsk{n}\ar[r]& \skl n\frgp P
+     \coprod_{P_{n}} \opifun k (\Sph{n-1})
+     \ar[d]_{\coprod_{P_{n}}\opifun k(\gcof {n})}\ar[r]& \skl{n-1}(\frgp P\ar[d])\\
+      \coprod_{P_{n}}\opifun k(\Dsk{n})\ar[r]& \skl n(\frgp P)
     }.
   \end{equation}
   Here the top arrow assigns to each $n$\nbd-generator in $P_n$ a pair of parallel $(n{-}1)$-cells in
