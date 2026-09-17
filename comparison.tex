@@ -2,20 +2,17 @@
 
 \subsection{The two fundamental properties}
 \begin{paragr}\label{paragr:colimtr}
-  Let $C$ be a $1$\nbd-category. Given an $\ook
+  Let $C$ be a $1$\nbd-category. Recall from \ref{paragr:pullback_resol} that, given an $\ook
   k$\nbd-category
-  $X$ and an $\ook k$\nbd-functor $p \colon X \to C$, with $k \geq
-  1$, we define the slice
-  $\tr{X}{c}$ as the following fibred product
+  $X$ and an $\ook k$\nbd-functor $p \colon X \to C$, with $1 \leq k \leq \oo$, we defined a functor
     \[
-      \begin{tikzcd}
-        \tr{X}{c} \ar[r] \ar[d] & X \ar[d,"p"] \\
-        \tr{C}{c} \ar[r] & C,
-        \ar[from=1-1, to=2-2, phantom,very near start ,"\lrcorner"]
-      \end{tikzcd}
-    \]
-    where $\tr{C}{c}$ is the usual $1$-categorical slice. This
-    construction is functorial in that it canonically defines a functor
+    \begin{aligned}
+      \tr{X}{-} \colon C &\to \opCat{k} \\
+      c &\mapsto \tr{X}{c}.
+    \end{aligned}
+  \]
+    This
+    construction is functorial $p\colon X \to C$ as it canonically defines a functor
   \begin{align*}
     \tr{\opCat{k}}{C} &\to \fun{C}{\opCat{k}}\\
     (X, X \overset{p}{\to} C) &\mapsto \left(c \mapsto \tr{X}{c}\right).

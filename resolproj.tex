@@ -103,45 +103,46 @@ is, a morphism $g:x\to x'$ in $C$ such that the following triangle commutes:
 \end{proof}
 
 \subsection{Polygraphic resolutions of small categories}\label{subsec:polres}
-\begin{paragr}\label{paragr:pullback_resol}
+
 From now on, we shall identify any small category with its image
 in $\oCat$ by the inclusion functor $\oinc 1:\nCat 1\to \oCat$
 (\ref{ssubsec:ncat}). Note that, for any $k\geq 1$, this
-image belongs to $\opCat k$. In the following we fix $k\geq 1$ in
-$\N\cup\set{\oo}$ and we suppose that all diagrams are drawn in $\opCat k$. Thus
-let $C$ be a small category, $P$ an \ook k-polygraph and $p:\frgp P\to
-C$ a polygraphic resolution of $C$ in $\opCat k$. Given an object $c$
-of $C$, we may form the pullback of $\tr Cc\to C$ by $p:\frgp
-P\to C$ in $\opCat k$:
+image belongs to $\opCat k$. 
+\begin{paragr}\label{paragr:pullback_resol}
+  Let $C$ be a small category, $k \geq 1$ with $k \in \N\cup\set{\oo}$, $X$ an $\ook k$\nbd-category and $p \colon X \to C$ an $\ook k$\nbd-functor. For an object $c$ of $C$, we define the $\ook k$\nbd-category $\tr{X}{c}$ as the following pullback in $\opCat{k}$% Thus
+% let $C$ be a small category, $P$ an \ook k-polygraph and $p:\frgp P\to
+% C$ a polygraphic resolution of $C$ in $\opCat k$. Given an object $c$
+% of $C$, we may form the pullback of $\tr Cc\to C$ by $p:\frgp
+% P\to C$ in $\opCat k$:
   \begin{equation}
   \label{eq:pullback}
   \begin{tikzcd}
-      \tr{\frgp P\!}{c} \ar[d] \ar[r] & \tr{C}{c} \ar[d] \\
-      \frgp P \ar[r,"p"'] & C.
+      \tr{X}{c} \ar[d] \ar[r] & \tr{C}{c} \ar[d] \\
+       X \ar[r,"p"'] & C.
       \ar[from=1-1,to=2-2,phantom,"\lrcorner",very near start]
     \end{tikzcd}
   \end{equation}
-  Beware that $\tr{\frgp P\!}{c}$ is a mere notation for the resulting
-  \ook k-category, as we did not define slices of \ook
-  k-categories. Let us describe the $n$-cells of $\tr{\frgp P\!}{c}$
+  % Beware that $\tr{\frgp P\!}{c}$ is a mere notation for the resulting
+  % \ook k-category, as we did not define slices of \ook
+  % k-categories. 
+  Let us describe the $n$-cells of $\tr{X}{c}$
   for all $n\geq 0$:
   \begin{itemize}
-  \item a $0$-cell of $\tr{\frgp P\!}{c}$ is a pair $\pair{w_0}{f}$
-    where $w_0\in (\frgp P)_0$, $f:x\to c\in (\tr Cc)_0$ and
-    $p_0w_0=x$;
-  \item for $n>0$, an $n$-cell of $\tr{\frgp P\!}{c}$ amounts to a
-    pair $\pair{w_n}{f}$ where  $w_n\in (\frgp P)_n$ and $f:\tge 0
-    (p_nw_n)\to c$.
+  \item a $0$-cell of $\tr{X}{c}$ is a pair $\pair{x_0}{f}$
+    where $x_0\in X_0$, $f\colon p_0x_0\to c\in (\tr Cc)_0$;
+  \item for $n>0$, an $n$-cell of $\tr{X}{c}$ amounts to a
+    pair $\pair{x_n}{f}$ where  $x_n\in X_n$ and $f:\tge 0
+    (p_nx_n)\to c$.
   \end{itemize}
-Clearly, given a resolution $p$, the construction of $\tr{\frgp
-  P\!}{c}$ is functorial in $c$, thus defining a functor
+Clearly, the construction of $\tr{X}{c}$ is functorial in $c$, thus defining a functor
   \[
     \begin{aligned}
-      \tr{\frgp P\!}{-} \colon C &\to \opCat{k} \\
-      c &\mapsto \tr{\frgp P\!}{c}.
+      \tr{X}{-} \colon C &\to \opCat{k} \\
+      c &\mapsto \tr{X}{c}.
     \end{aligned}
   \]
 \end{paragr}
+In the following theorem, we apply this construction in the case $X=\frgp P$ for an $\ook k$-polygraph $P$ and $p \colon \frgp P \to C$ is a polygraphic resolution in $\opCat k$.
 \begin{theorem}\label{thm:projresol}
     Let $C$ be a small category and $p:\frgp P\to C$ a polygraphic
     resolution of $C$ in $\opCat k$, with $1\leq k\leq\oo$. The functor
