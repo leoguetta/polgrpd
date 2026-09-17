@@ -71,7 +71,7 @@ cells in $C_n$, by the following structural induction:
     \end{itemize}
 \end{paragr}
 \begin{lemma}\label{lemma:transl}
-  Let $\phi:\pair fh:\clx CS\to \clx DT$ a morphism of cellular
+  Let $\phi=\pair fh:\clx CS\to \clx DT$ be a morphism of cellular
   extensions. There is a unique $\phi$-compatible translation $\wtx\phi:\wtx S\to \wtx T$.
 \end{lemma}
 \begin{proof}
@@ -98,7 +98,7 @@ cells in $C_n$, by the following structural induction:
  \begin{paragr}
    Let $\clx CS$ be a cellular extension of the $\pair nk$-category
    $C$ by a set $S$.  Let
-$D$ an $\pair{n{+}1}k$-category, $f:C\to \trk n
+$D$ be an $\pair{n{+}1}k$-category, $f:C\to \trk n
    D$ a morphism. A map $g:\wtx S\to D_{n+1}$ is called {\em $f$-compatible} if:
    \begin{itemize}
    \item for each $w\in\wtx S$, $\sce n^Dg(w)=f_n(\scex n^S w)$ and
@@ -112,7 +112,7 @@ $D$ an $\pair{n{+}1}k$-category, $f:C\to \trk n
     Given $C$, $S$, $D$ and $f$ as above, we obtain the following result.
   \end{paragr}
   \begin{lemma}\label{lemma:mapext}
-    Let $h:S\to D_{n+1}$ a map such that $\sce n^Dh=f_n \sce
+    Let $h:S\to D_{n+1}$ be a map such that $\sce n^Dh=f_n \sce
     n^S$ and $\tge n^Dh=f_{n} \tge n^S$. There is a unique
     $f$-compatible map
     $\extend h:\wtx S\to D_{n+1}$
@@ -190,7 +190,7 @@ $D$ an $\pair{n{+}1}k$-category, $f:C\to \trk n
   denoted by $w\cfrel w'$, is defined inductively as follows: $w\cfrel
   w'$ if either (i)~$w\frel w'$ or (ii)~$w=(x\fcomp i u)$ and $w'=(x\fcomp i u')$
   with $u\cfrel u'$ or (iii)~$w=(u\fcomp i x)$,
-  and $w=(u'\fcomp i x)$ with $u\cfrel u'$. The relation $\freq$ is
+  and $w'=(u'\fcomp i x)$ with $u\cfrel u'$. The relation $\freq$ is
   then the smallest equivalence relation containing $\cfrel$. In other
   words, $w\freq w'$ if and only if there is a finite sequence
   $w_0,...,w_l$ where $l\geq 0$ of formulas in $\wtx S$ such that
@@ -247,7 +247,7 @@ $D$ an $\pair{n{+}1}k$-category, $f:C\to \trk n
          $\type{w'_1}{y_1}{x_1}$ and $\type{w'_2}{y_2}{x_2}$ such that
          $(w_l\fcomp n w'_l)\freq \fid{x_l}$ and $(w'_l\fcomp n
          w_l)\freq \fid{y_l}$ for $l=1,2$. Thus $w'=(w'_1\fcomp i
-         w'_2$ is well typed and satisfies $(w\fcomp n w')\freq \fid x$
+         w'_2)$ is well typed and satisfies $(w\fcomp n w')\freq \fid x$
        and $(w'\fcomp n w)\freq \fid y$.
     \end{itemize}
   \end{proof}
@@ -267,7 +267,7 @@ $D$ an $\pair{n{+}1}k$-category, $f:C\to \trk n
   This amounts to prove that $\extend C$ satisfies the following universal property.
   
 \begin{proposition}\label{prop:univprop}
-   Let $D$ be an  $\pair{n{+}1}{k}$-category $D$, $f:C\to\trk n D$ a
+   Let $D$ be an  $\pair{n{+}1}{k}$-category, $f:C\to\trk n D$ a
    morphism of $\pair nk$-categories
    and  $h:S\to D_{n+1}$ a map such that, for any $a\in S$, $\sce n^Dh(a)=\sce n^S a$
     and $\tge n^D h(a)=\tge n^S a$.  There is a unique
@@ -321,7 +321,7 @@ As $\cans S$  is surjective,
   n\extend\phi=f$ and $\extend{\phi}_{n+1}(\fcls{\fcst a})=h'(a)$ for
   each $a\in S$. Now
   $\extend{\phi}_{n+1}$ is precisely $\wtxeq{\phi}$, so that, for each $a\in
-  S$, $\wtx{\phi}(\fcls{\fcst a})=\fcls{\fcst{h(a)}}$.
+  S$, $\wtxeq{\phi}(\fcls{\fcst a})=\fcls{\fcst{h(a)}}$.
 \end{remark}
 
 \begin{paragr}\label{paragr:addproperties}
@@ -334,7 +334,7 @@ is a morphism of cellular extensions. Let $\extend C=\frf{n,k}\clx{\trk n C}{S}$
 the transpose of $\pair{\Unit{\trk n C}}{p}$ under the adjunction. We know
 by~\cref{prop:univprop} that $\extend{C}_{n+1}=\wtxeq S$. Let $\fcls
 p=\phi_{n+1}:\wtxeq S\to C_{n+1}$ and $\extend p=\fcls p\cans S:\wtx
-S\to D_{n+1}$. By~\cref{lemma:mapext}, the map $\extend p$ is the
+S\to C_{n+1}$. By~\cref{lemma:mapext}, the map $\extend p$ is the
 unique $\Unit{\trk nC}$-compatible map such that $\extend p\finc
 S=p$. Therefore, each $p:S\to C_{n+1}$ yields a factorization of the
 form
