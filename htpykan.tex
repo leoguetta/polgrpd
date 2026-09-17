@@ -85,19 +85,7 @@ $u_! \dashv u^*$ is a Quillen adjunction and we get an adjunction at
 the level of homotopy categories
   \[ \LL u_! \colon \Loc{\fun{I}{\M}} \leftrightarrows
 \Loc{\fun{J}{\M}} \colon \GZ{u^*}.
-  \]%  Here, we kept the same notation $u^*$ at the level of homotopy
-% categories (instead of, say, $\mathbb{R} u^*$) because the functor
-% $u^*$ preserves weak equivalences and thus we have a commutative
-% square
-%   \[
-%     \begin{tikzcd} \fun{J}{\M} \ar[d] \ar[r,"u^*"] &
-% \fun{I}{\M}\ar[d]\\ \Loc{\fun{J}{\M}} \ar[r,"u^*"] &
-% \Loc{\fun{I}{\M}},
-%     \end{tikzcd}
-%   \] where the vertical arrows are the localization
-%   functors. Furthermore, it follows that the bottom functor of the
-%   previous square is a total right derived functor of the top
-%   functor. In other words $u^*=\mathbb{R} u^*$.
+  \]
 \end{paragr}
 \begin{paragr}\label{paragr:hocolim} We denote by $\Term$ the terminal category and make the
 canonical identification $\fun{\Term}{\M}=\M$. For a small category
@@ -111,18 +99,10 @@ p_{I!}$ is nothing but the \emph{homotopy colimit functor}
 \[
   \hocolim_I \colon \Loc{\fun{I}{\M}} \to \Loc{\M}.
   \]
-  
-  % \[
-  %   \underset{\longrightarrow I}{\mathrm{holim}}\colon \Loc{\fun{I}{\M}} \to \Loc{\M}
-  % \]
- 
-  % \[
-  %   \hocolim_I\colon \Loc{\fun{I}{\M}} \to \Loc{\M}
-  %   \]
 \end{paragr}
 \begin{paragr} Let $I$ be a small category and $i \in \Ob(I)$ an
 object of $I$. This can be seen as a functor $i \colon \Term \to I$,
-which induces a ``evaluation at $i$'' functor
+which induces an ``evaluation at $i$'' functor
   \begin{align*} i^* \colon \fun{I}{\M} &\to \M\\ X &\mapsto X(i).
   \end{align*} It is a standard fact of category theory that the
 family of functors
@@ -160,10 +140,6 @@ the level of homotopy categories
   \[ \LL \fun{I}{F} \colon \Loc{\fun{I}{\M}}\leftrightarrows
     \Loc{\fun{I}{\M'}} \colon \GZ{\fun{I}{G}}.
   \]
-% where, similarly to \ref{paragr:htpykan}, we abusively wrote
-% $\fun{I}{G}$, instead of say
-% $\mathbb{R}\fun{I}{G}$, because it preserves all weak equivalences.
-
 Now, let $u \colon I \to J$ be a functor between small
 categories. By the strict $2$\nbd-functoriality property stated in
 \ref{paragr:techyp}, we have a strictly commutative diagram
@@ -190,7 +166,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 \ar[from=3-2,to=B,Rightarrow,"\epsilon"]
     \end{tikzcd}
   \]
-  This, in turns, allows to define a canonical natural transformation
+  This, in turn, allows one to define a canonical natural transformation
   \[
     \LL u_!\LL \fun{I}{F} \Rightarrow \LL \fun{J}{F} \LL u_! 
   \]
@@ -208,27 +184,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
     \ar[from=B,to=1-3,Rightarrow,"\eta"]
     \ar[from=2-3,to=1-2,Rightarrow]
     \end{tikzcd}
-  \]
-%   \[
-%     \begin{tikzcd} \Loc{\fun{J}{\M}} \ar[r,"\LL \fun{J}{F}"] \ar[d,"u^*"']&
-% \Loc{\fun{J}{\M'}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M}} \ar[r,"\LL \fun{I}{F}"'] & \Loc{\fun{I}{\M'}}.
-% \ar[from=2-1,to=1-2,Rightarrow]
-%     \end{tikzcd}
-%   \]
-
-  % \[
-  %    \LL \fun{I}{F}\circ u^* \overset{\epsilon}{\Longrightarrow}   \LL \fun{I}{F}\circ u^*
-  %    \circ \fun{J}{G}\circ \LL \fun{J}{F} = \LL \fun{I}{F}\circ
-  %    \fun{I}{G} \circ u^* \circ \LL
-  %    \fun{J}{F}\overset{\eta}{\Longrightarrow} u^*\circ \LL \fun{J}{F}.
-  %  \]
-   %   \[
-   %   \LL \fun{I}{F}  u^* \overset{\eta}{\Longrightarrow}   \LL \fun{I}{F}  u^*
-   %     \fun{J}{G}  \LL \fun{J}{F} = \LL \fun{I}{F} 
-   %   \fun{I}{G}   u^*   \LL
-   %   \fun{J}{F}\overset{\epsilon}{\Longrightarrow} u^*  \LL \fun{J}{F}.
-   % \]
-   
+  \]  
 \end{paragr}
 \begin{proposition}\label{prop:htpycocts} Let $\M$ and $\M'$ be two (cofibrantly generated)
   model categories, $F \colon \M \leftrightarrows \M' \colon G$ a Quillen adjunction such
@@ -259,10 +215,10 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 \end{proof}
 \begin{remark}
   The fact that \eqref{eq:cocontinuous} is an isomorphism is commonly
-  referred as the fact that \emph{left Quillen functors preserve
+  referred to as the fact that \emph{left Quillen functors preserve
     homotopy left Kan extensions}. In particular, taking $J=\Term$,
-  $u=p_I \colon I \to \Term$ the unique such function and $X$ an
-  object $\Loc{\fun{I}{\M}}$, we get an isomorphism of $\Loc{\M}$
+  $u=p_I \colon I \to \Term$ the unique such functor and $X$ an
+  object of $\Loc{\fun{I}{\M}}$, we get an isomorphism of $\Loc{\M}$
   \begin{equation}\label{eq:htpycolim}
     \hocolim_I \LL \fun{I}{F}(X) \simeq \LL F (\hocolim_I X),
   \end{equation}
@@ -286,11 +242,6 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
   graded chain complexes, whence recovering the usual setting of homology.
 \end{remark}
 \begin{paragr}
- % Obviously, for a fixed small category $I$, the previous
- % construction yields a functor
- % \[
- %   \Ho_{\M}(I,-) \colon \Loc{\fun{I}{\M}}\to \Loc{\M}.
- % \]
  Let us explore the functoriality of $\Ho_{\M}(I,X)$ in $I$. Let
   $u \colon I \to J$ be a functor between small categories. We have a
   commutative triangle
@@ -320,7 +271,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
   \[
     \LL p_{I!}\GZ{p_I^*}X =\LL p_{I!}\GZ{u^*p_J^*}X \simeq \LL p_{J!} \LL u_! \GZ{u^*p_J^*}X\to \LL p_{J!}\GZ{p_J^*}X,
   \]
-  where the morphism on the right is the co-unit of the ajdunction
+  where the morphism on the right is the co-unit of the adjunction
   $\LL u_! \dashv \GZ{u^*}$. In other words, this defines a morphism
   \[
   \Ho_{\M}(u,X)\colon  \Ho_{\M}(I,X)\to \Ho_{\M}(J,X).
@@ -347,7 +298,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 \subsection{Classical homology of categories}
 \begin{paragr}\label{paragr:homalg}
   For $C$ a small category, we denote by $\LMod{C}$ the category of
-  \emph{right $C$\nbd-modules}, that is of functors
+  \emph{left $C$\nbd-modules}, that is of functors
   \[
     C \to \Ab
   \]
@@ -418,7 +369,7 @@ localization of $\Chp(C)$ with respect to
 \end{paragr}
 \begin{definition}\label{def:classicalhomology}
   Let $C$ be a small category. We define
-  the \emph{homology of $C$}, and denote by
+  the \emph{homology of $C$}, and denote it by
   \[
     \Ho(C),
   \]
@@ -452,7 +403,7 @@ localization of $\Chp(C)$ with respect to
   \[
     -\tens{C}-\colon \RMod{C} \times \LMod{C} \to \Ab.
   \]
-  By co-end calculus, if we take $N=\cst{\Z}$ the we have a
+  By co-end calculus, if we take $N=\cst{\Z}$ then we have a
   natural isomorphism
   \[
     \cst{\Z}\tens{C}M \simeq \hocolim_C M.
@@ -468,9 +419,9 @@ localization of $\Chp(C)$ with respect to
   \]
   then, following \cref{remark:homologygroups}, we have
   \[
-    H_n(C)\simeq \Tor{C}{n}(\cst{\Z},\cst{\Z}).
+    \Ho_n(C)\simeq \Tor{C}{n}(\cst{\Z},\cst{\Z}).
   \]
-  Note that in the case that $C$ is a group $C=G$, we recover indeed
+  Note that in the case that $C$ is a group $C=G$, we indeed recover 
   the usual notion of $\Tor{}{}$, and thus the classical definition of
   group homology.
 
