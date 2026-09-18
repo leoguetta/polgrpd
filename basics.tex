@@ -39,7 +39,7 @@ subject to the globular equations
 \end{align*}
 are the only two elements of $\homset{\oGlob}{X_n}{X_m}$. We often drop the subscript and write $\sce{m},\tge{m}:X_n\to X_m$ in this case. The elements of $X_n$ are called {\em cells of dimension $n$}  or {\em $n$-cells}. For any $n$-cell $x\in X_n$ and $m<n$, the $m$-cells $\sce m(x)$ and $\tge m(x)$ are respectively the {\em $m$-source} and {\em $m$-target} of $x$. Whenever $\sce m(y)=\tge m(x)$, we say that $x$, $y$ are {\em $m$-composable}.
 If $n>0$, $x\in X_n$, $u=\sce{n-1}(x)$ and $v=\tge{n-1}(x)$, we shall write $x:u\to v$.
-Finally, two $n$-cells $x,y\in X_n$ are {\em parallel} if either $n=0$ or $n>0$ and $x$, $y$ have the same $(n{-}1)$-source and the same $(n{-}1)$-target.
+Finally, two $n$-cells $x,y\in X_n$ are {\em parallel} if either $n=0$, or $n>0$ and $x$, $y$ have the same $(n{-}1)$-source and the same $(n{-}1)$-target.
 
 \end{paragr}
 
@@ -89,7 +89,7 @@ $\unit n:C_{n-1}\to C_n$ for $n>0$ and a family of partial binary composition op
 \begin{paragr}
   Let $C$, $D$ be two \oo-categories. A {\em morphism} $f:C\to D$ is a
 morphism of the underlying globular sets preserving identities and
-$\comp i$-compositions. Strict \oo-categories and morphisms build a
+$\comp i$-compositions. Strict \oo-categories and morphisms form a
 category denoted by $\oCat$. Whenever necessary to avoid confusion, we use the notations $\sce i^C$ and
 $\tge i^C$ to
 emphasize that the corresponding source and target maps pertain to the
@@ -101,7 +101,7 @@ emphasize that the corresponding source and target maps pertain to the
 For each $n\in\N$, we denote by $\Dsk n$ the representable globular
 set $\homset{\glob}{-}{n}$, having exactly two $m$-cells for $m<n$, one
 $n$-cell, and no $m$-cell for $m>n$. By removing the only $n$-cell in
-$\Dsk n$, one obtains a sub-representable globular set we denote by $\Sph{n-1}$. 
+$\Dsk n$, one obtains a sub-representable globular set which we denote by $\Sph{n-1}$. 
 By abuse of notations, $\Dsk n$ and $\Sph{n-1}$ will
 denote the corresponding freely generated  \oo-categories~(see~\cite[14.2]{abgmmm:polybk}). These come
 with a family of inclusion morphisms $\gcof n:\Sph{n-1}\to\Dsk
@@ -144,7 +144,7 @@ Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp 
     very degenerate cases. 
   \end{proof}
   \begin{definition}
-    Let $k$ be a fixed integer. An {\em \ook k-category} $C$ is
+    Let $k\in\N$ be a fixed integer. An {\em \ook k-category} $C$ is
     an~\oo-category whose $n$-cells are invertible for all $n>k$.
     \end{definition}
   \begin{paragr}\label{paragr:invert}
@@ -155,7 +155,7 @@ Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp 
     k$. Thus $\opCat{\oo}$ is just $\oCat$. Likewise, one defines the truncated version $\npCat nk$ for
     any $0\leq k<n$.  For example $\npCat 10$ is the category $\Grpd$
     of small groupoids and $\opCat 0$ the category $\oGrpd$ of
-    \oo-groupoids. For any $0 \leq k \leq k'\leq \omega$, there is a canonical
+    \oo-groupoids. For any $0 \leq k \leq k'\leq \oo$, there is a canonical
     inclusion functor
     \[
       \emb{k}{k'} \colon \opCat{k} \to \opCat{k'}.
@@ -172,9 +172,9 @@ Let $C$ be an \oo-category, $0\leq i <n$. An $n$-cell $x$ of $C$ is {\em $\comp 
     sending an \ook{k'}\nbd-category to its maximal
     sub\nbd-\ook{k}\nbd-category. For $k'=\oo$, we shall simply denote
     by $\oemb k$, $\opifun k$ and $\omaxgr k$ the corresponding
-    functors. Remark that for each $k$, the category $\opCat k$ is
+    functors. Observe that for each $k$, the category $\opCat k$ is
     preserved by the above defined $n$-skeleton functors. The
-    corresponding restricted functors will be still denoted by $\skl n:\opCat
+    corresponding restricted functors will still be denoted by $\skl n:\opCat
     k\to\opCat k$ in the following.
  \end{paragr} 
 
@@ -196,7 +196,7 @@ $n$-categories $C$ and $D$ respectively.  A {\em morphism}
  $\nCat n$ and $h:S\to T$ is a map such that, for each $a\in S$, $\sce
  n^T(h(a))=h(\sce n^S(a))$ and $\tge n^T(h(a))=h(\tge n^S(a))$.
 
- Cellular extensions and morphisms build a category $\nCatp
+ Cellular extensions and morphisms form a category $\nCatp
  n$. Likewise, when restricted to $\npCat nk$, the
  construction yields a category $\npCatp nk$. Now,
  any $(n{+}1)$-category $C$ determines a cellular extension $\clx{\trk
@@ -204,6 +204,8 @@ $n$-categories $C$ and $D$ respectively.  A {\em morphism}
  $S=C_{n+1}$, where $\sce n^S=\sce n^C$ and $\tge n^S=\tge n^C$.
  This immediately yields a forgetful functor
  \[\fgf n:\nCat {n+1}\to \nCatp n.\]
+ This functor $\fgf n$ admits a left adjoint
+ \[\frf n:\nCatp n\to\nCat {n+1}.\]
 Now, for any $k\leq n$, this functor $\fgf n$ restricts to
 $\npCat{n+1}{k}$ and if $C$ is an~$\pair{n{+}1}{k}$-category, then,
 for $k<n$, 
@@ -220,7 +222,7 @@ and its left adjoint $\frf{n,n}:\nCatp n\to \npCat{n+1}{n}$.
 \cref{sec:syntax} below is devoted to a precise description of $\frf
 {n,k}$ for a fixed $k$ and any $n\geq k$.
 We also refer to~\cite{batanin:comfmg} and~\cite[Ch.18]{abgmmm:polybk} for
-a comprehensive view over this adjunction. 
+a comprehensive account over this adjunction. 
 
 \subsubsection{Polygraphs}\label{ssubsec:polyg}
 Let $k\in\N$ be a fixed integer. We define, by induction on $n\in\N$,
@@ -279,7 +281,7 @@ induction on $n$.
   of cellular extensions such that $q:Q\to Q'$ is a morphism of
   $\pair nk$-polygraphs and $\frgp q=\frf{n,k} q$.
 \end{itemize}
-Polygraphs and morphisms build a  sequence of categories
+Polygraphs and morphisms form a  sequence of categories
 \[
   \xymatrix@C=0.5cm{
     \nPol 0 &\nPol 1\ar[l]& \cdots\ar[l] & \nPol k\ar[l] & \npPol{k+1}k \ar[l]& \cdots\ar[l] &
@@ -314,7 +316,7 @@ Polygraphs and morphisms build a  sequence of categories
     \xymatrix{0\ar[r]&\skl 0(\frgp P)\ar[r] & \cdots\ar[r] &\skl{n-1}(\frgp
       P)\ar[r] &\skl n(\frgp P)\ar[r]&\cdots}
   \]
-  where $\skl{n-1}\frgp P\to\skl n\frgp P$ is
+  where $\skl{n-1}(\frgp P)\to\skl n(\frgp P)$ is
   obtained by taking the following pushout in $\opCat k$:
   \begin{equation}
     \label{eq:polpushout}

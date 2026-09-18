@@ -1,7 +1,7 @@
 \section{Introduction}\label{sec:intro}
 
 The category $\oCat$ of strict, globular $\oo$-categories bears a
-``canonical'' model structure  introduced
+``canonical'' model structure introduced
 in~\cite{lafontetal:folkms}. In this structure, the cofibrant objects
 are of the form $\frcat P$ where $P$ is a polygraph
 (see~\cite{abgmmm:polybk}) and $\frcat P$ denotes the \oo-category
@@ -62,7 +62,8 @@ The present work addresses the following question:
 already shows that the answer is by no means trivial: consider $\Z$ as an
 \ook 0-category $C$ where $C_0$ is a single point, $C_1=\Z$ and all
 $i$-cells are identities for $i>1$. As an object of $\opCat 0$, $C$ is
-cofibrant and therefore $\Hop 0(C)$ is just $\abelk 0(C)$, that is $\Z$ concentrated in degree $0$. However,
+cofibrant and therefore $\Hop 0(C)$ is just $\abelk 0(C)$, that is
+$\Z$ concentrated in degrees $0$ and $1$. However,
 $C$ is {\em not} a cofibrant object in $\oCat$, and to compute
 $\Hopol(C)$ we first need a polygraphic resolution $\frcat P\to C$. Now, for any such $P$ and each $k>1$, the set of $k$-dimensional
 generators must be non-empty and the direct computation of the homology of
@@ -78,7 +79,7 @@ In fact, if $C$ is a $1$-category or a groupoid,  we take advantage of the exist
 of the usual homology $\Ho(C)$ obtained by deriving the tensor product
 of $C$-modules. Precisely, the
 category $\RMod{C}$ of right $C$\nbd-modules is the category of
-functors $F \colon C^{\op} \to \Ab$ from $C$ to the
+functors $F \colon C^{\op} \to \Ab$ from $C^{\op}$ to the
   category of abelian groups and natural transformations between them,
   and the category $\LMod{C}$ of left $C$\nbd-modules is the category
   of functors $G \colon C \to \Ab$. Given a right $C$\nbd-module $F$ and a
@@ -88,7 +89,7 @@ functors $F \colon C^{\op} \to \Ab$ from $C$ to the
     F \tens{C}G := \int^{c \in C}F(c)\tens{\Z} G(c).
   \]
   This defines a functor $\RMod{C}\times \LMod{C} \to \Ab$,
-   right exact in each variable and thus left derivable as the
+   right exact in each variable and thus left derivable since the
   categories of left and right $C$\nbd-modules have enough
   projectives. This allows us to define the (classical) homology of $C$
   as
@@ -96,13 +97,14 @@ functors $F \colon C^{\op} \to \Ab$ from $C$ to the
     \Ho(C):=\cst{\Z}\Ltens{C}\cst{\Z},
   \]
   where $\Ltens{C}$ is the total left derived functor of $\tens{C}$,
-  and $\cst{\Z}$ denotes both the constant left and right
+  and $\cst{\Z}$ denotes both the constant left $C$\nbd-module and the
+  constant right
   $C$\nbd-module with value $\Z$. Note that if $C$ is a
   group, this definition is the usual definition of the homology
   of $C$ with coefficients in $\Z$.
 
   Now, if $1\leq k\leq \oo$ and $C$ is a $1$-category seen as an  \ook
-  k-category, we are able to build a map
+  k-category, we construct a map
   \begin{equation}
     \label{eq:poltoclassical}
      \Hop k (C) \to \Ho(C)
@@ -117,7 +119,7 @@ functors $F \colon C^{\op} \to \Ab$ from $C$ to the
   resolutions in $\opCat{k}$ for any chosen $k\geq 1$ or even $k=0$ if $C$ is
   a groupoid. For example, for a group $G$ this means that we can
   compute the singular homology of the Eilenberg--MacLane space
-  $K(G,1)$, using \emph{strict} $\omega$\nbd-groupoids.
+  $K(G,1)$, using \emph{strict} $\oo$\nbd-groupoids.
 
   We then complete the argument by showing that, in the case of
   $1$-categories, the map~(\ref{eq:natural}) fits into a commutative triangle
@@ -132,9 +134,7 @@ functors $F \colon C^{\op} \to \Ab$ from $C$ to the
   arrow is also an isomorphism. When $C$ is a groupoid, the same
   result extends to the value $k=0$.
 
-  
- 
-Partial results about the isomorphism~\eqref{eq:poltoclassical} have
+  Partial results about the isomorphism~\eqref{eq:poltoclassical} have
 already been established in earlier works. The case $k=\oo$ is the main result of
 \cite{guetta:homcat}. For the case $k=1$, a proof can be
 extracted from Guiraud and Malbos' work \cite[Theorem
@@ -172,13 +172,13 @@ relies on the theory of discrete Conduché fibrations for strict \ook k-categori
 if $C$ is free on an \ook k-polygraph $P$, then $D$ is also free on an
 \ook k-polygraph $Q$ constructed functorially out of $P$.
 
-\subsection*{Organisation of the paper}
+\subsection*{Organization of the paper}
 After some recollections on strict \ook k-categories in
 Section \ref{sec:basics}, the paper is divided into two main parts which are mostly
 independent: Sections \ref{sec:syntax} and \ref{sec:basislift} are
 dedicated to the theory of discrete Conduché fibrations and Sections
 \ref{sec:projresol}, \ref{sec:polhom}, \ref{sec:htpykan} and \ref{sec:comparison} are dedicated to the homotopical and homological
-results. The reader willing to accept Theorem \ref{thm:main} can safely
+results. Readers willing to accept Theorem \ref{thm:main} can safely
 skip the first part and start at Section \ref{sec:projresol}.
 
 %%% Local Variables:

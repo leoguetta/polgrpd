@@ -12,7 +12,7 @@
     \end{aligned}
   \]
     This
-    construction is functorial $p\colon X \to C$ as it canonically defines a functor
+    construction is functorial in $p\colon X \to C$ as it canonically defines a functor
   \begin{align*}
     \tr{\opCat{k}}{C} &\to \fun{C}{\opCat{k}}\\
     (X, X \overset{p}{\to} C) &\mapsto \left(c \mapsto \tr{X}{c}\right).
@@ -75,18 +75,19 @@ follows from the fact that $\opCat{k} \to \oCat$
     \end{tikzcd}
   \]
   Note that $\ilim_{c \in C}$ in the middle are the image by the
-  localisation function \[\opCat{k} \to \Loc{\opCat{k}}\]
+  localisation functor \[\opCat{k} \to \Loc{\opCat{k}}\]
   of the actual
   colimits taken in the category $\opCat{k}$. The far right vertical
   arrow is an isomorphism by hypothesis, the horizontal arrows of the
-  square on the right are isomorphism by \cref{lemma:colim}. The far left
+  square on the right are isomorphisms by \cref{lemma:colim}. The far left
   vertical arrow is an isomorphism because the natural transformation
-  $\tr{\frgp P\!}{c} \to \tr{C}{c}$ is a pointwise weak equivalence by
-  stability of trivial fibrations by pull back. Finally, the top
+  $\tr{\frgp P\!}{-} \to \tr{C}{-}$ is a pointwise weak equivalence by
+  stability of trivial fibrations under pullback, and homotopy colimits
+  send pointwise weak equivalences to isomorphisms (in the homotopy category). Finally, the top
   horizontal arrow of the square on the left is an isomorphism
   because $\tr{\frgp P\!}{-}$ is cofibrant by \cref{thm:projresol} (or
-  \cref{thm:projresol_grp} in the case $k=0$). By a two-out-of-three
-  applied twice, we get that all the remaining arrows of this diagram
+  \cref{thm:projresol_grp} in the case $k=0$). By applying
+  two-out-of-three twice, we get that all the remaining arrows of this diagram
   are isomorphisms too. 
 \end{proof}
 \begin{lemma}\label{lemma:liftoplax}
@@ -128,7 +129,7 @@ follows from the fact that $\opCat{k} \to \oCat$
   whole diagram commute.
 \end{proof}
 \begin{proposition}\label{prop:hlgycontrcat}
-  Let $C$ be a small category with a terminal object, then for any $1
+  Let $C$ be a small category with a terminal object. Then, for any $1
   \leq k \leq \oo$ the
   canonical morphism of $\Derp{\Z}$
   \[
@@ -199,7 +200,7 @@ follows from the fact that $\opCat{k} \to \oCat$
 \end{theorem}
 
 \begin{proof}
-  Let's start with the first part of the theorem. Recall that if $F
+  Let us start with the first part of the theorem. Recall that if $F
   \colon \M \to \M'$ is a functor, and $C$ is a small category we
   denote by $\fun{C}{F} \colon \fun{C}{\M} \to \fun{C}{\M'}$ the
   functor induced by post-composition. Consider the
@@ -237,7 +238,10 @@ All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
   \[
     \LL \abelk{k}(\Term) \cong \Z.
   \]
-  All in all, this yields an isomorphism
+  Since, by definition, we have
+  \[
+    \Ho(C)=\hocolim_{C}p^*_C(\Z),
+    \] this yields an isomorphism
   \[
     \Ho(C) \cong \Hop{k}(C),
   \]
