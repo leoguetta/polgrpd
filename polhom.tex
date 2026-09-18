@@ -4,8 +4,7 @@
   The {\em abelianization functor}
   \[\abel\colon\oCat \to \Chp \]
   from the category of $\oo$\nbd-categories to
-  the category of chain complexes in non-negative degree is defined in
-  the following straightforward way. For an $\oo$\nbd-category $C$ and $n\geq 0$
+  the category of chain complexes in non-negative degree is defined as follows. For an $\oo$\nbd-category $C$ and $n\geq 0$
   \[
     \abel_n(C):=\Z C_n/\sim_n,
   \]
@@ -21,16 +20,16 @@
       [x] &\mapsto [\target x] - [\source x].
     \end{aligned}
   \]
-  One checks that this is well-defined, that we have $\partial
-  \circ \partial=0$ and that the correspondence $C \mapsto
-  \abel(C)$ can be made functorial in an obvious
+  One checks that this is well-defined, that $\partial
+  \circ \partial=0$, and that the correspondence $C \mapsto
+  \abel(C)$ is functorial in the evident
   way. Furthermore, $\abel$ admits a right adjoint. For
-  details we refer to \cite[22.1]{abgmmm:polybk}.
+  details, we refer to \cite[22.1]{abgmmm:polybk}.
 
   By pre-composing with the inclusion functor, for any $k\geq 0$, we
   also get an abelianization functor
   \[
-    \abelk{k} \colon \opCat{k} \overset{\oemb{k}}{\longrightarrow} \oCat \overset{\lambda}{\longrightarrow} \Chp.
+    \abelk{k} \colon \opCat{k} \overset{\oemb{k}}{\longrightarrow} \oCat \overset{\abel}{\longrightarrow} \Chp.
   \]
   In particular, for $k=\oo$, we have $\abel=\abelk{\oo}$ by
   definition. Notice that since $\oemb{k}$ admits a right adjoint, so
@@ -63,7 +62,7 @@ lemma.
  adapts to the case $n\leq k$.
 Consider the $n$\nbd-groupoid $\B^nG$,
 whose set of $i$\nbd-cell is a singleton for $i<n$ and $G$ for $i=n$,
-and all composition operations are equal to the group
+and all composition operations are given by the group
 operation. By definition, $\B^nG$ is an \pk{n}{k}-category. The map
 $f\colon P_n\to G$ amounts to a morphism of cellular extensions
 \[\clx{\trk{n-1}C}{P_n}\to \fgf{n-1,k}(\B^nG).\]
@@ -78,7 +77,7 @@ satisfying the conditions (1),
 \begin{paragr}
   Let $P$ be an \ook{k}-polygraph, $C=\frgp P$ and $n>0$. Consider
   \[f\colon P_n\to \Z P_n\]
-  the canonical injection. By \cref{lemma:delooping} there is unique
+  the canonical injection. By \cref{lemma:delooping} there is a unique
   map $\extend f\colon C_n\to \Z P_n$ satisfying the conditions (1),
   (2) and (3) of the lemma. In particular $\extend f$ is compatible with 
   the relation $\sim_n$ and we get a unique $\Z$-linear map
@@ -95,7 +94,7 @@ satisfying the conditions (1),
   $\Z$-linear extension
   \[v\colon \Z P_n\to\abelk{k}_n(C),\]
   that is, $vf=g$. Note that $s$ is then precisely $\extend g$ as
-  defined in~\cref{lemma:delooping}. Now $uvf=us\geninc_n=\extend{f}\geninc_n=f$, which implies $uv=\Unit{\Z P_n}$. Also
+  defined in~\cref{lemma:delooping}. Now $uvf=us\geninc_n=\extend{f}\geninc_n=f$, which implies that $uv=\Unit{\Z P_n}$. Also
   $vus\geninc_n=v\extend{f}\geninc_n=vf=s\geninc_n$. By the uniqueness
   part of \cref{lemma:delooping}, this implies $vus=s=\extend{g}$,
   whence $vu=\Unit{\abelk{k}_n(C)}$. This proves the following lemma.
@@ -129,7 +128,7 @@ satisfying the conditions (1),
 \begin{paragr}\label{paragr:abeldisk}
   
   As an application of~\cref{prop:isocomplex}, for $k=\oo$ and $n\geq
-  0$,  we can compute the chain complex $\abel(\Dsk{n})$ as follows.
+  0$,  we obtain the following description of the chain complex $\abel(\Dsk{n})$ as follows.
 
   \[
     \abel_i(\Dsk{n})\cong \begin{cases}
@@ -139,15 +138,15 @@ satisfying the conditions (1),
   \]
   For $n>0$ the differential $\partial
   \colon \abel_i(\Dsk{n}) \to \abel_{i-1}(\Dsk{n})$ sends $1$ to
-  $(1,1)$ for $i=n$ and is given by the matrix $\begin{pmatrix} 1 & 1
+  $(1,-1)$ for $i=n$ and is given by the matrix $\begin{pmatrix} 1 & 1
     \\ -1 & -1 \end{pmatrix}$, 
-  for $0 \leq i < n$.
+  for $1 \leq i < n$.
 
-  As for $\Sph{n}$, we get $\abel_n(\Sph{n})=0$ and, for all $i\neq n$, $\abel_i(\Sph{n})=\abel_i(\Dsk{n})$. 
+  For $\Sph{n}$, we get $\abel_{n+1}(\Sph{n})=0$ and, for all $i\neq n+1$, $\abel_i(\Sph{n})=\abel_i(\Dsk{n+1})$. 
 \end{paragr}
 
 \begin{paragr}\label{paragr:abelloc}
-  Let $0 \leq k < \omega$. By definition,
+  Let $0 \leq k < \oo$. By definition,
   we have a commutative triangle
   \[
     \begin{tikzcd}[column sep=small]
@@ -170,8 +169,8 @@ isomorphism, as shown below.
 \end{lemma}
 \begin{proof}
 The abelianization functor $\abel$ admits a right adjoint $\mu \colon
-\Chp \to \oCat$. It turns out that, for any chain complex $K$, the
-\oo-category $\mu(K)$ is actually an \oo\nbd-groupoid (see \cite[Paragraph
+\Chp \to \oCat$. For any chain complex $K$, the
+\oo-category $\mu(K)$ is in fact an \oo\nbd-groupoid (see \cite[Paragraph
   17.4.3]{abgmmm:polybk}). Therefore, $\mu$ factors uniquely through  $\opCat{k}$ as
   \[
     \Chp \overset{\mu^k}{\longrightarrow} \opCat{k}
@@ -189,9 +188,9 @@ The abelianization functor $\abel$ admits a right adjoint $\mu \colon
                                    \end{align*}
   as $\oemb{k}$ is fully faithful. Hence $\abelk{k}$ is left adjoint
   to $\mu^k$. It follows that $\abelk{k}\opifun{k}$ is left adjoint to
-  $\oemb{k}\mu^k$, which is $\mu$. Now $\abelk{k}\opifun{k}$ and
+  $\oemb{k}\mu^k=\mu$. Now $\abelk{k}\opifun{k}$ and
   $\abel$ are both left adjoint to the same functor $\mu$, whence
-  naturally isomorphic.
+  they are naturally isomorphic.
 \end{proof}
 
 \subsection{Monoidal structure}\label{subsec:monoidal}
@@ -200,8 +199,8 @@ The abelianization functor $\abel$ admits a right adjoint $\mu \colon
 \begin{paragr}\label{paragr:gray}
   Recall that the category $\oCat$ admits a monoidal category
   structure with the so-called ``Gray tensor product'',
-  simply denoted by $\gray$, and with unit $\Dsk{0}$ (see for example
-  \cite[Appendice A]{ara_maltsiniotis:joint}). More generally, for any $0 \leq k \leq \omega$, we have
+  which we simply denote by $\gray$, and with unit $\Dsk{0}$ (see, for example,
+  \cite[Appendice A]{ara_maltsiniotis:joint}). More generally, for any $0 \leq k \leq \oo$, we have
   the induced tensor product $\grayk{k}$ on $\opCat{k}$
   (see~\cite[Section 6]{ara_lucas:folmon}) defined by the
   formula
@@ -215,14 +214,14 @@ The abelianization functor $\abel$ admits a right adjoint $\mu \colon
   \[
     C\grayk{k} D \to C \times D,
   \]
-  which is natural in $C$ and $D$. This is not an isomorphism, except
-  if $C$ or $D$ is a $0$\nbd-category (that is, a set).
+  which is natural in $C$ and $D$. This is not an isomorphism unless
+  $C$ or $D$ is a $0$\nbd-category (that is, a set).
 
   
   A pair $u, v \colon C \to D$ of morphisms in $\opCat{k}$ amounts to
   a morphism
   \[\pair{u}{v}\colon \Sph{0}\grayk{k}C\to D\]
-  because of the canonical isomorphisms
+  using the canonical isomorphisms
    \[
     \begin{aligned}
       \Sph{0}\grayk{k}C &=(\Dsk{0}\coprod \Dsk{0})\grayk{k}C \\
@@ -273,7 +272,7 @@ defines an oplax transformation $\alpha \wsk g \colon ug \Rightarrow vg$.
 
 Finally, we call \emph{natural transformation from $u$ to $v$} a morphism
 \[
-  \gamma \colon \opifun{k}(\Dsk{1})\times C \to D
+  \alpha \colon \opifun{k}(\Dsk{1})\times C \to D
 \]
 such that the following diagram is commutative
   \[
@@ -282,8 +281,8 @@ such that the following diagram is commutative
       \opifun{k}(\Dsk{1})\times C \ar[r,"\alpha"'] & D. 
     \end{tikzcd}
   \]
-  As before, we have used here the canonical identification
-  $\Sph{0}\times C\cong C \coprod C$. Note that in case $C$, $D$ are
+  As before, we use here the canonical identification
+  $\Sph{0}\times C\cong C \coprod C$. Note that, when $C$ and $D$ are
   $1$-categories, this coincides with the usual notion.
 
   Any  natural
@@ -293,7 +292,7 @@ such that the following diagram is commutative
   \]
 \end{paragr}
 \begin{proposition}\label{prop:abelmonoidal}
-  For any $0 \leq k \leq \omega$, the abelianization functor
+  For any $0 \leq k \leq \oo$, the abelianization functor
   \[
     \abelk{k} \colon \opCat{k} \to \Chp
   \]
@@ -301,9 +300,9 @@ such that the following diagram is commutative
   $\opCat{k}$ and the usual tensor product of chain complexes on $\Chp$.
 \end{proposition}
 \begin{proof}
-  The case $k=\omega$ is a consequence of~\cite[Proposition A.19]{ara_maltsiniotis:joint}. The
+  The case $k=\oo$ is a consequence of~\cite[Proposition A.19]{ara_maltsiniotis:joint}. The
   general case follows from  $\abelk{k}\cong
-  \abel\opifun{k}$ (\cref{lemma:abelpi}) and the fact
+  \abel\opifun{k}$ (\cref{lemma:abelpi}), together with the fact
   that $\abel$ and $\opifun{k}$ are strong monoidal.
 \end{proof}
 \begin{corollary}\label{cor:abeltrans}
@@ -331,7 +330,7 @@ such that the following diagram is commutative
       \abelk{k}\opifun{k}(\Dsk{1})\otimes\abelk{k}(C) \ar[r,"\abelk{k}(\alpha)"'] & \abelk{k}(D),
     \end{tikzcd}
   \] 
-which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
+which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk}, becomes
 \[
     \begin{tikzcd}[column sep=large]
      \abelk{k}(C)\oplus \abelk{k}(C) \ar[d] \ar[dr,"{\left(\abelk{k}(u),\abelk{k}(v)\right)}"] & \\
@@ -351,19 +350,19 @@ which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
     \abelk{k} \colon \opCat{k} \to \Chp
   \]
   is left Quillen with respect to the folk model structure on
-  $\npCat{\oo}{k}$ and the projective model structure in $\Chp$.
+  $\opCat k$ and the projective model structure on $\Chp$.
 \end{proposition}
 \begin{proof}
    Let $I$ (resp.\ $J$) be a set of generating cofibrations (resp.\ generating
   trivial cofibrations) in $\oCat$. Since the folk model structure on
   $\opCat k$ is right induced from
   the inclusion functor $\oemb{k} \colon \opCat{k} \to \oCat$,
-  $\opifun k(I)$ and $\opifun k(J)$ are respectively sets of
+  $\opifun k(I)$ and $\opifun k(J)$ are respectively, sets of
   generating cofibrations and generating trivial cofibrations in
   $\opCat k$. By \cref{lemma:abelpi}, $\abelk k\opifun k(I)\cong
   \abel(I)$ and  $\abelk k\opifun k(J)\cong \abel(J)$. Thus it
   suffices to prove that $\abel (I)$ and $\abel (J)$ are respectively
-  sets of cofibrations and weak equivalences in $\oCat$, which follows
+  sets of cofibrations and weak equivalences in $\Chp$ and this follows
   from~\cite[Theorem 22.2.7]{abgmmm:polybk}. 
 \end{proof}
 
@@ -372,22 +371,22 @@ which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
   \[
     \begin{tikzcd}[column sep=small]
       \opCat{k}\ar[rr,"\oemb{k}"]\ar[rd,"\abelk{k}"']&& \oCat\ar[dl,"\abel"] \\
-      &\Chp&.
+      &\Chp.&
   \end{tikzcd}
 \]
 Since the embedding functor $\oemb{k}$ preserves the weak
 equivalences, it induces a functor
 \[\oemb{k}\colon \Loc{\opCat{k}}\to  \Loc{\oCat}\]
 at the level of homotopy categories. However, this does {\em not}
-imply the commutation of the triangle
+imply that the triangle
 \[
   \begin{tikzcd}[column sep=small]
     \Loc{\opCat{k}}\ar[rr,"\oemb{k}"]\ar[rd,"\LL \abelk{k}"']&&
     \Loc{\oCat}\ar[dl,"\LL \abel"] \\
-    &\Loc{\Chp}&.
+    &\Loc{\Chp}&
   \end{tikzcd}
 \]
-The universal property of left derived functors only yields a natural transformation
+commutes. The universal property of left derived functors only yields a natural transformation
 \begin{equation}\label{transnat}
   \homnat\colon\LL \abel\circ \oemb{k} \Rightarrow \LL \abelk{k}.
 \end{equation}
@@ -407,9 +406,9 @@ in $\oCat$, but admits a cofibrant replacement
 Thus $\LL\abel(\oemb{k}(C))\cong \abel(\frcat Q)$ and the component
 $\homnat_C$ of~(\ref{transnat}) is
 \[\abel(q):\abel(\frcat Q)\to \abelk{k}(\frgp P)\]
-up to isomorphisms depending on the choice of resolutions. Note that
+up to isomorphisms depending on the choices of resolutions. Note that
 resolutions in $\oCat$ as well as in $\opCat k$ may be chosen
-functorial in $C$ and therefore the above isomorphisms can be chosen
+functorially in $C$ and therefore the above isomorphisms can be chosen
 natural in $C$. 
 \end{paragr}
 \begin{definition}\label{def:hompol}
@@ -422,8 +421,8 @@ natural in $C$.
 
 \begin{paragr}\label{paragr:mainquestion}
   Let $C$ be an \ook k-category. Besides its \ook k-polygraphic
-  homology, we may consider its polygraphic homology when considered
-  as an \oo-category. Precisely, we shall denote by $\Hopol(C)$ the
+  homology, we may also consider its polygraphic homology when $C$ is regarded
+  as an \oo-category. More precisely, we shall denote by $\Hopol(C)$ the
   \ook{\oo}-polygraphic homology of $\oemb{k}(C)$, that is,
   $\Hop{\oo}(\oemb{k}(C))$. The main question we address in this paper
   is then whether the natural morphism
