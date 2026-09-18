@@ -132,7 +132,7 @@ satisfying the conditions (1),
   0$,  we can compute the chain complex $\abel(\Dsk{n})$ as follows.
 
   \[
-    \abel_i(\Dsk{n})\simeq \begin{cases}
+    \abel_i(\Dsk{n})\cong \begin{cases}
       \Z\oplus\Z &\text{ if } 0 \leq i < n\\
       \Z &\text{ if } i=n\\
         0 &\text{ if } i>n \end{cases}
@@ -179,13 +179,13 @@ The abelianization functor $\abel$ admits a right adjoint $\mu \colon
   \] 
   For any $C\in\opCat{k}$ and $K\in\Chp$
   \begin{align*}
-    \homset{\Chp}{\abelk{k}(C)}{K} &\simeq
+    \homset{\Chp}{\abelk{k}(C)}{K} &\cong
                                      \homset{\Chp}{\abel\oemb{k}(C)}{K}\\
-                                                     &\simeq
+                                                     &\cong
                                                        \homset{\oCat}{\oemb{k}(C)}{\mu(K)}\\
-                                                     & \simeq
+                                                     & \cong
                                                        \homset{\oCat}{\oemb{k}(C)}{\oemb{k}\mu^k(K)}\\
-                                   &\simeq \homset{\opCat{k}}{C}{\mu^k(K)}
+                                   &\cong \homset{\opCat{k}}{C}{\mu^k(K)}
                                    \end{align*}
   as $\oemb{k}$ is fully faithful. Hence $\abelk{k}$ is left adjoint
   to $\mu^k$. It follows that $\abelk{k}\opifun{k}$ is left adjoint to
@@ -226,9 +226,9 @@ The abelianization functor $\abel$ admits a right adjoint $\mu \colon
    \[
     \begin{aligned}
       \Sph{0}\grayk{k}C &=(\Dsk{0}\coprod \Dsk{0})\grayk{k}C \\
-      &\simeq \left(\Dsk{0}\grayk{k}C\right)\coprod
+      &\cong \left(\Dsk{0}\grayk{k}C\right)\coprod
         \left(\Dsk{0}\grayk{k}C\right) \\
-      &\simeq C \coprod C.
+      &\cong C \coprod C.
     \end{aligned}
   \]
   Here the second line uses the fact that the Gray tensor product is
@@ -283,7 +283,7 @@ such that the following diagram is commutative
     \end{tikzcd}
   \]
   As before, we have used here the canonical identification
-  $\Sph{0}\times C\simeq C \coprod C$. Note that in case $C$, $D$ are
+  $\Sph{0}\times C\cong C \coprod C$. Note that in case $C$, $D$ are
   $1$-categories, this coincides with the usual notion.
 
   Any  natural
@@ -302,7 +302,7 @@ such that the following diagram is commutative
 \end{proposition}
 \begin{proof}
   The case $k=\omega$ is a consequence of~\cite[Proposition A.19]{ara_maltsiniotis:joint}. The
-  general case follows from  $\abelk{k}\simeq
+  general case follows from  $\abelk{k}\cong
   \abel\opifun{k}$ (\cref{lemma:abelpi}) and the fact
   that $\abel$ and $\opifun{k}$ are strong monoidal.
 \end{proof}
@@ -360,8 +360,8 @@ which, by \cref{lemma:abelpi} and \ref{paragr:abeldisk} becomes
   the inclusion functor $\oemb{k} \colon \opCat{k} \to \oCat$,
   $\opifun k(I)$ and $\opifun k(J)$ are respectively sets of
   generating cofibrations and generating trivial cofibrations in
-  $\opCat k$. By \cref{lemma:abelpi}, $\abelk k\opifun k(I)\simeq
-  \abel(I)$ and  $\abelk k\opifun k(J)\simeq \abel(J)$. Thus it
+  $\opCat k$. By \cref{lemma:abelpi}, $\abelk k\opifun k(I)\cong
+  \abel(I)$ and  $\abelk k\opifun k(J)\cong \abel(J)$. Thus it
   suffices to prove that $\abel (I)$ and $\abel (J)$ are respectively
   sets of cofibrations and weak equivalences in $\oCat$, which follows
   from~\cite[Theorem 22.2.7]{abgmmm:polybk}. 
@@ -398,13 +398,13 @@ Let $C$ be an \ook k-category and
 a resolution of $C$ by an \ook k-polygraph $P$. As $\frgp P$ is
 cofibrant in $\opCat k$,
 \[
-  \Loc{\abelk k}(C)\simeq \abelk k(\frgp P).
+  \Loc{\abelk k}(C)\cong \abelk k(\frgp P).
   \]
 On
 the other hand, $\oemb{k}(\frgp P)$ is generally {\em not} cofibrant
 in $\oCat$, but admits a cofibrant replacement
 \[q\colon \frcat Q\to \oemb{k}(\frgp P).\]
-Thus $\LL\abel(\oemb{k}(C))\simeq \abel(\frcat Q)$ and the component
+Thus $\LL\abel(\oemb{k}(C))\cong \abel(\frcat Q)$ and the component
 $\homnat_C$ of~(\ref{transnat}) is
 \[\abel(q):\abel(\frcat Q)\to \abelk{k}(\frgp P)\]
 up to isomorphisms depending on the choice of resolutions. Note that

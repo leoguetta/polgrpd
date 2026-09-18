@@ -43,7 +43,7 @@ result still holds for any $k\in\N$. Now a key feature of a free \oo-category is
     
 \subsection{Lifting properties of discrete Conduché fibrations}\label{subsec:lifting}
 \begin{paragr}\label{paragr:generators}
- Let us fix an integer $k\in\N$.  Let $n\geq k$, $C$, $D$ be two $\pair{n{+}1}k$-categories and $f:C\to D$ a
+ Let us fix an integer $k\in\N$.  Let $n\geq k$, $C$, $D$ be two $\pair{n{+}1}k$-categories and $f:C\to D$ be a
  morphism. We suppose that there exists a set $T\subset D_{n+1}$ such
   that $D$ is isomorphic to $\frf{n,k}\clx{\trk nD}{T}$.
 Let $q:T\to D_{n+1}$ be the inclusion of
@@ -169,7 +169,7 @@ By the minimal length condition $\lgh
       $\unit{n+1}(x)=\extend p(w_1)=c=\extend p(w_2)=\unit{n+1}(x')$
       so that $x=x'$ and $w_1=w_2$.
     \end{enumerate}
-    \item Suppose $l>0$ and let $w_1,w_2\in W_l$ such that
+    \item Suppose $l>1$ and let $w_1,w_2\in W_l$ such that
       $g(w_1)=g(w_2)$. Then $w_1$ is of the form $(w'_1\fcomp{i_1}
       w''_1)$ and  $w_2$ is of the form $(w'_2\fcomp{i_2} w''_2)$, but
       as $z=g(w_1)=g(w_2)$ is of the form $(z'\fcomp i z'')$,
@@ -357,7 +357,7 @@ In the first part of
   c\phi(w')$. By~\cref{lemma:lift_freq}, $w\freq w'$, whence $\fcls
   w=\fcls{w'}$ and we are done. \end{proof}
 \begin{proposition}\label{prop:sum_up}
-  Let $n\geq k$, $C$, $D$ be two $\pair{n{+}1}{k}$-categories and $f:C\to D$ a
+  Let $n\geq k$, $C$, $D$ be two $\pair{n{+}1}{k}$-categories and $f:C\to D$ be a
   discrete Conduché fibration. Suppose there is a set $T\subset D_{n+1}$ such
   that $D$ is isomorphic to $\frf{n,k}\clx{\trk nD}{T}$ and  let
   $S=f_{n+1}^{-1}(T)\subset C_{n+1}$. Then $C$ is isomorphic to the
@@ -389,7 +389,7 @@ In the first part of
  identical formal system.
 \end{remark}
 \begin{proposition}\label{prop:sum_up_restr}
-  Let $n\in\N$, $C$, $D$ be two $(n{+}1)$-categories and $f:C\to D$ a
+  Let $n\in\N$, $C$, $D$ be two $(n{+}1)$-categories and $f:C\to D$ be a
   discrete Conduché fibration. Suppose there is a set $T\subset D_{n+1}$ such
   that $D$ is isomorphic to $\frf n\clx{\trk nD}{T}$ and  let
   $S=f_{n+1}^{-1}(T)\subset C_{n+1}$. Then $C$ is isomorphic to the
@@ -406,7 +406,7 @@ $f_n(a)=q_n(b)$ for $b\in Q_n$, where $q_n:Q_n\to D_n$ is the inclusion map
 of $n$-generators in $D_n$.
 \end{theorem}
 \begin{proof}
-  Let $Q$ be an \ook{k}-polygraph $Q$ such that
+  Let $Q$ be an \ook{k}-polygraph such that
   $D=\frgp Q$. For each $n\geq 0$, let $q_n:Q_n\to D_n=\frgp Q_n$ be the
   inclusion map of generators. Let us define $P_n\subset C_n$ by
   \[
@@ -416,9 +416,11 @@ of $n$-generators in $D_n$.
   $h_n:P_n\to Q_n$ taking each $a\in P_n$ to the unique $b\in Q_n$
   such that $q_n(b)=f_n(a)$ fits into the commutative diagram
   \[
-    \xymatrix{C_n \ar[d]_{f_n}& P_n\ar[l]_{p_n}\ar[d]^{h_n}\\
-    D_n & Q_n\ar[l]^{q_n}}
-    \]
+    \begin{tikzcd}
+      C_n \ar[d,"f_n"'] & P_n \ar[l,"p_n"'] \ar[d,"h_n"]\\
+      D_n & Q_n. \ar[l,"q_n"]
+    \end{tikzcd}
+\]
   Thus, for each
   $n\geq 0$, we get a cellular extension $\clx{\trk nC}{P_{n+1}}$ of
   $\trk n C$ by the subset $P_{n+1}\subset C_{n+1}$.

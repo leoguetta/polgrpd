@@ -1,9 +1,9 @@
-\section{Recollection on homotopy Kan extensions in Model categories}\label{sec:htpykan}
+\section{A recollection of homotopy Kan extensions in model categories}\label{sec:htpykan}
 \subsection{A simplifying technical hypothesis}
 \begin{paragr}\label{paragr:techyp}
   All the Quillen adjunctions $F \colon \M \leftrightarrows \M' \colon G$
   that show up in this paper have the extra property that $G$
-  preserves \emph{all} weak equivalences. This is for instance the
+  preserves \emph{all} weak equivalences. This is, for instance, the
   case when all objects of $\M'$ are fibrant.
 This allows for a
   simplification of certain coherence issues: $G$ induces a \emph{unique} functor $\GZ{G}$ at the level of
@@ -19,10 +19,9 @@ This allows for a
   to the weak equivalences in the sense of Gabriel--Zisman \cite{gabrielzisman:calfrh}, and
   the vertical arrows are the localization functors. It follows from
   the universal property of localization that
-  $\GZ{G}$ is a total right derived
-  functor of $G$ and we can define $\mathbb{R}G=\overline{G}$, the
-  former being usually only defined up to isomorphism. In addition to giving a canonical choice of right derived functor, this construction
-  has also a very nice $2$\nbd-functorial property. Given another
+  $\GZ{G}$ is a right derived
+  functor of $G$ and we can define $\mathbb{R}G=\overline{G}$. In addition to giving a canonical choice of right derived functor, this construction
+  has a useful strict $2$\nbd-functorial property. Given another
   Quillen adjunction $F' \colon \M \leftrightarrows \M' \colon G'$, 
   any natural transformation \[\alpha \colon G \Rightarrow G'\] induces
   a unique natural transformation \[\GZ{\alpha} \colon \GZ{G}
@@ -37,7 +36,7 @@ This allows for a
   \end{aligned}
 \]
 defines a \emph{strict} $2$\nbd-functor from the $2$\nbd-category of
-  model categories, right Quillen functors that preserves all weak
+  model categories, right Quillen functors that preserve all weak
   equivalences and natural transformations between them, to the
   $2$\nbd-category of (large) categories.
 
@@ -56,7 +55,7 @@ defines a \emph{strict} $2$\nbd-functor from the $2$\nbd-category of
   \end{aligned}
  \] 
   is only \emph{pseudo}-functorial. Hence, it involves coherence 
-  data which we have to keep track of, making some proofs uneasy.
+  data which we have to keep track of, making some proofs cumbersome.
 
   The upshot is that since each $\LL F$ is left adjoint to $\GZ{G}$,
   we can often exploit this fact to reduce a proof concerning left
@@ -76,28 +75,16 @@ between small categories induces by precomposition a functor
   \begin{align*} u^* \colon \fun{J}{\M} &\to \fun{I}{\M}\\ X &\mapsto
 X\circ u.
   \end{align*} This functor admits a left adjoint $u_!
-\colon\fun{I}{\M} \to \fun{J}{\M} $, which satisfies the pointwise Kan
+\colon\fun{I}{\M} \to \fun{J}{\M} $, which is given pointwise by the Kan
 extension formula:
-  \[ u_!(X)(j)\simeq\ilim_{\tr{I}{j}}X\vert_{\tr{I}{j}}.
+  \[ u_!(X)(j)\cong\ilim_{\tr{I}{j}}X\vert_{\tr{I}{j}}.
   \] By construction, $u^*$ preserves the weak equivalences and the
 fibrations of the projective model structure. Hence, the adjunction
 $u_! \dashv u^*$ is a Quillen adjunction and we get an adjunction at
 the level of homotopy categories
   \[ \LL u_! \colon \Loc{\fun{I}{\M}} \leftrightarrows
 \Loc{\fun{J}{\M}} \colon \GZ{u^*}.
-  \]%  Here, we kept the same notation $u^*$ at the level of homotopy
-% categories (instead of, say, $\mathbb{R} u^*$) because the functor
-% $u^*$ preserves weak equivalences and thus we have a commutative
-% square
-%   \[
-%     \begin{tikzcd} \fun{J}{\M} \ar[d] \ar[r,"u^*"] &
-% \fun{I}{\M}\ar[d]\\ \Loc{\fun{J}{\M}} \ar[r,"u^*"] &
-% \Loc{\fun{I}{\M}},
-%     \end{tikzcd}
-%   \] where the vertical arrows are the localization
-%   functors. Furthermore, it follows that the bottom functor of the
-%   previous square is a total right derived functor of the top
-%   functor. In other words $u^*=\mathbb{R} u^*$.
+  \]
 \end{paragr}
 \begin{paragr}\label{paragr:hocolim} We denote by $\Term$ the terminal category and make the
 canonical identification $\fun{\Term}{\M}=\M$. For a small category
@@ -111,17 +98,9 @@ p_{I!}$ is nothing but the \emph{homotopy colimit functor}
 \[
   \hocolim_I \colon \Loc{\fun{I}{\M}} \to \Loc{\M}.
   \]
-  
-  % \[
-  %   \underset{\longrightarrow I}{\mathrm{holim}}\colon \Loc{\fun{I}{\M}} \to \Loc{\M}
-  % \]
- 
-  % \[
-  %   \hocolim_I\colon \Loc{\fun{I}{\M}} \to \Loc{\M}
-  %   \]
 \end{paragr}
 \begin{paragr} Let $I$ be a small category and $i \in \Ob(I)$ an
-object of $I$. This can be seen as a functor $i \colon \Term \to I$,
+object of $I$. We can regard this as a functor $i \colon \Term \to I$,
 which induces a ``evaluation at $i$'' functor
   \begin{align*} i^* \colon \fun{I}{\M} &\to \M\\ X &\mapsto X(i).
   \end{align*} It is a standard fact of category theory that the
@@ -153,17 +132,13 @@ G\circ X.
   \end{aligned}\]
 The adjunction $\fun{I}{F} \colon \fun{I}{\M} \leftrightarrows
 \fun{I}{\M'} \colon \fun{I}{G}$ is again a Quillen adjunction with
-respect to the projective model structures, and $\fun{I}{G}$ again
+respect to the projective model structures. Furthermore, $\fun{I}{G}$
 preserves all weak equivalences. Hence, it induces an adjunction at
 the level of homotopy categories
 
   \[ \LL \fun{I}{F} \colon \Loc{\fun{I}{\M}}\leftrightarrows
     \Loc{\fun{I}{\M'}} \colon \GZ{\fun{I}{G}}.
   \]
-% where, similarly to \ref{paragr:htpykan}, we abusively wrote
-% $\fun{I}{G}$, instead of say
-% $\mathbb{R}\fun{I}{G}$, because it preserves all weak equivalences.
-
 Now, let $u \colon I \to J$ be a functor between small
 categories. By the strict $2$\nbd-functoriality property stated in
 \ref{paragr:techyp}, we have a strictly commutative diagram
@@ -190,7 +165,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 \ar[from=3-2,to=B,Rightarrow,"\epsilon"]
     \end{tikzcd}
   \]
-  This, in turns, allows to define a canonical natural transformation
+  This, in turn, allows us to define a canonical natural transformation
   \[
     \LL u_!\LL \fun{I}{F} \Rightarrow \LL \fun{J}{F} \LL u_! 
   \]
@@ -209,26 +184,6 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
     \ar[from=2-3,to=1-2,Rightarrow]
     \end{tikzcd}
   \]
-%   \[
-%     \begin{tikzcd} \Loc{\fun{J}{\M}} \ar[r,"\LL \fun{J}{F}"] \ar[d,"u^*"']&
-% \Loc{\fun{J}{\M'}} \ar[d,"u^*"]\\ \Loc{\fun{I}{\M}} \ar[r,"\LL \fun{I}{F}"'] & \Loc{\fun{I}{\M'}}.
-% \ar[from=2-1,to=1-2,Rightarrow]
-%     \end{tikzcd}
-%   \]
-
-  % \[
-  %    \LL \fun{I}{F}\circ u^* \overset{\epsilon}{\Longrightarrow}   \LL \fun{I}{F}\circ u^*
-  %    \circ \fun{J}{G}\circ \LL \fun{J}{F} = \LL \fun{I}{F}\circ
-  %    \fun{I}{G} \circ u^* \circ \LL
-  %    \fun{J}{F}\overset{\eta}{\Longrightarrow} u^*\circ \LL \fun{J}{F}.
-  %  \]
-   %   \[
-   %   \LL \fun{I}{F}  u^* \overset{\eta}{\Longrightarrow}   \LL \fun{I}{F}  u^*
-   %     \fun{J}{G}  \LL \fun{J}{F} = \LL \fun{I}{F} 
-   %   \fun{I}{G}   u^*   \LL
-   %   \fun{J}{F}\overset{\epsilon}{\Longrightarrow} u^*  \LL \fun{J}{F}.
-   % \]
-   
 \end{paragr}
 \begin{proposition}\label{prop:htpycocts} Let $\M$ and $\M'$ be two (cofibrantly generated)
   model categories, $F \colon \M \leftrightarrows \M' \colon G$ a Quillen adjunction such
@@ -259,12 +214,12 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 \end{proof}
 \begin{remark}
   The fact that \eqref{eq:cocontinuous} is an isomorphism is commonly
-  referred as the fact that \emph{left Quillen functors preserve
+  referred to as the fact that \emph{left Quillen functors preserve
     homotopy left Kan extensions}. In particular, taking $J=\Term$,
-  $u=p_I \colon I \to \Term$ the unique such function and $X$ an
+  $u=p_I \colon I \to \Term$ the unique such functor and $X$ an
   object $\Loc{\fun{I}{\M}}$, we get an isomorphism of $\Loc{\M}$
   \begin{equation}\label{eq:htpycolim}
-    \hocolim_I \LL \fun{I}{F}(X) \simeq \LL F (\hocolim_I X),
+    \hocolim_I \LL \fun{I}{F}(X) \cong \LL F (\hocolim_I X),
   \end{equation}
   natural in $X$ and in $F$.
 \end{remark}
@@ -279,20 +234,15 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 \end{definition}
 
 \begin{remark}
-  Note that the use of the word ``homology'' here is arguably slightly
+  Note that the use of the term ``homology'' here is arguably slightly
   abusive as we don't make any hypothesis of additivity or stability
   property of any kind on (the localization of) $\M$. Later, we will
   focus on the case where $\M$ is the category of non-negatively
   graded chain complexes, whence recovering the usual setting of homology.
 \end{remark}
 \begin{paragr}
- % Obviously, for a fixed small category $I$, the previous
- % construction yields a functor
- % \[
- %   \Ho_{\M}(I,-) \colon \Loc{\fun{I}{\M}}\to \Loc{\M}.
- % \]
  Let us explore the functoriality of $\Ho_{\M}(I,X)$ in $I$. Let
-  $u \colon I \to J$ be a functor between small categories. We have a
+  $u \colon I \to J$ be a functor between small categories. The
   commutative triangle
   \[
     \begin{tikzcd}[column sep=small]
@@ -300,7 +250,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
       &\Term&
     \end{tikzcd}
   \]
-  which induces a (strictly) commutative triangle
+  induces a (strictly) commutative triangle
   \[
     \begin{tikzcd}[column sep=small]
       \Loc{\fun{I}{\M}}  && \Loc{\fun{J}{\M}}\ar[ll,"\GZ{u^*}"'] \\
@@ -316,9 +266,9 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
       &\Loc{\M}.&
     \end{tikzcd}
   \]
-  Now let $X$ be an object of $\M$. Then we have a morphism
+  Now let $X$ be an object of $\M$. There is a canonical morphism
   \[
-    \LL p_{I!}\GZ{p_I^*}X =\LL p_{I!}\GZ{u^*p_J^*}X \simeq \LL p_{J!} \LL u_! \GZ{u^*p_J^*}X\to \LL p_{J!}\GZ{p_J^*}X,
+    \LL p_{I!}\GZ{p_I^*}X =\LL p_{I!}\GZ{u^*p_J^*}X \cong \LL p_{J!} \LL u_! \GZ{u^*p_J^*}X\to \LL p_{J!}\GZ{p_J^*}X,
   \]
   where the morphism on the right is the co-unit of the ajdunction
   $\LL u_! \dashv \GZ{u^*}$. In other words, this defines a morphism
@@ -347,7 +297,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 \subsection{Classical homology of categories}
 \begin{paragr}\label{paragr:homalg}
   For $C$ a small category, we denote by $\LMod{C}$ the category of
-  \emph{right $C$\nbd-modules}, that is of functors
+  \emph{left $C$\nbd-modules}, that is of functors
   \[
     C \to \Ab
   \]
@@ -382,8 +332,8 @@ localization of $\Chp(C)$ with respect to
   \item the cofibrations are the levelwise monomorphisms with
     projective cokernel in each non-negative degree.
   \end{itemize}
-  In particular, cofibrant objects are the chain complexes (in
-  non-negative degree) of projective
+  In particular, the cofibrant objects are the chain complexes (in
+  non-negative degree) of degreewise projective
   $C$\nbd-modules. The following lemma is useful to
   construct and recognize such objects.
 \end{paragr}
@@ -402,16 +352,17 @@ localization of $\Chp(C)$ with respect to
 \end{proof}
 
 \begin{paragr}
-   Notice that for a small category $C$, we have a canonical
+   Notice that for a small category $C$, there is a canonical
    \emph{isomorphism} of categories
   \[
-    \Chp(C)\simeq \fun{C}{\Chp(\Z)},
+    \Chp(C)\cong \fun{C}{\Chp(\Z)},
   \]
-  and we shall make this identification implictly. Note that this identification is compatible with
-  model structures in the sense that the projective model structure
-  on $\fun{C}{\Chp(\Z)}$ in the sense of \ref{paragr:htpykan} is the
-  same, via the previous isomorphism, as the projective model
-  structure on $\Chp(C)$ in the sense of \ref{paragr:homalg}.
+  and we shall make this identification implicitly. Note that this
+  identification is compatible with model structures in the sense that
+  the projective model structure on $\fun{C}{\Chp(\Z)}$ in the sense
+  of \ref{paragr:htpykan} is the same, via the previous isomorphism,
+  as the projective model structure on $\Chp(C)$ in the sense of
+  \ref{paragr:homalg}.
 
   This allows us to use all the results from the sections
   \ref{projms}, \ref{hptycocts} and \ref{abstracthom}. 
@@ -422,7 +373,7 @@ localization of $\Chp(C)$ with respect to
   \[
     \Ho(C),
   \]
-  as the $\Chp(\Z)$\nbd-valued homology of $C$ with constant coefficient $\cst{\Z}$
+  as the $\Chp(\Z)$\nbd-valued homology of $C$ with constant coefficients $\cst{\Z}$
   (\cref{def:abstracthom}).
 \end{definition}
 \begin{remark}\label{remark:homologygroups}
@@ -442,7 +393,7 @@ localization of $\Chp(C)$ with respect to
   \]
   In order to make this formula look more familiar, let us introduce
   the following construction. Given a left $C$\nbd-module $M$ and right $C$\nbd-module $N$, we define their (total) tensor product as
-  the following co-end, taken in the category of abelian groups,
+  the following coend, taken in the category of abelian groups,
   \[
     N\tens{C}M :=\int^{c \in C}N(c)\tens{\Z} M(c).
   \]
@@ -452,14 +403,14 @@ localization of $\Chp(C)$ with respect to
   \[
     -\tens{C}-\colon \RMod{C} \times \LMod{C} \to \Ab.
   \]
-  By co-end calculus, if we take $N=\cst{\Z}$ the we have a
+  By coend calculus, taking $N=\cst{\Z}$ yields a
   natural isomorphism
   \[
-    \cst{\Z}\tens{C}M \simeq \hocolim_C M.
+    \cst{\Z}\tens{C}M \cong \ilim_C M.
   \]
   In particular, this implies that we have
   \[
-    \Ho(C)\simeq \cst{\Z} \Ltens{C} \cst{\Z},
+    \Ho(C)\cong \cst{\Z} \Ltens{C} \cst{\Z},
   \]
   where $\Ltens{C}$ is the left-derived functor of
   $\tens{C}$. If we define
@@ -468,20 +419,13 @@ localization of $\Chp(C)$ with respect to
   \]
   then, following \cref{remark:homologygroups}, we have
   \[
-    H_n(C)\simeq \Tor{C}{n}(\cst{\Z},\cst{\Z}).
+    H_n(C)\cong \Tor{C}{n}(\cst{\Z},\cst{\Z}).
   \]
-  Note that in the case that $C$ is a group $C=G$, we recover indeed
+  Note that in the case that $C$ is a group $C=G$, we indeed recover
   the usual notion of $\Tor{}{}$, and thus the classical definition of
   group homology.
-
-  % Concretely, in order to compute $H_n(C)$, one has to take either a
-  % projective resolution $P_{\bullet} \to \cst{\Z}$ in the category of
-  % right $C$\nbd-modules, or a projective resolution of $Q_{\bullet} \to
-  % \Z$ in the category of left $C$\nbd-modules, and then
-  % \[
-  %   H_n(C,M)\simeq H_n(P_{\bullet}\tens{C}\Z) \simeq H_n(\Z\tens{C}Q_{\bullet}).
-  % \]
 \end{paragr}
+
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"

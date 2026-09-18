@@ -3,7 +3,7 @@
 \subsection{Well-typed formulas}\label{subsec:wtform}
 
 \subsubsection{Formal expressions}\label{ssubsec:formex}
-Let $0\leq k\leq n$, $C$ be an $\pair nk$-category, and  $\clx CS$ a
+Let $0\leq k\leq n$, $C$ be an $\pair nk$-category, and  $\clx CS$ be a
 cellular extension of $C$ by a set $S$, with $\sce n^S,\tge n^S:S\to C_n$. For each $a\in S$, and $x$,
 $y\in C_n$, the notation $a:x\to y$ is short for 
 $x=\sce n^S(a)$ and $y=\tge n^S(a)$. To $\clx CS$ we first associate
@@ -55,10 +55,10 @@ cells in $C_n$, by the following structural induction:
  $\scex i^S,\tgex i^S:\wtx S\to C_i$. Note that the map $\finc S$ is injective. 
  
  \begin{paragr}\label{paragr:transl}
-  Let $C$, $D$ be $\pair nk$-categories, $S$, $T$ two sets,  $\clx
-  CS$, $\clx DT$ cellular extensions and
+  Let $C$, $D$ be $\pair nk$-categories, $S$, $T$ be two sets,  $\clx
+  CS$, $\clx DT$ be cellular extensions and
   \[\phi=\pair fh: \clx CS\to\clx DT \]
-  a morphism in $\npCatp nk$. A map $g:\wtx S\to\wtx T$ is called a {\em
+  be a morphism in $\npCatp nk$. A map $g:\wtx S\to\wtx T$ is called a {\em
    $\phi$-compatible translation} if
   \begin{itemize}
   \item for each $w\in\wtx S$, $\scex n^Tg(w)=f_n(\scex n^S w)$ and
@@ -97,9 +97,8 @@ cells in $C_n$, by the following structural induction:
 
  \begin{paragr}
    Let $\clx CS$ be a cellular extension of the $\pair nk$-category
-   $C$ by a set $S$.  Let
-$D$ be an $\pair{n{+}1}k$-category, $f:C\to \trk n
-   D$ a morphism. A map $g:\wtx S\to D_{n+1}$ is called {\em $f$-compatible} if:
+   $C$ by a set $S$, $D$ be an $\pair{n{+}1}k$-category and $f:C\to \trk n
+   D$ be a morphism. A map $g:\wtx S\to D_{n+1}$ is called {\em $f$-compatible} if:
    \begin{itemize}
    \item for each $w\in\wtx S$, $\sce n^Dg(w)=f_n(\scex n^S w)$ and
      $\tge n^D g(w)=f_n(\tgex n^S w)$;
@@ -267,9 +266,9 @@ $D$ be an $\pair{n{+}1}k$-category, $f:C\to \trk n
   This amounts to prove that $\extend C$ satisfies the following universal property.
   
 \begin{proposition}\label{prop:univprop}
-   Let $D$ be an  $\pair{n{+}1}{k}$-category, $f:C\to\trk n D$ a
+   Let $D$ be an  $\pair{n{+}1}{k}$-category, $f:C\to\trk n D$ be a
    morphism of $\pair nk$-categories
-   and  $h:S\to D_{n+1}$ a map such that, for any $a\in S$, $\sce n^Dh(a)=\sce n^S a$
+   and  $h:S\to D_{n+1}$ be a map such that, for any $a\in S$, $\sce n^Dh(a)=\sce n^S a$
     and $\tge n^D h(a)=\tge n^S a$.  There is a unique
     morphism $\phi:\extend C\to D$ in $\npCat{n+1}{k}$ such that $\trk
     n\phi=f$ and for each $a\in S$, $\phi_{n+1}(\fcls{\fcst a})=h(a)$.
@@ -325,13 +324,13 @@ As $\cans S$  is surjective,
 \end{remark}
 
 \begin{paragr}\label{paragr:addproperties}
-  Let $C$ be an $\pair{n{+}1}{k}$-category and $S$ a set. Any map
+  Let $C$ be an $\pair{n{+}1}{k}$-category and $S$ be a set. Any map
   $p:S\to C_{n+1}$ immediately defines a cellular extension $\clx{\trk n C}{S}$ of
   $\trk n C$ by $S$, with $\sce n^S=\sce n^C\circ p$ and $\tge
   n^S=\tge n^C\circ p$. Thus
 \[\pair{\Unit{\trk n C}}{p}:\clx{\trk n C}{S}\to\fgf{n,k}C\]
 is a morphism of cellular extensions. Let $\extend C=\frf{n,k}\clx{\trk n C}{S}$ and $\phi:\extend C\to C$
-the transpose of $\pair{\Unit{\trk n C}}{p}$ under the adjunction. We know
+be the transpose of $\pair{\Unit{\trk n C}}{p}$ under the adjunction. We know
 by~\cref{prop:univprop} that $\extend{C}_{n+1}=\wtxeq S$. Let $\fcls
 p=\phi_{n+1}:\wtxeq S\to C_{n+1}$ and $\extend p=\fcls p\cans S:\wtx
 S\to C_{n+1}$. By~\cref{lemma:mapext}, the map $\extend p$ is the
@@ -346,7 +345,7 @@ form
 
 
 \begin{lemma}\label{lemma:main_diagram}
-    Let $C$, $D$ be $\pair{n{+}1}{k}$-categories and $f:C\to D$ a
+    Let $C$, $D$ be $\pair{n{+}1}{k}$-categories and $f:C\to D$ be a
     morphism. Let $S$, $T$ be two sets endowed with maps $p:S\to
     C_{n+1}$ and $q:T\to D_{n+1}$. Let $h:S\to T$ be a map such that
     $f_{n+1}p=qh$. Then
