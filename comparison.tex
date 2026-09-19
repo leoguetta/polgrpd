@@ -54,7 +54,7 @@ follows from the fact that $\opCat{k} \to \oCat$
   preserves colimits.
 \end{proof}
 \begin{proposition}\label{prop:hocolimtr}
-  Let $C$ be a $1$\nbd-category. Then for any $k\geq 1$, the canonical morphism of
+  Let $C$ be a $1$\nbd-category. Then for any $1 \leq k \leq \oo$, the canonical morphism of
   $\Loc{\opCat{k}}$
   \[
     \hocolim_{c\in C }\tr{C}{c} \to C
@@ -103,7 +103,7 @@ follows from the fact that $\opCat{k} \to \oCat$
   where the front and back faces are commutative. If $q$ is a trivial
   fibration and $A'$ is cofibrant, for the folk model structure on
   $\opCat{k}$, then there exists an oplax transformation $\alpha'
-  \colon u' \Rightarrow v'$ making the whole diagram commutative, which means
+  \colon u' \Rightarrow v'$ making the whole diagram commute, which means
   that
   \[
     q\wsk \alpha' = \alpha \wsk p
@@ -156,8 +156,8 @@ follows from the fact that $\opCat{k} \to \oCat$
     \frgp{P} \to C
   \]
   be a polygraphic resolution of $C$. Since trivial fibrations are
-  surjective on objects, we can pick an object $x_0$ of $P$ whose image in
-  $C$ is $c_0$. All in all, we have a diagram
+  surjective on objects, we may choose an object $x_0$ of $P$ whose image in
+  $C$ is $c_0$. Thus, we have a diagram
   \[
     \begin{tikzcd}[row sep=huge]
       \frgp{P} \ar[d]\ar[r,bend left,"\Unit{\frgp{P}}"] \ar[r,bend
@@ -167,7 +167,7 @@ follows from the fact that $\opCat{k} \to \oCat$
       \ar[from=A,to=B,Rightarrow]
     \end{tikzcd}
   \]
-  such that the front and back faces are commutative. Since
+  such that the front and back faces commutes. Since
   $\frgp{P}$ is cofibrant, and since the vertical arrows are trivial
   fibrations, we can apply \cref{lemma:liftoplax}, which yields an
   oplax transformation from the identity \oo\nbd-functor on $P$ to
@@ -183,13 +183,13 @@ follows from the fact that $\opCat{k} \to \oCat$
 \subsection{The comparison theorem}
 \begin{theorem}\label{thm:polhom}
   Let $C$ be a (1-)category. Then, for any $1
-  \leq k \leq \oo$, there is an isomorphism
+  \leq k \leq \oo$, there is a canonical isomorphism
   \[
     \Hop{k}(C) \to \Ho(C)
   \]
   natural in $C$. In particular, for $k=\oo$, we get an isomorphism
   $\Hopol(C) \to \Ho(C)$. Furthermore, for any $k\geq 1$, these
-  isomorphisms can be chosen so that the following triangle is commutative
+  isomorphisms make the following triangle commute
   \[
     \begin{tikzcd}[column sep=small]      
          \Hopol(C)\ar[dr]
@@ -208,7 +208,7 @@ follows from the fact that $\opCat{k} \to \oCat$
   \[
     \begin{tikzcd}
       \hocolim_{C}p^*_C(\LL \abelk{k}(\Term))&&\\
-    \hocolim_{C}\LL \fun{C}{\abelk{k}}(p_C^*\Term) \ar[u,"(a)"]&\ar[l,"(b)"'] \hocolim_{C}\fun{C}{\LL
+    \hocolim_{C}\LL \fun{C}{\abelk{k}}(p_C^*\Term) \ar[u,"(a)"]&\ar[l,"(b)"'] \hocolim_{C}\LL\fun{C}{
      \abelk{k}}(\tr{C}{-})\ar[r,"(c)"]&  \LL
    \abelk{k}(\hocolim_{C}\tr{C}{-})\ar[d,"(d)"]\\
    && \LL\abelk{k}(C),
