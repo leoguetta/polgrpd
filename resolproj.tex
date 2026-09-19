@@ -31,11 +31,11 @@
 \begin{definition}\label{def:respol}
   Let $k\in \N\cup\set{\oo}$ and $C$ be an $\ook k$-category. A {\em
   polygraphic resolution} of $C$ in $\opCat k$ consists of an
-$\ook k$-polygraph $P$ together with an acyclic fibration
+$\ook k$-polygraph $P$ together with a trivial fibration
 $p:\frgp P\to C$
 in the folk model structure of $\opCat k$.
 \end{definition}
-\begin{paragr}
+\begin{paragr}\label{paragr:projcof}
   As with any cofibrantly generated model structure, given a small
   category $C$, we can consider the \emph{projective} model structure
   on the category of functors
@@ -98,8 +98,8 @@ is, a morphism $g:x\to x'$ in $C$ such that the following triangle commutes:
       &c&
     \end{tikzcd},
   \]
-  with $h=f'\circ g_2$. This choice of $h$ is clearly unique, thus
-  proving that $\tr{C}{c} \to C$ is a discrete Conduché fibration.
+  with $h=f'\circ g_2$. This choice of $h$ is clearly unique, which
+  proves that $\tr{C}{c} \to C$ is a discrete Conduché fibration.
 \end{proof}
 
 \subsection{Polygraphic resolutions of small categories}\label{subsec:polres}
@@ -127,7 +127,7 @@ image belongs to $\opCat k$.
     pair $\pair{x_n}{f}$ where  $x_n\in X_n$ and $f:\tge 0
     (p_nx_n)\to c$.
   \end{itemize}
-Clearly, the construction of $\tr{X}{c}$ is functorial in $c$, thus defining a functor
+The construction of $\tr{X}{c}$ is functorial in $c$, thus defining a functor
   \[
     \begin{aligned}
       \tr{X}{-} \colon C &\to \opCat{k} \\
@@ -145,7 +145,7 @@ In the following theorem, we apply this construction in the case $X=\frgp P$ for
   \begin{proof}
    Let $c$ be an object of $C$ and consider the
    square~(\ref{eq:pullback}). By~\cref{lemma:slicescond}, the
-   morphism $\tr Cc\to C$ is a discrete Conduché fibration. By stability of the class of discrete Conduché fibrations by pullback, the morphism $\tr{\frgp P\!}c\to \frgp
+   morphism $\tr Cc\to C$ is a discrete Conduché fibration. By stability of the class of discrete Conduché fibrations under pullback, the morphism $\tr{\frgp P\!}c\to \frgp
    P$ is also a discrete Conduché fibration. As $P$ is an $\ook
    k$-polygraph, it follows from \cref{thm:main} and the description
    of the cells of $\tr{\frgp P\!}c$
@@ -188,7 +188,7 @@ In the following theorem, we apply this construction in the case $X=\frgp P$ for
       P_n}\coprod_{f\in\homset{C}{\tge 0(p_n\gni na)}{-}}\opifun k(\gcof {n})
   \]
   which is a coproduct of generating cofibrations
-  in~$\funopCat{k}{C}$ by~\ref{paragr:folk}, hence a cofibration. As cofibrations are
+  in~$\funopCat{k}{C}$ by~\ref{paragr:projcof}, hence a cofibration. As cofibrations are
   stable by pushout, the maps
   \[
     \skl{n-1}(\tr{\frgp{P}\!}{-})\to \skl n(\tr{\frgp{P}\!}{-})
@@ -200,40 +200,41 @@ In the following theorem, we apply this construction in the case $X=\frgp P$ for
       &\skl{n-1}(\tr{\frgp{P}\!}{-})\ar[r]&
       \skl n(\tr{\frgp{P}\!}{-})\ar[r] &\cdots}
   \]
- and therefore a cofibrant object. Here $0$ denotes the constant
- functor taking each object of $C$ to the empty \ook k-category, which
- is the initial object of $\funopCat{k}{C}$.
+  and therefore a cofibrant object in the projective model
+  structure. Here $0$ denotes the constant functor taking each object
+  of $C$ to the empty \ook k-category, which is the initial object of
+  $\funopCat{k}{C}$.
 \end{proof}
 \subsubsection{Groupoids}\label{ssubsec:resol_grp}
 Let $G$ be a groupoid, that is, a small category where all arrows are
 isomorphisms. For each
-object $c$ of $G$, the slice category $\tr Gc$ is still a groupoid and
+object $c$ of $G$, the slice category $\tr Gc$ is still a groupoid. Consequently,
 all the results of~\cref{subsection:slice_cat} hold when restricted to the
 subcategory $\Grpd=\npCat 10$ of groupoids. Moreover $G$ can be
 considered as an object of $\opCat 0$, and more generally as an object of $\opCat k$ for any $0\leq k \leq \oo$, via the canonical inclusion $\Grpd \to \opCat k$. We may therefore
 define polygraphic resolutions of $G$ in $\opCat k$ as pairs $\pair
 Pp$ where $P$ is an $\ook
-k$-polygraph and  $p:\frgp P\to G$ an acyclic fibration
+k$-polygraph and  $p:\frgp P\to G$ a trivial fibration
 in the folk model structure on $\opCat k$ for any $k\geq 0$.  Thus, we may state a
 groupoidal version of~\cref{thm:projresol}.
-\begin{theorem}\label{thm:projresol_grp}
-  Let $G$ be a groupoid and $p:\frgp P\to G$ a polygraphic
-    resolution of $G$ in $\opCat k$, with $0\leq k\leq \oo$. The functor
-    \[\tr{\frgp P\!}{-}:G\to \opCat k\]
-    is a cofibrant object of the category
-    $\funopCat{k}{G}$, equipped with the projective model structure.
-  \end{theorem}
-  \begin{proof}
-    The proof is the same as that of~\cref{thm:projresol}, with $k=0$ allowed.
-  \end{proof}
-  \begin{remark}
-    Note that the proofs of Theorems~\ref{thm:projresol}
-    and~\ref{thm:projresol_grp} do not use the acyclicity of $p$, only
-    the fact that $\frgp P$ is freely generated, together with the
-    properties of the slice projection etablished before. However the
-    statements are interesting only in the case where $\frgp P$ is a
-    cofibrant replacement of $G$.
-  \end{remark}
+\begin{theorem}\label{thm:projresol_grp} Let $G$ be a groupoid and
+$p:\frgp P\to G$ a polygraphic resolution of $G$ in $\opCat k$, with
+$0\leq k\leq \oo$. The functor
+    \[\tr{\frgp P\!}{-}:G\to \opCat k\] is a cofibrant object of the
+category $\funopCat{k}{G}$, equipped with the projective model
+structure.
+\end{theorem}
+\begin{proof} The proof is the same as that of~\cref{thm:projresol},
+  with $k=0$ allowed.
+\end{proof}
+\begin{remark} Note that the proofs of Theorems~\ref{thm:projresol}
+  and~\ref{thm:projresol_grp} do not use the acyclicity of $p$, only the
+  fact that $\frgp P$ is freely generated, together with the properties
+  of the slice projection established before. However the statements are
+  interesting only in the case where $\frgp P$ is a cofibrant
+  replacement of $G$.
+\end{remark}
+  
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"
