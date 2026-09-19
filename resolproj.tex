@@ -40,7 +40,7 @@ in the folk model structure of $\opCat k$.
   category $C$, we can consider the \emph{projective} model structure
   on the category of functors
   \[
-    \fun{C}{\opCat{k}},
+    \funopCat{k}{C},
   \]
   for any $k \in \N\cup\set{\oo}$. The weak equivalences, fibrations
   and trivial fibrations are the pointwise ones (in particular, every
@@ -140,7 +140,7 @@ In the following theorem, we apply this construction in the case $X=\frgp P$ for
     Let $C$ be a small category and $p:\frgp P\to C$ a polygraphic
     resolution of $C$ in $\opCat k$, with $1\leq k\leq\oo$. The functor
     \[\tr{\frgp P\!}{-}:C\to \opCat k\]
-    is a cofibrant object of the category $\fun{C}{\opCat{k}}$, equipped with the projective model structure.
+    is a cofibrant object of the category $\funopCat{k}{C}$, equipped with the projective model structure.
 \end{theorem}
   \begin{proof}
    Let $c$ be an object of $C$ and consider the
@@ -173,7 +173,7 @@ In the following theorem, we apply this construction in the case $X=\frgp P$ for
   \]
   in $\opCat k$ for all $n\geq 1$. All the morphisms in the above
   square are natural in $c$, so that we get corresponding pushout
-  squares in~$\fun{C}{\opCat{k}}$:
+  squares in~$\funopCat{k}{C}$:
    \[
     \xymatrix{
      \coprod_{{(\tr P-)}_{n}} \opifun k (\Sph{n-1})
@@ -188,7 +188,7 @@ In the following theorem, we apply this construction in the case $X=\frgp P$ for
       P_n}\coprod_{f\in\homset{C}{\tge 0(p_n\gni na)}{-}}\opifun k(\gcof {n})
   \]
   which is a coproduct of generating cofibrations
-  in~$\fun{C}{\opCat{k}}$ by~\ref{paragr:folk}, hence a cofibration. As cofibrations are
+  in~$\funopCat{k}{C}$ by~\ref{paragr:folk}, hence a cofibration. As cofibrations are
   stable by pushout, the maps
   \[
     \skl{n-1}(\tr{\frgp{P}\!}{-})\to \skl n(\tr{\frgp{P}\!}{-})
@@ -202,7 +202,7 @@ In the following theorem, we apply this construction in the case $X=\frgp P$ for
   \]
  and therefore a cofibrant object. Here $0$ denotes the constant
  functor taking each object of $C$ to the empty \ook k-category, which
- is the initial object of $\fun{C}{\opCat k}$.
+ is the initial object of $\funopCat{k}{C}$.
 \end{proof}
 \subsubsection{Groupoids}\label{ssubsec:resol_grp}
 Let $G$ be a groupoid, that is, a small category where all arrows are
@@ -221,7 +221,7 @@ groupoidal version of~\cref{thm:projresol}.
     resolution of $G$ in $\opCat k$, with $0\leq k\leq \oo$. The functor
     \[\tr{\frgp P\!}{-}:G\to \opCat k\]
     is a cofibrant object of the category
-    $\fun{G}{\opCat{k}}$, equipped with the projective model structure.
+    $\funopCat{k}{G}$, equipped with the projective model structure.
   \end{theorem}
   \begin{proof}
     The proof is the same as that of~\cref{thm:projresol}, with $k=0$ allowed.
