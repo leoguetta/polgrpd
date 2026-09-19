@@ -32,12 +32,15 @@ subject to the globular equations
 \end{align*}
 \end{definition}
 \begin{paragr}
-  We denote by $\oGlob$ the category of globular sets and natural transformations. Let $X$ be a globular set and  $m$, $n$ integers such that $0\leq m<n$. The maps
+  We denote by $\oGlob$ the category of globular sets and natural
+  transformations. Let $X$ be a globular set and  $m$, $n$ integers
+  such that $0\leq m<n$. The images of the two morphisms of
+  $\homset{\glob}{m}{n}$ by $X$ are the two maps 
 \begin{align*}
-  \sce{m}^n & = \sce{m}\circ\cdots\circ \sce{n-1}\\
-   \tge{m}^n & = \tge{m}\circ\cdots\circ \tge{n-1}
+  \sce{m}^n & = \sce{m}\circ\cdots\circ \sce{n-1}\ \text{and}\\
+   \tge{m}^n & = \tge{m}\circ\cdots\circ \tge{n-1}.
 \end{align*}
-are the only two elements of $\homset{\oGlob}{X_n}{X_m}$. We often drop the subscript and write $\sce{m},\tge{m}:X_n\to X_m$ in this case. The elements of $X_n$ are called {\em cells of dimension $n$}  or {\em $n$-cells}. For any $n$-cell $x\in X_n$ and $m<n$, the $m$-cells $\sce m(x)$ and $\tge m(x)$ are respectively the {\em $m$-source} and {\em $m$-target} of $x$. Whenever $\sce m(y)=\tge m(x)$, we say that $x$, $y$ are {\em $m$-composable}.
+We often drop the subscript and write $\sce{m},\tge{m}:X_n\to X_m$ in this case. The elements of $X_n$ are called {\em cells of dimension $n$}  or {\em $n$-cells}. For any $n$-cell $x\in X_n$ and $m<n$, the $m$-cells $\sce m(x)$ and $\tge m(x)$ are respectively the {\em $m$-source} and {\em $m$-target} of $x$. Whenever $\sce m(y)=\tge m(x)$, we say that $x$, $y$ are {\em $m$-composable}.
 If $n>0$, $x\in X_n$, $u=\sce{n-1}(x)$ and $v=\tge{n-1}(x)$, we shall write $x:u\to v$.
 Finally, two $n$-cells $x,y\in X_n$ are {\em parallel} if either $n=0$, or $n>0$ and $x$, $y$ have the same $(n{-}1)$-source and the same $(n{-}1)$-target.
 
@@ -194,7 +197,7 @@ $n$-categories $C$ and $D$ respectively.  A {\em morphism}
  \[\phi:\clx CS\to\clx DT\]
  consists of a pair $\phi=\pair fh$ where $f:C\to D$ is a morphism in
  $\nCat n$ and $h:S\to T$ is a map such that, for each $a\in S$, $\sce
- n^T(h(a))=h(\sce n^S(a))$ and $\tge n^T(h(a))=h(\tge n^S(a))$.
+ n^T(h(a))=f_n(\sce n^S(a))$ and $\tge n^T(h(a))=f_n(\tge n^S(a))$.
 
  Cellular extensions and morphisms form a category $\nCatp
  n$. Likewise, when restricted to $\npCat nk$, the
