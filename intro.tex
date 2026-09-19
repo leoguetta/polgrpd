@@ -15,7 +15,7 @@ is by definition
 \[\Hopol(C)=\LL\abel(C).\]
 To compute this homology, we first produce
 a cofibrant replacement of $C$, namely a polygraph $P$ together with 
-an acyclic fibration $p:\frcat P\to C$, then apply the functor $\abel$
+a trivial fibration $p:\frcat P\to C$, then apply the functor $\abel$
 directly to $\frcat P$, whence the name.
 
 Now for each integer $k\geq 0$, an \ook k-category is an \oo-category
@@ -104,12 +104,12 @@ functors $F \colon C^{\op} \to \Ab$ from $C^{\op}$ to the
   of $C$ with coefficients in $\Z$.
 
   Now, if $1\leq k\leq \oo$ and $C$ is a $1$-category seen as an  \ook
-  k-category, we construct a map
+  k-category, we construct a canonical morphism
   \begin{equation}
     \label{eq:poltoclassical}
      \Hop k (C) \to \Ho(C)
    \end{equation}
-   natural in $C$ and show that~(\ref{eq:poltoclassical}) is an
+   natural in $C$ and show that it is an
    isomorphism. Likewise, if $C$ is a groupoid, the same holds
    for $0\leq k\leq \oo$.
 
@@ -117,7 +117,7 @@ functors $F \colon C^{\op} \to \Ab$ from $C^{\op}$ to the
   standard homology of $C$, that is $\Ho(C)$, is canonically
   isomorphic to its polygraphic homology computed using polygraphic
   resolutions in $\opCat{k}$ for any chosen $k\geq 1$ or even $k=0$ if $C$ is
-  a groupoid. For example, for a group $G$ this means that we can
+  a groupoid. For example, for a group $G$, this means that we can
   compute the singular homology of the Eilenberg--MacLane space
   $K(G,1)$, using \emph{strict} $\oo$\nbd-groupoids.
 
@@ -136,7 +136,7 @@ functors $F \colon C^{\op} \to \Ab$ from $C^{\op}$ to the
 
   Partial results about the isomorphism~\eqref{eq:poltoclassical} have
 already been established in earlier works. The case $k=\oo$ is the main result of
-\cite{guetta:homcat}. For the case $k=1$, a proof can be
+\cite{guetta:homcat}. For $k=1$, a proof can be
 extracted from Guiraud and Malbos' work \cite[Theorem
 5.4.3]{guiraudmalbos:higcfd}, up to naturality issues not addressed there.
 
@@ -157,12 +157,12 @@ in proving that~\eqref{eq:poltoclassical} is an isomorphism and relies on two
     \begin{equation}\label{eq:htpycolimintro}
       C \cong \ilim_{c \in C} \tr{C}{c}
     \end{equation}
-    is a \emph{homotopy colimit} in $\opCat{k}$ with respect to the
+    is in fact a \emph{homotopy colimit} in $\opCat{k}$ with respect to the
     canonical model structure for any $1 \leq k \leq \oo$, and if $C$ is a
     groupoid this also works for $k=0$. 
 
 The existence of the natural
-isomorphism~\eqref{eq:trivhlgy} directly follows from
+isomorphism~\eqref{eq:trivhlgy} ultimately follows from
 the monoidal properties of the canonical model structure on $\opCat{k}$
 with respect to the Gray tensor product. On the other hand, the proof
 that~\eqref{eq:htpycolimintro} is a homotopy colimit is more elaborate and
@@ -173,10 +173,9 @@ if $C$ is free on an \ook k-polygraph $P$, then $D$ is also free on an
 \ook k-polygraph $Q$ constructed functorially out of $P$.
 
 \subsection*{Organization of the paper}
-After some recollections on strict \ook k-categories in
+After some preliminaries on strict \ook k-categories in
 Section \ref{sec:basics}, the paper is divided into two main parts which are mostly
-independent: Sections \ref{sec:syntax} and \ref{sec:basislift} are
-dedicated to the theory of discrete Conduché fibrations and Sections
+independent: Sections \ref{sec:syntax} and \ref{sec:basislift} develop the theory of discrete Conduché fibrations and Sections
 \ref{sec:projresol}, \ref{sec:polhom}, \ref{sec:htpykan} and \ref{sec:comparison} are dedicated to the homotopical and homological
 results. Readers willing to accept Theorem \ref{thm:main} can safely
 skip the first part and start at Section \ref{sec:projresol}.

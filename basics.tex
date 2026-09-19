@@ -102,7 +102,7 @@ For each $n\in\N$, we denote by $\Dsk n$ the representable globular
 set $\homset{\glob}{-}{n}$, having exactly two $m$-cells for $m<n$, one
 $n$-cell, and no $m$-cell for $m>n$. By removing the only $n$-cell in
 $\Dsk n$, one obtains a sub-representable globular set which we denote by $\Sph{n-1}$. 
-By abuse of notations, $\Dsk n$ and $\Sph{n-1}$ will
+By abuse of notation, $\Dsk n$ and $\Sph{n-1}$ will
 denote the corresponding freely generated  \oo-categories~(see~\cite[14.2]{abgmmm:polybk}). These come
 with a family of inclusion morphisms $\gcof n:\Sph{n-1}\to\Dsk
 n$. Note that $\Sph{-1}=\emptyset$ is the initial \oo-category.
@@ -113,7 +113,7 @@ n$. Note that $\Sph{-1}=\emptyset$ is the initial \oo-category.
 For a given $n\in\N$, truncating the previous construction at dimension $n$ yields the notion of $n$-category.  We denote by $\nCat n$ the resulting category. For example $\nCat 0$ is the category $\Set$ of sets and $\nCat 1$ is the category of small categories if we interpret $f\comp 0 g$ as the composition $g\circ f$ of two morphisms.
 For $n\in\N$ and $m\in\N\cup \set{\oo}$ such that $n<m$, there are 
 obvious truncation functors $\trk n:\nCat m\to \nCat n$ discarding all
-cells of dimension $>n$. The functor $\trk n$ is right-adjoint to the
+cells of dimension $>n$. The functor $\trk n$ is right adjoint to the
 inclusion functor  $\inc nm:\nCat n\to\nCat m$, which takes an
 $n$-category $C$ to the $m$-category with the same $i$-cells for
 $i\leq n$ and only the required identity cells in dimensions
@@ -202,7 +202,7 @@ $n$-categories $C$ and $D$ respectively.  A {\em morphism}
  any $(n{+}1)$-category $C$ determines a cellular extension $\clx{\trk
    n C}{S}$ of its truncated $n$-category $\trk n C$ by
  $S=C_{n+1}$, where $\sce n^S=\sce n^C$ and $\tge n^S=\tge n^C$.
- This immediately yields a forgetful functor
+ This gives a forgetful functor
  \[\fgf n:\nCat {n+1}\to \nCatp n.\]
  This functor $\fgf n$ admits a left adjoint
  \[\frf n:\nCatp n\to\nCat {n+1}.\]
@@ -302,7 +302,7 @@ Polygraphs and morphisms form a  sequence of categories
     P_{k+1}\dbl&\cdots\dbl&\frgp P_{n-1}\dbl&}.
   \]
   At each dimension $l$, a new set $P_{l+1}$ of {\em generators} is
-  attached by the source and target maps $\sce l$, $\tge l$ to the free
+  attached, via the source and target maps $\sce l$, $\tge l$, to the free
   $l$-category for $l\leq k$, and  $\pair lk$-category for $l>k$ already built at this level.  The
   maps $\gni l:P_l\to \frcat{P}_l$ for $l\leq k$ and $\gni l:P_l\to
   \frgp{P}_l$ for $l>k$ represent the insertion of the generators in
@@ -337,26 +337,6 @@ Polygraphs and morphisms form a  sequence of categories
   (\ref{eq:polpushout}) is a pushout square exactly amounts to the statement $\trk n\frgp
   P=\frf{n-1,k}\clx{\trk{n-1}\frgp P}{P_n}$.
 \end{paragr}
-
- 
-  
-
-  
- 
-
- 
- 
-
-
-
-
-
-
-
-
- 
- 
- 
 
 %%% Local Variables:
 %%% mode: LaTeX
