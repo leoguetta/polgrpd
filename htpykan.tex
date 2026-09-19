@@ -5,8 +5,7 @@
   that show up in this paper have the extra property that $G$
   preserves \emph{all} weak equivalences. This is, for instance, the
   case when all objects of $\M'$ are fibrant.
-This allows for a
-  simplification of certain coherence issues: $G$ induces a \emph{unique} functor $\GZ{G}$ at the level of
+This simplifies certain coherence issues: $G$ induces a \emph{unique} functor $\GZ{G}$ at the level of
   homotopy categories such that the following square is \emph{genuinely}
   commutative
   \[
@@ -45,7 +44,7 @@ defines a \emph{strict} $2$\nbd-functor from the $2$\nbd-category of
   functor, and consider the $2$\nbd-functoriality which associates with
   any natural transformation $\beta \colon F \Rightarrow F'$ the (unique) natural
   transformation $\LL \beta \colon \LL F \Rightarrow \LL F'$ making
-  the appropriate $2$\nbd-diagram commute, the
+  the relevant $2$\nbd-diagram commute, the
   following correspondence
   \[
   \begin{aligned}
@@ -68,10 +67,10 @@ defines a \emph{strict} $2$\nbd-functor from the $2$\nbd-category of
 \begin{paragr}\label{paragr:htpykan} Let $\M$ be a cofibrantly generated model
 category. Recall that for any small category $I$, we can equip the
 category of functors $\fun{I}{\M}$ with the \emph{projective model
-structure}, where the weak equivalences and the fibrations are these
-natural transformations which are pointwise weak equivalences and
-fibrations of $\M$ respectively. Any functor $u \colon I \to J$
-between small categories induces by precomposition a functor
+structure}, where the weak equivalences and the fibrations are the
+natural transformations that are pointwise weak equivalences and
+fibrations in $\M$, respectively. Any functor $u \colon I \to J$
+between small categories induces, by precomposition, a functor
   \begin{align*} u^* \colon \fun{J}{\M} &\to \fun{I}{\M}\\ X &\mapsto
 X\circ u.
   \end{align*} This functor admits a left adjoint $u_!
@@ -90,7 +89,7 @@ the level of homotopy categories
 canonical identification $\fun{\Term}{\M}=\M$. For a small category
 $I$, we denote by $p_I \colon I \to \Term$ the unique such
 functor. The functor $p_I^* \colon \M \to \fun{I}{\M}$ is the
-``diagonal'' functor that associates with an object $X$ of $\M$ the
+``diagonal'' functor that sends an object $X$ of $\M$ to the
 constant diagram $I \to \M$ with value $X$. Hence, $p_{I!}$ is nothing
 but the colimit functor $\ilim_I \colon \fun{I}{\M} \to \M$, and we
 shall use the two notations interchangeably. Consequently, $\LL
@@ -139,7 +138,7 @@ the level of homotopy categories
   \[ \LL \fun{I}{F} \colon \Loc{\fun{I}{\M}}\leftrightarrows
     \Loc{\fun{I}{\M'}} \colon \GZ{\fun{I}{G}}.
   \]
-Now, let $u \colon I \to J$ be a functor between small
+Now let $u \colon I \to J$ be a functor between small
 categories. By the strict $2$\nbd-functoriality property stated in
 \ref{paragr:techyp}, we have a strictly commutative diagram
   \[
@@ -227,7 +226,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
 \begin{definition}\label{def:abstracthom}
   Let $\M$ be a (cofibrantly generated) model category. For a small
   category $I$ and $X$ an object of $\M$, we define the \emph{$\M$\nbd-valued
-    homology of $I$ with constant coefficient $X$} as the object of $\Loc{\M}$
+    homology of $I$ with constant coefficients $X$} as the object of $\Loc{\M}$
   \[
     \Ho_{\M}(I,X):=\LL p_{I!}\GZ{p_I^*}X=\hocolim_I (\GZ{p_I^*}X).
   \]
@@ -257,7 +256,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
       &\Loc{\M}.\ar[lu,"\GZ{p_I^*}"]\ar[ru,"\GZ{p_J^*}"']&
     \end{tikzcd}
   \]
-  Hence, by uniqueness of adjoints, this yields a triangle commutative
+  Hence, by uniqueness of adjoints, this yields a triangle that commutes
   up to a canonical isomorphism
   \[
         \begin{tikzcd}[column sep=small]
@@ -357,7 +356,7 @@ localization of $\Chp(C)$ with respect to
   \[
     \Chp(C)\cong \fun{C}{\Chp(\Z)},
   \]
-  and we shall make this identification implicitly. Note that this
+  and we shall use this identification implicitly. Note that this
   identification is compatible with model structures in the sense that
   the projective model structure on $\fun{C}{\Chp(\Z)}$ in the sense
   of \ref{paragr:htpykan} is the same, via the previous isomorphism,
@@ -397,7 +396,7 @@ localization of $\Chp(C)$ with respect to
   \[
     N\tens{C}M :=\int^{c \in C}N(c)\tens{\Z} M(c).
   \]
-  Note that when $C$ is a group, $C=G$, then this is indeed the usual
+  Note that when $C$ is a group, say $C=G$, then this is indeed the usual
   tensor product of $\Z G$\nbd-modules, where $\Z G$ is the group ring
   of $G$. The above tensor product defines a functor
   \[
