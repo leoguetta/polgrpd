@@ -5,7 +5,7 @@
 \subsubsection{Formal expressions}\label{ssubsec:formex}
 Let $0\leq k\leq n$, $C$ be an $\pair nk$-category, and  $\clx CS$ be a
 cellular extension of $C$ by a set $S$, with $\sce n^S,\tge n^S:S\to C_n$. For each $a\in S$ and $x$,
-$y\in C_n$, the notation $a:x\to y$ is short for 
+$y\in C_n$, the notation $a:x\to y$ means 
 $x=\sce n^S(a)$ and $y=\tge n^S(a)$. To $\clx CS$ we first associate
 the formal language $\expr S$ whose formulas are given by the grammar
 \[
@@ -38,7 +38,7 @@ cells in $C_n$, by the following structural induction:
 \item for  each $x\in C_n$, $\type{\fid{x}}{x}{x}$;
  \item if $\type wxy$ and $\type{w'}yz$, then $w''=(w\fcomp n w')$ is
    well-typed and $\type{w''}{x}{z}$;
- \item if $0\leq i<n$, $\type wxy$, $\type{w'}{x'}{y'}$, $\sce
+ \item if $0\leq i<n$, $\type wxy$, $\type{w'}{x'}{y'}$ and $\sce
    i{x'}=\tge i{x}$, then $w''=(w\fcomp i w')$ is well-typed and
    $\type{w''}{x\comp i x'}{y\comp i y'}$. 
  \end{itemize}
@@ -81,7 +81,7 @@ cells in $C_n$, by the following structural induction:
       w_2))=(g(w_1)\fcomp i g(w_2))$. For this map $g$, we easily
       show, by structural induction on $w$, that
       whenever $\type wxy$, then $\type{g(w)}{f_nx}{f_n y}$. Therefore
-      $g$ factors through the subset $\wtx T\subset \expr T$ of
+      $g$ factors through the inclusion $\wtx T\hookrightarrow \expr T$ of
       well-typed formulas and yields the required $\phi$-compatible
       translation $\wtx\phi:\wtx S\to \wtx T$. 
     \end{proof}
@@ -236,7 +236,7 @@ cells in $C_n$, by the following structural induction:
        $(w'_1\fcomp n w_1)\freq \fid z$, $(w_2\fcomp n w'_2)\freq \fid
        z$
        and $(w'_2\fcomp n w_2)\freq \fid y$. Thus $w'=(w'_2\fcomp n
-       w'_1)$ is well typed and satisfies $(w\fcomp n w')\freq \fid x$
+       w'_1)$ is well-typed and satisfies $(w\fcomp n w')\freq \fid x$
        and $(w'\fcomp n w)\freq \fid y$;
        \item if $w=(w_1\fcomp i w_2)$ for some $i<n$, then
          $\type{w_1}{x_1}{y_1}$
@@ -245,7 +245,7 @@ cells in $C_n$, by the following structural induction:
          $\type{w'_1}{y_1}{x_1}$ and $\type{w'_2}{y_2}{x_2}$ such that
          $(w_l\fcomp n w'_l)\freq \fid{x_l}$ and $(w'_l\fcomp n
          w_l)\freq \fid{y_l}$ for $l=1,2$. Thus $w'=(w'_1\fcomp i
-         w'_2)$ is well typed and satisfies $(w\fcomp n w')\freq \fid x$
+         w'_2)$ is well-typed and satisfies $(w\fcomp n w')\freq \fid x$
        and $(w'\fcomp n w)\freq \fid y$.
     \end{itemize}
   \end{proof}
@@ -267,8 +267,12 @@ cells in $C_n$, by the following structural induction:
 \begin{proposition}\label{prop:univprop}
    Let $D$ be an  $\pair{n{+}1}{k}$-category, $f:C\to\trk n D$ be a
    morphism of $\pair nk$-categories
-   and  $h:S\to D_{n+1}$ be a map such that, for any $a\in S$, $\sce n^Dh(a)=f_n\sce n^S (a)$
-    and $\tge n^D h(a)=f_n\tge n^S (a)$.  There is a unique
+   and  $h:S\to D_{n+1}$ be a map such that, for any $a\in S$,
+   \[
+     \sce n^Dh(a)=f_n\sce n^S (a)
+     \quad\text{and}\quad \tge n^D h(a)=f_n\tge n^S (a).
+     \]
+   There is a unique
     morphism $\phi:\extend C\to D$ in $\npCat{n+1}{k}$ such that $\trk
     n\phi=f$ and for each $a\in S$, $\phi_{n+1}(\fcls{\fcst a})=h(a)$.
   \end{proposition}
@@ -284,16 +288,16 @@ that $\phi$ satisfies the conditions of the proposition and let
    $f$-compatible, and by hypothesis $\psi(\fcst
    a)=\phi_{n+1}\cans S(\fcst a)=h(a)$. Therefore, by the uniqueness
    part of
-   Lemma~\ref{lemma:mapext}, the map $\psi=\extend h$ is uniquely determined.
+   \cref{lemma:mapext}, $\psi=\extend h$. Hence $\psi$ is uniquely determined.
 As $\cans S$  is surjective,
   $\phi_{n+1}$ is also uniquely determined and so is $\phi$.
 
-  As for the existence, by Lemma~\ref{lemma:mapext}, there is an
+  As for the existence, by \cref{lemma:mapext}, there is an
   $f$-compatible map
   \[\psi:\wtx S\to D_{n+1}\]
   such that $\psi(\fcst a)=h(a)$ for each $a\in S$. 
-  A straightforward case analysis shows that whenever $w\frel w'$,
-  then $\psi(w)=\psi(w')$. Therefore, if $w\freq w'$, then
+  In each case~\ref{ei} to \ref{eviii} one checks that $w\frel w'$,
+  implies $\psi(w)=\psi(w')$. Therefore, if $w\freq w'$, then
   $\psi(w)=\psi(w')$, whence $\psi$ factors through $\cans S$, that
   is, there is a map $\phi_{n+1}:\wtxeq S\to D_{n+1}$ such that
   $\psi=\phi_{n+1}\cans S$. This map preserves source and target,
@@ -301,9 +305,9 @@ As $\cans S$  is surjective,
   {\fcst{a}})=h(a)$, so that it extends $f$ to the required morphism $\phi$. 
 \end{proof}
 \begin{remark}\label{rmk:functoriality_of_wtxeq}
-  By~\cref{prop:univprop}, the correspondence
+  The universal property of~\cref{prop:univprop} allows us to make the correspondence
   \[\clx CS\mapsto \wtxeq S\]
-  is the object part of a functor $\clWW:\npCatp
+  into a functor $\clWW:\npCatp
   nk\to\Set$. Precisely, this functor $\clWW$ is the composite
   \[
     \xymatrix{\npCatp nk\ar[r]^{\frf{n,k}} & \npCat{n+1}k \ar[r]^(.6){(-)_{n+1}}& \Set}
@@ -328,9 +332,13 @@ As $\cans S$  is surjective,
   $\trk n C$ by $S$, with $\sce n^S=\sce n^C\circ p$ and $\tge
   n^S=\tge n^C\circ p$. Thus
 \[\pair{\Unit{\trk n C}}{p}:\clx{\trk n C}{S}\to\fgf{n,k}C\]
-is a morphism of cellular extensions. Let $\extend C=\frf{n,k}\clx{\trk n C}{S}$ and $\phi:\extend C\to C$
-be the transpose of $\pair{\Unit{\trk n C}}{p}$ under the adjunction. We know
-by~\cref{prop:univprop} that $\extend{C}_{n+1}=\wtxeq S$. Let $\fcls
+is a morphism of cellular extensions.
+Let $\phi:\frf{n,k}\clx{\trk n C}{S}\to C$ be the transpose of $\pair{\Unit{\trk n C}}{p}$ under the adjunction.
+By~\cref{prop:univprop}, $\extend{\trk n C}$ satisfies the universal property
+of
+$\frf{n,k}\clx{\trk n C}S$. In particular, it is canonically isomorphic to
+$\frf{n,k}\clx{\trk n C}S$, and its set of $(n{+}1)$-cells is $\wtxeq S$.
+ Let $\fcls
 p=\phi_{n+1}:\wtxeq S\to C_{n+1}$ and $\extend p=\fcls p\cans S:\wtx
 S\to C_{n+1}$. By~\cref{lemma:mapext}, the map $\extend p$ is the
 unique $\Unit{\trk nC}$-compatible map such that $\extend p\finc
@@ -361,12 +369,6 @@ is a morphism of cellular extensions
       D_{n+1} & \wtxeq T\ar[l,"\fcls{q}"'] & \wtx T
       \ar[l,"\cans{T}"'] & T.\ar[l,"\finc{T}"'] \ar[lll,bend left=15,"q"]
       \end{tikzcd}
-     % \xymatrix{
-     % C_{n+1} \ar[d]_{f_{n+1}}& \wtxeq S\ar[l]^{\fcls{p}}\ar[d]_{\wtxeq\phi} & \wtx S
-     %  \ar[l]^(.4){\cans{S}}\ar[d]^{\wtx\phi} & S\ar[l]^(.3){\finc{S}}
-     %  \ar@/_1em/[lll]_p\ar[d]^h\\
-     %  D_{n+1} & \wtxeq T\ar[l]_{\fcls{q}} & \wtx T
-     %  \ar[l]_(.4){\cans{T}} & T\ar[l]_(.3){\finc{T}} \ar@/^1em/[lll]^q}.
      \end{equation}
    \end{lemma}
    \begin{proof}
@@ -377,7 +379,7 @@ is a morphism of cellular extensions
      S$, $\wtx\phi(\fcst a)=\fcst{h(a)}$ so that the right square
      commutes.
 
-     Let $h'=\cans T\finc Th:S\to\wtxeq T$. Both maps
+     For the middle square, set $h'=\cans T\finc Th:S\to\wtxeq T$. Both maps
      $\wtxeq\phi\cans S$ and $\cans T\wtx\phi$ are
      $f$-compatible. Moreover, for each $a\in S$,
 \[\wtxeq\phi\cans S\finc S(a)=\wtxeq\phi(\fcls{\fcst a})=\fcls{\fcst{h(a)}}=h'(a)\]
@@ -390,7 +392,7 @@ Thus, by the
      uniqueness part of~\cref{lemma:mapext}, $\wtxeq\phi\cans S=\cans
      T\wtx\phi$, so that the middle square commutes.
 
-     Let finally
+     For the left square, let
      $h''=qh$. Both maps $f_{n+1}\fcls p\cans S$ and $\fcls
      q\wtxeq\phi\cans S$ from $\wtx S$ to $D_{n+1}$ are $f$-compatible. Also
      \[
