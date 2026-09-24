@@ -142,12 +142,17 @@ By the minimal length condition $\lgh(v_{d_1})~\leq~\lgh(v_1) $ and $\lgh(v_{d_2
 \end{lemma}
 \begin{proof}
   Let $c\in C_{n+1}$ and $g=\wtxr c\phi$. Note that for each $w\in\wtxr
-  cS$, $\lgh g(w)=\lgh w$. Therefore it suffices to prove that for
+  cS$, $\lgh(g(w))=\lgh(w)$. Therefore it suffices to prove that for
   each $l>0$, the restriction of $g$ to the subset
-  \[W_l=\setof{w\in\wtxr cS}{\lgh w=l}\]
-  is injective. We reason by induction on $l>0$.
+  \[W^l_c=\setof{w\in\wtxr cS}{\lgh(w)=l}\]
+  is injective. Let $\mathcal{P}_l$ denote the proposition:
+  \begin{quote}
+   ``For all $c\in C_{n+1}$, the restriction of $g$ to
+    $W^l_c$ is injective''.
+  \end{quote}
+  We prove $\mathcal{P}_l$ by induction on $l>0$.
   \begin{enumerate}
-  \item Suppose $l=1$ and let $w_1,w_2\in W_1$ be such that
+  \item Suppose $l=1$. Let $c\in C_{n+1}$ and $w_1,w_2\in W^1_c$ be such that
     $g(w_1)=g(w_2)$. Three cases are possible:
     \begin{enumerate}
     \item if $w_1=\fcst a$ for some $a\in S$, then
@@ -168,7 +173,8 @@ By the minimal length condition $\lgh(v_{d_1})~\leq~\lgh(v_1) $ and $\lgh(v_{d_2
       $\unit{n+1}(x)=\extend p(w_1)=c=\extend p(w_2)=\unit{n+1}(x')$
       so that $x=x'$ and $w_1=w_2$.
     \end{enumerate}
-    \item Suppose $l>1$ and let $w_1,w_2\in W_l$ be such that
+    \item Suppose $l>1$ and $\mathcal{P}_{l'}$ holds for all
+      $l'<l$. Let $c\in C_{n+1}$ and $w_1,w_2\in W^l_c$ be such that
       $g(w_1)=g(w_2)$. Then $w_1$ is of the form $(w'_1\fcomp{i_1}
       w''_1)$ and  $w_2$ is of the form $(w'_2\fcomp{i_2} w''_2)$, but
       as $z=g(w_1)=g(w_2)$ is of the form $(z'\fcomp i z'')$,
@@ -182,11 +188,13 @@ By the minimal length condition $\lgh(v_{d_1})~\leq~\lgh(v_1) $ and $\lgh(v_{d_2
       $f_{n+1}\extend p(w''_1)=\extend qg(z'')=\extend pg(w''_2)$, the
       uniqueness of the decomposition implies $\extend p
       (w'_1)=\extend p(w'_2)=c'$ and  $\extend p(w''_1)=\extend p(w''_2)=c''$.
-Therefore $w'_1,w'_2\in \wtxr {c'}S$ and $w''_1,w''_2\in \wtxr {c''}S$
-so that the induction hypothesis applies, whence 
-      $w'_1=w'_2$ and $w''_1=w''_2$, so that $w_1=w_2$. \qedhere
+Therefore $w'_1,w'_2\in \wtxr {c'}S$ and $w''_1,w''_2\in \wtxr
+{c''}S$. Because $\lgh(w'_1),\lgh(w'_2),\lgh(w''_1)$ and $\lgh(w''_2)$
+are all $<l$, the induction hypothesis applies, whence 
+      $w'_1=w'_2$ and $w''_1=w''_2$, so that $w_1=w_2$.
     \end{enumerate}
-  \end{proof}
+ Therefore  $\mathcal{P}_l$ holds for all $l>0$ and we are done.  
+ \end{proof}
 \begin{lemma}\label{lemma:forward_lift_frel}
  For each $w\in \wtx S$ and $z'\in\wtx
  T$ such that $\wtx{\phi}(w)\frel z'$ there exists $w'\in\wtx S$ such
