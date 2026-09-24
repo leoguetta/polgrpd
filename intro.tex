@@ -48,10 +48,10 @@ the left-hand square commutes on the nose. However $\LL\opifun k\circ
 only a natural transformation $\epsilon:\LL\opifun k\circ
 \RR\oemb k\to \Unit{\Loc{\opCat k}}$. This yields a natural
 transformation from $\LL\abel\circ\RR\oemb k$ to $\LL\abelk k$. In
-other words, for each \ook k-category $C$, there is a morphism
+other words, for each \ook k-category $C$, there is a canonical morphism
 \begin{equation}
   \label{eq:natural}
-  \Hopol(C)\to \Hop k (C),
+  \homnat_{C}\colon\Hopol(C)\to \Hop k (C),
 \end{equation}
 natural in $C$.
 The present work addresses the following question:
@@ -79,14 +79,14 @@ In fact, if $C$ is a $1$-category or a groupoid,  we take advantage of the exist
 of the usual homology $\Ho(C)$ obtained by deriving the tensor product
 of $C$-modules. Precisely, the
 category $\RMod{C}$ of right $C$\nbd-modules is the category of
-functors $F \colon C^{\op} \to \Ab$ from $C^{\op}$ to the
+functors \[M \colon C^{\op} \to \Ab\] from $C^{\op}$ to the
   category of abelian groups and natural transformations between them,
   and the category $\LMod{C}$ of left $C$\nbd-modules is the category
-  of functors $G \colon C \to \Ab$. Given a right $C$\nbd-module $F$ and a
-  left $C$\nbd-module $G$, we can then define their total tensor
+  of functors \[N \colon C \to \Ab.\] Given a right $C$\nbd-module $M$ and a
+  left $C$\nbd-module $N$, we can then define their total tensor
   product as the following coend
   \[
-    F \tens{C}G := \int^{c \in C}F(c)\tens{\Z} G(c).
+    M \tens{C}N := \int^{c \in C}M(c)\tens{\Z} N(c).
   \]
   This defines a functor $\RMod{C}\times \LMod{C} \to \Ab$,
    right exact in each variable and thus left derivable since the
@@ -170,7 +170,7 @@ relies on the theory of discrete Conduché fibrations for strict \ook k-categori
 \cite{guetta:poldcf}. The key result is that if \[f \colon D
 \to C\] is a discrete Conduché fibration between \ook k-categories and
 if $C$ is free on an \ook k-polygraph $P$, then $D$ is also free on an
-\ook k-polygraph $Q$ constructed functorially out of $P$.
+\ook k-polygraph $Q$ constructed functorially out of $P$. 
 
 \subsection*{Organization of the paper}
 After some preliminaries on strict \ook k-categories in
@@ -178,11 +178,11 @@ Section \ref{sec:basics}, the paper is divided into two main parts which are mos
 independent: Sections \ref{sec:syntax} and \ref{sec:basislift} develop the theory of discrete Conduché fibrations and Sections
 \ref{sec:projresol}, \ref{sec:polhom}, \ref{sec:htpykan} and \ref{sec:comparison} are dedicated to the homotopical and homological
 results. Readers willing to accept Theorem \ref{thm:main} can safely
-skip the first part and start at Section \ref{sec:projresol}.
+skip the first part.
 \subsection*{Acknowledgments}
 The authors would like to thank Philippe Malbos for useful conversations about polygraphic resolutions for $\ook 1$\nbd-categories.
 \subsection*{AI disclosure} Anthropic's Claude Sonnet 5 and OpenAI's
-GPT-5.6 Luna were used for proofreading at the final stage of writing this paper, specifically to catch typos and small English grammar
+GPT-5.6 Luna were used for proofreading at the final stage of writing this paper, specifically to catch typos and English grammar
 mistakes. No mathematical content was produced by AI.
 
 %%% Local Variables:

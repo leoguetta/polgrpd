@@ -41,12 +41,13 @@ lemma.
 
 
 \begin{lemma}\label{lemma:delooping}
-  Let $P$ be an $\ook k$\nbd-polygraph and $C=\frgp P$ the free $\ook
-  k$\nbd-category on this polygraph. Let $n > 0$, $G$ an
-  abelian group and a map
+  Let $P$ be an $\ook k$\nbd-polygraph and $C=\frgp P$ be the free $\ook
+  k$\nbd-category on this polygraph. Let $n > 0$, $G$ be an
+  abelian group and 
   \[
-    f \colon P_n \to G.
+    f \colon P_n \to G,
   \]
+  be a map.
   Then there is a unique map
   \[\extend f\colon C_n\to G\]
  satisfying the following conditions:
@@ -75,7 +76,7 @@ satisfying the conditions (1),
 (2) and (3).  
 \end{proof}
 \begin{paragr}
-  Let $P$ be an \ook{k}-polygraph, $C=\frgp P$ and $n>0$. Consider
+  Let $P$ be an \ook{k}-polygraph, $C=\frgp P$, and $n>0$. Consider
   \[f\colon P_n\to \Z P_n\]
   the canonical injection. By \cref{lemma:delooping} there is a unique
   map $\extend f\colon C_n\to \Z P_n$ satisfying the conditions (1),
@@ -104,7 +105,7 @@ satisfying the conditions (1),
   isomorphism, with inverse $v \colon \Z P_n \to \abelk{k}_n(C)$.
 \end{lemma}
 \begin{paragr}
-  Let $k \geq 0$, $P$ an \ook k-polygraph and $C=\frgp P$ the free
+  Let $k \geq 0$, $P$ be an \ook k-polygraph and $C=\frgp P$ be the free
   \ook k-category on $P$. We denote by $\pair{\Z P}{\partial}$ the chain complex
   \[
     \Z P_0 \overset{\partial_0}{\longleftarrow} \Z P_1
@@ -132,9 +133,9 @@ satisfying the conditions (1),
 
   \[
     \abel_i(\Dsk{n})\cong \begin{cases}
-      \Z\oplus\Z &\text{ if } 0 \leq i < n\\
-      \Z &\text{ if } i=n\\
-        0 &\text{ if } i>n \end{cases}
+      \Z\oplus\Z &\text{ if } 0 \leq i < n,\\
+      \Z &\text{ if } i=n,\\
+        0 &\text{ if } i>n. \end{cases}
   \]
   For $n>0$ the differential $\partial
   \colon \abel_i(\Dsk{n}) \to \abel_{i-1}(\Dsk{n})$ sends $1$ to
@@ -151,14 +152,14 @@ satisfying the conditions (1),
   \[
     \begin{tikzcd}[column sep=small]
       \opCat{k}\ar[rr,"\oemb{k}"]\ar[rd,"\abelk{k}"']&& \oCat\ar[dl,"\abel"] \\
-      &\Chp&.
+      &\Chp.&
   \end{tikzcd}
 \]
 Now the triangle
  \[
     \begin{tikzcd}[column sep=small]
       \opCat{k}\ar[rd,"\abelk{k}"']&& \oCat\ar[dl,"\abel"] \ar[ll,"\opifun{k}"']\\
-      &\Chp&.
+      &\Chp&
   \end{tikzcd}
 \]
 does not {\em a priori} commute. However, it commutes up to a natural
@@ -251,7 +252,7 @@ $ \alpha \colon \opifun{k}(\Dsk{1})\grayk{k}C \to D$
   
 \begin{paragr}
 Let $u,v\colon C\to D$ be morphisms in $\opCat k$, $\alpha\colon
-u\Rightarrow v$ an oplax transformation and $f\colon D\to D'$ a
+u\Rightarrow v$ be an oplax transformation, and $f\colon D\to D'$ be a
 morphism in $\opCat  k$.  The following composition
 \[
  \opifun{k}(\Dsk{1}) \grayk{k} C \overset{\alpha}{\longrightarrow} D
@@ -314,7 +315,7 @@ such that the following diagram is commutative
 \end{corollary}
 \begin{proof}
   Let $u,v\colon C\to D$ be morphisms in $\opCat k$ and $\alpha:
-  u\Rightarrow v$ an oplax transformation. By applying the functor
+  u\Rightarrow v$ be an oplax transformation. By applying the functor
   $\abelk k$ to the diagram
    \[
     \begin{tikzcd}[column sep=large]
@@ -322,8 +323,8 @@ such that the following diagram is commutative
       \opifun{k}(\Dsk{1})\grayk{k}C \ar[r,"\alpha"'] & D
     \end{tikzcd}
   \]
-  and using \cref{prop:abelmonoidal} we get a commutative diagram in
-  $\Chp$:
+  and, using \cref{prop:abelmonoidal}, we get a commutative diagram in
+  $\Chp$
   \[
   \begin{tikzcd}[column sep=large]
       \abelk{k}(\Sph{0})\otimes\abelk{k}(C) \ar[d] \ar[dr,"\abelk{k}\pair{u}{v}"] & \\
@@ -429,7 +430,7 @@ natural in $C$.
   \[\homnat_C\colon \Hopol(C)\to \Hop{k}(C)  \]
   is an isomorphism.
 
-  Whereas the general question remains wide open,
+  Whereas the general question remains open,
   we shall prove that $\homnat_C$ is indeed an isomorphism in two
   useful cases:
   \begin{itemize}

@@ -12,15 +12,15 @@ the formal language $\expr S$ whose formulas are given by the grammar
   e ::= \fcst{a} \mid \finv{a} \mid \fid{x} \mid (e\fcomp i e)
 \]
 where $a\in S$, $x\in C_n$ and $0\leq i\leq n$. Note that this
-language has the unique parsing property. This allows reasoning by
+language has the unique parsing property. This allows us to reason by
 structural induction on the complexity of formulas in $\expr S$. Thus,
 in order to completely determine a map $f$ from $\expr S$ to an arbitrary
 set $X$, it suffices to define $f(e)$ for $e$ of the form $\fcst a$,
 $\finv a$ or $\fid x$ and to provide the rules to evaluate $f((e_1\fcomp
 i e_2))$ from the values $f(e_1)$ and $f(e_2)$ for each $i\leq n$.
 For instance, we may define a {\em length} map $\lgh:\expr S\to \N$
-by setting $\lgh \fcst a=\lgh\finv a= \lgh \fid x=1$ and $\lgh
-(e_1\fcomp i e_2)=\lgh e_1+\lgh e_2$. 
+by setting $\lgh(\fcst a)=\lgh(\finv a)= \lgh(\fid x)=1$ and $\lgh
+(e_1\fcomp i e_2)=\lgh(e_1)+\lgh(e_2)$. 
 
 
 
@@ -56,7 +56,7 @@ cells in $C_n$, by the following structural induction:
  
  \begin{paragr}\label{paragr:transl}
   Let $C$, $D$ be $\pair nk$-categories, $S$, $T$ be two sets,  $\clx
-  CS$, $\clx DT$ be cellular extensions and
+  CS$, $\clx DT$ be cellular extensions, and
   \[\phi=\pair fh: \clx CS\to\clx DT \]
   be a morphism in $\npCatp nk$. A map $g:\wtx S\to\wtx T$ is called a {\em
    $\phi$-compatible translation} if
@@ -76,14 +76,15 @@ cells in $C_n$, by the following structural induction:
 \end{lemma}
 \begin{proof}
   By structural induction on $w\in\wtx S$, there is a unique map
-  $g:\wtx S\to \expr T$  such that $g(\fcst a)=\fcst{h(a)}$, $g(\finv
-      a)=\finv{h(a)}$, $g(\fid x)=\fid{f_n(x)}$ and $g((w_1\fcomp i
-      w_2))=(g(w_1)\fcomp i g(w_2))$. For this map $g$, we easily
+  \[g:\wtx S\to \expr T\]
+  such that $g(\fcst a)=\fcst{h(a)}$, $g(\finv
+      a)=\finv{h(a)}$, $g(\fid x)=\fid{f_n(x)}$ and \[g((w_1\fcomp i
+      w_2))=(g(w_1)\fcomp i g(w_2)).\] For this map $g$, we easily
       show, by structural induction on $w$, that
       whenever $\type wxy$, then $\type{g(w)}{f_nx}{f_n y}$. Therefore
       $g$ factors through the inclusion $\wtx T\hookrightarrow \expr T$ of
       well-typed formulas and yields the required $\phi$-compatible
-      translation $\wtx\phi:\wtx S\to \wtx T$. 
+      translation \[\wtx\phi:\wtx S\to \wtx T.\qedhere\] 
     \end{proof}
     \begin{remark}\label{rmk:functoriality_of_wtx}
       By \cref{lemma:transl}, the correspondence
@@ -97,7 +98,7 @@ cells in $C_n$, by the following structural induction:
 
  \begin{paragr}
    Let $\clx CS$ be a cellular extension of the $\pair nk$-category
-   $C$ by a set $S$, $D$ be an $\pair{n{+}1}k$-category and $f:C\to \trk n
+   $C$ by a set $S$, $D$ be an $\pair{n{+}1}k$-category, and $f:C\to \trk n
    D$ be a morphism. A map $g:\wtx S\to D_{n+1}$ is called {\em $f$-compatible} if:
    \begin{itemize}
    \item for each $w\in\wtx S$, $\sce n^Dg(w)=f_n(\scex n^S w)$ and
@@ -215,7 +216,7 @@ cells in $C_n$, by the following structural induction:
   depends on $\fcls w$ and $\fcls{w'}$. Hence we may define 
  $\comp i$-compositions in $\wtxeq S$ by
  \[\fcls{w}\comp i\fcls{w'}=\fcls{(w\fcomp i w')}.\]
- Also, to any $x\in C_n$ we associate its $n{+}1$-unit in $\wtxeq
+ Also, to any $x\in C_n$ we associate its $(n{+}1)$-unit in $\wtxeq
   S$ by
   \[\unit{n+1}(x)=\fcls{\fid x}.\]
   \begin{lemma}\label{lemma:inv}
@@ -249,8 +250,8 @@ cells in $C_n$, by the following structural induction:
        and $(w'\fcomp n w)\freq \fid y$.
     \end{itemize}
   \end{proof}
-  Let us define the $n{+}1$-globular set $\extend C$ by
-  $\trk n\extend C=C$ and $\sce n,\tge n:\extend C_{n+1}=\wtxeq S\to C_n$.
+  Let us define the $(n{+}1)$-globular set $\extend C$ by
+  $\trk n\extend C=C$ and \[\sce n,\tge n:\extend C_{n+1}=\wtxeq S\to C_n.\]
   The axioms for $\frel$ ensure that $\extend C$, endowed with
   the $\comp i$-compositions and units just defined is an
   $(n{+}1)$-category, and by~\cref{lemma:inv}, all its $(n{+}1)$-cells
@@ -266,7 +267,7 @@ cells in $C_n$, by the following structural induction:
   
 \begin{proposition}\label{prop:univprop}
    Let $D$ be an  $\pair{n{+}1}{k}$-category, $f:C\to\trk n D$ be a
-   morphism of $\pair nk$-categories
+   morphism of $\pair nk$-categories,
    and  $h:S\to D_{n+1}$ be a map such that, for any $a\in S$,
    \[
      \sce n^Dh(a)=f_n\sce n^S (a)
@@ -285,8 +286,8 @@ $(n{+}1)$-component
 that $\phi$ satisfies the conditions of the proposition and let
 \[\psi=\phi_{n+1} \cans{S}:\wtx S\to D_{n+1}.\]
    Because $\phi$ is a morphism, the  map $\psi$ is
-   $f$-compatible, and by hypothesis $\psi(\fcst
-   a)=\phi_{n+1}\cans S(\fcst a)=h(a)$. Therefore, by the uniqueness
+   $f$-compatible, and by hypothesis \[\psi(\fcst
+   a)=\phi_{n+1}\cans S(\fcst a)=h(a).\] Therefore, by the uniqueness
    part of
    \cref{lemma:mapext}, $\psi=\extend h$. Hence $\psi$ is uniquely determined.
 As $\cans S$  is surjective,
@@ -318,7 +319,7 @@ As $\cans S$  is surjective,
   Let now $\phi=\pair fh:\clx CS\to \clx DT$
   be a morphism of cellular extensions, and define $h':S\to\wtxeq T$
   by $h'(a)=\fcls{\fcst{h(a)}}$. By~\cref{prop:univprop},
-  $\extend\phi=\frf{n,k}\phi:\frf{n,k}\clx CS\to\frf{n,k}\clx DT$ is
+  \[\extend\phi=\frf{n,k}\phi:\frf{n,k}\clx CS\to\frf{n,k}\clx DT\] is
   the unique morphism in $\npCat{n+1}k$ such that $\trk
   n\extend\phi=f$ and $\extend{\phi}_{n+1}(\fcls{\fcst a})=h'(a)$ for
   each $a\in S$. Now

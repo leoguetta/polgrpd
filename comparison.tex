@@ -64,27 +64,28 @@ follows from the fact that $\opCat{k} \to \oCat$
 \end{proposition}
 \begin{proof}
   Let $\frgp{P} \to C$ be a polygraphic resolution of $C$ in
-  $\opCat{k}$ and $\tr{\frgp P\!}{-} \colon C \to \opCat{k}$ obtained
+  $\opCat{k}$ and \[\tr{\frgp P\!}{-} \colon C \to \opCat{k}\] obtained
   as in section \ref{subsec:polres}. We get a commutative diagram in
   $\Loc{\opCat{k}}$
   \[
     \begin{tikzcd}
       \displaystyle\hocolim_{c \in C}\tr{\frgp P\!}{c} \ar[d] \ar[r]& \displaystyle\ilim_{c \in
         C}\tr{\frgp P\!}{c} \ar[d] \ar[r] & \frgp P \ar[d] \\
-      \displaystyle\hocolim_{c \in C}\tr{C}{c} \ar[r]&\displaystyle\ilim_{c \in C}\tr{C}{c}\ar[r] & C
+      \displaystyle\hocolim_{c \in C}\tr{C}{c} \ar[r]&\displaystyle\ilim_{c \in C}\tr{C}{c}\ar[r] & C.
     \end{tikzcd}
   \]
-  Note that $\ilim_{c \in C}$ in the middle are the image by the
+  Note that both $\ilim_{c \in C}$ in the middle are the images by the
   localisation functor \[\opCat{k} \to \Loc{\opCat{k}}\]
   of the actual
-  colimits taken in the category $\opCat{k}$. The far right vertical
+  colimits taken in the category $\opCat{k}$. The right vertical
   arrow is an isomorphism by hypothesis, the horizontal arrows of the
-  square on the right are isomorphisms by \cref{lemma:colim}. The far left
-  vertical arrow is an isomorphism because the natural transformation
-  $\tr{\frgp P\!}{-} \to \tr{C}{-}$ is a pointwise weak equivalence by
-  stability of trivial fibrations under pullback, and homotopy colimits
-  send pointwise weak equivalences to isomorphisms (in the homotopy category). Finally, the top
-  horizontal arrow of the square on the left is an isomorphism
+  square on the right are isomorphisms by \cref{lemma:colim}. By
+  stability of trivial fibrations under pullback, the natural transformation
+  $\tr{\frgp P\!}{-} \to \tr{C}{-}$ is a pointwise weak equivalence. Since homotopy colimits
+  send pointwise weak equivalences to isomorphisms (in the homotopy
+  category), this proves that the left vertical arrow is an
+  isomorphism. Finally, the top left
+  horizontal arrow is an isomorphism
   because $\tr{\frgp P\!}{-}$ is cofibrant by \cref{thm:projresol} (or
   \cref{thm:projresol_grp} in the case $k=0$). By applying
   two-out-of-three twice, we get that all the remaining arrows of this diagram
@@ -101,12 +102,12 @@ follows from the fact that $\opCat{k} \to \oCat$
     \end{tikzcd}
   \]
   where the front and back faces are commutative. If $q$ is a trivial
-  fibration and $A'$ is cofibrant, for the folk model structure on
+  fibration and $A'$ is cofibrant in the folk model structure on
   $\opCat{k}$, then there exists an oplax transformation $\alpha'
   \colon u' \Rightarrow v'$ making the whole diagram commute, which means
   that
   \[
-    q\wsk \alpha' = \alpha \wsk p
+    q\wsk \alpha' = \alpha \wsk p.
   \]
 \end{lemma}
 \begin{proof}
@@ -167,7 +168,7 @@ follows from the fact that $\opCat{k} \to \oCat$
       \ar[from=A,to=B,Rightarrow]
     \end{tikzcd}
   \]
-  such that the front and back faces commutes. Since
+  such that the front and back faces commute. Since
   $\frgp{P}$ is cofibrant, and since the vertical arrows are trivial
   fibrations, we can apply \cref{lemma:liftoplax}, which yields an
   oplax transformation from the identity \oo\nbd-functor on $P$ to
@@ -182,7 +183,7 @@ follows from the fact that $\opCat{k} \to \oCat$
 \end{proof}
 \subsection{The comparison theorem}
 \begin{theorem}\label{thm:polhom}
-  Let $C$ be a (1-)category. Then, for any $1
+  Let $C$ be a $1$\nbd-category. Then, for any $1
   \leq k \leq \oo$, there is a canonical isomorphism
   \[
     \Hop{k}(C) \to \Ho(C)
@@ -203,7 +204,7 @@ follows from the fact that $\opCat{k} \to \oCat$
   Let us start with the first part of the theorem. Recall that if $F
   \colon \M \to \M'$ is a functor, and $C$ is a small category we
   denote by $\fun{C}{F} \colon \fun{C}{\M} \to \fun{C}{\M'}$ the
-  functor induced by post-composition. Consider the
+  functor induced by postcomposition. Consider the
   following zig-zag in $\Derp{\Z}$
   \[
     \begin{tikzcd}
@@ -218,7 +219,7 @@ follows from the fact that $\opCat{k} \to \oCat$
   \begin{itemize}
     \item $(a)$ and $(c)$ are the universal morphisms constructed in \ref{paragr:univmor},
     \item $(b)$ comes from the fact that $p_C^*\Term$ is the terminal
-      object of $\funopCat{k}{C}$
+      object of $\funopCat{k}{C}$,
       \item $(d)$ is induced by the cocone $(\tr{C}{c}\to
   C)_{c \in \Ob(C)}$ (see \ref{paragr:colimtr}).
 \end{itemize}
@@ -227,7 +228,7 @@ All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
   \item $(a)$ by \eqref{eq:morphder} of \cref{prop:htpycocts} and the fact that $\abelk{k}$
     is a left Quillen functor (\cref{prop:abelquillen}),
       \item $(b)$ by \cref{prop:der2}, \cref{prop:hlgycontrcat} and the
-    fact that for each object $c$ of $C$, the category $\tr{C}{c}$ has
+    fact that for each object $c$ of $C$ the category $\tr{C}{c}$ has
     a terminal object,
   \item $(c)$ by \eqref{eq:cocontinuous} of \cref{prop:htpycocts} and the fact that $\abelk{k}$
     is a left Quillen functor,
@@ -246,9 +247,9 @@ All these morphisms of $\Derp{\Z}$ are in fact isomorphisms:
     \Ho(C) \cong \Hop{k}(C),
   \]
   which is natural in $C$ by construction, as all the morphisms in the
-  previous zig-zag are.
+  previous zig-zag are natural in $C$.
 
-  For the second part, consider the following diagram in $\Derp{\Z}$:
+  For the second part, consider the following diagram in $\Derp{\Z}$
   \[
     \begin{tikzcd}
       \LL\abel(C)\ar[r] & \LL\abelk{k}(C)\\
@@ -272,9 +273,9 @@ where the horizontal arrows are induced by the natural transformation
 \[
     \homnat \colon \LL \abel\circ \oemb{k} \Rightarrow \LL \abelk{k}.
   \]
-  (Note that for simplicity we have not made the functor
+  Note that for simplicity we have not made the functor
   $\oemb{k} \colon \Loc{\opCat{k}}\to \Loc{\oCat}$ appear in the above
-  diagram.) This naturality implies that the squares $(A)$ and $(C)$ are
+  diagram. This naturality implies that the squares $(A)$ and $(C)$ are
   commutative. Furthermore, the commutativity of the squares $(B)$ and
   $(D)$ follows from the naturality in $F$ of \eqref{eq:morphder} and
   \eqref{eq:cocontinuous} from \cref{prop:htpycocts}.
@@ -297,8 +298,8 @@ where the horizontal arrows are induced by the natural transformation
   is an isomorphism. If $C$ is a groupoid, this also holds for $k=0$.
 \end{corollary}
 \begin{remark}
-  Using \emph{mutatis mutandis} the technique of proof of
-  \cref{thm:polhom}, one can prove more generally that for a
+  Adapting \emph{mutatis mutandis} the proof of
+  \cref{thm:polhom}, one can prove more generally that, for a
   $1$-category $C$ and for any $1 \leq k \leq k' \leq \oo$, there is a canonical natural isomorphism
   \[
      \Hop{k'\!}(C)\cong  \Hop{k}(C).

@@ -98,7 +98,7 @@ p_{I!}$ is nothing but the \emph{homotopy colimit functor}
   \hocolim_I \colon \Loc{\fun{I}{\M}} \to \Loc{\M}.
   \]
 \end{paragr}
-\begin{paragr} Let $I$ be a small category and $i \in \Ob(I)$ an
+\begin{paragr} Let $I$ be a small category and $i \in \Ob(I)$ be an
 object of $I$. We can regard this as a functor $i \colon \Term \to I$,
 which induces an ``evaluation at $i$'' functor
   \begin{align*} i^* \colon \fun{I}{\M} &\to \M\\ X &\mapsto X(i).
@@ -111,7 +111,7 @@ of $I$, $i^*(\alpha)=\alpha_i$ is an isomorphism. The same is true at
 the level of homotopy categories as we recall in the following result.
 \end{paragr}
 \begin{proposition}\label{prop:der2} Let $\M$ be a (cofibrantly generated) model
-category and $I$ a small category. The family of functors
+category and $I$ be a small category. The family of functors
   \[ \left(\GZ{i^*} \colon \Loc{\fun{I}{\M}}\to \Loc{\M}\right)_{i \in
 \Ob(I)}
   \] is conservative.
@@ -123,7 +123,7 @@ category and $I$ a small category. The family of functors
 \begin{paragr}\label{paragr:univmor} Let $F \colon \M \leftrightarrows \M' \colon G$ be a
   Quillen adjunction between (cofibrantly generated) model categories
   and such that $G$ preserves all weak equivalences. For any small
-category $I$, we consider the functors induced by post-composition
+category $I$, we consider the functors induced by postcomposition
   \[\begin{aligned} \fun{I}{F} \colon \fun{I}{\M} &\to \fun{I}{\M'}\\ X &\mapsto
 F\circ X.
   \end{aligned} \quad \quad \begin{aligned} \fun{I}{G} \colon \fun{I}{\M'} &\to \fun{I}{\M}\\ X &\mapsto
@@ -185,9 +185,9 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
   \]  
 \end{paragr}
 \begin{proposition}\label{prop:htpycocts} Let $\M$ and $\M'$ be two (cofibrantly generated)
-  model categories, $F \colon \M \leftrightarrows \M' \colon G$ a Quillen adjunction such
+  model categories, $F \colon \M \leftrightarrows \M' \colon G$ be a Quillen adjunction such
   that $G$ preserves all weak equivalences, and
-  $u \colon I \to J$ a functor between small categories. Then the
+  $u \colon I \to J$ be a functor between small categories. Then the
   canonical natural transformations
   \begin{equation}\label{eq:morphder}
      \LL \fun{I}{F}  \GZ{u^*} \Rightarrow \GZ{u^*}  \LL \fun{J}{F}
@@ -278,7 +278,7 @@ right}] & \Loc{\fun{I}{\M}}\ar[d,"\LL \fun{I}{F}"]\\
   straightforward verification left to the reader.
 \end{paragr}
 \begin{proposition}\label{prop:functorialityhomology}
-  Let $\M$ be a (cofibrantly generated) model category and $X$ an
+  Let $\M$ be a (cofibrantly generated) model category and $X$ be an
   object of $\M$. We have a functor
   \[
     \Ho_{\M}(-,X) \colon \Cat \to \Loc{\M},
@@ -369,15 +369,13 @@ localization of $\Chp(C)$ with respect to
 \begin{definition}\label{def:classicalhomology}
   Let $C$ be a small category. We define
   the \emph{homology of $C$}, and denote it by
-  \[
-    \Ho(C),
-  \]
+    $\Ho(C),$
   as the $\Chp(\Z)$\nbd-valued homology of $C$ with constant coefficients $\cst{\Z}$
   (\cref{def:abstracthom}).
 \end{definition}
 \begin{remark}\label{remark:homologygroups}
   By definition, $\Ho(C)$ is an object of $\Derp{\Z}$. To recover
-  homology groups in the usual sense, it suffices to post-compose with the $n$-th
+  homology groups in the usual sense, it suffices to postcompose with the $n$-th
   homology group functor $H_n \colon \Derp{\Z}\to \Ab$. In other
   words, we can make the following definition
   \[
@@ -386,15 +384,15 @@ localization of $\Chp(C)$ with respect to
 \end{remark}
 \begin{paragr}
   Let us quickly unfold \cref{def:classicalhomology}. By definition,
-  the homology of small category $C$ is
+  the homology of a small category $C$ is
   \[
     \Ho(C)=\hocolim_C\cst{\Z}.
   \]
   In order to make this formula look more familiar, let us introduce
-  the following construction. Given a left $C$\nbd-module $M$ and right $C$\nbd-module $N$, we define their (total) tensor product as
+  the following construction. Given a right $C$\nbd-module $M$ and a left $C$\nbd-module $N$, we define their (total) tensor product as
   the following coend, taken in the category of abelian groups,
   \[
-    N\tens{C}M :=\int^{c \in C}N(c)\tens{\Z} M(c).
+    M\tens{C}N:=\int^{c \in C}M(c)\tens{\Z} N(c).
   \]
   Note that when $C$ is a group, say $C=G$, then this is indeed the usual
   tensor product of $\Z G$\nbd-modules, where $\Z G$ is the group ring
@@ -402,10 +400,10 @@ localization of $\Chp(C)$ with respect to
   \[
     -\tens{C}-\colon \RMod{C} \times \LMod{C} \to \Ab.
   \]
-  By coend calculus, taking $N=\cst{\Z}$ yields a
+  By coend calculus, taking $M=\cst{\Z}$ yields a
   natural isomorphism
   \[
-    \cst{\Z}\tens{C}M \cong \ilim_C M.
+    \cst{\Z}\tens{C}N \cong \ilim_C N.
   \]
   In particular, this implies that we have
   \[
@@ -414,7 +412,7 @@ localization of $\Chp(C)$ with respect to
   where $\Ltens{C}$ is the left derived functor of
   $\tens{C}$. If we define
   \[
-    \Tor{C}{n}(N,M):=H_n(N \Ltens{C} M),
+    \Tor{C}{n}(M,N):=H_n(M \Ltens{C} N),
   \]
   then, following \cref{remark:homologygroups}, we have
   \[
