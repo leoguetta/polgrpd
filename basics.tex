@@ -22,9 +22,10 @@ Thus, for any pair $\pair mn$ of integers, the homset $\homset{\glob}{m}{n}$ con
   A {\em globular set} $X$ is a presheaf on $\glob$, which amounts to a sequence
 $(X_n)_{n\in\N}$ of sets, together with a double sequence of {\em source} and {\em target} maps
 \[
-  \xymatrix{
-    X_0 & X_1 \doubl{\sce{0}}{\tge{0}}& \doubl{\sce{1}}{\tge{1}}\cdots & X_n \doubl{\sce{n-1}}{\tge{n-1}}& \doubl{\sce{n}}{\tge{n}} X_{n+1}& \cdots \doubl{\sce{n+1}}{\tge{n+1}}},
-\]
+  \begin{tikzcd}
+   X_0 & X_1 \tdouble{l}{"\sce{0}"'}{"\tge{0}"}& \tdouble{l}{"\sce{1}"'}{"\tge{1}"}\cdots & X_n \tdouble{l}{"\sce{n-1}"'}{"\tge{n-1}"}& \tdouble{l}{"\sce{n}"'}{"\tge{n}"} X_{n+1}& \cdots \tdouble{l}{"\sce{n+1}"'}{"\tge{n+1}"},
+  \end{tikzcd}
+  \]
 subject to the globular equations
 \begin{align*}
   \sce{n}\circ\sce{n+1} & = \sce{n}\circ\tge{n+1},\\
@@ -285,12 +286,12 @@ induction on $n$.
   $\pair nk$-polygraphs and $\frgp q=\frf{n,k} q$.
 \end{itemize}
 Polygraphs and morphisms form a  sequence of categories
-\[
-  \xymatrix@C=0.5cm{
+  \[
+    \begin{tikzcd}[column sep=small]
     \nPol 0 &\nPol 1\ar[l]& \cdots\ar[l] & \nPol k\ar[l] & \npPol{k+1}k \ar[l]& \cdots\ar[l] &
-    \npPol nk\ar[l] & \cdots\ar[l]
-    }
-  \]
+    \npPol nk\ar[l] & \cdots\ar[l]  
+    \end{tikzcd}
+    \]
   where the arrows represent the obvious truncation functors. Finally,
   the category $\opPol k$ of \ook k-polygraphs is the projective limit of the
   above diagram of categories.
@@ -298,11 +299,17 @@ Polygraphs and morphisms form a  sequence of categories
   For $n>k$, the structure of an $\pair nk$-polygraph $P$,  is
   summarized by the following diagram of sets:
   \[
-    \xymatrix@C=0.8cm{P_0\ar[d]|{\gni 0}&P_1\ar[d]|{\gni
-        1}\doubld{\sce 0}{\tge 0}&\phantom{P_2}\doubld{\sce 1}{\tge
-        1}&P_k\ar[d]|{\gni{k}}\doubld{\sce{k-1}}{\tge{k-1}}&P_{k+1}\ar[d]|{\gni{k+1}}\doubld{\sce k}{\tge k}&\phantom{P_{k+2}}\doubld{\sce{k+1}}{\tge{k+1}}&P_{n-1}\ar[d]|{\gni{n-1}}\doubld{\sce{n-1}}{\tge{n-1}}&P_n\doubld{\sce n}{\tge n}\\
-    \frcat P_0&\frcat P_1\dbl&\cdots\dbl&\frcat P_k\dbl&\frgp
-    P_{k+1}\dbl&\cdots\dbl&\frgp P_{n-1}\dbl&}.
+  \begin{tikzcd}[row sep=huge]
+    P_0\ar[d,"\gni 0" description]&P_1\ar[d,"\gni
+    1" description]\tdouble{ld}{"\sce 0"'}{"\tge 0"}&\phantom{P_2}\tdouble{ld}{"\sce
+      1"'}{"\tge 1"}&P_k\ar[d,"\gni{k}"
+    description]\tdouble{ld}{"\sce{k-1}"'}{"\tge{k-1}"}&P_{k+1}\ar[d,"\gni{k+1}"
+    description]\tdouble{ld}{"\sce k"'}{"\tge
+      k"}&\phantom{P_{k+2}}\tdouble{ld}{"\sce{k+1}"'}{"\tge{k+1}"}&P_{n-1}\ar[d,"\gni{n-1}"
+    description]\tdouble{ld}{"\sce{n-1}"'}{"\tge{n-1}"}&P_n\tdouble{ld}{"\sce n"'}{"\tge n"}\\
+    \frcat P_0&\frcat P_1\tdouble{l}{""}{""}&\cdots\tdouble{l}{""}{""}&\frcat P_k\tdouble{l}{""}{""}&\frgp
+    P_{k+1}\tdouble{l}{""}{""}&\cdots\tdouble{l}{""}{""}&\frgp P_{n-1}\tdouble{l}{""}{""}.&
+  \end{tikzcd}
   \]
   At each dimension $l$, a new set $P_{l+1}$ of {\em generators} is
   attached, via the source and target maps $\sce l$, $\tge l$, to the free
@@ -316,23 +323,22 @@ Polygraphs and morphisms form a  sequence of categories
   k$-category $\frgp P$ is the colimit of the following diagram of
   $\ook k$-categories
   \[
-    \xymatrix{0\ar[r]&\skl 0(\frgp P)\ar[r] & \cdots\ar[r] &\skl{n-1}(\frgp
-      P)\ar[r] &\skl n(\frgp P)\ar[r]&\cdots}
-  \]
+    \begin{tikzcd}
+      0\ar[r]&\skl 0(\frgp P)\ar[r] & \cdots\ar[r] &\skl{n-1}(\frgp
+      P)\ar[r] &\skl n(\frgp P)\ar[r]&\cdots
+    \end{tikzcd}
+    \]
   where $\skl{n-1}(\frgp P)\to\skl n(\frgp P)$ is
   obtained by taking the following pushout in $\opCat k$:
   \begin{equation}
     \label{eq:polpushout}
     \begin{tikzcd}
-      \coprod_{P_{n}} \opifun k (\Sph{n-1})
-     \ar[d,"\coprod_{P_{n}}\opifun k(\gcof {n})"']\ar[r]& \skl{n-1}(\frgp P\ar[d])\\
-      \coprod_{P_{n}}\opifun k(\Dsk{n})\ar[r]& \skl n(\frgp P).
+      \displaystyle\coprod_{P_{n}} \opifun k (\Sph{n-1})
+     \ar[d,"\coprod_{P_{n}}\opifun k(\gcof {n})"',start anchor={[yshift=2.6ex]},end anchor={[yshift=-0.25ex]}]\ar[r]& \skl{n-1}(\frgp P\ar[d])\\
+      \displaystyle\coprod_{P_{n}}\opifun k(\Dsk{n})\ar[r]& \skl
+      n(\frgp P).
+      \ar[from=1-1,to=2-2,phantom,"\ulcorner",very near end]
     \end{tikzcd}
-    % \xymatrix{
-    %  \coprod_{P_{n}} \opifun k (\Sph{n-1})
-    %  \ar[d]_{\coprod_{P_{n}}\opifun k(\gcof {n})}\ar[r]& \skl{n-1}(\frgp P\ar[d])\\
-    %   \coprod_{P_{n}}\opifun k(\Dsk{n})\ar[r]& \skl n(\frgp P)
-    % }.
   \end{equation}
   Here the top arrow assigns to each $n$\nbd-generator in $P_n$ a pair of parallel $(n{-}1)$-cells in
   $\skl{n-1}\frgp P$. This defines a cellular extension 

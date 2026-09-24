@@ -38,10 +38,12 @@ On the other hand, each \ook k-category $C$ can be seen as an \ook
 $k'=\oo$, we recover its polygraphic homology $\Hopol(C)$, as shown in 
 the following diagram:
 \[
-  \xymatrix{\opCat k \ar[r]^{\oemb k}\ar[d]& \oCat\ar[r]^{\opifun k}\ar[d] & \opCat k\ar[r]^{\abelk k}\ar[d] & \Chp\ar[d]\\
-  \Loc{\opCat k}\ar[r]_{\RR\oemb k} & \Loc{\oCat}\ar[r]_{\LL\opifun k}\ar@{=>}[ru] & \Loc{\opCat
-  k}\ar[r]_{\LL\abelk k} \ar@{=>}[ru]& \Loc{\Chp}}.
-\]
+  \begin{tikzcd}
+    \opCat k \ar[r,"\oemb k"]\ar[d]& \oCat\ar[r,"\opifun k"]\ar[d] & \opCat k\ar[r,"\abelk k"]\ar[d] & \Chp\ar[d]\\
+  \Loc{\opCat k}\ar[r,"\RR\oemb k"']& \Loc{\oCat}\ar[r,"\LL\opifun k"']\ar[ru,Rightarrow] & \Loc{\opCat
+  k}\ar[r,"\LL\abelk k"']\ar[ru,Rightarrow]& \Loc{\Chp}.
+  \end{tikzcd}
+  \]
 As the model structure on $\opCat k$ is right-induced by $\oemb k$,
 the left-hand square commutes on the nose. However $\LL\opifun k\circ
 \RR\oemb k$ is {\em not} the identity on $\Loc{\opCat k}$, but has
