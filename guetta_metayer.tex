@@ -1,5 +1,5 @@
 \documentclass[reqno]{amsart}
-%\usepackage[draft]{showlabels}
+
 
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -11,11 +11,9 @@
 \usepackage{tikz-cd}
 \usepackage{leftindex}
 \usepackage[capitalise]{cleveref}
-\usepackage[all,2cell]{xy}
-\UseAllTwocells
 \usepackage{bm} %bold math symbols
 
-\usepackage{marginnote}
+
 
 \renewcommand{\descriptionlabel}[1]{\hspace\labelsep\upshape\bfseries
   #1}
@@ -50,8 +48,7 @@ Universit\'e Paris Nanterre}
 
 \theoremstyle{definition}
 \newtheorem{definition}[subsubsection]{Definition}
-\newtheorem{example}[subsubsection]{Example}
-\newtheorem{openquestion}[subsubsection]{Open question}
+
 
 \theoremstyle{remark}
 \newtheorem{remark}[subsubsection]{Remark}
@@ -79,7 +76,7 @@ Universit\'e Paris Nanterre}
 \newcommand{\C}{\nmbr{C}}
 
 \newcommand{\M}{\mathcal{M}}
-%\newcommand{\N}{\mathcal{N}}
+
 
 \newcommand{\set}[1]{\left\{#1\right\}} 
 \newcommand{\setof}[2]{\left\{ #1\; | \; #2\right\}}
@@ -180,13 +177,6 @@ Universit\'e Paris Nanterre}
 
 % ARROWS
 
-\newcommand{\doubl}[2]{\ar@<2pt>[l]^{#2}\ar@<-2pt>[l]_{#1}}
-\newcommand{\dbl}{\doubl{}{}}
-\newcommand{\doubr}[2]{\ar@<2pt>[r]^{#2}\ar@<-2pt>[r]_{#1}}
-\newcommand{\dbr}{\doubr{}{}}
-\newcommand{\doubld}[2]{\ar@<2pt>[ld]^{#2}\ar@<-2pt>[ld]_{#1}}
-\newcommand{\dbld}{\doubld{}{}}
-
 \newcommand{\tdouble}[3]{
   \arrow[#1,shift left=0.4ex,#3]
   \arrow[#1,shift right=0.4ex,#2]
@@ -270,18 +260,9 @@ Universit\'e Paris Nanterre}
 \newcommand{\Derp}[1]{\functor{D}_{\geq 0}(#1)}
 \newcommand{\Loc}[1]{\mathrm{Ho}(#1)} %Homotopy categories
 
-\newcommand{\hoilim}{\underset{\longrightarrow}{\mathrm{holim}}} % colimit
-
 \newcommand{\GZ}[1]{\overline{#1}} %Functor induced by localization
 
-\newlength{\mylen}
-\settowidth{\mylen}{\text{xxxi}}
 
-\newcommand{\extarrow}{\begin{tikzpicture}
-      \draw[->] (0,0) -- (\mylen,0) ;
-    \end{tikzpicture}}
-
-  \newcommand{\varhocolim}[1]{\underset{\extarrow #1}{\mathrm{holim}}}
 
   \NewCommandCopy{\hocolim}{\varinjlim}
   \makeatletter
@@ -301,13 +282,7 @@ Universit\'e Paris Nanterre}
 \newcommand{\cndii}{\textbf{(c2)}} %condition 2
 
 
-%COMMENTS
 
-\newcommand{\lgcomment}[1]{
-    \marginnote{\tiny\textcolor{red}{LG: #1}}}
-
-\newcommand{\fmcomment}[1]{
-    \marginpar{\tiny\textcolor{red}{FM: #1}}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1184,8 +1159,10 @@ As $\cans S$  is surjective,
   into a functor $\clWW:\npCatp
   nk\to\Set$. Precisely, this functor $\clWW$ is the composite
   \[
-    \xymatrix{\npCatp nk\ar[r]^{\frf{n,k}} & \npCat{n+1}k \ar[r]^(.6){(-)_{n+1}}& \Set}
-  \]
+    \begin{tikzcd}
+      \npCatp nk\ar[r,"\frf{n,k}"]& \npCat{n+1}k \ar[r,"(-)_{n+1}"]& \Set
+    \end{tikzcd}
+    \]
   where $(-)_{n+1}$ takes an $\pair{n{+}1}k$-category to the set of
   its $(n{+}1)$-cells.
 
@@ -1220,7 +1197,11 @@ S=p$. Therefore, each $p:S\to C_{n+1}$ yields a factorization of the
 form
 \begin{equation}
   \label{eq:factor}
-  \xymatrix{C_{n+1} & \wtxeq S \ar[l]^{\fcls{p}}& \wtx S\ar[l]^(.4){\cans{S}} \ar@/_1em/[ll]_(.3){\extend{p}}& S\ar[l]^(.3){\finc{S}}\ar@/_2em/[lll]_p}
+  \begin{tikzcd}
+    C_{n+1} & \wtxeq S\ar[l,"\fcls{p}"] & \wtx S
+      \ar[l,"\cans{S}"]\ar[ll,bend right=15,"\extend{p}"']& S\ar[l,"\finc{S}"]
+      \ar[lll,bend right=25,"p"'].
+  \end{tikzcd}
 \end{equation}
 \end{paragr}
 
